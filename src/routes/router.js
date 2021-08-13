@@ -1,13 +1,14 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import ProfilePage from '../Pages/HomePages/ProfilePage'
+import TaskPage from '../Pages/TaskPage/TaskPage'
+
 
 function router() {
     return (
         <>
      <Switch>
             <Route exact path="/">
-                <ProfilePage />
+                <TaskPage />
             </Route>
             
             <Route path="*">
