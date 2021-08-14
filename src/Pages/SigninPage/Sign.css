@@ -2,9 +2,19 @@
    font-family: 'Poppins', sans-serif;
    color: 'dark';
 }
-
+.SignUpBox{
+    margin-top: 5rem;
+}
 .InformationBox{
     width: 28rem;
+}
+.SignIn-Container{
+width: 28rem;
+margin-top: 3rem;
+}
+.SiginInform{
+    width: 28rem;
+
 }
 .SignIn-Container h3{
     font-size: 1.5rem;
@@ -17,7 +27,9 @@
     font-weight: 300;
     text-align: center;
 }
-
+.SignUp-Container {
+    width: 28rem;
+}
 .SignUp-Container p {
     font-size: 1.25rem;
     font-weight: 300;
@@ -51,3 +63,46 @@
      justify-content: center;
  }
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
+
+ @media screen and (max-width: 1024px) {
+
+    .SignUpBox{
+        margin-top: 2rem;
+    }    
+.SignUp-Container {
+        width: 17rem;
+        margin-top: 2rem;
+    }    
+.InformationBox{
+    width: 17rem;
+}
+.SiginInform{
+    width: 100%;
+
+}
+.SignIn-Container{
+    width: 17rem;
+    margin-top: 3rem;
+}
+.SignIn-Container h3{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0rem;
+}
+.SignIn-Container p{
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.SignUp-Container p {
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+}
+.SignUp-Container h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+ }

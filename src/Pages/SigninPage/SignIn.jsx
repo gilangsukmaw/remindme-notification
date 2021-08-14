@@ -23,7 +23,7 @@ function SignIn() {
     return (
         <div>
             <h5 style={{fontSize:'2.25rem', fontWeight:'500'}}>Sign In</h5>
-            <div className='SignIn-Container d-flex align-items-center justify-content-center flex-column' style={{maxWidth:'28rem', marginTop:'3rem'}}>
+            <div className='SignIn-Container d-flex align-items-center justify-content-center flex-column'>
                 <h3 >
                     To Sign In
                 </h3>
@@ -32,8 +32,8 @@ function SignIn() {
                     enter the right password
                 </p>
                 <Form>
-                    <Form.Group className="mb-4 mt-4" controlId="formBasicEmail">
-                        <Form.Control style={{width:'28rem', borderRadius:'10px', border:'2px solid #B6C6E5'}}
+                    <Form.Group className="mb-4 mt-4 SiginInform" controlId="formBasicEmail">
+                        <Form.Control style={{ borderRadius:'10px', border:'2px solid #B6C6E5'}}
                             type="email" placeholder="Email / Username" />
                     </Form.Group>
 

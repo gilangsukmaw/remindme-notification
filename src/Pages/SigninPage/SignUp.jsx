@@ -30,10 +30,10 @@ return (
 <>
 <div className='text-dark'>
     <h5 style={{fontSize:'2.25rem', fontWeight:'500'}}>Sign Up</h5>
-    <div className='SignUpBox ' style={{marginTop:'5rem',Width:'28rem'}}>
+    <div className='SignUpBox ' style={{Width:'28rem'}}>
 
         <div className='SignUp-Container d-flex align-items-center justify-content-center flex-column'
-            style={{maxWidth:'28rem'}}>
+            >
 
             {/* --------------------------------page one---------------------------------- */}
             {page === 1 ? <h3>
@@ -129,7 +129,10 @@ return (
 
                 {/* --------------------------------Button--------------------------------- */}
                 <div className='d-flex justify-content-between'>
-                    { page === 1 ? null : <Button variant="warning" onClick={()=> setPage(page-1)}
+                    { page === 1 ? <Button disabled variant="warning" onClick={()=> setPage(page-1)}
+                        style={{width:'45%', borderRadius:'35px'}}>
+                        Prev
+                    </Button>  : <Button variant="warning" onClick={()=> setPage(page-1)}
                         style={{width:'45%', borderRadius:'35px'}}>
                         Prev
                     </Button> }
