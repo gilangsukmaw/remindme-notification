@@ -1,0 +1,53 @@
+*{
+   font-family: 'Poppins', sans-serif;
+   color: 'dark';
+}
+
+.InformationBox{
+    width: 28rem;
+}
+.SignIn-Container h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+.SignIn-Container p{
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.SignUp-Container p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+}
+.SignUp-Container h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+ .carousel-indicators{
+     margin-bottom: -1.5rem !important;
+     /* background: black !important; */
+
+ }
+ .carousel-indicators .active {
+    background-color: #625AAD !important;
+
+ }
+ .carousel-indicators button {
+         border-radius: 50% !important;
+         width: 10px !important;
+         height: 10px !important;
+         background-color: #C4C4C4 !important;
+
+ }
+
+ .carousel.item {
+     /* max-width: 400px !important; */
+     justify-content: center;
+ }
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');

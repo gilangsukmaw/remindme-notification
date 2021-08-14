@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import TaskPage from '../Pages/TaskPage/TaskPage'
+import SignInUpPage from '../Pages/SigninPage/SignInBase'
 
 
 function Router() {
@@ -8,7 +9,7 @@ function Router() {
         <>
      <Switch>
             <Route exact path="/">
-                <TaskPage />
+                <SignInUpPage />
             </Route>
             
             <Route path="*">
