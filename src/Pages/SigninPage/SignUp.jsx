@@ -128,7 +128,7 @@ return (
                 </Form.Group>
 
                 {/* --------------------------------Button--------------------------------- */}
-                <div className='d-flex justify-content-between'>
+                <div className='signUpButton d-flex justify-content-between'>
                     { page === 1 ? <Button disabled variant="warning" onClick={()=> setPage(page-1)}
                         style={{width:'45%', borderRadius:'35px'}}>
                         Prev

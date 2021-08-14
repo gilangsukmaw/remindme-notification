@@ -57,7 +57,9 @@ margin-top: 3rem;
          background-color: #C4C4C4 !important;
 
  }
-
+.signUpButton{
+    margin-top: 1rem;
+}
  .carousel.item {
      /* max-width: 400px !important; */
      justify-content: center;
