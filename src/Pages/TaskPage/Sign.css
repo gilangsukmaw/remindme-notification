@@ -1,0 +1,29 @@
+/* .carousel-indicators {
+    position: absolute;
+    bottom: 5px;
+    margin: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+ } */
+ .carousel-indicators{
+     margin-bottom: -1.5rem !important;
+     /* background: black !important; */
+
+ }
+ .carousel-indicators .active {
+    background-color: #625AAD !important;
+
+ }
+ .carousel-indicators button {
+         border-radius: 50% !important;
+         width: 10px !important;
+         height: 10px !important;
+         background-color: #C4C4C4 !important;
+
+ }
+
+ .carousel.item {
+     /* max-width: 400px !important; */
+     justify-content: center;
+ }

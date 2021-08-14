@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import TaskPage from '../Pages/TaskPage/TaskPage'
 
 
-function router() {
+function Router() {
     return (
         <>
      <Switch>
@@ -21,4 +21,4 @@ function router() {
     )
 }
 
-export default router
+export default Router

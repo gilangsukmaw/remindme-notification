@@ -1,13 +1,21 @@
-import router from './routes/router';
+import Router from './routes/router';
 import { BrowserRouter } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+import './Custom.scss'
+
+
+
 
 function App() {
   return (
+    <>
     <div >
-   <BrowserRouter>
-        <router />
+      <BrowserRouter>
+        <Router />
       </BrowserRouter>
     </div>
+    </>
   );
 }
 
