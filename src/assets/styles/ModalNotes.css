@@ -1,0 +1,111 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-header img {
+    width: 70px
+}
+
+.modal-header h5 {
+    font-size: 30px;
+    font-weight: 500;
+    font-style: normal;
+} 
+
+.modal-pin button {
+    display: flex;
+    flex-direction: row;
+    background: #B6C6E5;
+border-radius: 20px;
+width: 80px;
+align-items: center;
+justify-content: space-around;
+padding: 0 10px;
+border: none;
+}
+
+.modal-pin img {
+ width: 18px;
+ height: 19px;
+}
+
+.modal-pin p {
+    font-size: 18px;
+    color: white;
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.modal-pin button:focus {
+    background-color: #625BAD;
+}
+
+.modal-pin button:active {
+    background-color: #625BAD;
+}
+
+.mb-3 {
+    border: 1px solid #B6C6E5;
+border-radius: 10px;
+}
+
+.mb-3 textarea {
+    height: 221px;
+}
+
+.modal-color h6 {
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.modal-color button{
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    border: none;
+}
+.modal-color .color1 {
+ background-color: #FFBCC2;
+}
+
+.modal-color .color2 {
+    background-color: #FCF3A1;
+}
+
+.modal-color .color3 {
+    background-color: #D1CDFA;
+}
+
+.modal-color .color4 {
+    background-color: #FF8888;
+}
+
+.modal-color .color5 {
+    background-color: #CCF0D7;
+}
+
+.modal-footer button {
+    border: 1px solid #625BAD;
+    border-radius: 21px;
+    font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 30px;
+}
+
+.modal-footer button:hover {
+    background-color: #625BAD;
+    color: white;
+}
+
+.modal-footer button:active {
+    background-color: #625BAD;
+    color: white;
+}
+
+.modal-footer button:focus {
+    background-color: #625BAD;
+    color: white;
+}
