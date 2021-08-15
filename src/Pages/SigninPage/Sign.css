@@ -1,110 +1,158 @@
-*{
-   font-family: 'Poppins', sans-serif;
-   color: 'dark';
+* {
+    font-family: 'Poppins', sans-serif;
+    color: 'dark';
 }
-.SignUpBox{
+
+.CarouselBox {
+    max-width: 90%;
+    align-items: flex-start;
+}
+
+.CarouselBox h3 {
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.SignText {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.SignUpBox {
     margin-top: 5rem;
 }
-.InformationBox{
+
+.InformationBox {
     width: 28rem;
 }
-.SignIn-Container{
-width: 28rem;
-margin-top: 3rem;
+
+.SignIn-Container {
+    width: 28rem;
+    margin-top: 3rem;
 }
-.SiginInform{
+
+.SiginInform {
     width: 28rem;
 
 }
-.SignIn-Container h3{
+
+.SignIn-Container h3 {
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 2rem;
     margin-bottom: 1rem;
 }
-.SignIn-Container p{
+
+.SignIn-Container p {
     font-size: 1.25rem;
     font-weight: 300;
     text-align: center;
 }
+
 .SignUp-Container {
     width: 28rem;
 }
+
 .SignUp-Container p {
     font-size: 1.25rem;
     font-weight: 300;
     text-align: center;
 }
+
 .SignUp-Container h3 {
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 2rem;
 }
 
- .carousel-indicators{
-     margin-bottom: -1.5rem !important;
-     /* background: black !important; */
+.carousel-indicators {
+    margin-bottom: -1.5rem !important;
+    /* background: black !important; */
 
- }
- .carousel-indicators .active {
+}
+
+.carousel-indicators .active {
     background-color: #625AAD !important;
 
- }
- .carousel-indicators button {
-         border-radius: 50% !important;
-         width: 10px !important;
-         height: 10px !important;
-         background-color: #C4C4C4 !important;
+}
 
- }
-.signUpButton{
+.carousel-indicators button {
+    border-radius: 50% !important;
+    width: 10px !important;
+    height: 10px !important;
+    background-color: #C4C4C4 !important;
+
+}
+
+.signUpButton {
     margin-top: 1rem;
 }
- .carousel.item {
-     /* max-width: 400px !important; */
-     justify-content: center;
- }
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
 
- @media screen and (max-width: 1024px) {
+.carousel.item {
+    /* max-width: 400px !important; */
+    justify-content: center;
+}
 
-    .SignUpBox{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
+
+@media screen and (max-width: 1024px) {
+    .CarouselBox p {
+        font-size: 0.8rem;
+    }
+
+    .CarouselBox h3 {
+        font-weight: 500;
+
+    }
+
+    .SignText {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .SignUpBox {
         margin-top: 2rem;
-    }    
-.SignUp-Container {
-        width: 17rem;
+    }
+
+    .InformationBox {
+        width: 20rem;
+    }
+
+    .SiginInform {
+        width: 100%;
+
+    }
+
+    .SignIn-Container {
+        width: 20rem;
+        margin-top: 1rem;
+    }
+
+    .SignIn-Container h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0rem;
+    }
+
+    .SignIn-Container p {
+        font-size: 0.9rem;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .SignUp-Container {
+        width: 20rem;
         margin-top: 2rem;
-    }    
-.InformationBox{
-    width: 17rem;
-}
-.SiginInform{
-    width: 100%;
+    }
+    .SignUp-Container p {
+        font-size: 1rem;
+        font-weight: 300;
+        text-align: center;
+    }
 
+    .SignUp-Container h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 2rem;
+    }
 }
-.SignIn-Container{
-    width: 17rem;
-    margin-top: 3rem;
-}
-.SignIn-Container h3{
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0rem;
-}
-.SignIn-Container p{
-    font-size: 1rem;
-    font-weight: 300;
-    text-align: center;
-}
-
-.SignUp-Container p {
-    font-size: 1rem;
-    font-weight: 300;
-    text-align: center;
-}
-.SignUp-Container h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 2rem;
-}
- }

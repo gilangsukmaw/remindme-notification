@@ -16,11 +16,11 @@ const [SignUpPage, setSignUpPage] = useState(true)
 return (
 <>
     <div>
-        <Container className='d-flex flex-row justify-content-center'
-            style={{maxWidth:'100%', marginLeft:'auto', marginRight:'auto', margin:'5% 0 10% 0'}}>
+        <Container className='d-flex flex-row align-items-start justify-content-center'
+            style={{maxWidth:'100%', marginLeft:'auto', marginRight:'auto', margin:'5% 0 10% 0', }}>
 
-            <Col className='d-flex ' style={{maxWidth:'40%'}}>
-            <Carousel className='d-flex justify-content-center align-items-center flex-column text-dark' interval={5000}
+            <Col className='LeftBox d-flex justify-content-center' style={{maxWidth:'50%',borderRight:'1px solid #B6C6E5',}}>
+            <Carousel className='CarouselBox d-flex justify-content-center align-items-start flex-column text-dark' interval={5000}
                 controls={false}>
                 <Carousel.Item>
                     <h3>Organize Your Life</h3>
@@ -43,17 +43,17 @@ return (
             </Carousel>
             </Col>
 
-            {/*
-            <Col className='Line'>
+            
+            {/* <Col style={{maxWidth:'10%'}} className='Line'>
             </Col> */}
 
 
-            <Col className='d-flex justify-content-center align-self-start align-items-center flex-column' style={{maxWidth:'40%'}}>
+            <Col className='RightBox d-flex justify-content-center align-self-start align-items-center flex-column' style={{maxWidth:'50%', }}>
             {SignUpPage ?
             <SignIn /> :
             <SignUp />}
             {!SignUpPage ? null : <p className="text-center mt-3">Don't have an account yet? <a
-                    style={{ cursor: 'pointer', textDecoration:'none' }} onClick={()=> setSignUpPage(false)}
+                    style={{ cursor: 'pointer', textDecoration:'none', fontWeight:'700' }} onClick={()=> setSignUpPage(false)}
                     className="text-dark">Sign Up</a></p>}
 
             </Col>
