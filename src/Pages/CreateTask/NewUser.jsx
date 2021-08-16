@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import RemindmeLogo from "../../assets/images/RemindmeLogo.png";
-import "../../assets/styles/NewUser.css";
+import "../../assets/styles/NewUser.scss";
 
 const NewUser = () => {
   const [value, onChange] = useState(new Date());

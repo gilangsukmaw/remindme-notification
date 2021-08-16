@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import NewUser from "./Pages/CreateTask/NewUser";
 import ModalTask from "./modal/ModalTask";
 import ModalNotes from "./modal/ModalNotes";
-import ModalGoals from "./modal/ModalGoals";
+import ModalAddTime from "./modal/ModalAddTime";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <NewUser />
         <ModalTask />
         <ModalNotes />
-        <ModalGoals />
+        <ModalAddTime />
         <router />
       </BrowserRouter>
     </div>

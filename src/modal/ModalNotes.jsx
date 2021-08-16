@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/js/dist/modal";
-import "../assets/styles/ModalNotes.css";
+import "../assets/styles/ModalNotes.scss";
 import modalPin from "../assets/images/modalPin.png";
 
 const ModalNotes = () => {
@@ -18,7 +18,7 @@ const ModalNotes = () => {
       </button>
       <div
         className="modal fade"
-        id="exampleModal"
+        id="modalNote"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -44,10 +44,7 @@ const ModalNotes = () => {
             </div>
             <div className="modal-body">
               <form>
-                <div className="mb-3">
-                  {/* <label for="recipient-name" className="col-form-label">
-                    Recipient:
-                  </label> */}
+                <div className="modal-input-title mb-3">
                   <input
                     type="text"
                     className="form-control"
@@ -55,10 +52,7 @@ const ModalNotes = () => {
                     placeholder="Title"
                   />
                 </div>
-                <div className="mb-3">
-                  {/* <label for="message-text" className="col-form-label">
-                    Message:
-                  </label> */}
+                <div className="modal-input-note mb-3">
                   <textarea
                     className="form-control"
                     id="message-text"

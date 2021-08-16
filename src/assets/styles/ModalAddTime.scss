@@ -1,0 +1,102 @@
+//variable
+$font-family: 'Poppins', sans-serif;
+
+//mixin
+@mixin button {
+    border: 1px solid #625BAD;
+    border-radius: 21px;
+    width: 169px;
+    &:hover, &:active, &:focus {
+        background-color: #625BAD;
+        color: #ffffff;
+    }
+}
+
+.time__title {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem;
+    button {
+        @include button();
+    }
+    h1 {
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+    }
+    .notification {
+        display: flex;
+        height: auto;
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.time__container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button.time__save, button.time__cancel {
+    display: flex;
+    flex-direction: column;
+    @include button()
+}
+
+button.time__save p, button.time__cancel p {
+    text-align: center;
+}
+
+.time__input {
+    display: flex;
+    margin: auto 1em;
+    .time__date input {
+    border: 1px solid #625BAD;
+    border-radius: 10px;
+    height: 2.5em;
+    width: 150px;
+    margin-right: 2em;
+    }
+    .time__time input {
+    border: 1px solid #625BAD;
+    border-radius: 10px;
+    height: 2.5em;
+    width: 100px;
+    }
+}
+
+.time__calendar{
+    .react-calendar {
+        margin:0;
+        padding: 0;
+        line-height: 1.5em;
+        
+        button {
+            color: #342D50;
+            font-size: 16px;
+            font-weight: 300;
+            .react-calendar__navigation__label {
+                display: none;
+            }
+        }
+        &__navigation {
+            display: none;
+            height: 0;
+        &__arrow {
+            display: none;
+        }
+    }
+    &__navigation__label__labelText {
+        display: none;
+    }
+    }
+}
+
+.btn-close button {
+    border: none;
+    background-color: none;
+}

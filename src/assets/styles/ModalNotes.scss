@@ -1,0 +1,112 @@
+//variable
+$color-card1: #FFBCC2;
+$color-card2: #FCF3A1;
+$color-card3: #D1CDFA;
+$color-card4: #FF8888;
+$color-card5: #CCF0D7;
+
+//mixin
+@mixin button-color {
+        border-radius: 21px;
+    &:hover, &:focus, &:active {
+        background-color: #625BAD;
+        color: white;
+        border: 1px solid #625BAD;
+    }
+}
+
+@mixin input-textarea {
+    border: 1px solid #B6C6E5;
+    border-radius: 10px;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-header {
+    img {
+        width: 70px
+    }
+    h5 {
+        font-size: 30px;
+        font-weight: 500;
+        font-style: normal;
+    } 
+}
+
+.modal-pin {
+    button {
+        display: flex;
+        flex-direction: row;
+        background: #B6C6E5;
+        border-radius: 20px;
+        width: 80px;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0 10px;
+        border: none;
+        @include button-color();
+    }
+    img {
+        width: 18px;
+        height: 19px;
+       }
+    p {
+        font-size: 18px;
+        color: #ffffff;
+        margin: 0;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
+.mb-3 {
+    input {
+        @include input-textarea();
+    }
+    textarea {
+        @include input-textarea();
+        height: 221px;
+    }
+}
+
+.modal-color {
+    h6 {
+        font-size: 14px;
+        font-weight: 300;
+        font-style: normal;
+    }
+    button {
+        width: 40px;
+        height: 40px;
+        margin-right: 1rem;
+        border: none;
+    }
+    .color1 {
+        background-color: $color-card1;
+    }
+    .color2 {
+        background-color: $color-card2;
+    }
+    .color3 {
+        background-color: $color-card3;
+    }
+    .color4 {
+        background-color: $color-card4;
+    }
+    .color5 {
+        background-color: $color-card5;
+    }
+}
+
+.modal-footer {
+    button {
+        border: 1px solid #625BAD;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        @include button-color()
+    }
+}

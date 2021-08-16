@@ -1,0 +1,61 @@
+//variable
+$font-family: 'Poppins', sans-serif;
+
+//mixin
+@mixin button-task {
+    border: 1px solid #625BAD;
+    &:hover, &:active, &:focus {
+        background-color: #625BAD;
+        color: #ffffff;
+    }
+}
+
+* {
+    font-family: $font-family;
+}
+
+
+.modal-title {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    button {
+        border: 1px solid #625BAD;
+        border-radius: 40px;
+        margin-bottom: 1rem;   
+    }
+    img {
+        width: 6rem;
+    }
+}
+
+.btn {
+    &-notes, &-goals{
+        @include button-task();
+    }
+}
+
+img.position-absolute top-50 start-50 translate-middle {
+    width: 20px;
+}
+
+.btn-close {
+    margin: 0.5em;
+}
+
+.modal-dialog {
+    width: 616px;
+    height: 300px
+}
+
+.modal-content {
+    background-color: #F1F4FA;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
