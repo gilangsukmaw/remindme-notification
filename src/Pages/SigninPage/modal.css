@@ -20,6 +20,7 @@
     align-items: center !important;
     border-radius: 0.75rem !important;
     border: none;
+    box-shadow: 1rem !important;
 }
 
 .ModalSignUp p {

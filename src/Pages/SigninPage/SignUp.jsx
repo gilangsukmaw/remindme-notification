@@ -44,9 +44,9 @@ return (
         </p>
     </Modal.Body>
     <Modal.Footer>
-        <a href='/'><Button variant='warning'
+        <Link to="/"><Button variant='warning'
                 style={{padding:'0.5rem 2rem 0.5rem 2rem', borderRadius:'35px', fontWeight:'700'}}
-                onClick={props.onHide}>Let’s Get It</Button></a>
+                onClick={props.onHide}>Let’s Get It</Button></Link>
     </Modal.Footer>
 </Modal>
 );
@@ -54,9 +54,9 @@ return (
 
 return (
 <>
-    <div className='text-dark'>
+    <div className='SignUpBigBox text-dark' style={{marginLeft:'4rem',}}s>
         <div className='SignText'>Sign Up</div>
-        <div className='SignUpBox ' style={{Width:'28rem'}}>
+        <div className='SignUpBox  ' style={{Width:'28rem'}}>
 
             <div className='SignUp-Container d-flex align-items-center justify-content-center flex-column'>
 
@@ -93,7 +93,7 @@ return (
 
                 {/* --------------------------------page one---------------------------------- */}
                 <Form className='InformationBox'>
-                    <Form.Group className="mb-4 mt-4" controlId="FirsName">
+                    <Form.Group className="mb-4 mt-4" controlId="FirstName">
                         {page === 1 ?
                         <Form.Control style={{width:'100%', borderRadius:'10px', border:'2px solid #B6C6E5'}}
                             type="text" placeholder="First Name" />
@@ -101,7 +101,7 @@ return (
                     </Form.Group>
                     {/* --------------------------------page two---------------------------------- */}
 
-                    <Form.Group className="mb-4 mt-4" controlId="FirsName">
+                    <Form.Group className="mb-4 mt-4" controlId="LastName">
                         {page === 2 ?
                         <Form.Control style={{width:'100%', borderRadius:'10px', border:'2px solid #B6C6E5'}}
                             type="text" placeholder="Last Name" />
@@ -109,7 +109,7 @@ return (
                     </Form.Group>
                     {/* --------------------------------page three---------------------------------- */}
 
-                    <Form.Group className="mb-4 mt-4" controlId="FirsName">
+                    <Form.Group className="mb-4 mt-4" controlId="Username">
                         {page === 3 ?
                         <Form.Control style={{width:'100%', borderRadius:'10px', border:'2px solid #B6C6E5'}}
                             type="text" placeholder="Username" />
@@ -117,7 +117,7 @@ return (
                     </Form.Group>
                     {/* --------------------------------page four---------------------------------- */}
 
-                    <Form.Group className="mb-4 mt-4" controlId="FirsName">
+                    <Form.Group className="mb-4 mt-4" controlId="email">
                         {page === 4 ?
                         <Form.Control style={{width:'100%', borderRadius:'10px', border:'2px solid #B6C6E5'}}
                             type="email" placeholder="Email" />
@@ -126,7 +126,7 @@ return (
 
                     {/* --------------------------------page five---------------------------------- */}
 
-                    <Form.Group className="mb-4 mt-4" controlId="FirsName">
+                    <Form.Group className="mb-4 mt-4" controlId="Password">
                         {page === 5 ?
                         <Form.Group className="mb-4" controlId="formBasicPassword">
                             <Form.Control style={{width:'100%', borderRadius:'10px', border:'2px solid #B6C6E5'}}
@@ -151,7 +151,7 @@ return (
                     </Form.Group>
 
                     {/* --------------------------------Button--------------------------------- */}
-                    <div className='signUpButton d-flex justify-content-between'>
+                    <div className='signUpButton justify-content-between'>
                         { page === 1 ? <Button disabled variant="warning" onClick={()=> setPage(page-1)}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Prev
@@ -163,10 +163,11 @@ return (
                             style={{width:'45%', borderRadius:'35px'}}>
                             Next
                         </Button> }
-                        {page === 5 ? <Button variant="warning" onClick={()=> setModalShow(true)}
+                        {page === 5 ? <Button variant="warning" type="submit" value="Submit"  onClick={()=> setModalShow(true)}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Submit
                         </Button> : null }
+                        {/* */}
                         {/*sementara pakai button, nanti saat sdh ada fungsi, modal masukin ke fungsi*/}
                         <MyVerticallyCenteredModal show={modalShow} onHide={()=> setModalShow(false)}
                             />

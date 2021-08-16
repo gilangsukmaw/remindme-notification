@@ -29,8 +29,12 @@
 .SignIn-Container {
     width: 28rem;
     margin-top: 3rem;
+    margin-left: 4rem;
 }
 
+#formBasicPassword{
+    width: 28rem;
+}
 .SiginInform {
     width: 28rem;
 
@@ -51,6 +55,8 @@
 
 .SignUp-Container {
     width: 28rem;
+    margin-left: 4rem;
+
 }
 
 .SignUp-Container p {
@@ -86,6 +92,8 @@
 
 .signUpButton {
     margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .carousel.item {
@@ -93,9 +101,36 @@
     justify-content: center;
 }
 
+.SignUpQuestion {
+    margin-left: 9rem;
+    font-size: 1.25rem !important;
+    
+    
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
 
+@media screen and (max-width: 1440px) {
+    .SignUpQuestion {
+        margin-left: 8rem;
+        font-size: 1.25rem !important;
+    }
+
+    .ContainerSignIn {
+        margin-left: 3rem !important;
+    }
+
+    .SignIn-Container {
+        /* width: 20rem; */
+        margin-top: 1rem;
+        margin-left: 4rem !important;
+    }
+
+}
+
+
 @media screen and (max-width: 1024px) {
+
     .CarouselBox p {
         font-size: 0.8rem;
     }
@@ -123,9 +158,21 @@
 
     }
 
+    .SignUpQuestion {
+        margin-left: 5rem;
+        font-size: 1rem !important;
+    }
+
+    .ContainerSignIn {
+        margin-left: 1rem !important;
+    }
+    #formBasicPassword{
+        width: 20rem;
+    }
     .SignIn-Container {
         width: 20rem;
-        margin-top: 1rem;
+        margin-top: 2rem;
+        margin-left: 1.5rem;
     }
 
     .SignIn-Container h3 {
@@ -140,10 +187,20 @@
         text-align: center;
     }
 
+    .SignUpBigBox {
+        margin-left: 3rem !important;
+    }
+
+    .InformationBox {
+        margin-top: -1rem;
+    }
+
     .SignUp-Container {
         width: 20rem;
-        margin-top: 2rem;
+        margin-top: 4rem;
+        margin-left: 3rem;
     }
+
     .SignUp-Container p {
         font-size: 1rem;
         font-weight: 300;
@@ -154,5 +211,59 @@
         font-size: 1.25rem;
         font-weight: 700;
         line-height: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .SignUpBigBox {
+        margin-left: 1.5rem !important;
+    }
+    #formBasicPassword{
+        width: 18rem;
+    }
+    .SignUp-Container {
+        margin-top: 2rem;
+        margin-left: 0.8rem;
+
+    }
+    .SignInform{
+        margin-top: -1rem !important;
+    }
+
+    .SignUp-Container p {
+        font-size: 1rem;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .SignUp-Container h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 2rem;
+    }
+
+    .ContainerSignIn {
+        /* margin-left: 1rem !important; */
+    }
+
+    .SignIn-Container {
+        width: 18rem;
+        margin-top: 1rem;
+        margin-left: 1.5rem !important;
+    }
+
+    .SignIn-Container h3 {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .SignIn-Container p {
+        font-size: 0.7rem;
+
+    }
+    .SignUpQuestion {
+        margin-left: 2.5rem;
+        font-size: 0.9rem !important;
+        
     }
 }

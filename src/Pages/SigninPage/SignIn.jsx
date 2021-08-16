@@ -21,7 +21,7 @@ function SignIn() {
         
 
     return (
-        <div>
+        <div className='ContainerSignIn' style={{marginLeft:'4rem',}}>
             <div className='SignText' >Sign In</div>
             <div className='SignIn-Container d-flex align-items-center justify-content-center flex-column'>
                 <h3 >
@@ -31,15 +31,15 @@ function SignIn() {
                     Enter your email address or username you’ve created when you registering and last, don’t forget to
                     enter the right password
                 </p>
-                <Form>
-                    <Form.Group className="mb-4 mt-4 SiginInform" controlId="formBasicEmail">
+                <Form className="SignInform">
+                    <Form.Group className="mb-4 mt-4 " controlId="formBasicEmail">
                         <Form.Control style={{ borderRadius:'10px', border:'2px solid #B6C6E5'}}
-                            type="email" placeholder="Email / Username" />
+                            type="text" placeholder="Email / Username" />
                     </Form.Group>
 
                     <div className='d-flex flex-column'>
                         <Form.Group className="mb-4" controlId="formBasicPassword">
-                            <Form.Control style={{width:'100%', borderRadius:'10px', border:'2px solid #B6C6E5'}}
+                            <Form.Control style={{ borderRadius:'10px', border:'2px solid #B6C6E5'}}
                                 variant="secondary" type={values.showPassword ? "text" : "password" }
                                 placeholder="Password" />
                             <Button style={{float:'right', marginTop:'-2.5rem', background:'none', border:'none'}} onMouseDown={handleMouseDownPassword} onClick={handleClickShowPassword}>
