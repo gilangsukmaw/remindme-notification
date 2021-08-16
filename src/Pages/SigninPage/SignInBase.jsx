@@ -17,7 +17,7 @@ return (
 <>
     <div >
         <Container className='d-flex flex-row align-items-start justify-content-center'
-            style={{maxWidth:'100%', marginLeft:'auto', marginRight:'auto', margin:'5% 0 10% 0', }}>
+            style={{maxWidth:'1440px', marginLeft:'auto', marginRight:'auto', marginTop:'5%', }}>
 
             <Col className='LeftBox d-flex flex-column align-items-end justify-content-center' style={{maxWidth:'50%',borderRight:'1px solid #B6C6E5', paddingRight:'3rem'}}>
             <Carousel className='CarouselBox d-flex justify-content-center align-items-start flex-column text-dark' interval={5000}
