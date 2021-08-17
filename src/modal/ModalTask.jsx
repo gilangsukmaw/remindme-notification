@@ -3,10 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/js/dist/modal";
 import "../assets/styles/ModalTask.scss";
 import modalPin from "../assets/images/modalPin.png";
-import noteLogo from "../assets/images/noteLogo.png";
-import vectorNoteLogo from "../assets/images/vectorNoteLogo.png";
-import goalsLogo from "../assets/images/goalsLogo.png";
-import vectorGoalsLogo from "../assets/images/vektorGoalsLogo.png";
 
 const ModalTask = () => {
   return (
@@ -67,7 +63,7 @@ const ModalTask = () => {
         </div>
       </div>
       {/*reference to note*/}
-      <div
+      {/* <div
         className="modal fade"
         id="modalNote"
         aria-hidden="true"
@@ -136,7 +132,7 @@ const ModalTask = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/*reference to goal*/}
       <div
         className="modal fade"

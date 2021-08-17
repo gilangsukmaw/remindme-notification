@@ -6,6 +6,7 @@ import modalPin from "../assets/images/modalPin.png";
 
 const ModalNotes = () => {
   return (
+    <Modal>
     <div className="container m-0 p-0">
       <button
         type="button"
@@ -81,6 +82,7 @@ const ModalNotes = () => {
         </div>
       </div>
     </div>
+    </Modal>
   );
 };
 

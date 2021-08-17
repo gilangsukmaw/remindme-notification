@@ -6,7 +6,7 @@ $color-card4: #FF8888;
 $color-card5: #CCF0D7;
 
 //mixin
-@mixin button-color {
+@mixin note__color {
         border-radius: 21px;
     &:hover, &:focus, &:active {
         background-color: #625BAD;
@@ -46,7 +46,7 @@ $color-card5: #CCF0D7;
         justify-content: space-around;
         padding: 0 10px;
         border: none;
-        @include button-color();
+        @include note__color();
     }
     img {
         width: 18px;
@@ -107,6 +107,6 @@ $color-card5: #CCF0D7;
         font-weight: 500;
         font-size: 20px;
         line-height: 30px;
-        @include button-color()
+        @include note__color()
     }
 }
