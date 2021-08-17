@@ -108,7 +108,6 @@
     
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
 
 @media screen and (max-width: 1440px) {
     .SignUpQuestion {
@@ -242,9 +241,7 @@
         line-height: 2rem;
     }
 
-    .ContainerSignIn {
-        /* margin-left: 1rem !important; */
-    }
+   
 
     .SignIn-Container {
         width: 18rem;

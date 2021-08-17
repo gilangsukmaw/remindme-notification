@@ -11,7 +11,9 @@ function Router() {
             <Route exact path="/">
                 <SignInUpPage />
             </Route>
-            
+            <Route exact path="/TaskPage">
+                <TaskPage />
+            </Route>
             <Route path="*">
             <div>
                 <h1>PAGE NOT FOUND</h1>

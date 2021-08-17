@@ -11,6 +11,7 @@ import SignUp from './SignUp';
 
 function SignInUpPage() {
 const [SignUpPage, setSignUpPage] = useState(true)
+const [show, setShow] = useState(false);
 
 
 return (
@@ -59,6 +60,7 @@ return (
             </Col>
         </Container>
     </div>
+    <a href='/TaskPage'><button></button></a>
 </>
 )
 }
