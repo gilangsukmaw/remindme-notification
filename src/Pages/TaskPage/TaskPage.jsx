@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import { Container, Col, Carousel, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
 import { useState } from "react"
 import NotesPinnedCard from '../../component/NotesCard/NotesCardPinned';
-import SettingGoalsCard from '../../component/GoalsCard/SettingGoalsCard';
+import SettingGoalsCard from '../../modal/GoalsCard/SettingGoalsCard';
 
 
 function TaskPage() {

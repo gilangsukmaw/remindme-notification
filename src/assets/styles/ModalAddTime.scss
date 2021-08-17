@@ -1,0 +1,171 @@
+//variable
+$font-family: 'Poppins', sans-serif;
+$color-text: #342D50;
+$time-background: #FFBCC2;
+
+//mixin
+@mixin time__button {
+    border: 1px solid #625BAD;
+    border-radius: 21px;
+    width: 100%;
+    max-width: 169px;
+    &:hover, &:active, &:focus {
+        background-color: #625BAD;
+        color: #ffffff;
+    }
+}
+
+
+
+.modal__container {
+    background-color: #FFBCC2;
+}
+
+// .modal-time {
+.modal-content {
+    height: 100%;
+}
+// }
+
+.btn-close button {
+    border: none;
+    background-color: none;
+}
+
+.time__title {
+    display: flex;
+    justify-content: space-between;
+    color: $color-text;
+    button {
+        @include time__button();
+    }
+    h1 {
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.time__button {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    button {
+        margin: 0 auto;
+        @include time__button();
+        background-color: $time-background;
+    }
+    .notification {
+        display: flex;
+        height: auto;
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+    button.notification {
+        @include time__button();
+        background-color: #B6C6E5;
+        color: #ffffff;
+        display: flex;
+        border: none;
+    }
+}
+
+.time__container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    width: 594px;
+    background-color: $time-background;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.time__wrapper {
+    height: 100%;
+    width: 60%;
+}
+
+button.time__save, button.time__cancel {
+    p{
+        text-align: center;
+    }
+    display: flex;
+    justify-content: center;
+    @include time__button()
+}
+
+.time__button2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.time__input {
+    display: flex;
+    .time__date input {
+    border: 1px solid #625BAD;
+    border-radius: 10px;
+    height: 2.5em;
+    width: 150px;
+    margin-right: 2em;
+    outline: none;
+    background-color: $time-background;
+    }
+    .time__time input {
+    border: 1px solid #625BAD;
+    border-radius: 10px;
+    height: 2.5em;
+    width: 100px;
+    outline: none;
+    background-color: $time-background;
+    }
+}
+
+.time__calendar{
+    .react-calendar {
+        margin:0;
+        padding: 0;
+        line-height: 1.5em;
+        width: 100%;
+        height: auto;
+        background-color: $time-background;
+        border: none;
+        button {
+            color: #342D50;
+            font-size: 16px;
+            font-weight: 300;
+            border-radius: 50%;
+            &:hover, &:active, &:focus {
+                background-color: #625BAD;
+                color: #ffffff;
+            }
+            .react-calendar__navigation__label {
+                display: none;
+            }
+        }
+        &__navigation {
+            display: none;
+            height: 0;
+        &__arrow {
+            display: none;
+        }
+        &__tile--now {
+            background: none;
+        }
+        &__tile--active {
+            background-color: #625BAD;
+        }
+    }
+    &__navigation__label__labelText {
+        display: none;
+    }
+    }
+}

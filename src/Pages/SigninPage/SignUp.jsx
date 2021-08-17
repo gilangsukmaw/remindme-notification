@@ -2,7 +2,7 @@ import React from 'react'
 import { Modal, Col, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
 import { useState } from "react"
 import './Sign.css'
-import './modal.css'
+import './modal.scss'
 import ceklis from '../../img/signupChecklist.png'
 import {Link} from 'react-router-dom';
 
@@ -163,7 +163,7 @@ return (
                             style={{width:'45%', borderRadius:'35px'}}>
                             Next
                         </Button> }
-                        {page === 5 ? <Button variant="warning"  type="submit" value="Submit"  onClick={()=> setModalShow(true)}
+                        {page === 5 ? <Button variant="warning"   onClick={()=> setModalShow(true)}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Submit
                         </Button> : null }
@@ -173,7 +173,7 @@ return (
                             />
                     </div>
                 </Form>
-<h1>{page}</h1>
+{/* <h1>{page}</h1> */}
             </div>
 
         </div>

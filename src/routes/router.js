@@ -20,8 +20,8 @@ function Router() {
             </div>
             </Route>
       </Switch>
-        </>
-    )
+    </>
+  );
 }
 
 export default Router
