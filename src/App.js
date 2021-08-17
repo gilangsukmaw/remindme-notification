@@ -4,16 +4,17 @@ import { BrowserRouter } from "react-router-dom";
 // import ModalTask from "./modal/ModalTask";
 // import ModalNotes from "./modal/ModalNotes";
 import ModalAddTime from "./modal/ModalAddTime";
-import TaskModal from "./coba/ModalTask";
+import TaskModal from "./modal/ModalTask";
+import ModalNote from "./coba/ModalNote";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         {/* <NewUser /> */}
-        {/* <ModalNotes /> */}
         <ModalAddTime />
         <TaskModal />
+        <ModalNote />
         <router />
       </BrowserRouter>
     </div>

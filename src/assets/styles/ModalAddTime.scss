@@ -102,6 +102,10 @@ button.time__save, button.time__cancel {
     @include time__button()
 }
 
+button.time__save {
+    margin-bottom: 1rem;;
+}
+
 .time__button2 {
     flex: 1;
     display: flex;
@@ -161,15 +165,16 @@ button.time__save, button.time__cancel {
         &__arrow {
             display: none;
         }
-        &__tile--now {
-            background: none;
-        }
-        &__tile--active {
-            background-color: #625BAD;
-        }
     }
     &__navigation__label__labelText {
         display: none;
     }
+    &__tile--now {
+        background: #B6C6E5 ;
+      }
+    &__tile--active{
+    background-color: #625BAD;
+    color: #ffffff;
     }
+}
 }

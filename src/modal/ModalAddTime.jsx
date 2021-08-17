@@ -3,7 +3,6 @@ import Calendar from "react-calendar";
 import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
 import "react-calendar/dist/Calendar.css";
-import Modal from "react-bootstrap/Modal";
 
 function TimeModal({ closeModal }) {
   const [value, onChange] = useState(new Date());
