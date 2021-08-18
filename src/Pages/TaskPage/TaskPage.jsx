@@ -4,6 +4,8 @@ import { Container, Col, Carousel, Form, Button, FormControl, InputGroup} from '
 import { useState } from "react"
 import NotesPinnedCard from '../../component/NotesCard/NotesCardPinned';
 import SettingGoalsCard from '../../modal/GoalsCard/SettingGoalsCard';
+import OopsModal from '../../modal/OopsModal/OopsModal';
+import AskModal from '../../modal/AskModal/AskModal';
 
 
 function TaskPage() {
@@ -67,7 +69,8 @@ return (
   <br></br>
   <NotesPinnedCard />
   <SettingGoalsCard />
-
+<OopsModal/>
+<AskModal/>
 
 </>
 )

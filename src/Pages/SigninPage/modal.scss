@@ -1,16 +1,19 @@
 .ModalSignUp{
-    
+
     .modal-dialog {
-        justify-content: center !important;
-        max-width: 25rem !important;
+        justify-content: center ;
+        max-width: 25rem ;
         
     
     }
-    
+    .modal-body{
+        text-align: center;
+        
+    }
     .modal-header {
-        padding-top: 3.5rem !important;
+        padding-top: 3.5rem ;
         min-height: 10rem;
-        border-bottom: none !important;
+        border-bottom: none ;
     }
     
     .modal-header img {
@@ -19,21 +22,21 @@
     }
     
     .modal-content {
-        align-items: center !important;
-        border-radius: 0.75rem !important;
+        align-items: center ;
+        border-radius: 0.75rem ;
         border: none;
-        box-shadow: 1rem !important;
+        box-shadow: 1rem ;
     }
     
     .ModalSignUp p {
-        max-width: 20rem !important;
+        max-width: 20rem ;
     
         font-size: 1.5rem;
         text-align: center;
     }
     
     .modal-footer {
-    padding-bottom: 4rem !important;
-        border: none !important;
+    padding-bottom: 4rem ;
+        border: none ;
     }
 }

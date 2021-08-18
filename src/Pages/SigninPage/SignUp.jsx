@@ -29,14 +29,14 @@ const [modalShow, setModalShow] = React.useState(false);
 
 function MyVerticallyCenteredModal(props) {
 return (
-<Modal className='ModalSignUp' sytle={{maxWidth:'1rem'}} {...props} size="lg"
+<Modal className='ModalSignUp shadow' sytle={{maxWidth:'1rem'}} {...props} size="lg"
     aria-labelledby="contained-modal-title-vcenter" centered>
     <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
             <img src={ceklis}></img>
         </Modal.Title>
     </Modal.Header>
-    <Modal.Body style={{borderBottom:'none'}}>
+    <Modal.Body  style={{}}>
         <p>
             Congratulations!<br></br>
             we successfully verified

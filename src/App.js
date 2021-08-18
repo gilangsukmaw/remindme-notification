@@ -17,11 +17,10 @@ function App() {
     <div >
       <BrowserRouter>
         <Router />
-
         {/* <NewUser /> */}
         {/* <ModalNotes /> */}
-        <ModalAddTime />
-        <TaskModal />
+        {/* <ModalAddTime />
+        <TaskModal /> */}
       </BrowserRouter>
     </div>
     </>
