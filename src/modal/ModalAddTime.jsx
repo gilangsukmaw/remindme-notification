@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
+import { Link } from "react-router-dom";
 import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
 import "react-calendar/dist/Calendar.css";
+import "bootstrap/dist/css/bootstrap.css";
 
-function TimeModal({ closeModal }) {
+export default function TimeModal({ onClose }) {
   const [value, onChange] = useState(new Date());
 
   return (
-    <div className="time__outside">
+    <div className="time__outside modal-backdrop">
       <div className="time__container">
         <div className="time__wrapper">
           <div className="time__title">
@@ -34,11 +36,11 @@ function TimeModal({ closeModal }) {
             <p>Notification</p>
           </button>
           <div className="time__button2">
-            <button className="time__save">Save Note</button>
+            <button className="time__save">Save</button>
             <button
               className="time__cancel"
               onClick={() => {
-                closeModal(false);
+                onClose("");
               }}
             >
               Cancel
@@ -50,19 +52,19 @@ function TimeModal({ closeModal }) {
   );
 }
 
-export default function ModalAddTime() {
-  const [openAddTime, setOpenAddTime] = useState(false);
-  return (
-    <div className="time__center">
-      <button
-        className="openModal"
-        onClick={() => {
-          setOpenAddTime(true);
-        }}
-      >
-        Add Time
-      </button>
-      {openAddTime && <TimeModal closeModal={setOpenAddTime} />}
-    </div>
-  );
-}
+// export default function ModalAddTime() {
+//   const [openAddTime, setOpenAddTime] = useState(false);
+//   return (
+//     <div className="time__center">
+//       <button
+//         className="openModal"
+//         onClick={() => {
+//           setOpenAddTime(true);
+//         }}
+//       >
+//         Add Time
+//       </button>
+//       {openAddTime && <TimeModal closeModal={setOpenAddTime} />}
+//     </div>
+//   );
+// }

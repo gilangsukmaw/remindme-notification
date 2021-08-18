@@ -1,11 +1,13 @@
 //variable
 $font-family: 'Poppins', sans-serif;
 $background-color:  #F1F4FA;
+$color-text: #625BAD;
 
 //mixin
 @mixin button-task {
     border: 1px solid #625BAD;
     border-radius: 40px;
+   
     &:hover, &:active, &:focus {
         background-color: #625BAD;
         color: #ffffff;
@@ -14,6 +16,22 @@ $background-color:  #F1F4FA;
 
 * {
     font-family: $font-family;
+}
+
+.task__outside {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.modal-backdrop {
+        background-color: rgba(200, 200, 200, 0.5);
+
+    }
+}
+
+.task__close img {
+    width: 20px;
 }
 
 .task__container {
@@ -33,6 +51,9 @@ $background-color:  #F1F4FA;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    height: 200px;
+
 h1 {
     font-size: 24px;
     font-weight: 500px;
@@ -41,22 +62,56 @@ h1 {
 }
 
 button {
-    &.task__note, &.task__goals {
-    @include button-task();
-    width: 200px;
+    &.task__note , &.task__goals  {
+        @include button-task();
+    width: 300px;
     display: flex;
     align-items: center;
     p {
+        &:hover, &:active, &:focus {
+            // background-color: #625BAD;
+            color: #ffffff;
+        }
         margin: 0;
         display: flex;
         align-items: center;
+        
     }
 }
 }
 
-.task__note img {
-    background-color: #41CFC1;
-    padding: 0.5rem;
-    border-radius: 50%;
+.task__note {
+    display: flex;
+    justify-content: center;
+    img {
+        background-color: #41CFC1;
+        padding: 0.3rem;
+        border-radius: 50%;
+        width: 30px;
+        margin-right: 2rem;
+    }
+    p {
+        font-size: 24px;
+        font-weight: 500;
+        font-style: normal;
+        color: $color-text;
+    }
+}
 
+.task__goals {
+    display: flex;
+    justify-content: center;
+    img {
+        background-color: #FF586A;
+        padding: 0.3rem;
+        border-radius: 50%;
+        width: 30px;
+        margin-right: 2rem;
+    }
+    p {
+        font-size: 24px;
+        font-weight: 500;
+        font-style: normal;
+        color: $color-text;
+    }
 }

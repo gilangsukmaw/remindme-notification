@@ -39,10 +39,13 @@ $color-text: #625BAD;
 .note__outside {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(200, 200, 200, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
+    &.modal-backdrop {
+        background-color: rgba(200, 200, 200, 0.5);
+
+    }
 }
 
 .note__container {
@@ -61,17 +64,23 @@ $color-text: #625BAD;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1rem;
+    h1 {
+        margin: 0;
+    }
 }
 
 .note__pin button{
     @include note__color();
+    background: #B6C6E5;
+    border-radius: 20px;
     border: none;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
     padding: 10px;
-    // max-width: 200px;
-    // width: 100%;
+    width: 5rem;
     h6 {
         margin: 0;
         color: #ffffff;
@@ -101,28 +110,33 @@ $color-text: #625BAD;
 
 .note__color {
     margin-top: 1rem;
-button {
-    @include note__color();
-    width: 40px;
-    height: 40px;
-    border: none;
-    margin-right: 0.8rem;
-    &.color1 {
-        background-color: $color-card1;
+    h5 {
+        font-size: 14px;
+        font-weight: 300;
+        font-style: normal;
     }
-    &.color2 {
-        background-color: $color-card2;
+    button {
+        @include note__color();
+        width: 40px;
+        height: 40px;
+        border: none;
+        margin-right: 0.8rem;
+        &.color1 {
+            background-color: $color-card1;
+        }
+        &.color2 {
+            background-color: $color-card2;
+        }
+        &.color3 {
+            background-color: $color-card3;
+        }
+        &.color4 {
+            background-color: $color-card4;
+        }
+        &.color5 {
+            background-color: $color-card5;
+        }
     }
-    &.color3 {
-        background-color: $color-card3;
-    }
-    &.color4 {
-        background-color: $color-card4;
-    }
-    &.color5 {
-        background-color: $color-card5;
-    }
-}
 }
 
 .note__footer {
@@ -137,4 +151,17 @@ button {
         color: $color-text;
         margin-right: 1rem;
     }
+}
+
+.note__close {
+    button {
+        background: none;
+        border: none;
+        font-size: 30px;
+        img {
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+    }
+
 }

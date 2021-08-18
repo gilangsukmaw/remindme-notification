@@ -12,6 +12,13 @@ $font-family: 'Poppins', sans-serif;
     font-family: $font-family;
 }
 
+// .newUser__container {
+//     // background-color: rgba(200, 200, 200, 0.5);
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: flex-end;
+// }
+
 .newUser__intro {
     @include flex-box();
 }
@@ -56,14 +63,28 @@ $font-family: 'Poppins', sans-serif;
     margin-left: 27px;
     font-size: 12px;
     font-weight: 400;
+    button {
+        &:hover, &:active, &:focus {
+            background-color: #625BAD;
+            color: #ffffff;
+        }
+        .react-calendar__navigation__label {
+            display: none;
+        }
+    }
     &__tile--active {
         border-radius: 20px;
-    background: #625BAD;
+    background-color: #625BAD;
+    color: #ffffff;
     height: 43.01px;
     }
     &__tile--active:enabled:hover, &__tile--active:enabled:focus {
         border-radius: 20px;
-    background: #625BAD;
+    background-color: #625BAD;
     height: 43.01px;
     }
+    &__tile--now {
+        background: #B6C6E5 ;
+        border-radius: 20px;
+      }
 }
