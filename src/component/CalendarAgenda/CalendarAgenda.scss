@@ -12,10 +12,14 @@
 
     
 .modal-content {
+    
     align-items: center ;
+
     border: none;
     background:transparent;
-
+    // height: 25rem;
+    // width: 25rem ;
+    
     }
 }
 #GoalText {
@@ -25,8 +29,14 @@
     // color: rgba(52, 45, 80, 0.5);
 }
 
+
 .BuiltorQuitButton {
     .BuildButton {
+
+        // border: 1px solid #625BAD;
+        // border-radius: 21px;
+        // width: 100%;
+        // max-width: 169px;
         &:hover,
         &:active,
         &:focus {

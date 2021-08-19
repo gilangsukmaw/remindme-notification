@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Col, Carousel, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
 import './Sign.css'
-import gambar1 from '../../img/Ilustrasi Tangan.png'
-import gambar2 from '../../img/Illustrasi [Recovered] 1.png'
-import gambar3 from '../../img/Illustrasi [Recovered] 1-1.png'
+import gambar1 from '../../assets/images/Ilustrasi Tangan.png'
+import gambar2 from '../../assets/images/Illustrasi [Recovered] 1.png'
+import gambar3 from '../../assets/images/Illustrasi [Recovered] 1-1.png'
 import { useState } from "react"
 import SignIn from './SignIn';
 import SignUp from './SignUp';

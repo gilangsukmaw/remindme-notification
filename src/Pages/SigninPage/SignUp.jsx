@@ -3,7 +3,7 @@ import { Modal, Col, Form, Button, FormControl, InputGroup} from 'react-bootstra
 import { useState } from "react"
 import './Sign.css'
 import './modal.scss'
-import ceklis from '../../img/signupChecklist.png'
+import ceklis from '../../assets/images/signupChecklist.png'
 import {Link} from 'react-router-dom';
 
 function SignUp() {

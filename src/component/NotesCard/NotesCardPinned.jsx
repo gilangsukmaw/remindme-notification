@@ -1,6 +1,6 @@
 import React from 'react'
 import './NotesCard.css'
-import Pin from '../../img/Pin.png'
+import Pin from '../../assets/images/Pin.png'
 
 function NotesPinnedCard() {
 return (

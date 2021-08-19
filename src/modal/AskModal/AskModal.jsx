@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, Col, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
 import './AskModal.scss'
-import TandaTanya from '../../img/emojione-monotone_question-mark.png'
+import TandaTanya from '../../assets/images/emojione-monotone_question-mark.png'
 import {Link} from 'react-router-dom';
 
 function AskModal() {
@@ -29,12 +29,12 @@ function AskModal() {
 delete this note?
                 </p>
             </Modal.Body>
-            <Modal.Footer className='d-flex justify-content-between' style={{width:'90%'}}>
-                <Link to="#"><Button variant='outline-warning'
-                        style={{color:'black',padding:'0.5rem 2rem 0.5rem 2rem',height:'3.5rem' , width:'9rem', borderRadius:'35px', fontWeight:'700', fontSize:'1.5rem'}}
+            <Modal.Footer className='d-flex justify-content-center' style={{width:'90%'}}>
+                <Link to="#"><Button variant='outline-warning' className='YesButton'
+                        style={{marginRight:'0.35rem',padding:'0.5rem 2rem 0.5rem 2rem',height:'3.5rem' , width:'8rem', borderRadius:'35px', fontWeight:'700', fontSize:'1.5rem'}}
                         onClick={props.onHide}>Yes</Button></Link>
                         <Link to="#"><Button variant='warning'
-                        style={{padding:'0.5rem 2rem 0.5rem 2rem',height:'3.5rem' , width:'9rem', borderRadius:'35px', fontWeight:'700', fontSize:'1.5rem'}}
+                        style={{marginLeft:'0.35rem',padding:'0.5rem 2rem 0.5rem 2rem',height:'3.5rem' , width:'8rem', borderRadius:'35px', fontWeight:'700', fontSize:'1.5rem'}}
                         onClick={props.onHide}>No</Button></Link>
             </Modal.Footer>
            

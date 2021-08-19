@@ -1,37 +1,27 @@
 
-.YesButton button{
-    &:hover,
-    &:active,
-    &:focus {
-        background-color: #625BAD;
-        color: #ffffff;
-        border-color: transparent;
-    }
 
-}
-.AskModal{
-    background-color: rgba(241, 244, 250, 0.7);
+.SaveNotes{
+    background-color: rgba(241, 244, 250, 0.8);
     backdrop-filter: blur(3px);
     
    .modal .show{
        background: #F1F4FA;
    }
     .modal-dialog {
-
         width: 100rem;
         justify-content: center ;
      }
 
     .modal-body{
-        margin-top: 2rem;
         text-align: center;
         padding: 0;
         
     }
     
     .modal-header {
-        padding-top: 3.5rem;
-               border-bottom: none ;
+      padding-top: 3rem;
+      margin-bottom: 1rem;
+        border-bottom: none ;
     }
     
     .modal-content {
@@ -42,11 +32,7 @@
         background: #F1F4FA;
         height: 25rem;
         width: 25rem ;
-        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-
-
     }
-  
     
     .modal-footer {
     padding-bottom: 4rem ;

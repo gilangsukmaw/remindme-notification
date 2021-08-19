@@ -5,7 +5,6 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './SettingGoals.scss'
 
-
 function SettingGoalsCard() {
     const [modalShow, setModalShow] = React.useState(false);
 
@@ -53,7 +52,7 @@ return (
                         style={{float:'left', paddingLeft:'0.5rem', borderRadius:'10px' , border:'1px solid #B6C6E5'}}
                         title="dd/mm/yy" id="ChooseValue"></SplitButton>
                     <div className='mt-5' style={{paddingLeft:'0.2rem'}}>
-                        <p></p>
+                        <p>Agustus, 2021</p>
                     </div>
                     <div className="Goals__calendar " style={{float:'left'}}>
                         <Calendar />
@@ -103,7 +102,7 @@ return (
                 </div>
                 <div className='d-flex justify-content-center'>
                     <Button type="submit" className='mt-3'
-                        style={{width:'100%', fontWeight:'700',height:'3rem', borderRadius:'35px'}}
+                        style={{width:'90%', fontWeight:'700',height:'3rem', borderRadius:'35px'}}
                         variant='warning'>Save</Button>
                 </div>
             </Form>

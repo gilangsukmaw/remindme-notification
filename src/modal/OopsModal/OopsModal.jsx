@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, Col, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
 import './OopsModal.scss'
-import Cross from '../../img/OopsCross.png'
+import Cross from '../../assets/images/OopsCross.png'
 import {Link} from 'react-router-dom';
 
 function OopsModal() {
