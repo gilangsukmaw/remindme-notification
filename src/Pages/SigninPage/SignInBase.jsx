@@ -10,8 +10,10 @@ import SignUp from './SignUp';
 
 
 function SignInUpPage() {
-const [SignUpPage, setSignUpPage] = useState(true)
+const [SignUpPage, setSignUpPage] = useState(true);
 const [show, setShow] = useState(false);
+const handleSignUpPage = () => setSignUpPage(false);
+
 
 
 return (
@@ -52,7 +54,7 @@ return (
             <Col className='RightBox align-content-start flex-wrap d-flex justify-content-start align-self-start align-items-center flex-column' style={{maxWidth:'50%', }}>
             {SignUpPage ?
             <SignIn /> :
-            <SignUp />}
+            <SignUp ganti={()=> setSignUpPage(true)} />}
             {!SignUpPage ? null : <p className="SignUpQuestion text-center mt-2" >Don't have an account yet? <a
                     style={{ cursor: 'pointer', textDecoration:'none', fontWeight:'700' }} onClick={()=> setSignUpPage(false)}
                     className="text-dark">Sign Up</a></p>}
@@ -60,7 +62,9 @@ return (
             </Col>
         </Container>
     </div>
-    <a href='/TaskPage'><button></button></a>
+    <a href='/TaskPage'><button></button></a>   
+    <a href='/Calendar'><button>Calendar Workshop</button></a>
+
 </>
 )
 }

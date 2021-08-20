@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import TaskPage from '../Pages/TaskPage/TaskPage'
 import SignInUpPage from '../Pages/SigninPage/SignInBase'
-
+import TesFullCalendar from '../Pages/coba-coba/fullCalendar'
 
 function Router() {
     return (
@@ -13,6 +13,9 @@ function Router() {
             </Route>
             <Route exact path="/TaskPage">
                 <TaskPage />
+            </Route>
+            <Route exact path="/Calendar">
+                <TesFullCalendar />
             </Route>
             <Route path="*">
             <div>

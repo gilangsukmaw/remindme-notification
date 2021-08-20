@@ -4,10 +4,17 @@ import { Modal, Col, Form, Button, FormControl, InputGroup, SplitButton, Dropdow
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './SettingGoals.scss'
+import DatePicker from "react-datepicker";
+import * as dayjs from 'dayjs'
+
+import "react-datepicker/dist/react-datepicker.css";
 
 
 function SettingGoalsCard() {
+    var utc = require('dayjs/plugin/utc')
+dayjs.extend(utc)
     const [modalShow, setModalShow] = React.useState(false);
+    const [startDate, setStartDate] = useState(new Date());
 
 
 function SettingGoalsCard(props) {
@@ -51,12 +58,13 @@ return (
                     <Col className='kolomCalendar' style={{maxWidth:'45%', }}>
                     <SplitButton disabled align="end" className='ChooseValue mb-3'
                         style={{float:'left', paddingLeft:'0.5rem', borderRadius:'10px' , border:'1px solid #B6C6E5'}}
-                        title="dd/mm/yy" id="ChooseValue"></SplitButton>
+                        title={dayjs().format('DD/MM/YYYY')} id="ChooseValue"></SplitButton>
                     <div className='mt-5' style={{paddingLeft:'0.2rem'}}>
-                        <p></p>
+                        {dayjs().format()} 
                     </div>
                     <div className="Goals__calendar " style={{float:'left'}}>
-                        <Calendar />
+                        <Calendar
+                          onChange={(date) => setStartDate(date)}/> 
                     </div>
                     </Col>
                     <Col className='kolomValue  ' style={{maxWidth:'30%', }}>
@@ -107,7 +115,14 @@ return (
                         variant='warning'>Save</Button>
                 </div>
             </Form>
-
+            <div className='mt-5' style={{paddingLeft:'0.2rem'}}>
+                        {dayjs().format('YYYY-MM-DDTHH:mm:ssZ[Z]')} 
+                    </div>
+                    <div className="Goals__calendar " style={{float:'left'}}>
+                    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                        <Calendar
+                         selected={startDate} onChange={(date) => setStartDate(date)}/> 
+                    </div>
         </div>
     </Modal>
     </>

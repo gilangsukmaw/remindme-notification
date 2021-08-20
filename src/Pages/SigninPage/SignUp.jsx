@@ -5,9 +5,13 @@ import './Sign.css'
 import './modal.scss'
 import ceklis from '../../assets/images/signupChecklist.png'
 import {Link} from 'react-router-dom';
+import SignInUpPage from './SignInBase';
 
-function SignUp() {
-const [page, setPage] = useState(1);
+function SignUp(props) {
+    const {ganti }    = props
+
+
+    const [page, setPage] = useState(1);
 
 const [values, setValues] = React.useState({
 password: "",
@@ -51,7 +55,6 @@ return (
 </Modal>
 );
 }
-
 return (
 <>
     <div className='SignUpBigBox text-dark' style={{marginLeft:'4rem',}}s>
@@ -152,9 +155,9 @@ return (
 
                     {/* --------------------------------Button--------------------------------- */}
                     <div className='signUpButton justify-content-between'>
-                        { page === 1 ? <Button disabled variant="warning" onClick={()=> setPage(page-1)}
+                        { page === 1 ? <Button  variant="outline-warning" onClick={ganti}
                             style={{width:'45%', borderRadius:'35px'}}>
-                            Prev
+                            Home
                         </Button> : <Button variant="warning" onClick={()=> setPage(page-1)}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Prev
@@ -171,6 +174,7 @@ return (
                         {/*sementara pakai button, nanti saat sdh ada fungsi, modal masukin ke fungsi*/}
                         <MyVerticallyCenteredModal show={modalShow} onHide={()=> setModalShow(false)}
                             />
+                            
                     </div>
                 </Form>
 {/* <h1>{page}</h1> */}
