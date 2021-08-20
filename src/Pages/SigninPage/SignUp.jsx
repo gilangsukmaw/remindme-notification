@@ -166,11 +166,11 @@ return (
                             style={{width:'45%', borderRadius:'35px'}}>
                             Next
                         </Button> }
-                        {page === 5 ? <Button variant="warning"   onClick={()=> setModalShow(true)}
+                        {page === 5 ? <Button variant="warning"  type="submit" value="Submit" onClick={()=> setModalShow(true)}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Submit
                         </Button> : null }
-                        {/* type="submit" value="Submit"*/}
+                        {/* */}
                         {/*sementara pakai button, nanti saat sdh ada fungsi, modal masukin ke fungsi*/}
                         <MyVerticallyCenteredModal show={modalShow} onHide={()=> setModalShow(false)}
                             />
