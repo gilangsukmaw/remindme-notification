@@ -9,6 +9,7 @@ const CreateTask = () => {
   const [noteData, setNoteData] = useState({
     title: "",
     note: "",
+    color: "",
   });
   const onSaveNote = () => {
     console.log(noteData);
@@ -43,6 +44,9 @@ const CreateTask = () => {
         <TimeModal
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
+          onSave={onSaveNote}
+          noteData={noteData}
+          changeColor={(item) => setNoteData({ ...noteData, color: item })}
         />
       )}
       {step === "GoBacktoNoteModal" && (

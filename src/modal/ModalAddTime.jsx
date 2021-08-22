@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import { Link } from "react-router-dom";
 import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
 import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-export default function TimeModal({ onClose, changeStep }) {
+export default function TimeModal({
+  onClose,
+  changeStep,
+  changeColor,
+  noteData,
+  onSave,
+}) {
   const [value, onChange] = useState(new Date());
 
   return (
     <div className="time__outside modal-backdrop">
-      <div className="time__container">
+      <div
+        className="time__container"
+        style={{ backgroundColor: `${changeColor}` }}
+        value={noteData.color}
+      >
         <div className="time__wrapper">
           <div className="time__title">
             <h1>Pick Date</h1>
