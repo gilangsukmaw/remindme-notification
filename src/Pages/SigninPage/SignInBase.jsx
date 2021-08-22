@@ -7,6 +7,7 @@ import gambar3 from '../../assets/images/Illustrasi [Recovered] 1-1.png'
 import { useState } from "react"
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import './modal.scss'
 
 
 function SignInUpPage() {

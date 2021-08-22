@@ -48,9 +48,9 @@ return (
         </p>
     </Modal.Body>
     <Modal.Footer>
-        <Link to="/"><Button variant='warning'
-                style={{padding:'0.5rem 2rem 0.5rem 2rem', borderRadius:'35px', fontWeight:'700'}}
-                onClick={props.onHide}>Let’s Get It</Button></Link>
+        <Link to="/"><button className='ButtonUngu' 
+                style={{height:'2rem', padding:'0.5rem 2rem 2rem 2rem', borderRadius:'35px', fontWeight:'700'}}
+                onClick={props.onHide}>Let’s Get It</button></Link>
     </Modal.Footer>
 </Modal>
 );
@@ -152,31 +152,31 @@ return (
                         </Form.Group>
                         : null}
                     </Form.Group>
-
+                    </Form>
                     {/* --------------------------------Button--------------------------------- */}
-                    <div className='signUpButton justify-content-between'>
-                        { page === 1 ? <Button  variant="outline-warning" onClick={ganti}
+                    <div className='signUpButton justify-content-between' style={{width:'100%'}}>
+                        { page === 1 ? <button className='ButtonUnguOutline'   variant="outline-warning" onClick={ganti}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Home
-                        </Button> : <Button variant="warning" onClick={()=> setPage(page-1)}
+                        </button> : <button className='ButtonUngu'  onClick={()=> setPage(page-1)}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Prev
-                        </Button> }
-                        {page === 5 ? null : <Button variant="warning" onClick={()=> setPage(page+1)}
+                        </button> }
+                        {page === 5 ? null : <button className='ButtonUngu'  variant="warning" onClick={()=> setPage(page+1)}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Next
-                        </Button> }
-                        {page === 5 ? <Button variant="warning"  type="submit" value="Submit" onClick={()=> setModalShow(true)}
+                        </button> }
+                        {page === 5 ? <button className='ButtonUngu'  variant="warning"   onClick={()=> setModalShow(true)}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Submit
-                        </Button> : null }
-                        {/* */}
+                        </button> : null }
+                        {/* type="submit" value="Submit"*/}
                         {/*sementara pakai button, nanti saat sdh ada fungsi, modal masukin ke fungsi*/}
                         <MyVerticallyCenteredModal show={modalShow} onHide={()=> setModalShow(false)}
                             />
                             
                     </div>
-                </Form>
+                
 {/* <h1>{page}</h1> */}
             </div>
 

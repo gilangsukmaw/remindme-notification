@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Col, Carousel, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
+import './modal.scss'
 
 
 function SignIn() {
@@ -61,9 +62,9 @@ function SignIn() {
                         </Form.Group>
                     </div>
 
-                    <Button variant="warning" type="submit" style={{width:'100%', borderRadius:'35px'}}>
+                    <button className='ButtonUngu'   type="submit" style={{width:'100%', borderRadius:'35px'}}>
                         Sign In
-                    </Button>
+                    </button>
                 </Form>
             </div>
 
