@@ -15,14 +15,14 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <CreateTask />
-        {/* <ModalDetailNote /> */}
         <NewUser />
         {/* <ModalAddTime /> */}
         {/* <TaskModal /> */}
         {/* <ModalNote /> */}
-        {/* <SaveChanges /> */}
-        {/* <Delete /> */}
+        <CreateTask />
+        <ModalDetailNote />
+        <SaveChanges />
+        <Delete />
         <router />
       </BrowserRouter>
     </div>

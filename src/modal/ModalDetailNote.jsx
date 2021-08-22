@@ -38,9 +38,13 @@ function DetailNote({ closeDetailNote }) {
         <div className="detailNote__reminder">
           <div className="detailNote__date">
             <h3>Date</h3>
+            <h6>13.06.2021</h6>
           </div>
           <div className="detailNote__time">
-            <h3>Time</h3>
+            <div className="detailNote__clock">
+              <h3>Time</h3>
+              <h6>11:30</h6>
+            </div>
             <img src={notifLogo} alt="" />
           </div>
         </div>

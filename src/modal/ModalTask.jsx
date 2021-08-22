@@ -6,8 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/styles/ModalTask.scss";
 
 export default function CreateTask({ onClose, changeStep }) {
-  // const [openCreateNote, setOpenCreateNote] = useState(false);
-  // const [openCreateGoals, setOpenCreateGoals] = useState(false);
   return (
     <div className="task__outside modal-backdrop">
       <div className="task__container position-relative">
@@ -24,13 +22,13 @@ export default function CreateTask({ onClose, changeStep }) {
               onClick={() => changeStep("InputNote")}
             >
               <img src={noteLogos} alt="" />
-              <p>Note</p>
+              Note
             </button>
           </div>
           <div className="task__button__goals">
             <button className="task__goals">
               <img src={goalsLogo} alt="" />
-              <p>Goals</p>
+              Goals
             </button>
           </div>
         </div>
@@ -38,7 +36,3 @@ export default function CreateTask({ onClose, changeStep }) {
     </div>
   );
 }
-
-// export default function TaskModal() {
-//
-// }

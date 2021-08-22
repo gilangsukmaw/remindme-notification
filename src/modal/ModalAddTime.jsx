@@ -6,7 +6,7 @@ import "../assets/styles/ModalAddTime.scss";
 import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-export default function TimeModal({ onClose }) {
+export default function TimeModal({ onClose, changeStep }) {
   const [value, onChange] = useState(new Date());
 
   return (
@@ -36,12 +36,15 @@ export default function TimeModal({ onClose }) {
             <p>Notification</p>
           </button>
           <div className="time__button2">
-            <button className="time__save">Save</button>
+            <button
+              className="time__save"
+              onClick={() => changeStep("GoBacktoNoteModal")}
+            >
+              Save
+            </button>
             <button
               className="time__cancel"
-              onClick={() => {
-                onClose("");
-              }}
+              onClick={() => changeStep("GoBacktoNoteModal")}
             >
               Cancel
             </button>

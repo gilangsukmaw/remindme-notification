@@ -12,10 +12,6 @@ export default function NoteModal({
   onSave,
   changeStep,
 }) {
-  const [background, setBackground] = useState("#F1F4FA");
-  const setStyle = (background) => {
-    setBackground(background);
-  };
   return (
     <div className="note__outside modal-backdrop">
       <div className="note__container position-relative">
@@ -54,11 +50,7 @@ export default function NoteModal({
           </div>
           <div className="note__color">
             <h5>Choose your card</h5>
-            <button
-              onMouseEnter={() => setStyle("#FFBCC2")}
-              onMouseOut={() => setStyle("#F1F4FA")}
-              className="color1"
-            ></button>
+            <button className="color1"></button>
             <button className="color2"></button>
             <button className="color3"></button>
             <button className="color4"></button>
@@ -73,20 +65,3 @@ export default function NoteModal({
     </div>
   );
 }
-
-// export default function ModalNote() {
-//   const [openModalNote, setOpenModalNote] = useState(false);
-//   return (
-//     <div className="note__center">
-//       <button
-//         className="openNote"
-//         onClick={() => {
-//           setOpenModalNote(true);
-//         }}
-//       >
-//         Note
-//       </button>
-//       {openModalNote && <NoteModal closeNote={setOpenModalNote} />}
-//     </div>
-//   );
-// }
