@@ -11,10 +11,10 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 function SettingGoalsCard() {
-    var utc = require('dayjs/plugin/utc')
+var utc = require('dayjs/plugin/utc')
 dayjs.extend(utc)
-    const [modalShow, setModalShow] = React.useState(false);
-    const [startDate, setStartDate] = useState(new Date());
+const [modalShow, setModalShow] = React.useState(false);
+const [startDate, setStartDate] = useState(new Date());
 
 
 function SettingGoalsCard(props) {
@@ -26,11 +26,13 @@ return (
 
 
 
-    <Modal className='GoalSetting shadow' {...props} size="lg"
-        aria-labelledby="contained-modal-title-vcenter" centered>
+    <Modal className='GoalSetting shadow' {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <div className='SetGoalsContainer shadow text-dark'>
+        <Modal.Header closeButton style={{alignItems: 'flex-start'}}>
+        <h1 style={{fontSize:'1.8rem',fontWeight:'600', padding:'0'}} className='mb-4'>My Goal</h1>
+        </Modal.Header>
+
             <Form>
-                <h1 style={{fontSize:'1.8rem',fontWeight:'600'}} className='mb-4'>My Goal</h1>
 
                 <Form.Group className="mb-4" controlId="GoalText">
                     <Form.Control className="Goals__Title" type="text" placeholder="What is Your Goal?" />
@@ -58,13 +60,16 @@ return (
                     <Col className='kolomCalendar' style={{maxWidth:'45%', }}>
                     <SplitButton disabled align="end" className='ChooseValue mb-3'
                         style={{float:'left', paddingLeft:'0.5rem', borderRadius:'10px' , border:'1px solid #B6C6E5'}}
-                        title={dayjs().format('DD/MM/YYYY')} id="ChooseValue"></SplitButton>
-                    <div className='mt-5' style={{paddingLeft:'0.2rem'}}>
-                        {dayjs().format()} 
+                        title={dayjs(`${startDate}`).format('DD/MM/YYYY')} id="ChooseValue">
+
+                        </SplitButton>
+                    <div className='MonthYear mb-3 mt-5' style={{}}>
+                        <div>{dayjs(`${startDate}`).format('MMM,')}</div>
+                        
+                        <div style={{paddingLeft:'0.25rem'}}>{dayjs(`${startDate}`).format('YYYY')}</div>
                     </div>
                     <div className="Goals__calendar " style={{float:'left'}}>
-                        <Calendar
-                          onChange={(date) => setStartDate(date)}/> 
+                        <Calendar onChange={(date)=> setStartDate(date)}/>
                     </div>
                     </Col>
                     <Col className='kolomValue  ' style={{maxWidth:'30%', }}>
@@ -103,39 +108,41 @@ return (
                     <p style={{fontSize:'1.3rem', fontWeight:'600'}}>Choose Progress bar Color</p>
                 </div>
                 <div className='ColorPicker'>
-                    <button style={{backgroundColor:'#FFBCC2'}} onClick={()=> setbColor('#FFBCC2')}></button>
-                    <button style={{backgroundColor:'#FCF3A1'}} onClick={()=> setbColor('#FCF3A1')}></button>
-                    <button style={{backgroundColor:'#B1A8FF'}} onClick={()=> setbColor('#B1A8FF')}></button>
-                    <button style={{backgroundColor:'#FF8888'}} onClick={()=> setbColor('#FF8888')}></button>
-                    <button style={{backgroundColor:'#CCF0D7'}} onClick={()=> setbColor('#CCF0D7')}></button>
+                    <Button style={{backgroundColor:'#FFBCC2'}} onClick={()=> setbColor('#FFBCC2')}></Button>
+                    <Button style={{backgroundColor:'#FCF3A1'}} onClick={()=> setbColor('#FCF3A1')}></Button>
+                    <Button style={{backgroundColor:'#B1A8FF'}} onClick={()=> setbColor('#B1A8FF')}></Button>
+                    <Button style={{backgroundColor:'#FF8888'}} onClick={()=> setbColor('#FF8888')}></Button>
+                    <Button style={{backgroundColor:'#CCF0D7'}} onClick={()=> setbColor('#CCF0D7')}></Button>
                 </div>
+                {/* <h1>{`${bColor}`}</h1> */}
+
                 <div className='d-flex justify-content-center'>
                     <Button type="submit" className='mt-3'
                         style={{width:'100%', fontWeight:'700',height:'3rem', borderRadius:'35px'}}
                         variant='warning'>Save</Button>
                 </div>
             </Form>
-            <div className='mt-5' style={{paddingLeft:'0.2rem'}}>
-                        {dayjs().format('YYYY-MM-DDTHH:mm:ssZ[Z]')} 
-                    </div>
-                    <div className="Goals__calendar " style={{float:'left'}}>
-                    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-                        <Calendar
-                         selected={startDate} onChange={(date) => setStartDate(date)}/> 
-                    </div>
+
+            {/* <div className='mt-5' style={{paddingLeft:'0.2rem'}}>
+                <h1>{dayjs(`${startDate}`).format('YYYY-MM-DDTHH:mm:ssZ[Z]')}</h1>
+            </div>
+            <div className="Goals__calendar " style={{float:'left'}}>
+                <DatePicker selected={startDate} onChange={(date)=> setStartDate(date)} />
+                    <Calendar selected={startDate} onChange={(date)=> setStartDate(date)}/>
+            </div> */}
         </div>
     </Modal>
-    </>
-    )
-    }
-    return (
-        <div>
-            
-            <Button onClick={()=> setModalShow(true)}>SettingGoalsCard (Tombol Sementara)</Button>
-            <SettingGoalsCard show={modalShow} onHide={()=> setModalShow(false)} />
+</>
+)
+}
+return (
+<div>
 
-        </div>
-    )
+    <Button onClick={()=> setModalShow(true)}>SettingGoalsCard (Tombol Sementara)</Button>
+    <SettingGoalsCard show={modalShow} onHide={()=> setModalShow(false)} />
+
+</div>
+)
 
 }
 

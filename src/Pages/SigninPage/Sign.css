@@ -107,6 +107,11 @@
     
 }
 
+.RightBox{
+    width: auto !important;
+    align-content: flex-start ;
+}
+
 
 @media screen and (max-width: 1440px) {
     .SignUpQuestion {
@@ -262,4 +267,20 @@
         font-size: 0.9rem !important;
         
     }
+}
+
+@media screen and (max-width: 576px) {
+
+.BigContainer{
+    flex-direction: column;
+
+}
+.LeftBox{
+    width: auto ;
+
+}
+.RightBox{
+    width: auto ;
+    align-content: center ;
+}
 }

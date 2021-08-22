@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Col, Carousel, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
+import { Container, Col, Carousel} from 'react-bootstrap';
 import './Sign.css'
 import gambar1 from '../../assets/images/Ilustrasi Tangan.png'
 import gambar2 from '../../assets/images/Illustrasi [Recovered] 1.png'
@@ -11,8 +11,7 @@ import SignUp from './SignUp';
 
 function SignInUpPage() {
 const [SignUpPage, setSignUpPage] = useState(true);
-const [show, setShow] = useState(false);
-const handleSignUpPage = () => setSignUpPage(false);
+
 
 
 
