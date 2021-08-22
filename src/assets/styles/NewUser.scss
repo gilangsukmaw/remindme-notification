@@ -12,6 +12,26 @@ $font-family: 'Poppins', sans-serif;
     font-family: $font-family;
 }
 
+// .newUser__container {
+//     // background-color: rgba(200, 200, 200, 0.5);
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: flex-end;
+// }
+
+.newUser__page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.newUser__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 .newUser__intro {
     @include flex-box();
 }
@@ -26,44 +46,76 @@ $font-family: 'Poppins', sans-serif;
 }
 
 .newUser__card {
-    @include flex-box();
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.newUser__card__logo {
+.newUser__card__calendar {
     background-color: #F1F4FA ;
+    padding: 20px;
     border-radius: 20px;
-    text-align: center;
-    h4 {
-        font-size: 22px;
-        font-weight: 500;
-        line-height: 33px;
-        margin: 0;
+    .newUser__card__exp {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+        button {
+            width: 20px;
+            height: 30px;
+        }
+        button.exp__today {
+        background: #625BAD;
+        border-radius: 10px;
+        }
+        button.exp__chosen {
+        background: #B6C6E5;
+        border-radius: 10px;
+        margin-left: 2rem;
+        }
     }
-    h5 {
-        font-size: 18px;
-        font-weight: 300;
-        line-height: 27px;
-        margin-top: 0;
+    .calendarWrapper {
+        width: 400px;
+        height: 350px;
+        
+        .calendarHeader {
+            border-bottom: none;
+            
+            .calendarHeaderButtons {
+                margin: 0;
+                
+        }
+            h1 {
+                margin: 1rem auto;
+                font-size: 30px;
+                padding-left: 1em;
+            }
+        }
+        .dailyTimeLineWrapper {
+            height: 220px;
+        }
+//=======================
+        .modeWrapper {
+            button {
+                display: none;
+            }
+        }
+//=======================
+            .weekRow {
+                border-bottom: none;
+                .dayCell {
+                    height: 3rem;
+                    text-align: center;
+                    .dayDate {
+                        .currentDay {
+                        background: #625BAD;
+                        border-radius: 10px;
+                        width: 20px;
+                        height: 30px;
+                         span {
+                             color: white;
+                         }
+                        }
+                    }
+                }
+            }
+        }
     }
-}
-
-.react-calendar {
-    border: none;
-    height: 28em;
-    line-height: 2em;
-    background-color: #F1F4FA;
-    border-radius: 20px;
-    margin-left: 27px;
-    font-size: 12px;
-    font-weight: 400;
-    &__tile--active {
-        border-radius: 20px;
-    background: #625BAD;
-    height: 43.01px;
-    }
-    &__tile--active:enabled:hover, &__tile--active:enabled:focus {
-        border-radius: 20px;
-    background: #625BAD;
-    height: 43.01px;
-    }
-}

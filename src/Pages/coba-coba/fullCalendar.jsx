@@ -37,8 +37,9 @@ return (
     <div style={{maxWidth:'40rem', maxHeight:'20rem'}}>
         <h1>({today})</h1>
         {dayjs().format()}
-        <Calendar events={events} />
-
+        <div className='EventCalendar'>
+        <Calendar className='EventCalendar' events={events} />
+        </div>
 
 
     </div>

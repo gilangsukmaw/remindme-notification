@@ -1,0 +1,188 @@
+//variabel
+$color-card1: #FFBCC2;
+$color-card2: #FCF3A1;
+$color-card3: #D1CDFA;
+$color-card4: #FF8888;
+$color-card5: #CCF0D7;
+
+$font-family: 'Poppins', sans-serif;
+$color-text: #342D50;
+$time-background: #FFBCC2;
+$font-family: 'Poppins', sans-serif;
+
+* {
+    font-family: $font-family;
+}
+
+* {
+    color: $color-text;
+}
+//mixin
+@mixin note__color {
+        border-radius: 21px;
+    &:hover, &:focus, &:active {
+        background-color: #625BAD;
+        color: white;
+        border: 1px solid #625BAD;
+    }
+}
+
+@mixin detail__button {
+    background-color: #B6C6E5;
+    border: none;
+    border-radius: 21px;
+    color: #ffffff;
+    height: 50px;
+    width: 100%;
+    // max-width: 169px;
+    &:hover, &:active, &:focus {
+        background-color: #625BAD;
+        
+    }
+}
+
+.detailNote__outside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        &.modal-backdrop {
+        background-color: rgba(200, 200, 200,0.5);
+    }
+}
+
+.detailNote__close {
+    button {
+        background: none;
+        border: none;
+        font-size: 30px;
+        img {
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+    }
+
+}
+
+.detailNote__wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+
+.detailNote__container {
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    width: 400px;
+    background-color: $color-card1;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-evenly;
+}
+
+.detailNote__top {
+    width:60%;
+    h1 {
+        font-size: 30px;
+        font-weight: 500;
+        font-style: normal;
+        margin: 0;
+    }
+}
+
+.detailNote__icon {
+    width: 40%;
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    button {
+        background: none;
+        border: none;
+        width: 30px;
+    }
+}
+
+.detailNote__title {
+    h2 {
+    font-size: 26px;
+    }
+}
+
+.detailNote__reminder {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 50%;
+    margin: 1rem 0;
+    h3 {
+        font-size: 20px;
+    }
+}
+
+.detailNote__time {
+    display: flex;
+    flex-direction: row;
+    img {
+        width: 27px;
+        height: 27px;
+        margin-left: 0.5rem;
+    }
+}
+
+.detailNote__titleContent {
+    h3 {
+        font-size: 22px;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
+.detailNote__content {
+    p {
+        font-size: 14px;
+    }
+}
+
+.detailNote__color {
+    height: 3rem;
+    button {
+        @include note__color();
+        box-shadow: inset 0px 1px 10px rgba(0, 0, 0, 0.1);
+        width: 40px;
+        height: 40px;
+        border: none;
+        margin-right: 0.8rem;
+        &.color0 {
+            background-color: #ffffff;
+        }
+        &.color1 {
+            background-color: $color-card1;
+        }
+        &.color2 {
+            background-color: $color-card2;
+        }
+        &.color3 {
+            background-color: $color-card3;
+        }
+        &.color4 {
+            background-color: $color-card4;
+        }
+        &.color5 {
+            background-color: $color-card5;
+        }
+    }
+}
+
+.detailNote__button {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    button {
+        @include detail__button();
+        margin: 0.5rem 0;
+        font-size: 20px;
+        font-weight: 600;
+        font-style: normal;
+    }
+}
