@@ -121,6 +121,7 @@ $color-text: #625BAD;
         height: 40px;
         border: none;
         margin-right: 0.8rem;
+        
         &.color1 {
             background-color: $color-card1;
         }
@@ -145,6 +146,7 @@ $color-text: #625BAD;
     justify-content: center;
     margin: 1rem auto;
     button {
+        background-color: transparent;
         @include time__button();
         width: 129px;
         font-size: 20px;
