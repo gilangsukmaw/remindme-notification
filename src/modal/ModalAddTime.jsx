@@ -12,7 +12,7 @@ export default function TimeModal({
   noteData,
   onSave,
 }) {
-  const [value, onChange] = useState(new Date());
+  const [newEvent, setNewEvent] = useState({ start: "", end: "" });
 
   return (
     <div className="time__outside modal-backdrop">
@@ -47,7 +47,11 @@ export default function TimeModal({
           <div className="time__button2">
             <button
               className="time__save"
-              onClick={() => changeStep("GoBacktoNoteModal")}
+              onClick={() => {
+                changeStep("GoBacktoNoteModal");
+                onSave();
+                // handleAddEvent();
+              }}
             >
               Save
             </button>
@@ -63,20 +67,3 @@ export default function TimeModal({
     </div>
   );
 }
-
-// export default function ModalAddTime() {
-//   const [openAddTime, setOpenAddTime] = useState(false);
-//   return (
-//     <div className="time__center">
-//       <button
-//         className="openModal"
-//         onClick={() => {
-//           setOpenAddTime(true);
-//         }}
-//       >
-//         Add Time
-//       </button>
-//       {openAddTime && <TimeModal closeModal={setOpenAddTime} />}
-//     </div>
-//   );
-// }
