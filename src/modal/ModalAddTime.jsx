@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Calendar from "react-calendar";
 import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
 import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.css";
+import CobaCalendar from "../../src/Calendar";
 
 export default function TimeModal({
   onClose,
@@ -36,7 +36,7 @@ export default function TimeModal({
             </div>
           </div>
           <div className="time__calendar">
-            <Calendar onChange={onChange} value={value} />
+            <CobaCalendar />
           </div>
         </div>
         <div className="time__button">

@@ -1,8 +1,8 @@
 import React from "react";
-import Calendar from "react-awesome-calendar";
 import RemindmeLogo from "../../assets/images/RemindmeLogo.png";
 import welcomeLogo from "../../assets/images/welcomeLogo.png";
 import "../../assets/styles/NewUser.scss";
+import CobaCalendar from "../../Calendar";
 
 const NewUser = () => {
   return (
@@ -23,7 +23,7 @@ const NewUser = () => {
               <img src={welcomeLogo} alt="" />
             </div>
             <div className="newUser__card__calendar">
-              <Calendar />
+              <CobaCalendar />
               <div className="newUser__card__exp">
                 <button className="exp__today"></button>
                 <p>Today</p>

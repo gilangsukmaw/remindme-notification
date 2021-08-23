@@ -37,7 +37,6 @@ $time-background: #FFBCC2;
     display: flex;
     justify-content: space-between;
     color: $color-text;
-    margin-bottom: 2rem;
     button {
         @include time__button();
     }
@@ -94,6 +93,9 @@ $time-background: #FFBCC2;
 .time__wrapper {
     height: 100%;
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 button.time__save, button.time__cancel {
@@ -141,43 +143,23 @@ button.time__save {
 }
 
 .time__calendar{
-    .react-calendar {
-        margin:0;
-        padding: 0;
-        line-height: 1.5em;
-        width: 100%;
+    padding-top: 2rem;
+    background-color: $time-background;
+    .calendar {
+        width: 350px;
+        border-radius: 20px;
         height: auto;
         background-color: $time-background;
-        border: none;
-        button {
-            color: #342D50;
-            font-size: 16px;
-            font-weight: 300;
-            border-radius: 50%;
-            &:hover, &:active, &:focus {
-                background-color: #625BAD;
-                color: #ffffff;
-            }
-            .react-calendar__navigation__label {
-                display: none;
-            }
-        }
-        &__navigation {
-            display: none;
-            height: 0;
-        &__arrow {
+        .header {
             display: none;
         }
+        .body {
+            background-color: $time-background;
+        }
+        .day {
+            .before {
+                color: $color-text;
+            }
+        }
     }
-    &__navigation__label__labelText {
-        display: none;
-    }
-    &__tile--now {
-        background: #B6C6E5 ;
-      }
-    &__tile--active{
-    background-color: #625BAD;
-    color: #ffffff;
-    }
-}
 }
