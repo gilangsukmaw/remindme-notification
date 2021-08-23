@@ -43,7 +43,7 @@
 
 .ButtonUngu {
     
-        border: 1px solid #625BAD !important;
+        border: 1px solid #625BAD ;
         border-radius: 40px;
         background-color: #625BAD;
         color: #ffffff;
@@ -53,10 +53,31 @@
 
 .ButtonUnguOutline {
     
-    border: 1px solid #625BAD !important;
+    border: 1px solid #625BAD ;
     border-radius: 40px;
-    
     color: #625BAD;
     height: 2.5rem;
 
+}
+
+.CarouselBox{
+
+.carousel-indicators {
+    margin-bottom: -1.5rem ;
+    /* background: black !important; */
+
+}
+
+.carousel-indicators .active {
+    background-color: #625AAD;
+}
+
+
+.carousel-indicators button {
+    border-radius: 50% ;
+    width: 10px ;
+    height: 10px;
+    background-color: #C4C4C4 ;
+    
+}
 }

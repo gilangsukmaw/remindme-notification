@@ -70,24 +70,6 @@
     line-height: 2rem;
 }
 
-.carousel-indicators {
-    margin-bottom: -1.5rem !important;
-    /* background: black !important; */
-
-}
-
-.carousel-indicators .active {
-    background-color: #625AAD !important;
-
-}
-
-.carousel-indicators button {
-    border-radius: 50% !important;
-    width: 10px !important;
-    height: 10px !important;
-    background-color: #C4C4C4 !important;
-
-}
 
 .signUpButton {
     margin-top: 1rem;
@@ -108,7 +90,7 @@
 }
 
 .RightBox{
-    width: auto !important;
+    width: auto ;
     align-content: flex-start ;
 }
 

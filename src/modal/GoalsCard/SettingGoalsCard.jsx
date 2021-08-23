@@ -28,9 +28,9 @@ return (
 
     <Modal className='GoalSetting shadow' {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <div className='SetGoalsContainer shadow text-dark'>
-        <Modal.Header closeButton style={{alignItems: 'flex-start'}}>
-        <h1 style={{fontSize:'1.8rem',fontWeight:'600', padding:'0'}} className='mb-4'>My Goal</h1>
-        </Modal.Header>
+            <Modal.Header closeButton style={{alignItems: 'flex-start'}}>
+                <h1 style={{fontSize:'1.8rem',fontWeight:'600', padding:'0'}} className='mb-4'>My Goal</h1>
+            </Modal.Header>
 
             <Form>
 
@@ -58,14 +58,15 @@ return (
                 <div className='d-flex flex-row justify-content-between'>
 
                     <Col className='kolomCalendar' style={{maxWidth:'45%', }}>
-                    <SplitButton disabled align="end" className='ChooseValue mb-3'
+                    <div className='ChooseTime mb-3'
                         style={{float:'left', paddingLeft:'0.5rem', borderRadius:'10px' , border:'1px solid #B6C6E5'}}
-                        title={dayjs(`${startDate}`).format('DD/MM/YYYY')} id="ChooseValue">
-
-                        </SplitButton>
+                        id="ChooseTime">
+                        <div style={{padding: '0.45rem 0 0  1.25rem',}}>{dayjs(`${startDate}`).format('DD/MM/YYYY')}
+                        </div>
+                    </div>
                     <div className='MonthYear mb-3 mt-5' style={{}}>
                         <div>{dayjs(`${startDate}`).format('MMM,')}</div>
-                        
+
                         <div style={{paddingLeft:'0.25rem'}}>{dayjs(`${startDate}`).format('YYYY')}</div>
                     </div>
                     <div className="Goals__calendar " style={{float:'left'}}>
@@ -104,7 +105,7 @@ return (
                     </Col>
 
                 </div>
-                <div className="mt-3">
+                <div className="mt-4">
                     <p style={{fontSize:'1.3rem', fontWeight:'600'}}>Choose Progress bar Color</p>
                 </div>
                 <div className='ColorPicker'>
@@ -116,10 +117,9 @@ return (
                 </div>
                 {/* <h1>{`${bColor}`}</h1> */}
 
-                <div className='d-flex justify-content-center'>
-                    <Button type="submit" className='mt-3'
-                        style={{width:'100%', fontWeight:'700',height:'3rem', borderRadius:'35px'}}
-                        variant='warning'>Save</Button>
+                <div className='SaveButton d-flex justify-content-center'>
+                    <Button type="submit" className='mt-4'
+                        style={{width:'100%', fontWeight:'700',height:'3rem', borderRadius:'35px'}}>Save</Button>
                 </div>
             </Form>
 

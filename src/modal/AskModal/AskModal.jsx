@@ -29,11 +29,11 @@ return (
                 delete this note?
             </p>
         </Modal.Body>
-        <Modal.Footer className='d-flex justify-content-center' style={{width:'90%'}}>
-            <Link to="#"><Button variant='outline-warning' className='YesButton'
+        <Modal.Footer className='AskButton d-flex justify-content-center' style={{width:'90%'}}>
+            <Link to="#"><Button  className='YesButton' id='YesButton'
                 style={{marginRight:'0.35rem',padding:'0.5rem 2rem 0.5rem 2rem',height:'3.5rem' , width:'8rem', borderRadius:'35px', fontWeight:'700', fontSize:'1.5rem'}}
                 onClick={props.onHide}>Yes</Button></Link>
-            <Link to="#"><Button variant='warning'
+            <Link to="#"><Button 
                 style={{marginLeft:'0.35rem',padding:'0.5rem 2rem 0.5rem 2rem',height:'3.5rem' , width:'8rem', borderRadius:'35px', fontWeight:'700', fontSize:'1.5rem'}}
                 onClick={props.onHide}>No</Button></Link>
         </Modal.Footer>
@@ -45,7 +45,7 @@ return (
 }
 
 return (
-<div>
+<div >
 
     <Button onClick={()=> setModalShow(true)}>AskModal Modal (Tombol Sementara)</Button>
     <AskModal show={modalShow} onHide={()=> setModalShow(false)} />

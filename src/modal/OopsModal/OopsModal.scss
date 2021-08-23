@@ -1,10 +1,21 @@
-
-
+.OkButton {
+    .btn-primary {
+    border: 1px solid #625BAD ;
+        border-radius: 40px;
+        background-color: #625BAD;
+        color: #ffffff;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: #625BAD;
+            color: #ffffff;
+}
+}
+}
 .OopsModal{
     background-color: rgba(241, 244, 250, 0.8);
     backdrop-filter: blur(3px);
 
-    
    .modal .show{
        background: #F1F4FA;
    }
@@ -28,8 +39,6 @@
         border-bottom: none ;
     }
     
-   
-    
     .modal-content {
         align-items: center ;
         border-radius: 0.75rem ;
@@ -39,8 +48,6 @@
         height: 25rem;
         width: 25rem ;
         box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-
-
     }
     
     // .ModalSignUp p {

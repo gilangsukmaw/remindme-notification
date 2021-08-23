@@ -1,5 +1,24 @@
+.AskButton{
+    .btn-primary {
+        border: 1px solid #625BAD ;
+            border-radius: 40px;
+            background-color: #625BAD;
+            color: #ffffff;
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: #625BAD;
+                color: #ffffff;
+    }
+    }
+}
 
-.YesButton button{
+#YesButton{
+    border: 1px solid #625BAD ;
+    background-color: transparent;
+    border-radius: 40px;
+    color: #625BAD;
+    height: 2.5rem;
     &:hover,
     &:active,
     &:focus {
@@ -7,8 +26,9 @@
         color: #ffffff;
         border-color: transparent;
     }
-
 }
+
+
 .AskModal{
     background-color: rgba(241, 244, 250, 0.7);
     backdrop-filter: blur(3px);

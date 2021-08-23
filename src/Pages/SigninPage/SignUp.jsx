@@ -166,7 +166,7 @@ return (
                             style={{width:'45%', borderRadius:'35px'}}>
                             Next
                         </button> }
-                        {page === 5 ? <button className='ButtonUngu'  variant="warning"   onClick={()=> setModalShow(true)}
+                        {page === 5 ? <button className='ButtonUngu' type="submit" value="Submit" variant="warning"   onClick={()=> setModalShow(true)}
                             style={{width:'45%', borderRadius:'35px'}}>
                             Submit
                         </button> : null }
@@ -176,7 +176,7 @@ return (
                             />
                             
                     </div>
-                
+                  
 {/* <h1>{page}</h1> */}
             </div>
 

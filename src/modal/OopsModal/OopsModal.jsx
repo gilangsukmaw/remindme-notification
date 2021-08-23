@@ -30,8 +30,8 @@ function OopsModal() {
                     please wait a minute
                 </p>
             </Modal.Body>
-            <Modal.Footer>
-                <Link to="#"><Button variant='warning'
+            <Modal.Footer className="OkButton">
+                <Link to="#"><Button 
                         style={{padding:'0.5rem 2rem 0.5rem 2rem',height:'3.5rem' , width:'20rem', borderRadius:'35px', fontWeight:'700', fontSize:'1.5rem'}}
                         onClick={props.onHide}>Ok</Button></Link>
             </Modal.Footer>

@@ -1,4 +1,17 @@
-
+.OkButton{
+    .btn-primary {
+        border: 1px solid #625BAD ;
+            border-radius: 40px;
+            background-color: #625BAD;
+            color: #ffffff;
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: #625BAD;
+                color: #ffffff;
+    }
+    }
+}
 
 .SaveNotes{
     background-color: rgba(241, 244, 250, 0.8);

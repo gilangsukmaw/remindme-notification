@@ -40,6 +40,8 @@
     }
 
     .btn-secondary {
+        border-color: transparent;
+        background-color: #B6C6E5;
         color: rgba(52, 45, 80, 0.5);
     }
 }
@@ -64,6 +66,37 @@
         background-color: transparent;
         border: 1px solid #B6C6E5;
     }
+}
+
+#ChooseTime{
+    background-color: transparent;
+    border: none;
+    color: #342D50 ;
+    height: 2.25rem;
+    width: 9rem;
+    p {
+        margin:0;
+    }
+}
+
+.SaveButton button{
+     border: 1px solid #625BAD ;
+        border-radius: 40px;
+        background-color: #625BAD;
+        color: #ffffff;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: #625BAD;
+            color: #ffffff;
+            // border-color: transparent;
+        }
+}
+
+.ChooseTime{
+    color: #342D50;
+    background-color: transparent;
+
 }
 
 .ChooseValue {
