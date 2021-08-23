@@ -74,7 +74,7 @@ return (
                     </div>
                     </Col>
                     <Col className='kolomValue  ' style={{maxWidth:'30%', }}>
-                    <Form.Select className="PilihSatuan me-sm-2" id="PilihSatuan" style={{ borderRadius:'10px' }}>
+                    <Form.Select className="PilihSatuan me-sm-2" id="PilihSatuan" >
                         <option id="PilihItem" value="0">Select</option>
                         <option id="PilihItem" value="1">ml (Mili Liter)</option>
                         <option id="PilihItem" value="2">km (Kilo Meter)</option>

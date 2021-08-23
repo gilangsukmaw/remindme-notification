@@ -1,0 +1,73 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.calendar {
+    width: 400px;  
+    background-color: #F1F4FA; 
+    height: 350px;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem;
+        .current {
+            font-family: 'Poppins', sans-serif;
+        }
+        .header__left, .header__right {
+            display: flex;
+            justify-content: space-around;
+            width: 30%;
+        }
+    }
+     
+    .body {
+        background-color: #F1F4FA;
+        border-radius: 20px;
+        .day-names {
+        display: flex;
+        height: 100%;
+         .week {
+            position: relative;
+            width: calc(100% / 7);
+            height: 44px;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            z-index: 1;
+            text-align: center;
+            cursor: pointer;
+         }
+        }
+    }
+    .day {
+        position: relative;
+        width: calc(100% / 7);
+        height: 44px;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        z-index: 1;
+        text-align: center;
+        cursor: pointer;
+        .before {
+            color: rgb(197, 190, 190);
+        }
+        .selected {
+            background-color: #625BAD;
+            width: 20px;
+            height: 30px;
+            margin: 0;
+            color: white;
+            border-radius: 20px;
+        }
+        .today {
+            background-color: #d9d9da;
+            width: 20px;
+            height: 30px;
+            margin: 0;
+            border-radius: 20px;
+        }
+    }
+}

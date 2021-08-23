@@ -154,16 +154,16 @@ return (
                     </Form.Group>
                     </Form>
                     {/* --------------------------------Button--------------------------------- */}
-                    <div className='signUpButton justify-content-between' style={{width:'100%'}}>
+                    <div className='signUpButton justify-content-between' style={{width:'100%', }}>
                         { page === 1 ? <button className='ButtonUnguOutline'   variant="outline-warning" onClick={ganti}
-                            style={{width:'45%', borderRadius:'35px'}}>
+                            style={{width:'45%', borderRadius:'35px', fontWeight:'600'}}>
                             Home
                         </button> : <button className='ButtonUngu'  onClick={()=> setPage(page-1)}
-                            style={{width:'45%', borderRadius:'35px'}}>
+                            style={{width:'45%', borderRadius:'35px', fontWeight:'600'}}>
                             Prev
                         </button> }
                         {page === 5 ? null : <button className='ButtonUngu'  variant="warning" onClick={()=> setPage(page+1)}
-                            style={{width:'45%', borderRadius:'35px'}}>
+                            style={{width:'45%', borderRadius:'35px', fontWeight:'600'}}>
                             Next
                         </button> }
                         {page === 5 ? <button className='ButtonUngu' type="submit" value="Submit" variant="warning"   onClick={()=> setModalShow(true)}

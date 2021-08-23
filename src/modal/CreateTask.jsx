@@ -9,7 +9,7 @@ const CreateTask = () => {
   const [noteData, setNoteData] = useState({
     title: "",
     note: "",
-    color: "",
+    // color: "",
   });
   const onSaveNote = () => {
     console.log(noteData);
