@@ -30,10 +30,10 @@ function App() {
         {/* <ModalAddTime /> */}
         {/* <TaskModal /> */}
         {/* <ModalNote /> */}
-        <CreateTask />
+        {/* <CreateTask />
         <ModalDetailNote />
         <SaveChanges />
-        <Delete />
+        <Delete /> */}
        </BrowserRouter>
     </div>
     </>
