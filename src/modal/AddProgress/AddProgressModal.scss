@@ -1,0 +1,116 @@
+.AddProgressModal {
+    // sytle={{maxWidth:'689px', maxHeight:'463px'}} 
+    background-color: rgba(241, 244, 250, 0.7);
+    backdrop-filter: blur(3px);
+
+    .modal-content {
+        background: #F1F4FA;
+        border-radius: 20px;
+        height: 25rem;
+        width: 43rem;
+
+    }
+
+    .modal-header {
+        padding: 1rem;
+        border: 0;
+    }
+
+    .AddProgressTitle {
+        margin-bottom: 0rem;
+    }
+    .PlaceHolder{
+        width: 13.5rem;
+    }
+.SetProgress{
+    padding:0 0 0 5rem ;
+}
+    .modal-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        border: 0;
+        margin: 0;
+        padding: 0 3rem 0 3rem;
+
+        .form-control {
+            background-color: transparent;
+            height: 3rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color:'#342D50';
+        }
+    }
+
+    .modal-footer {
+        justify-content: center;
+        border: 0;
+        padding-bottom: 4rem;
+        padding-top: 0rem;
+        button {
+            width: 28rem;
+            height: 3.75rem;
+        }
+    }
+
+    .ProgressValue {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5rem;
+        width: 100%;
+        height: 50%;
+        justify-content: center;
+    }
+
+    .ValuePlaceholder {
+        display: flex;
+        justify-content: space-around;
+        height: fit-content;
+    }
+
+}
+
+.AddProgressTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+}
+
+.MainTitle {
+    font-weight: 600;
+    margin-top: -1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    
+    .modal-footer {
+        button {
+            width: 32rem;
+        }
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .SetProgress{
+        padding:0 0 0 1.5rem !important ;
+    }
+    .PlaceHolder{
+        width: 10rem !important;
+    }
+    .form-control {
+        background-color: transparent;
+        height: 3rem;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1rem;
+        color:'#342D50';
+    }
+    .modal-footer {
+        button {
+            width: 22rem !important;
+        }
+    }
+}

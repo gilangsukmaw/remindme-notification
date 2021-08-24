@@ -2,6 +2,7 @@ import React from 'react'
 import CircularGoals from '../../component/CircularGoals/CircularGoals'
 import { Container, Col, Carousel} from 'react-bootstrap';
 import Garis from '../../assets/images/GoalDetailLine.png'
+import DetailCircular from '../../component/CircularGoals/DetailCircular';
 
 function AllGoals() {
     return (
@@ -10,10 +11,13 @@ function AllGoals() {
             
             <CircularGoals/>
                 
-
         </div>
+        <br/>
         <div>
             <img style={{width:'100%', height:'15px', padding:'0 2rem 0 2rem'}} src={Garis}></img>
+        </div>
+        <div>
+        <DetailCircular/>
         </div>
         </>
     )

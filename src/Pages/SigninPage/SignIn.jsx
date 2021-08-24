@@ -62,7 +62,7 @@ function SignIn() {
                         </Form.Group>
                     </div>
 
-                    <button className='ButtonUngu'   type="submit" style={{width:'100%', borderRadius:'35px', fontWeight:'600'}}>
+                    <button className='ButtonUngu' data-testid='ButtonSignIn'  type="submit" style={{width:'100%', borderRadius:'35px', fontWeight:'600'}}>
                         Sign In
                     </button>
                 </Form>
