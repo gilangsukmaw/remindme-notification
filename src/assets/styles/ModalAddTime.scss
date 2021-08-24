@@ -9,23 +9,24 @@ $time-background: #FFBCC2;
     border-radius: 21px;
     width: 100%;
     max-width: 169px;
+    color: $color-text;
     &:hover, &:active, &:focus {
         background-color: #625BAD;
         color: #ffffff;
     }
 }
 
+.time__outside {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.modal-backdrop {
+        background-color: rgba(200, 200, 200, 0.5);
 
-
-.modal__container {
-    background-color: #FFBCC2;
+    }
 }
-
-// .modal-time {
-.modal-content {
-    height: 100%;
-}
-// }
 
 .btn-close button {
     border: none;
@@ -41,6 +42,7 @@ $time-background: #FFBCC2;
     }
     h1 {
         font-size: 30px;
+        font-weight: 500;
         padding: 0;
         margin: 0;
     }
@@ -61,6 +63,7 @@ $time-background: #FFBCC2;
         display: flex;
         height: auto;
         p {
+            color: #ffffff;
             margin: 0;
             padding: 0;
         }
@@ -68,8 +71,8 @@ $time-background: #FFBCC2;
     button.notification {
         @include time__button();
         background-color: #B6C6E5;
-        color: #ffffff;
         display: flex;
+        justify-content: center;
         border: none;
     }
 }
@@ -79,7 +82,7 @@ $time-background: #FFBCC2;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 100%;
+    height: 550px;
     padding: 20px;
     width: 594px;
     background-color: $time-background;
@@ -90,15 +93,22 @@ $time-background: #FFBCC2;
 .time__wrapper {
     height: 100%;
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 button.time__save, button.time__cancel {
-    p{
-        text-align: center;
-    }
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
     display: flex;
     justify-content: center;
     @include time__button()
+}
+
+button.time__save {
+    margin-bottom: 1rem;;
 }
 
 .time__button2 {
@@ -127,45 +137,29 @@ button.time__save, button.time__cancel {
     outline: none;
     background-color: $time-background;
     }
+    h3 {
+        color: $color-text;
+    }
 }
 
 .time__calendar{
-    .react-calendar {
-        margin:0;
-        padding: 0;
-        line-height: 1.5em;
-        width: 100%;
+    padding-top: 2rem;
+    background-color: $time-background;
+    .calendar {
+        width: 350px;
+        border-radius: 20px;
         height: auto;
         background-color: $time-background;
-        border: none;
-        button {
-            color: #342D50;
-            font-size: 16px;
-            font-weight: 300;
-            border-radius: 50%;
-            &:hover, &:active, &:focus {
-                background-color: #625BAD;
-                color: #ffffff;
-            }
-            .react-calendar__navigation__label {
-                display: none;
-            }
-        }
-        &__navigation {
-            display: none;
-            height: 0;
-        &__arrow {
+        .header {
             display: none;
         }
-        &__tile--now {
-            background: none;
+        .body {
+            background-color: $time-background;
         }
-        &__tile--active {
-            background-color: #625BAD;
+        .day {
+            .before {
+                color: $color-text;
+            }
         }
-    }
-    &__navigation__label__labelText {
-        display: none;
-    }
     }
 }
