@@ -1,20 +1,19 @@
-import Router from './routes/router';
-import { BrowserRouter } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
-import './Custom.scss'
-
-
-
+import Router from "./routes/router";
+import { BrowserRouter, Switch } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import "./Custom.scss";
+import { Navbar } from "./components/navbar/navbar";
 
 function App() {
   return (
     <>
-    <div >
       <BrowserRouter>
-        <Router />
+        <Navbar />
+        <Switch>
+          <Router />
+        </Switch>
       </BrowserRouter>
-    </div>
     </>
   );
 }
