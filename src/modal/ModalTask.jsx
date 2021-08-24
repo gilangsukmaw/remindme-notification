@@ -26,7 +26,7 @@ export default function CreateTask({ onClose, changeStep }) {
             </button>
           </div>
           <div className="task__button__goals">
-            <button className="task__goals">
+            <button className="task__goals" onClick={() => changeStep("CreateGoals")}>
               <img src={goalsLogo} alt="" />
               Goals
             </button>

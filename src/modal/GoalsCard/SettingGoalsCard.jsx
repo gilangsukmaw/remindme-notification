@@ -1,10 +1,9 @@
 import React from 'react'
 import { useState } from "react"
-import { Modal, Col, Form, Button, FormControl, InputGroup, SplitButton, Dropdown} from 'react-bootstrap';
-import Calendar from 'react-calendar';
+import { Modal, Col, Form, Button, SplitButton} from 'react-bootstrap';
+import CobaCalendar from "../../Calendar";
 import 'react-calendar/dist/Calendar.css';
 import './SettingGoals.scss'
-import DatePicker from "react-datepicker";
 import * as dayjs from 'dayjs'
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -13,7 +12,7 @@ import "react-datepicker/dist/react-datepicker.css";
 function SettingGoalsCard() {
 var utc = require('dayjs/plugin/utc')
 dayjs.extend(utc)
-const [modalShow, setModalShow] = React.useState(false);
+const [modalShow, setModalShow] = React.useState(true);
 const [startDate, setStartDate] = useState(new Date());
 
 
@@ -69,7 +68,7 @@ return (
                         <div style={{paddingLeft:'0.25rem'}}>{dayjs(`${startDate}`).format('YYYY')}</div>
                     </div>
                     <div className="Goals__calendar " style={{float:'left'}}>
-                        <Calendar onChange={(date)=> setStartDate(date)}/>
+                        <CobaCalendar onChange={(date)=> setStartDate(date)}/>
                     </div>
                     </Col>
                     <Col className='kolomValue  ' style={{maxWidth:'30%', }}>
@@ -83,24 +82,6 @@ return (
                         <option id="PilihItem" value="6">Second</option>
                         <option id="PilihItem" value="7">Times</option>
                     </Form.Select>
-
-                    {/* <div className="mt-2">
-                        <SplitButton align="end" className='ChooseValue' title="Select" id="ChooseValue">
-                            <Dropdown.Item eventKey="1">ml (Mili Liter)</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="2">km (Kilo Meter)</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="3">m (Meter)</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="4">Hours</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="5">Minute</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="6">Seconds</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item eventKey="7">Times</Dropdown.Item>
-                        </SplitButton>
-                    </div> */}
                     </Col>
 
                 </div>
@@ -138,8 +119,8 @@ return (
 return (
 <div>
 
-    <Button onClick={()=> setModalShow(true)}>SettingGoalsCard (Tombol Sementara)</Button>
-    <SettingGoalsCard show={modalShow} onHide={()=> setModalShow(false)} />
+    {/* <Button onClick={()=> setModalShow(true)}>SettingGoalsCard (Tombol Sementara)</Button> */}
+<SettingGoalsCard show={modalShow} onHide={()=> setModalShow(false)} />
 
 </div>
 )

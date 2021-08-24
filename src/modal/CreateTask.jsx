@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import SettingGoalsCard from "./GoalsCard/SettingGoalsCard";
 import TimeModal from "./ModalAddTime";
 import NoteModal from "./ModalNote";
 import ModalCreateTask from "./ModalTask";
-import ModalSaveChanges from "./ModalSaveChanges";
+import SaveNotes from "./SaveNotesModal/SaveNotesModal";
 
 const CreateTask = () => {
   const [step, setStep] = useState("");
@@ -24,6 +25,7 @@ const CreateTask = () => {
       >
         Create Task
       </button>
+      {/* step to note */}
       {step === "CreateNote" && (
         <ModalCreateTask
           changeStep={(item) => setStep(item)}
@@ -59,10 +61,18 @@ const CreateTask = () => {
           changeDataNote={(item) => setNoteData({ ...noteData, note: item })}
         />
       )}
-      {step === "SaveSuccess" && (
-        <ModalSaveChanges
-          changeStep={(item) => setStep(item)}
-          onClose={(item) => setStep(item)}
+      {step === "SaveNotes" && (
+        <SaveNotes 
+        changeStep={(item) => setStep(item)}
+        onClose={(item) => setStep(item)}
+        />
+      )}
+
+      {/* step to goals */}
+      {step === "CreateGoals" && (
+        <SettingGoalsCard
+        changeStep={(item) => setStep(item)}
+        onClose={(item) => setStep(item)}
         />
       )}
     </>
