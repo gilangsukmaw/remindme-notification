@@ -8,7 +8,7 @@ import OopsModal from '../../modal/OopsModal/OopsModal';
 import AskModal from '../../modal/AskModal/AskModal';
 import SaveNotes from '../../modal/SaveNotesModal/SaveNotesModal';
 import CircularGoals from '../../component/CircularGoals/CircularGoals';
-
+import NotesUnPinnedCard from '../../component/NotesCard/NotesUnpinned';
 import * as dayjs from 'dayjs'
 
 
@@ -28,6 +28,7 @@ return (
   <br></br>
   <NotesPinnedCard />
   <SettingGoalsCard />
+  <NotesUnPinnedCard/>
 <OopsModal/>
 <AskModal/>
 <SaveNotes/>

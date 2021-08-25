@@ -1,19 +1,19 @@
 import React from 'react'
 import './NotesCard.css'
-import Pin from '../../assets/images/Pin.png'
+import UnPin from '../../assets/images/UnPinned.png'
 import { useState } from "react"
 import { Button, } from 'react-bootstrap';
 
 
 
-function NotesPinnedCard() {
+function NotesUnPinnedCard() {
 
 return (
 <>
-    <div className='CardContainer text-dark' style={{backgroundColor: 'powderblue'}}>
-        <div className='CardTittle d-flex flex-row justify-content-between'>
+    <div className='UnPinnedContainer text-dark' style={{backgroundColor: 'powderblue'}}>
+        <div className='UnPinnedTittle d-flex flex-row justify-content-between'>
             {/* Title diganti dari maping */}
-            <p>Understanding Business Value</p> <img src={Pin}></img>
+            <p>Understanding Business Value</p> <img src={UnPin}></img>
         </div>
         <div className='CardTanggal'>
             {/* tanggal diganti dari maping */}
@@ -32,4 +32,4 @@ return (
 )
 }
 
-export default NotesPinnedCard
+export default NotesUnPinnedCard

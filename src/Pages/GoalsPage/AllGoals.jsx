@@ -19,6 +19,7 @@ return (
     <div>
         <img style={{width:'100%', height:'15px', padding:'0 2rem 0 2rem'}} src={Garis}></img>
     </div>
+   
     <div>
         <DetailCircular />
     </div>

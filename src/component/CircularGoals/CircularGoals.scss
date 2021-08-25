@@ -1,0 +1,87 @@
+// Punya Detail Circular
+.MainContainer {
+    display: flex;
+    flex-direction: column;
+
+    .GoalDetails {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+    }
+}
+
+.detailContainer {
+    display: flex;
+    flex-direction: row;
+
+    .CircularContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .GoalsTitle {
+            p {
+                font-size: 26px;
+                font-weight: 700;
+
+            }
+        }
+    }
+}
+
+.GoalDetails {
+    p {
+        font-size: 34px;
+        font-weight: 700;
+    }
+}
+
+.TargetGoals {
+    p {
+        font-size: 25px;
+        margin-top: -7rem;
+    }
+}
+
+.TargetDetail {
+    display: flex;
+    padding: 1rem;
+    margin-top: -5.5rem;
+
+    .Achievement {
+        border-right: 2px solid;
+        height: auto;
+        padding-right: 0.5rem;
+        margin-right: 0.5rem;
+
+    }
+}
+
+.ProgressList {
+    // padding-left: 10%;
+    // padding-right: 20%;
+    // padding-left: 6rem;
+
+    .ProgressListText p {
+        font-size: 26px;
+        color: rgba(52, 45, 80, 0.6);
+    }
+
+    .MappingBar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        width: 302px;
+        height: 68px;
+
+        p {
+            font-size: 2rem;
+            font-weight: 600;
+            padding-top: 1rem;
+        }
+    }
+}

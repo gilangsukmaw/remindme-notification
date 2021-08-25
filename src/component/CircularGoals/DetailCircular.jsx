@@ -4,11 +4,12 @@ import { useState } from "react"
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import AddProgressModal from '../../modal/AddProgress/AddProgressModal';
+import './CircularGoals.scss'
 
 function DetailCircular(props) {
-    const {id, BackgrounColor, } = props
-    const [colorCard, setcolorCard] = useState()
-    
+const {id, BackgrounColor, } = props
+const [colorCard, setcolorCard] = useState()
+
 
 const color = `${colorCard}`
 function strokeColor () {
@@ -20,24 +21,50 @@ if (color === '#FF8888') {return '#FF586A'};
 } ;
 console.log (strokeColor)
 const percentage = 80;
-    return (
-        <>
-        <div className='Title'>        </div>
-        <Container className='detailContainer d-flex '>
-        <Col style={{ maxWidth: 300, maxHeight: 300, }}>
-        <CircularProgressbar background strokeWidth={5} backgroundPadding={0} value={percentage}
+return (
+<>
+    <div className='MainContainer '>
+        <div className='GoalDetails'>
+            <p>Goal Detail</p>
+            <div className='EditButton'><Button style={{fontSize:'20px',
+fontWeight: '600',border:'0',background: '#625BAD',borderRadius:'21px',height: '38px'
+,width: '129px'}}>Edit Goal</Button></div>
+        </div>
+
+        <Container style={{width:'90%'}} className='detailContainer'>
+            <Col style={{width:'50%'}} className='CircularContainer'>
+            <div className='GoalsTitle'>
+                <p>Goal Title</p>
+            </div>
+            <div className='CicularDetail' style={{ maxWidth: 300, maxHeight: 300, }}>
+                <CircularProgressbar background strokeWidth={5} backgroundPadding={0} value={percentage}
                     text={`${percentage}%`} styles={{path:{stroke:`${strokeColor()}`},trail: {stroke: 'none'}, background: {fill: `${color}`},text: {
         fill: '#342D50',
         fontSize: '25px',},}} />
-
-<AddProgressModal/>
-        </Col>
-        <Col className='Progress List'>
-            <p>History</p>
-        </Col>
+            </div>
+            <div className='TargetGoals'>
+                <p>2000 ml</p>
+            </div>
+            <div className='TargetDetail'>
+                <p className='Achievement'>1450 ml</p>
+                <p>-550 ml</p>
+            </div>
+            <AddProgressModal />
+            </Col>
+            <Col style={{width:'50%'}} className='ProgressList'>
+            <div className='ProgressListText'>
+                <p>History</p>
+            </div>
+            <div className='MappingBar ' style={{background:'#CCF0D7'}}>
+                {/* logo buat maping blm dimasukin */}
+                <p>250 ml</p>
+                {/* text mapping */}
+            </div>
+            </Col>
         </Container>
-        </>
-    )
+    </div>
+</>
+)
 }
 
 export default DetailCircular

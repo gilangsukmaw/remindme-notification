@@ -51,11 +51,12 @@ return (
 }
 
 return (
-<div>
-
-    <Button onClick={()=> setModalShow(true)}> <img className='MainTitle'
+<div className='AddProgressButton' style={{marginBottom:'3.5rem'}}>
+{/* Background Color akan diganti sesuai warna background Detail Progress */}
+    <Button style={{backgroundColor:'pink'}} onClick={()=> setModalShow(true)}> 
+    <img className='AddProgressImg'
             style={{width:'34px', height:'34px', marginRight:'1rem'}} src={Logo}></img>
-        <div className='MainTitle'>Add Progress</div>
+        <div className='AddProgressText'>Add Progress</div>
     </Button>
     <AddProgressModal show={modalShow} onHide={()=> setModalShow(false)} />
 

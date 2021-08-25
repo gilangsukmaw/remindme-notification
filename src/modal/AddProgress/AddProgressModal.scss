@@ -79,10 +79,25 @@
     height: 10%;
 }
 
-.MainTitle {
-    font-weight: 600;
-    margin-top: -1rem;
+.AddProgressButton{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    button{
+        width: 300px;
+        display: flex;
+        font-size: 23px;
+        font-weight: 500;
+        border-radius: 20px;
+        justify-content: center;
+        border: 0;
+        height: 68px;
+        align-items: center;
+    }
+
+
 }
+
 
 
 @media screen and (max-width: 769px) {
