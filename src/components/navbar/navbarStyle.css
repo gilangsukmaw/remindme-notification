@@ -7,10 +7,6 @@
   position: fixed;
 }
 
-body {
-  height: 2000px;
-}
-
 .sidebar ul {
   list-style: none;
 }

@@ -11,11 +11,11 @@ export function Navbar() {
         <ul>
           <div className="headers">
             <img src={pp} alt="" />
-            <p>Amalia</p>
+            <p>Amalia Anrlt</p>
           </div>
           <li className="sidebarItems Task">
             <Link to="/signUp">
-              <FiIcons.FiPlusCircle className="d-block" />
+              <FiIcons.FiPlusCircle />
               <p>Create a Task</p>
             </Link>
           </li>
