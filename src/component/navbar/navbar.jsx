@@ -4,7 +4,7 @@ import logout from "../../assets/images/logout.png";
 import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
-export function Navbar() {
+function Navbar() {
   return (
     <>
       <nav className="sidebar">
@@ -41,7 +41,7 @@ export function Navbar() {
             </Link>
           </li>
           <li className="Logout">
-            <Link to="/signIn">
+            <Link to="/">
               <img src={logout} alt="logout" />
               <span>Logout</span>
             </Link>
@@ -51,3 +51,4 @@ export function Navbar() {
     </>
   );
 }
+export default Navbar;

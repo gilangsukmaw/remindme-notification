@@ -1,9 +1,9 @@
 import Router from "./routes/router";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import "./Custom.scss";
-import { Navbar } from "./components/navbar/navbar";
+import SignInUpPage from "./Pages/SigninPage/SignInBase";
 // import NewUser from "./Pages/CreateTask/NewUser";
 // import ModalTask from "./modal/ModalTask";
 // import ModalNotes from "./modal/ModalNotes";
@@ -19,7 +19,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
         <Switch>
           <Router />
         </Switch>
