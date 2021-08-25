@@ -1,6 +1,6 @@
 import React from "react";
-import pp from "../../img/Ellipse 34.png";
-import logout from "../../img/logout.png";
+import pp from "../../assets/images/Ellipse 34.png";
+import logout from "../../assets/images/logout.png";
 import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -11,10 +11,10 @@ export function Navbar() {
         <ul>
           <div className="headers">
             <img src={pp} alt="" />
-            <p>Amalia Anrlt</p>
+            <p>Amalia Nurlita</p>
           </div>
           <li className="sidebarItems Task">
-            <Link to="/signUp">
+            <Link to="/TaskPage">
               <FiIcons.FiPlusCircle />
               <p>Create a Task</p>
             </Link>

@@ -1,6 +1,6 @@
-import pp from "../../img/Ellipse 34.png";
+import pp from "../../assets/images/Ellipse 34.png";
 import "./profileStyle.css";
-import pencil from "../../img/Vector (2).png";
+import pencil from "../../assets/images/Vector (2).png";
 import { Link } from "react-router-dom";
 const ProfilePage = () => {
   return (
@@ -24,7 +24,7 @@ const ProfilePage = () => {
               <h4>First Name</h4>
               <p>Amalia</p>
               <h4>Last Name</h4>
-              <p> Anrlt</p>
+              <p> Nurlita</p>
               <h4>Username</h4>
               <p>Amalia Anrlt</p>
               <h4>Email</h4>

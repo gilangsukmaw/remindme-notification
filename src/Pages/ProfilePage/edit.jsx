@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import pp from "../../img/Ellipse 34.png";
+import pp from "../../assets/images/Ellipse 34.png";
 import "./editStyle.css";
 export default function Edit() {
   return (
@@ -37,7 +37,7 @@ export default function Edit() {
                 <h5 htmlfor="" className="">
                   Email
                 </h5>
-                <input />
+                <p style={{ fontWeight: "Bold" }}>Amalianurlita97@gmail.com</p>
               </div>
               <div>
                 <h5 htmlfor="" className="">

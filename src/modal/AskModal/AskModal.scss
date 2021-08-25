@@ -1,0 +1,75 @@
+.AskButton{
+    .btn-primary {
+        border: 1px solid #625BAD ;
+            border-radius: 40px;
+            background-color: #625BAD;
+            color: #ffffff;
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: #625BAD;
+                color: #ffffff;
+    }
+    }
+}
+
+#YesButton{
+    border: 1px solid #625BAD ;
+    background-color: transparent;
+    border-radius: 40px;
+    color: #625BAD;
+    height: 2.5rem;
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #625BAD;
+        color: #ffffff;
+        border-color: transparent;
+    }
+}
+
+
+.AskModal{
+    background-color: rgba(241, 244, 250, 0.7);
+    backdrop-filter: blur(3px);
+    
+   .modal .show{
+       background: #F1F4FA;
+   }
+    .modal-dialog {
+
+        width: 100rem;
+        justify-content: center ;
+     }
+
+    .modal-body{
+        margin-top: 2rem;
+        text-align: center;
+        padding: 0;
+        
+    }
+    
+    .modal-header {
+        padding-top: 3.5rem;
+               border-bottom: none ;
+    }
+    
+    .modal-content {
+        align-items: center ;
+        border-radius: 0.75rem ;
+        border: none;
+        box-shadow: 1rem ;
+        background: #F1F4FA;
+        height: 25rem;
+        width: 25rem ;
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+
+
+    }
+  
+    
+    .modal-footer {
+    padding-bottom: 4rem ;
+        border: none ;
+    }
+}

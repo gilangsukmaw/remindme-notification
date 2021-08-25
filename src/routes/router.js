@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import SignInUpPage from "../Pages/SigninPage/SignInBase";
 import ProfilePage from "../Pages/ProfilePage";
 import Edit from "../Pages/ProfilePage/edit";
+import AllGoals from "../Pages/GoalsPage/AllGoals";
+import CreateTask from "../modal/ModalTask";
 
 function Router() {
   return (
@@ -13,6 +15,12 @@ function Router() {
         </Route>
         <Route exact path="/profile">
           <ProfilePage />
+        </Route>
+        <Route exact path="/TaskPage">
+          <CreateTask />
+        </Route>
+        <Route exact path="/AllGoals">
+          <AllGoals />
         </Route>
         <Route exact path="/editprofile">
           <Edit />

@@ -21,6 +21,9 @@ input {
   border: 1px solid #625bad;
   box-sizing: border-box;
   border-radius: 10px;
+  font-weight: bold;
+  color: #342d50;
+  padding-left: 2rem;
 }
 input:focus {
   width: -webkit-fill-available;

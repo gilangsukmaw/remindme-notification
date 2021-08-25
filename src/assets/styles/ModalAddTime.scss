@@ -1,0 +1,165 @@
+//variable
+$font-family: 'Poppins', sans-serif;
+$color-text: #342D50;
+$time-background: #FFBCC2;
+
+//mixin
+@mixin time__button {
+    border: 1px solid #625BAD;
+    border-radius: 21px;
+    width: 100%;
+    max-width: 169px;
+    color: $color-text;
+    &:hover, &:active, &:focus {
+        background-color: #625BAD;
+        color: #ffffff;
+    }
+}
+
+.time__outside {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.modal-backdrop {
+        background-color: rgba(200, 200, 200, 0.5);
+
+    }
+}
+
+.btn-close button {
+    border: none;
+    background-color: none;
+}
+
+.time__title {
+    display: flex;
+    justify-content: space-between;
+    color: $color-text;
+    button {
+        @include time__button();
+    }
+    h1 {
+        font-size: 30px;
+        font-weight: 500;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.time__button {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    button {
+        margin: 0 auto;
+        @include time__button();
+        background-color: $time-background;
+    }
+    .notification {
+        display: flex;
+        height: auto;
+        p {
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    button.notification {
+        @include time__button();
+        background-color: #B6C6E5;
+        display: flex;
+        justify-content: center;
+        border: none;
+    }
+}
+
+.time__container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 550px;
+    padding: 20px;
+    width: 594px;
+    background-color: $time-background;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.time__wrapper {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+button.time__save, button.time__cancel {
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    @include time__button()
+}
+
+button.time__save {
+    margin-bottom: 1rem;;
+}
+
+.time__button2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.time__input {
+    display: flex;
+    .time__date input {
+    border: 1px solid #625BAD;
+    border-radius: 10px;
+    height: 2.5em;
+    width: 150px;
+    margin-right: 2em;
+    outline: none;
+    background-color: $time-background;
+    }
+    .time__time input {
+    border: 1px solid #625BAD;
+    border-radius: 10px;
+    height: 2.5em;
+    width: 100px;
+    outline: none;
+    background-color: $time-background;
+    }
+    h3 {
+        color: $color-text;
+    }
+}
+
+.time__calendar{
+    padding-top: 2rem;
+    background-color: $time-background;
+    .calendar {
+        width: 350px;
+        border-radius: 20px;
+        height: auto;
+        background-color: $time-background;
+        .header {
+            display: none;
+        }
+        .body {
+            background-color: $time-background;
+        }
+        .day {
+            .before {
+                color: $color-text;
+            }
+        }
+    }
+}

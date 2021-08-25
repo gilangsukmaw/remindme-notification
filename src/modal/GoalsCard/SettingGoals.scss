@@ -1,0 +1,266 @@
+.SetGoalsContainer{
+    width: 28rem;
+    height: 55rem;
+    background-color: #F1F4FA;
+    border-radius: 25px;
+    padding: 1.8rem 1.5rem 1.8rem 1.5rem;
+}
+
+.GoalSetting{
+    background-color: rgba(241, 244, 250, 0.8);
+    backdrop-filter: blur(3px);
+.modal-header{
+    padding: 0;
+    border-bottom:0;
+}
+    
+.modal-content {
+    align-items: center ;
+    border: none;
+    background:transparent;
+
+    }
+}
+#GoalText {
+    background-color: transparent;
+    border: 1px solid #B6C6E5;
+    border-radius: 7px;
+    // color: rgba(52, 45, 80, 0.5);
+}
+
+.BuiltorQuitButton {
+    .BuildButton {
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: #625BAD;
+            color: #ffffff;
+            border-color: transparent;
+        }
+    }
+
+    .btn-secondary {
+        border-color: transparent;
+        background-color: #B6C6E5;
+        color: rgba(52, 45, 80, 0.5);
+    }
+}
+
+
+#PilihItem{
+    font-size: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+        background-color: #F1F4FA;
+    border: 1px solid #B6C6E5;
+}
+
+#PilihSatuan {
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid #B6C6E5;
+
+    .option {
+        font-size: 10px;
+        border-radius: 10px;
+        background-color: transparent;
+        border: 1px solid #B6C6E5;
+    }
+}
+
+.PilihSatuan{
+    
+        font-size: 10px;
+        border-radius: 10px;
+        background-color: transparent;
+        border: 1px solid #B6C6E5;
+    
+    .option {
+        font-size: 10px;
+        border-radius: 10px;
+        background-color: transparent;
+        border: 1px solid #B6C6E5;
+    }
+
+    .form-select{
+        border-radius: 10px;
+        background-color: transparent;
+        border: 1px solid #B6C6E5;
+    }
+}
+
+#ChooseTime{
+    background-color: transparent;
+    border: none;
+    color: #342D50 ;
+    height: 2.25rem;
+    width: 9rem;
+    p {
+        margin:0;
+    }
+}
+
+.SaveButton button{
+     border: 1px solid #625BAD ;
+        border-radius: 40px;
+        background-color: #625BAD;
+        color: #ffffff;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: #625BAD;
+            color: #ffffff;
+            // border-color: transparent;
+        }
+}
+
+.ChooseTime{
+    color: #342D50;
+    background-color: transparent;
+
+}
+
+.ChooseValue {
+    width: 80%;
+    float: right;
+
+    .dropdown-divider {
+        margin: 5px;
+        background-color: #625BAD;
+
+    }
+
+    .dropdown-menu {
+        border: 1px solid #B6C6E5;
+        background-color: transparent;
+        border-radius: 10px;
+
+    }
+
+    .dropdown-item {
+        width: 80%;
+        background-color: transparent;
+        font-size: 12px;
+        padding: 0 1rem 0 1rem;
+
+    }
+
+    button {
+        width: 6.75rem;
+        border: 1px solid #B6C6E5;
+        border-radius: 10px;
+
+        .btn-primary {
+
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: #625BAD;
+                color: #ffffff;
+                border-color: transparent;
+            }
+        }
+
+    }
+}
+
+.MonthYear{
+    display: flex;
+    margin: -1.5rem;
+    padding-left:1.75rem ;
+}
+.ColorPicker button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    margin-right: 0.8rem;
+
+    &:active, &:after,&:focus {
+        border: 1px solid #625BAD;
+        background-image: url('../../assets/images/Vector\ 25.png');
+        background-position: 10px 15px; 
+        background-repeat: no-repeat;
+    }
+}
+
+
+
+.Goals__calendar {
+    margin-top: -1.5rem;
+    .react-calendar {
+        
+        width: 300px;
+        margin: 0;
+        padding: 0;
+        // line-height: 1.5em;
+        // width: 100%;
+        // height: auto;
+        background-color: transparent;
+        border: none;
+
+        button {
+            // color: #342D50;
+            font-size: 10px;
+            font-weight: 300;
+            border-radius: 25%;
+
+            &:hover,
+            &:active,
+            &:focus, &:after {
+                background-color: #625BAD;
+                color: #ffffff;
+            }
+
+            .react-calendar__navigation__label {
+                display: none;
+            }
+
+        }
+
+        &__navigation {
+            display: null;
+            height: 0;
+
+            // width: 300px !important;
+            &__arrow {
+                display: none;
+            }
+
+            &__tile--now {
+                background: none;
+            }
+
+            &__tile--active {
+                background-color: #625BAD;
+            }
+        }
+
+        &__navigation__label__labelText {
+            display: none;
+        }
+
+        &__month-view__days {
+            width: 250px;
+        }
+
+        &__month-view__weekdays {
+            width: 250px;
+        }
+
+        &__tile--now {
+            background: #B6C6E5;
+        }
+
+        &__tile--active {
+            background-color: #625BAD;
+            color: #ffffff;
+        }
+
+        &__navigation__label {
+            display: none;
+        }
+
+
+    }
+}

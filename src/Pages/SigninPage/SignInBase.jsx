@@ -1,26 +1,29 @@
 import React from 'react'
-import { Container, Col, Carousel, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
+import { Container, Col, Carousel} from 'react-bootstrap';
 import './Sign.css'
-import gambar1 from '../../img/Ilustrasi Tangan.png'
-import gambar2 from '../../img/Illustrasi [Recovered] 1.png'
-import gambar3 from '../../img/Illustrasi [Recovered] 1-1.png'
+import gambar1 from '../../assets/images/Ilustrasi Tangan.png'
+import gambar2 from '../../assets/images/Illustrasi [Recovered] 1.png'
+import gambar3 from '../../assets/images/Illustrasi [Recovered] 1-1.png'
 import { useState } from "react"
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import './modal.scss'
 
 
 function SignInUpPage() {
-const [SignUpPage, setSignUpPage] = useState(true)
+const [SignUpPage, setSignUpPage] = useState(true);
+
+
 
 
 return (
 <>
-    <div>
-        <Container className='d-flex flex-row justify-content-center'
-            style={{maxWidth:'100%', marginLeft:'auto', marginRight:'auto', margin:'5% 0 10% 0'}}>
+    <div >
+        <Container className='d-flex flex-row align-items-start justify-content-center'
+            style={{maxWidth:'1440px', marginLeft:'auto', marginRight:'auto', marginTop:'5%', }}>
 
-            <Col className='d-flex ' style={{maxWidth:'40%'}}>
-            <Carousel className='d-flex justify-content-center align-items-center flex-column text-dark' interval={5000}
+            <Col className='LeftBox d-flex flex-column align-items-end justify-content-center' style={{maxWidth:'50%',borderRight:'1px solid #B6C6E5', paddingRight:'3rem'}}>
+            <Carousel className='CarouselBox d-flex justify-content-center align-items-start flex-column text-dark' interval={5000}
                 controls={false}>
                 <Carousel.Item>
                     <h3>Organize Your Life</h3>
@@ -43,22 +46,25 @@ return (
             </Carousel>
             </Col>
 
-            {/*
-            <Col className='Line'>
+            
+            {/* <Col style={{maxWidth:'10%'}} className='Line'>
             </Col> */}
 
 
-            <Col className='d-flex justify-content-center align-self-start align-items-center flex-column' style={{maxWidth:'40%'}}>
+            <Col className='RightBox align-content-start flex-wrap d-flex justify-content-start align-self-start align-items-center flex-column' style={{maxWidth:'50%', }}>
             {SignUpPage ?
             <SignIn /> :
-            <SignUp />}
-            {!SignUpPage ? null : <p className="text-center mt-3">Don't have an account yet? <a
-                    style={{ cursor: 'pointer', textDecoration:'none' }} onClick={()=> setSignUpPage(false)}
+            <SignUp ganti={()=> setSignUpPage(true)} />}
+            {!SignUpPage ? null : <p className="SignUpQuestion text-center mt-2" >Don't have an account yet? <a
+                    style={{ cursor: 'pointer', textDecoration:'none', fontWeight:'700' }} onClick={()=> setSignUpPage(false)}
                     className="text-dark">Sign Up</a></p>}
 
             </Col>
         </Container>
     </div>
+    {/* <a href='/TaskPage'><button>TaskPage</button></a>   
+    <a href='/Calendar'><button>Calendar Workshop</button></a> */}
+
 </>
 )
 }

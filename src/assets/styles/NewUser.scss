@@ -1,0 +1,123 @@
+//mixin
+@mixin flex-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+//variable
+$font-family: 'Poppins', sans-serif;
+
+* {
+    font-family: $font-family;
+}
+
+// .newUser__container {
+//     // background-color: rgba(200, 200, 200, 0.5);
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: flex-end;
+// }
+
+.newUser__page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.newUser__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.newUser__intro {
+    @include flex-box();
+}
+
+.newUser__logo img {
+    width: 45px;
+}
+
+.newUser__greet h3 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.newUser__card {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.newUser__card__calendar {
+    background-color: #F1F4FA ;
+    padding: 20px;
+    border-radius: 20px;
+    .newUser__card__exp {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+        button {
+            width: 20px;
+            height: 30px;
+            border: none;
+        }
+        button.exp__today {
+        background: #625BAD;
+        border-radius: 10px;
+        }
+        button.exp__chosen {
+        background: #B6C6E5;
+        border-radius: 10px;
+        margin-left: 2rem;
+        }
+    }
+    .calendarWrapper {
+        width: 400px;
+        height: 350px;
+        
+        .calendarHeader {
+            border-bottom: none;
+            
+            .calendarHeaderButtons {
+                margin: 0;
+                
+        }
+            h1 {
+                margin: 1rem auto;
+                font-size: 30px;
+                padding-left: 1em;
+            }
+        }
+        .dailyTimeLineWrapper {
+            height: 220px;
+        }
+//=======================
+        .modeWrapper {
+            button {
+                display: none;
+            }
+        }
+//=======================
+            .weekRow {
+                border-bottom: none;
+                .dayCell {
+                    height: 3rem;
+                    text-align: center;
+                    .dayDate {
+                        .currentDay {
+                        background: #625BAD;
+                        border-radius: 10px;
+                        width: 20px;
+                        height: 30px;
+                         span {
+                             color: white;
+                         }
+                        }
+                    }
+                }
+            }
+        }
+    }

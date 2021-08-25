@@ -1,0 +1,64 @@
+.OkButton {
+    .btn-primary {
+    border: 1px solid #625BAD ;
+        border-radius: 40px;
+        background-color: #625BAD;
+        color: #ffffff;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: #625BAD;
+            color: #ffffff;
+}
+}
+}
+.OopsModal{
+    background-color: rgba(241, 244, 250, 0.8);
+    backdrop-filter: blur(3px);
+
+   .modal .show{
+       background: #F1F4FA;
+   }
+    .modal-dialog {
+
+        width: 100rem;
+        justify-content: center ;
+     }
+
+    .modal-body{
+        text-align: center;
+        padding: 0;
+        
+    }
+    
+    .modal-header {
+        // padding-top: 3.5rem ;
+        padding-top: 3rem;
+        // max-height: 6rem;
+        // min-height: 10rem;
+        border-bottom: none ;
+    }
+    
+    .modal-content {
+        align-items: center ;
+        border-radius: 0.75rem ;
+        border: none;
+        box-shadow: 1rem ;
+        background: #F1F4FA;
+        height: 25rem;
+        width: 25rem ;
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    // .ModalSignUp p {
+    //     max-width: 20rem ;
+    
+    //     font-size: 1.5rem;
+    //     text-align: center;
+    // }
+    
+    .modal-footer {
+    padding-bottom: 4rem ;
+        border: none ;
+    }
+}
