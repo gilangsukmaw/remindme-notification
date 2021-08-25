@@ -4,6 +4,7 @@ import logout from "../../assets/images/logout.png";
 import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
+import CreateTask from "../../modal/ModalTask";
 function Navbar() {
   return (
     <>
@@ -15,6 +16,7 @@ function Navbar() {
           </div>
           <li className="sidebarItems Task">
             <Link to="/TaskPage">
+              {/* <CreateTask /> */}
               <FiIcons.FiPlusCircle />
               <p>Create a Task</p>
             </Link>

@@ -4,6 +4,7 @@ import NewUser from "./Pages/CreateTask/NewUser";
 import CreateTask from "./modal/CreateTask";
 import SaveGoals from "./modal/SaveGoalsModal/SaveGoalsModal";
 import ProfilePage from "./Pages/ProfilePage";
+import Router from "./routes/router";
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <div>
         <BrowserRouter>
           {/* <NewUser /> */}
-          <CreateTask />
-          <ProfilePage />
+          {/* <CreateTask /> */}
+          <Router />
         </BrowserRouter>
       </div>
     </>
