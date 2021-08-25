@@ -9,7 +9,7 @@ import PrivateRoutes from "./privateRoutes";
 import Navbar from "../component/navbar/navbar";
 
 function Router() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   return (
     <>
       {isLogin ? <Navbar /> : null}

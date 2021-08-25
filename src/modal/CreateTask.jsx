@@ -1,18 +1,23 @@
 import React, { useState } from "react";
+import SettingGoalsCard from "./GoalsCard/SettingGoalsCard";
 import TimeModal from "./ModalAddTime";
 import NoteModal from "./ModalNote";
 import ModalCreateTask from "./ModalTask";
-import ModalSaveChanges from "./ModalSaveChanges";
+import SaveGoals from "./SaveGoalsModal/SaveGoalsModal";
+import SaveNotes from "./SaveNotesModal/SaveNotesModal";
 
 const CreateTask = () => {
   const [step, setStep] = useState("");
   const [noteData, setNoteData] = useState({
     title: "",
     note: "",
-    // color: "",
   });
   const onSaveNote = () => {
     console.log(noteData);
+  };
+  const [noteColor, setNoteColor] = useState("#f1f4fa");
+  const onSaveColor = () => {
+    console.log(noteColor);
   };
   return (
     <>
@@ -24,6 +29,7 @@ const CreateTask = () => {
       >
         Create Task
       </button>
+      {/* step to note */}
       {step === "CreateNote" && (
         <ModalCreateTask
           changeStep={(item) => setStep(item)}
@@ -44,9 +50,9 @@ const CreateTask = () => {
         <TimeModal
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
-          onSave={onSaveNote}
+          onSave={(onSaveNote, onSaveColor)}
           noteData={noteData}
-          changeColor={(item) => setNoteData({ ...noteData, color: item })}
+          changeColor={() => setNoteColor({ ...noteColor, color: "#FFBCC2" })}
         />
       )}
       {step === "GoBacktoNoteModal" && (
@@ -59,10 +65,24 @@ const CreateTask = () => {
           changeDataNote={(item) => setNoteData({ ...noteData, note: item })}
         />
       )}
-      {step === "SaveSuccess" && (
-        <ModalSaveChanges
+      {step === "SaveNotes" && (
+        <SaveNotes
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
+        />
+      )}
+
+      {/* step to goals */}
+      {step === "CreateGoals" && (
+        <SettingGoalsCard
+          changeStep={(item) => setStep(item)}
+          onClose={(item) => setStep(item)}
+        />
+      )}
+      {step === "SaveGoals" && (
+        <SaveGoals
+          changeStep={(item) => setStep(item)}
+          // onClose={(item) => setStep(item)}
         />
       )}
     </>

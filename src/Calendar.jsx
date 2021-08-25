@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import moment from "moment";
+import moment from "moment"
 
 import "./calendar/CobaCalendar.scss";
 import Calendar from "./calendar/CobaCalendar";

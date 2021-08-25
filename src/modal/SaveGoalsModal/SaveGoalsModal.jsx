@@ -1,13 +1,13 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
-import "./SaveNotesModal.scss";
+import "./SaveGoalsModal.scss";
 import Ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
 
-function SaveNotes() {
+function SaveGoals() {
   const [modalShow, setModalShow] = React.useState(true);
 
-  function SaveNotes(props) {
+  function SaveGoalModal(props) {
     return (
       <>
         <Modal
@@ -30,7 +30,7 @@ function SaveNotes() {
             >
               Congratulations!<br></br>
               You successfully saved <br></br>
-              your Note
+              your Goals
             </p>
           </Modal.Body>
           <Modal.Footer>
@@ -59,8 +59,8 @@ function SaveNotes() {
   return (
     <div>
       {/* <Button onClick={()=> setModalShow(true)}>SaveNotes Modal (Tombol Sementara)</Button> */}
-      <SaveNotes show={modalShow} onHide={() => setModalShow(false)} />
+      <SaveGoalModal show={modalShow} onHide={() => setModalShow(false)} />
     </div>
   );
 }
-export default SaveNotes;
+export default SaveGoals;

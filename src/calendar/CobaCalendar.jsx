@@ -17,15 +17,19 @@ export default function Calendar({ value, onChange }) {
         <Header value={value} setValue={onChange} />
         <div className="body">
           <div className="day-names">
-            {["S", "M", "T", "W", "T", "F", "S"].map((d) => (
-              <div className="week">{d}</div>
+            {["S", "M", "T", "W", "T", "F", "S"].map((d, index) => (
+              <div className="week" key={index}>
+                {d}
+              </div>
             ))}
           </div>
-          {calendar.map((week) => (
-            <div>
-              {week.map((day) => (
-                <div className="day" onClick={() => onChange(day)}>
-                  <div className={dayStyles(day, value)}>{day.format("D").toString()}</div>
+          {calendar.map((week, index) => (
+            <div key={index}>
+              {week.map((day, index) => (
+                <div className="day" onClick={() => onChange(day)} key={index}>
+                  <div className={dayStyles(day, value)}>
+                    {day.format("D").toString()}
+                  </div>
                 </div>
               ))}
             </div>
