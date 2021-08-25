@@ -9,6 +9,11 @@ export default function TimeModal({
   onClose,
   changeStep,
   changeColor,
+  changeColor1,
+  changeColor2,
+  changeColor3,
+  changeColor4,
+  changeColor5,
   noteData,
   onSave,
 }) {

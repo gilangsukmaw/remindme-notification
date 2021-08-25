@@ -77,7 +77,14 @@ export default function NoteModal({
           </div>
           <div className="note__footer">
             <button onClick={() => changeStep("AddTime")}>Add time</button>
-            <button onClick={() => {onSave(); changeStep("SaveNotes")}}>Save Note</button>
+            <button
+              onClick={() => {
+                onSave();
+                changeStep("SaveNotes");
+              }}
+            >
+              Save Note
+            </button>
           </div>
         </div>
       </div>

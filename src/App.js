@@ -2,20 +2,17 @@
 import { BrowserRouter } from "react-router-dom";
 import NewUser from "./Pages/CreateTask/NewUser";
 import CreateTask from "./modal/CreateTask";
-
-
-
+import SaveGoals from "./modal/SaveGoalsModal/SaveGoalsModal";
 
 function App() {
   return (
     <>
-    <div >
-      <BrowserRouter>
-        <NewUser />
-        <CreateTask />
-        <router />
-      </BrowserRouter>
-    </div>
+      <div>
+        <BrowserRouter>
+          <NewUser />
+          <CreateTask />
+        </BrowserRouter>
+      </div>
     </>
   );
 }
