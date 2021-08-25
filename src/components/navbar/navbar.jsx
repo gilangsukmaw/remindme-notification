@@ -32,6 +32,12 @@ export function Navbar() {
           <li className="sidebarItems content">
             <Link to="/Profile">
               <p>My Profile</p>
+              {/* <div className="my-profile text-black">
+                <p>My Profile</p>{" "}
+                <span>
+                  <FiIcons.FiArrowRight />
+                </span>
+              </div> */}
             </Link>
           </li>
           <li className="Logout">

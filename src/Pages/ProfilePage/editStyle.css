@@ -4,6 +4,10 @@
   align-items: center;
   margin-right: 200px;
 }
+.edit-profile {
+  margin-top: -68px;
+}
+
 .content-edit {
   display: flex;
   flex-direction: column;
@@ -21,18 +25,15 @@ input {
   border: 1px solid #625bad;
   box-sizing: border-box;
   border-radius: 10px;
-  font-weight: bold;
+  font-weight: bolder;
   color: #342d50;
   padding-left: 2rem;
 }
 input:focus {
-  width: -webkit-fill-available;
-  height: 50px;
-  margin-bottom: 1rem;
   border: 1px solid #625bad;
-  box-sizing: border-box;
   border-radius: 10px;
 }
+
 .input-password {
   margin-bottom: 2rem;
 }

@@ -2,6 +2,7 @@ import pp from "../../assets/images/Ellipse 34.png";
 import "./profileStyle.css";
 import pencil from "../../assets/images/Vector (2).png";
 import { Link } from "react-router-dom";
+import edit from "../../assets/images/Ellipse 107.png";
 const ProfilePage = () => {
   return (
     <div>
@@ -11,7 +12,11 @@ const ProfilePage = () => {
         </div>
         <div className="wrapper">
           <div className="head">
-            <img src={pp} alt="profile pictures" style={{ width: "200px" }} />
+            <img src={pp} alt="profile pictures" style={{ width: "230px" }} />
+            <div className="edit-profile">
+              <img src={edit} alt="edit" />
+            </div>
+            <p style={{ marginTop: "-40px" }}>Edit Photo</p>
           </div>
           <div className="contents">
             <Link to="/editProfile">
