@@ -1,0 +1,176 @@
+.SetGoalsContainer {
+  width: 28rem;
+  height: 55rem;
+  background-color: #F1F4FA;
+  border-radius: 25px;
+  padding: 1.8rem 1.5rem 1.8rem 1.5rem;
+}
+
+.GoalSetting {
+  background-color: rgba(241, 244, 250, 0.8);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+.GoalSetting .modal-content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  background: transparent;
+}
+
+#GoalText {
+  background-color: transparent;
+  border: 1px solid #B6C6E5;
+  border-radius: 7px;
+}
+
+.BuiltorQuitButton .BuildButton:hover, .BuiltorQuitButton .BuildButton:active, .BuiltorQuitButton .BuildButton:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.BuiltorQuitButton .btn-secondary {
+  color: rgba(52, 45, 80, 0.5);
+}
+
+#PilihItem {
+  font-size: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #F1F4FA;
+  border: 1px solid #B6C6E5;
+}
+
+#PilihSatuan {
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid #B6C6E5;
+}
+
+#PilihSatuan .option {
+  font-size: 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid #B6C6E5;
+}
+
+.ChooseValue {
+  width: 80%;
+  float: right;
+}
+
+.ChooseValue .dropdown-divider {
+  margin: 5px;
+  background-color: #625BAD;
+}
+
+.ChooseValue .dropdown-menu {
+  border: 1px solid #B6C6E5;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.ChooseValue .dropdown-item {
+  width: 80%;
+  background-color: transparent;
+  font-size: 12px;
+  padding: 0 1rem 0 1rem;
+}
+
+.ChooseValue button {
+  width: 6.75rem;
+  border: 1px solid #B6C6E5;
+  border-radius: 10px;
+}
+
+.ChooseValue button .btn-primary:hover, .ChooseValue button .btn-primary:active, .ChooseValue button .btn-primary:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.ColorPicker button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  margin-right: 0.8rem;
+}
+
+.ColorPicker buttonbutton :active {
+  border: 1px solid #625BAD;
+}
+
+.Goals__calendar {
+  margin-top: -1.5rem;
+}
+
+.Goals__calendar .react-calendar {
+  width: 300px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.Goals__calendar .react-calendar button {
+  font-size: 10px;
+  font-weight: 300;
+  border-radius: 25%;
+}
+
+.Goals__calendar .react-calendar button:hover, .Goals__calendar .react-calendar button:active, .Goals__calendar .react-calendar button:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+.Goals__calendar .react-calendar button .react-calendar__navigation__label {
+  display: none;
+}
+
+.Goals__calendar .react-calendar__navigation {
+  display: null;
+  height: 0;
+}
+
+.Goals__calendar .react-calendar__navigation__arrow {
+  display: none;
+}
+
+.Goals__calendar .react-calendar__navigation__tile--now {
+  background: none;
+}
+
+.Goals__calendar .react-calendar__navigation__tile--active {
+  background-color: #625BAD;
+}
+
+.Goals__calendar .react-calendar__navigation__label__labelText {
+  display: none;
+}
+
+.Goals__calendar .react-calendar__month-view__days {
+  width: 250px;
+}
+
+.Goals__calendar .react-calendar__month-view__weekdays {
+  width: 250px;
+}
+
+.Goals__calendar .react-calendar__tile--now {
+  background: #B6C6E5;
+}
+
+.Goals__calendar .react-calendar__tile--active {
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+.Goals__calendar .react-calendar__navigation__label {
+  display: none;
+}
+/*# sourceMappingURL=CalendarAgenda.css.map */

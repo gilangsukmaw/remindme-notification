@@ -1,0 +1,59 @@
+.OkButton .btn-primary {
+  border: 1px solid #625BAD;
+  border-radius: 40px;
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+.OkButton .btn-primary:hover, .OkButton .btn-primary:active, .OkButton .btn-primary:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+.OopsModal {
+  background-color: rgba(241, 244, 250, 0.8);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+.OopsModal .modal .show {
+  background: #F1F4FA;
+}
+
+.OopsModal .modal-dialog {
+  width: 100rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.OopsModal .modal-body {
+  text-align: center;
+  padding: 0;
+}
+
+.OopsModal .modal-header {
+  padding-top: 3rem;
+  border-bottom: none;
+}
+
+.OopsModal .modal-content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.75rem;
+  border: none;
+  -webkit-box-shadow: 1rem;
+          box-shadow: 1rem;
+  background: #F1F4FA;
+  height: 25rem;
+  width: 25rem;
+  -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.OopsModal .modal-footer {
+  padding-bottom: 4rem;
+  border: none;
+}
+/*# sourceMappingURL=OopsModal.css.map */

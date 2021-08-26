@@ -1,0 +1,159 @@
+.AddProgressModal {
+  background-color: rgba(241, 244, 250, 0.7);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+.AddProgressModal .modal-content {
+  background: #F1F4FA;
+  border-radius: 20px;
+  height: 25rem;
+  width: 43rem;
+}
+
+.AddProgressModal .modal-header {
+  padding: 1rem;
+  border: 0;
+}
+
+.AddProgressModal .AddProgressTitle {
+  margin-bottom: 0rem;
+}
+
+.AddProgressModal .PlaceHolder {
+  width: 13.5rem;
+}
+
+.AddProgressModal .SetProgress {
+  padding: 0 0 0 5rem;
+}
+
+.AddProgressModal .modal-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border: 0;
+  margin: 0;
+  padding: 0 3rem 0 3rem;
+}
+
+.AddProgressModal .modal-body .form-control {
+  background-color: transparent;
+  height: 3rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: '#342D50';
+}
+
+.AddProgressModal .modal-footer {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 0;
+  padding-bottom: 4rem;
+  padding-top: 0rem;
+}
+
+.AddProgressModal .modal-footer button {
+  width: 28rem;
+  height: 3.75rem;
+}
+
+.AddProgressModal .ProgressValue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5rem;
+  width: 100%;
+  height: 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.AddProgressModal .ValuePlaceholder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.AddProgressTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 10%;
+}
+
+.AddProgressButton {
+  margin-top: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.AddProgressButton button {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 23px;
+  font-weight: 500;
+  border-radius: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 0;
+  height: 68px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 769px) {
+  .SetProgress {
+    padding: 0 0 0 1.5rem !important;
+  }
+  .PlaceHolder {
+    width: 10rem !important;
+  }
+  .form-control {
+    background-color: transparent;
+    height: 3rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: '#342D50';
+  }
+  .modal-footer button {
+    width: 22rem !important;
+  }
+}
+/*# sourceMappingURL=AddProgressModal.css.map */

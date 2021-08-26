@@ -1,9 +1,30 @@
 import React from 'react'
 import { Container, Col, Carousel, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
 import './modal.scss'
+import { useState } from "react"
+import axios from 'axios'
+
 
 
 function SignIn() {
+
+    const [state, setState] = useState({
+        email: "",
+        password: ""
+    });
+    const add = (e) => {
+        e.preventDefault()
+        if (state.movieTitile === "" | state.genre === "" | state.release === "" | state.trailer === "" | state.synopsis === "") {
+            alert("kolom kosong, tolong diisi terlebih dahulu")
+            return;
+        } else {
+
+            axios.post(`https://demovie.gabatch13.my.id/auth/login`, state).then(res => {
+                localStorage.setItem('Token', res.data.token); localStorage.setItem('USERID', res.data._id);
+            })
+        }
+    }
+
 
     const [values, setValues] = React.useState({
         password: "",

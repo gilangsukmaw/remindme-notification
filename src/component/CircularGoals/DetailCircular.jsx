@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Col, Carousel, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
+import { Container, Col,  Button, } from 'react-bootstrap';
 import { useState } from "react"
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -7,7 +7,7 @@ import AddProgressModal from '../../modal/AddProgress/AddProgressModal';
 import './CircularGoals.scss'
 
 function DetailCircular(props) {
-const {id, BackgrounColor, } = props
+// const {id, BackgrounColor, } = props
 const [colorCard, setcolorCard] = useState()
 
 
