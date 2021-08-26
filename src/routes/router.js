@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import TaskPage from '../Pages/TaskPage/TaskPage'
 import SignInUpPage from '../Pages/SigninPage/SignInBase'
 import AllGoals from '../Pages/GoalsPage/AllGoals';
+import HomeExisting from '../component/HomeExisting/Home';
+// import Home from '../Pages/Home/Home';
 
 function Router() {
     return (
@@ -13,6 +15,9 @@ function Router() {
             </Route>
             <Route exact path="/TaskPage">
                 <TaskPage />
+            </Route>
+            <Route exact path="/Home">
+                <HomeExisting/>
             </Route>
             <Route exact path="/AllGoals">
                 <AllGoals />

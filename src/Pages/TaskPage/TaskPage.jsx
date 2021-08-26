@@ -10,7 +10,7 @@ import SaveNotes from '../../modal/SaveNotesModal/SaveNotesModal';
 import CircularGoals from '../../component/CircularGoals/CircularGoals';
 import NotesUnPinnedCard from '../../component/NotesCard/NotesUnpinned';
 import * as dayjs from 'dayjs'
-
+import HomeNotes from '../../component/HomeExisting/HomeNotes';
 
 function TaskPage() {
   const [startDate, setStartDate] = useState(new Date());
@@ -24,14 +24,14 @@ const handleShow = () => setthisShow(true);
 return (
 <>
     <h1>Ini Profile Page</h1>
-   <CircularGoals/>
-  <br></br>
+   {/* <CircularGoals/> */}
   <NotesPinnedCard />
   <SettingGoalsCard />
   <NotesUnPinnedCard/>
-<OopsModal/>
+  <HomeNotes/>
+{/* <OopsModal/>
 <AskModal/>
-<SaveNotes/>
+<SaveNotes/> */}
 
 
 
