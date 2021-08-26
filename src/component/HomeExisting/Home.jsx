@@ -11,12 +11,12 @@ function HomeExisting() {
 return (
 <>
     <Container className='HomeContainer ' style={{maxWidth:'1360px'}}>
-        <Col style={{width:'50%', }}>
+        <Col className='NotesCol d-flex' style={{width:'50%', }}>
         <div className='NotesContainer d-flex flex-column shadow'>
             <div className='TitleContainer'>
                 <p>Pinned Notes</p>
             </div>
-            <div className='PinnedNotesContainer'>
+            <div className='PinnedNotesContainer overflow-auto'>
                 <HomeNotes />
             </div>
             <div className='DailyStreakContainer'>
@@ -42,10 +42,13 @@ return (
                 <img style={{width:'100%', height:'15px', padding:'0 0rem 0 0rem'}} src={Garis}></img>
             </div>
 
-            <div className='ReminderContainer'>
-                <p className='ReminderTitle'>Reminder</p>
+            <div className='ReminderContainer '>
+                <p className='ReminderTitle'>Note</p>
+                {/* nanti di ganti mapping tanggal */}
                 <div className='TodayDates'>13 June 2021 </div>
+                <div className='CardMappingBox overflow-auto'>
                 <ReminderCard />
+                </div>
             </div>
         </div>
         </Col>

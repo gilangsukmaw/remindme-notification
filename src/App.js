@@ -12,8 +12,8 @@ function App() {
       <div>
         <BrowserRouter>
           <Router />
-          <NotesPinnedCard />
-          <NotesUnPinnedCard />
+          {/* <NotesPinnedCard />
+          <NotesUnPinnedCard /> */}
         </BrowserRouter>
       </div>
     </>

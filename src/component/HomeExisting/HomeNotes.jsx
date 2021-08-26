@@ -9,7 +9,7 @@ function HomeNotes() {
 return (
 <>
     {/* Background color nanti diganti dengan yg dari mapping */}
-    <Container className='NotesCard text-dark' style={{backgroundColor: 'powderblue'}}>
+    <Container className='NotesCard text-dark' style={{backgroundColor: 'powderblue', marginBottom:'1rem'}}>
         <div className='CardTittle d-flex flex-row justify-content-between'>
             {/* Title diganti dari maping */}
             <p>Title: Understanding Business Value</p> <img src={Pin}></img>
@@ -28,6 +28,8 @@ return (
         </div>
 
     </Container>
+   
+    
 
 </>
 )

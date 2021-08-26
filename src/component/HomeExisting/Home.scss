@@ -1,14 +1,21 @@
-.HomeContainer{
+.HomeContainer {
     display: flex;
 }
+
 // =====Notes================
+.NotesCol {
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
 .NotesContainer {
     max-width: 28rem;
     max-height: 55rem;
     background-color: #F1F4FA;
     border-radius: 25px;
     padding: 1.8rem 1.5rem 1.8rem 1.5rem;
-    float:right;
+    float: right;
 
     .TitleContainer {
         font-weight: 600;
@@ -18,50 +25,56 @@
 
     .PinnedNotesContainer {
         display: block;
-        height: 30rem;
+        margin-bottom: 1rem;
+        max-height: 30rem;
     }
 
     .SubTitleText {
-        margin-top: -0.5rem;
+        margin-top: -1rem;
         font-weight: 300;
         font-size: 20px;
     }
-    .CircularGoals{
+
+    .CircularGoals {
         overflow: auto;
         height: 11.2rem;
         max-width: 24rem;
     }
 }
+
 // =====Calendar================
 
 .CalendarContainer {
     width: 32rem;
-    height: 55rem;
+    max-height: 55rem;
     background-color: #F1F4FA;
     border-radius: 25px;
     padding: 1.8rem 1.5rem 1.8rem 1.5rem;
     margin-left: 2rem;
-    .CalendarBox{
+
+    .CalendarBox {
         height: 28rem;
-        background-color:black;
+        background-color: black;
     }
-    .ReminderTitle{
+
+    .ReminderTitle {
         font-size: 24px;
-            font-weight: 600;
+        font-weight: 600;
     }
-  
-    .TodayDates{
+
+    .TodayDates {
         font-size: 18px;
-            font-weight: 600;
+        font-weight: 600;
     }
-    
+
 }
+
 // =====punya home notes================
 .NotesCard {
     width: 25rem;
     height: 11.5rem;
     border-radius: 20px;
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-left: 1.75rem;
     padding-right: 2rem;
 
@@ -81,17 +94,23 @@
         font-size: 0.8rem;
     }
 }
+
 // reminderContainer===============
-.ReminderContainer{
-    padding:0 0 0 -1rem;
-    .RemiderCard{
+.ReminderContainer {
+    padding: 0 0 0 -1rem;
+.CardMappingBox{
+    max-height: 15rem;
+}
+
+    .RemiderCard {
         width: 22rem;
         height: 6.25rem;
         border-radius: 10px;
         padding-top: 0.5rem;
         padding-left: 1.0rem;
         padding-right: 1rem;
-        .CardTitle{
+
+        .CardTitle {
             font-size: 18px;
             font-weight: 600;
         }
