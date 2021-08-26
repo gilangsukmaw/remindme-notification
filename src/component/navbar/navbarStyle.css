@@ -58,21 +58,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50px;
+  color: #fdfdfd;
 }
-.Task a {
-  display: flex;
-  align-items: center;
-}
+
 .Task:active {
   transform: scale3d(0.8, 0.8, 2);
   transition: 80ms;
 }
-.Task a:hover {
+.Task:hover {
   color: #342d50;
-}
-.Task a p {
-  margin-left: 10px;
-  margin-top: 15px;
+  cursor: pointer;
 }
 
 .content {

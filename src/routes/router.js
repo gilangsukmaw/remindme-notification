@@ -11,12 +11,24 @@ import CreateTask from "../modal/CreateTask";
 
 function Router() {
   const [isLogin, setIsLogin] = useState(true);
+  const [step, setStep] = useState("");
+  const [noteData, setNoteData] = useState({
+    title: "",
+    note: "",
+  });
+  const onSaveNote = () => {
+    console.log(noteData);
+  };
+  const [noteColor, setNoteColor] = useState("#f1f4fa");
+  const onSaveColor = () => {
+    console.log(noteColor);
+  };
   return (
     <>
-      {isLogin ? <Navbar /> : null}
+      {isLogin ? <Navbar setStep={setStep} /> : null}
       <Switch>
         <Route exact path="/">
-          <NewUser />
+          <NewUser setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor}/>
         </Route>
         <PrivateRoutes exact component={ProfilePage} path="/Profile" />
 

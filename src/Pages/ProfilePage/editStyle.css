@@ -16,6 +16,7 @@
 }
 form {
   width: 450px;
+  border: none;
 }
 input {
   width: 450px;
@@ -26,9 +27,8 @@ input {
   color: #342d50;
   padding-left: 2rem;
 }
-input:focus {
-  border: 1px solid #625bad;
-  border-radius: 10px;
+input:focus:active {
+  border: none;
 }
 
 .input-password {
