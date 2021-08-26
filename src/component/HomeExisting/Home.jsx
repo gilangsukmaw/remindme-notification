@@ -10,9 +10,9 @@ import Garis from '../../assets/images/GoalDetailLine.png'
 function HomeExisting() {
 return (
 <>
-    <Container className='HomeContainer' style={{maxWidth:'1360px'}}>
+    <Container className='HomeContainer ' style={{maxWidth:'1360px'}}>
         <Col style={{width:'50%', }}>
-        <div className='NotesContainer d-flex flex-column'>
+        <div className='NotesContainer d-flex flex-column shadow'>
             <div className='TitleContainer'>
                 <p>Pinned Notes</p>
             </div>
@@ -33,7 +33,7 @@ return (
         </div>
         </Col>
         <Col style={{width:'50%'}}>
-        <div className='CalendarContainer'>
+        <div className='CalendarContainer shadow'>
             <div className='CalendarBox'>
                 {/*
                 <CobaCalendar /> */}
