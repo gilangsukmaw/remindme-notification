@@ -1,5 +1,5 @@
 .SetGoalsContainer {
-  width: 28rem;
+  width: 31rem;
   height: 55rem;
   background-color: #f1f4fa;
   border-radius: 25px;
@@ -115,6 +115,12 @@
     color: #342D50;
     background-color: transparent;
 
+}
+
+.mt-3 {
+  p {
+    margin-top: 0;
+  }
 }
 
 .ChooseValue {

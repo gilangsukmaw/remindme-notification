@@ -6,6 +6,9 @@ import SaveGoals from "./modal/SaveGoalsModal/SaveGoalsModal";
 import ProfilePage from "./Pages/ProfilePage";
 import Router from "./routes/router";
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import ModalSaveChanges from "./modal/ModalSaveChanges";
+import ModalDelete from "./modal/ModalDelete";
+import ModalDetailNote from "./modal/ModalDetailNote";
 
 function App() {
   return (
@@ -13,8 +16,11 @@ function App() {
       <div>
         <BrowserRouter>
           {/* <LandingPage /> */}
-          {/* <NewUser /> */}
-          {/* <CreateTask /> */}
+          <NewUser />
+          <CreateTask />
+          <ModalSaveChanges />
+          <ModalDelete />
+          <ModalDetailNote />
           <Router />
         </BrowserRouter>
       </div>
