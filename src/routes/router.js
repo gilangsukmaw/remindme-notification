@@ -7,16 +7,21 @@ import AllGoals from "../Pages/GoalsPage/AllGoals";
 import CreateTask from "../modal/CreateTask";
 import PrivateRoutes from "./privateRoutes";
 import Navbar from "../component/navbar/navbar";
+import NewUser from "../Pages/CreateTask/NewUser";
+import LandingPage from "../Pages/LandingPage/LandingPage";
+import SignUp from "../Pages/SigninPage/SignUp";
 
 function Router() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   return (
     <>
       {isLogin ? <Navbar /> : null}
       <Switch>
         <Route exact path="/">
-          <SignInUpPage />
+          <LandingPage />
         </Route>
+        <PrivateRoutes exact component={SignUp} path="/SignUp" />
+
         <PrivateRoutes exact component={ProfilePage} path="/Profile" />
 
         <PrivateRoutes exact component={CreateTask} path="/CreateTask" />

@@ -3,7 +3,7 @@ import { useState } from "react";
 import React from "react";
 
 export default function PrivateRoutes(props) {
-  const [isLogin, setIslogin] = useState(true);
+  const [isLogin, setIslogin] = useState(false);
   const { component: Component, ...rest } = props;
   return (
     <Route

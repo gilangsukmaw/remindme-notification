@@ -21,8 +21,8 @@ function Navbar() {
             {/* <Link to="/TaskPage"> */}
             {/* <button> */}
             <CreateTask />
-            <img src={PlusCreateTask} alt="" />
-            <p>Create a Task</p>
+            {/* <img src={PlusCreateTask} alt="" />
+            <p>Create a Task</p> */}
             {/* </button> */}
 
             {/* </Link> */}

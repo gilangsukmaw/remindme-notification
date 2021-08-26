@@ -8,9 +8,7 @@ import Navbar from "../../component/navbar/navbar";
 const NewUser = () => {
   return (
     <div className="newUser__page">
-      <div className="newUser__sideBar col-lg-3">
-        <Navbar />
-      </div>
+      <div className="newUser__sideBar col-lg-3">{/* <Navbar /> */}</div>
       <div className="newUser__container col-lg-9">
         {/* <div className="row"> */}
         <div className="newUser__intro">

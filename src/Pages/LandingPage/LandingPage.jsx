@@ -1,0 +1,101 @@
+import React from "react";
+import "./LandingPage.scss";
+import LogoLandingHeader from "../../assets/images/LogoLandingHeader.png";
+import LogoLanding from "../../assets/images/LogoLanding.png";
+import LandingAppStore from "../../assets/images/LandingAppStore.png";
+import LandingGoogle from "../../assets/images/LandingGoogle.png";
+import twitter from "../../assets/images/twitter.png";
+import facebook from "../../assets/images/facebook.png";
+import instagram from "../../assets/images/instagram.png";
+import { Link } from "react-router-dom";
+
+function LandingPage() {
+  return (
+    <div className="landing">
+      <div className="landing__top">
+        <div className="landing__header">
+          <div className="header__logo">
+            <img src={LogoLandingHeader} alt="" />
+          </div>
+          <div className="header__button">
+            <button>Home</button>
+            <button>Register</button>
+            <button>Login</button>
+          </div>
+        </div>
+        <div className="landing__intro">
+          <div className="intro__left">
+            <h1>Find Balance in Your Life</h1>
+            <p>
+              Why do we use it? It is a long established fact that a reader will
+              be<br></br>distracted by the readable content of a page when
+              <br></br>looking at its layout.
+            </p>
+            <Link to="/SignUp">
+              <button>Get Started</button>
+            </Link>
+          </div>
+          <div className="intro__right">
+            <img src={LogoLanding} alt="" />
+          </div>
+        </div>
+      </div>
+      <div className="landing__footer">
+        <div className="footer__left">
+          <div className="left__top">
+            <h2>Need Help With Anything?</h2>
+            <p>
+              Let’s hear about it with <a href="#">Contact Us!</a>
+            </p>
+          </div>
+        </div>
+        <div className="footer__center">
+          <div className="center__title">
+            <p>Available on</p>
+          </div>
+          <div className="center__app">
+            <img src={LandingAppStore} alt="" />
+            <img src={LandingGoogle} alt="" />
+          </div>
+        </div>
+        <div className="footer__right">
+          <div className="footer__home">
+            <p>Home</p>
+            <ul>
+              <li>About</li>
+              <li>Career</li>
+            </ul>
+          </div>
+          <div className="footer__about">
+            <p>About</p>
+            <ul>
+              <li>What</li>
+              <li>Why</li>
+              <li>Developer</li>
+              <li>Demo</li>
+            </ul>
+          </div>
+          <div className="footer__help">
+            <p>Help</p>
+            <ul>
+              <li>Contact Form</li>
+              <li>Location</li>
+              <li>Consultation</li>
+              <li>FAQ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="most__bottom">
+        <h6>RemindMe</h6>
+        <div className="bottom__logo">
+          <img src={twitter} alt="" />
+          <img src={facebook} alt="" />
+          <img src={instagram} alt="" />
+        </div>
+      </div>
+      {/* </div> */}
+    </div>
+  );
+}
+export default LandingPage;
