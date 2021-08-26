@@ -11,21 +11,18 @@ function Navbar() {
   return (
     <>
       <nav className="sidebar">
-        {/* <ul> */}
         <div className="sidebar__top">
-          <div className="headers">
-            <img src={pp} alt="" />
-            <p>Amalia Nurlita</p>
+          <div className="sidebarItems headers">
+            <Link to="/">
+              <img src={pp} alt="" />
+              <p>Amalia Nurlita</p>
+            </Link>
           </div>
           <div className="sidebarItems Task">
-            {/* <Link to="/TaskPage"> */}
-            {/* <button> */}
-            <CreateTask />
-            <img src={PlusCreateTask} alt="" />
-            <p>Create a Task</p>
-            {/* </button> */}
-
-            {/* </Link> */}
+            <Link to="/TaskPage">
+              <FiIcons.FiPlusCircle />
+              <p>Create a Task</p>
+            </Link>
           </div>
           <div className="sidebarItems content">
             <Link to="/allNotes">
@@ -56,7 +53,6 @@ function Navbar() {
               <span>Logout</span>
             </Link>
           </li>
-          {/* </ul> */}
         </div>
       </nav>
     </>

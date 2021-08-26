@@ -11,9 +11,9 @@ function App() {
     <>
       <div>
         <BrowserRouter>
-          <NewUser />
-          <CreateTask />
-          {/* <Router /> */}
+          {/* <NewUser />
+          <CreateTask /> */}
+          <Router />
         </BrowserRouter>
       </div>
     </>
