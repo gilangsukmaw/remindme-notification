@@ -14,7 +14,7 @@ import SignIn from "../Pages/SigninPage/SignIn";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 
 function Router() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   return (
     <>
       <Route exact path="/">
@@ -23,7 +23,7 @@ function Router() {
 
       {isLogin ? <Navbar /> : null}
       <Switch>
-        <PrivateRoutes exact component={SignUp} path="/SignUp" />
+        <PrivateRoutes exact component={SignInUpPage} path="/SignIn" />
 
         <PrivateRoutes exact component={SignIn} path="/SignIn" />
 

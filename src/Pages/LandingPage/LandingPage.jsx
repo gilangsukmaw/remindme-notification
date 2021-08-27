@@ -24,7 +24,7 @@ function LandingPage() {
             <Link to="/">
               <button>Home</button>
             </Link>
-            <Link to="/SignUp">
+            <Link to="/SignIn">
               <button>Register</button>
             </Link>
             <Link to="/SignIn">
@@ -40,7 +40,7 @@ function LandingPage() {
               be<br></br>distracted by the readable content of a page when
               <br></br>looking at its layout.
             </p>
-            <Link to="/SignUp">
+            <Link to="/SignIn">
               <button>Get Started</button>
             </Link>
           </div>
@@ -50,68 +50,70 @@ function LandingPage() {
         </div>
       </div>
       <div className="landing__footer">
-        <div className="footer__left">
-          <div className="left__top">
-            <h2>Need Help With Anything?</h2>
-            <p>
-              Let’s hear about it with <a href="#">Contact Us!</a>
-            </p>
+        <div className="landing__content">
+          <div className="footer__left">
+            <div className="left__top">
+              <h2>Need Help With Anything?</h2>
+              <p>
+                Let’s hear about it with <a href="#">Contact Us!</a>
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="footer__center">
-          <div className="center__title">
-            <p>Available on</p>
+          <div className="footer__center">
+            <div className="center__title">
+              <p>Available on</p>
+            </div>
+            <div className="center__app">
+              <img src={LandingAppStore} alt="" />
+              <img src={LandingGoogle} alt="" />
+            </div>
           </div>
-          <div className="center__app">
-            <img src={LandingAppStore} alt="" />
-            <img src={LandingGoogle} alt="" />
-          </div>
-        </div>
-        <div className="footer__right">
-          <div className="footer__home">
-            <p>Home</p>
-            <ul>
-              <li>
-                <a href="#">About</a>
-              </li>
-              <li>
-                <a href="#">Career</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer__about">
-            <p>About</p>
-            <ul>
-              <li>
-                <a href="#">What</a>
-              </li>
-              <li>
-                <a href="#">Why</a>
-              </li>
-              <li>
-                <a href="#">Developer</a>
-              </li>
-              <li>
-                <a href="#">Demo</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer__help">
-            <p>Help</p>
-            <ul>
-              <li>
-                <a href="#">Contact Form</a>
-              </li>
-              <li>
-                <a href="#">Location</a>
-              </li>
-              <li>
-                <a href="#">Consultation</a>
-              </li>
-              <li>
-                <a href="#">FAQ</a>
-              </li>
-            </ul>
+          <div className="footer__right">
+            <div className="footer__home">
+              <p>Home</p>
+              <ul>
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Career</a>
+                </li>
+              </ul>
+            </div>
+            <div className="footer__about">
+              <p>About</p>
+              <ul>
+                <li>
+                  <a href="#">What</a>
+                </li>
+                <li>
+                  <a href="#">Why</a>
+                </li>
+                <li>
+                  <a href="#">Developer</a>
+                </li>
+                <li>
+                  <a href="#">Demo</a>
+                </li>
+              </ul>
+            </div>
+            <div className="footer__help">
+              <p>Help</p>
+              <ul>
+                <li>
+                  <a href="#">Contact Form</a>
+                </li>
+                <li>
+                  <a href="#">Location</a>
+                </li>
+                <li>
+                  <a href="#">Consultation</a>
+                </li>
+                <li>
+                  <a href="#">FAQ</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
