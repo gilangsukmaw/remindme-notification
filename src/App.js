@@ -5,13 +5,15 @@ import "./index.css";
 import "./Custom.scss";
 import NotesPinnedCard from "./component/NotesCard/NotesCardPinned";
 import NotesUnPinnedCard from "./component/NotesCard/NotesUnpinned";
+import HomeExisting from "./component/HomeExisting/Home";
 
 function App() {
   return (
     <>
       <div>
         <BrowserRouter>
-          <Router />
+          <HomeExisting />
+          {/* <Router /> */}
           {/* <NotesPinnedCard />
           <NotesUnPinnedCard /> */}
         </BrowserRouter>
