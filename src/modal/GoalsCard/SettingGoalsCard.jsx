@@ -96,7 +96,7 @@ function SettingGoalsCard({ changeStep }) {
                     className="ChooseValue mb-3"
                     style={{
                       float: "left",
-                      paddingLeft: "0.5rem",
+                      // paddingLeft: "0.5rem",
                       borderRadius: "10px",
                       border: "1px solid #B6C6E5",
                     }}
@@ -147,7 +147,7 @@ function SettingGoalsCard({ changeStep }) {
                   </Form.Select>
                 </Col>
               </div>
-              <div className="mt-3">
+              <div className="mt-1">
                 <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
                   Choose Progress bar Color
                 </p>

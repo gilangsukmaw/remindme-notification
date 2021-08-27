@@ -1,0 +1,138 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.task__outside {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.task__outside.modal-backdrop {
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+.task__close img {
+  width: 20px;
+}
+
+.task__container {
+  width: 616px;
+  background-color: #F1F4FA;
+  -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.task__close button {
+  background-color: #F1F4FA;
+  border: none;
+  border-radius: 20px;
+}
+
+.task__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 200px;
+}
+
+.task__wrapper h1 {
+  font-size: 24px;
+  font-weight: 500px;
+  font-style: normal;
+}
+
+button.task__note, button.task__goals {
+  border: 1px solid #625BAD;
+  border-radius: 40px;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+button.task__note:hover, button.task__note:active, button.task__note:focus, button.task__goals:hover, button.task__goals:active, button.task__goals:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+button.task__note:hover, button.task__note:active, button.task__note:focus, button.task__goals:hover, button.task__goals:active, button.task__goals:focus {
+  color: #ffffff;
+}
+
+.task__note {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.task__note img {
+  background-color: #41CFC1;
+  padding: 0.3rem;
+  border-radius: 50%;
+  width: 30px;
+  margin-right: 2rem;
+}
+
+.task__note p {
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+  color: #625BAD;
+}
+
+.task__goals {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.task__goals img {
+  background-color: #FF586A;
+  padding: 0.3rem;
+  border-radius: 50%;
+  width: 30px;
+  margin-right: 2rem;
+}
+
+.task__goals p {
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+  color: #625BAD;
+}
+/*# sourceMappingURL=ModalTask.css.map */

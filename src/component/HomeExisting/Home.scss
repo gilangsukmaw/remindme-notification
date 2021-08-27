@@ -1,0 +1,118 @@
+.HomeContainer {
+    display: flex;
+}
+
+// =====Notes================
+.NotesCol {
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.NotesContainer {
+    max-width: 28rem;
+    max-height: 55rem;
+    background-color: #F1F4FA;
+    border-radius: 25px;
+    padding: 1.8rem 1.5rem 1.8rem 1.5rem;
+    float: right;
+
+    .TitleContainer {
+        font-weight: 600;
+        font-size: 30px;
+
+    }
+
+    .PinnedNotesContainer {
+        display: block;
+        margin-bottom: 1rem;
+        max-height: 30rem;
+    }
+
+    .SubTitleText {
+        margin-top: -1rem;
+        font-weight: 300;
+        font-size: 20px;
+    }
+
+    .CircularGoals {
+        overflow: auto;
+        height: 11.2rem;
+        max-width: 24rem;
+    }
+}
+
+// =====Calendar================
+
+.CalendarContainer {
+    width: 32rem;
+    max-height: 55rem;
+    background-color: #F1F4FA;
+    border-radius: 25px;
+    padding: 1.8rem 1.5rem 1.8rem 1.5rem;
+    margin-left: 2rem;
+
+    .CalendarBox {
+        height: 28rem;
+        background-color: black;
+    }
+
+    .ReminderTitle {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .TodayDates {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+}
+
+// =====punya home notes================
+.NotesCard {
+    width: 25rem;
+    height: 11.5rem;
+    border-radius: 20px;
+    padding-top: 1rem;
+    padding-left: 1.75rem;
+    padding-right: 2rem;
+
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    // .CardTittle {}
+}
+
+.NotesTime {
+    display: flex;
+
+    p {
+        margin: 0 2rem 1rem 0;
+        font-size: 0.8rem;
+    }
+}
+
+// reminderContainer===============
+.ReminderContainer {
+    padding: 0 0 0 -1rem;
+.CardMappingBox{
+    max-height: 15rem;
+}
+
+    .RemiderCard {
+        width: 22rem;
+        height: 6.25rem;
+        border-radius: 10px;
+        padding-top: 0.5rem;
+        padding-left: 1.0rem;
+        padding-right: 1rem;
+
+        .CardTitle {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}
