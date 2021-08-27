@@ -28,7 +28,7 @@ function Router() {
       {isLogin ? <Navbar setStep={setStep} /> : null}
       <Switch>
         <Route exact path="/">
-          <NewUser setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor}/>
+          <NewUser setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
         </Route>
         <PrivateRoutes exact component={ProfilePage} path="/Profile" />
 
