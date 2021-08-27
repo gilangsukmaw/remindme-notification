@@ -1,12 +1,14 @@
 import Router from "./routes/router";
 import { BrowserRouter } from "react-router-dom";
+import SignInUpPage from "./Pages/SigninPage/SignInBase";
 
 function App() {
   return (
     <>
       <div>
         <BrowserRouter>
-          <Router />
+        <SignInUpPage/>
+          {/* <Router /> */}
         </BrowserRouter>
       </div>
     </>
