@@ -19,11 +19,13 @@ function Router() {
       <Route exact path="/">
         <LandingPage />
       </Route>
+
       {isLogin ? <Navbar /> : null}
       <Switch>
         <PrivateRoutes exact component={SignUp} path="/SignUp" />
 
         <PrivateRoutes exact component={SignIn} path="/SignIn" />
+
         <PrivateRoutes exact component={ProfilePage} path="/Profile" />
 
         <PrivateRoutes exact component={CreateTask} path="/CreateTask" />

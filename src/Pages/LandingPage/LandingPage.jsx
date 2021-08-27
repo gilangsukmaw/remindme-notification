@@ -16,6 +16,9 @@ function LandingPage() {
         <div className="landing__header">
           <div className="header__logo">
             <img src={LogoLandingHeader} alt="" />
+            <h6>
+              Remind<span>Me</span>
+            </h6>
           </div>
           <div className="header__button">
             <Link to="/">
@@ -113,7 +116,6 @@ function LandingPage() {
         </div>
       </div>
       <div className="most__bottom">
-        <h6>RemindMe</h6>
         <div className="bottom__logo">
           <img src={twitter} alt="" />
           <img src={facebook} alt="" />
