@@ -40,7 +40,7 @@ function LandingPage() {
               be<br></br>distracted by the readable content of a page when
               <br></br>looking at its layout.
             </p>
-            <Link to="/SignIn">
+            <Link to="/SignUp">
               <button>Get Started</button>
             </Link>
           </div>

@@ -4,38 +4,57 @@ import SignInUpPage from "../Pages/SigninPage/SignInBase";
 import ProfilePage from "../Pages/ProfilePage";
 import Edit from "../Pages/ProfilePage/edit";
 import AllGoals from "../Pages/GoalsPage/AllGoals";
-import CreateTask from "../modal/CreateTask";
 import PrivateRoutes from "./privateRoutes";
 import Navbar from "../component/navbar/navbar";
 import NewUser from "../Pages/CreateTask/NewUser";
-import LandingPage from "../Pages/LandingPage/LandingPage";
-import SignUp from "../Pages/SigninPage/SignUp";
-import SignIn from "../Pages/SigninPage/SignIn";
+import CreateTask from "../modal/CreateTask";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 
 function Router() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
+  const [step, setStep] = useState("");
+  const [noteData, setNoteData] = useState({
+    title: "",
+    note: "",
+  });
+  const onSaveNote = () => {
+    console.log(noteData);
+  };
+  const [noteColor, setNoteColor] = useState("#f1f4fa");
+  const onSaveColor = () => {
+    console.log(noteColor);
+  };
   return (
     <>
-      <Route exact path="/">
-        <LandingPage />
-      </Route>
-
-      {isLogin ? <Navbar /> : null}
+      {isLogin ? <Navbar setStep={setStep} /> : null}
       <Switch>
-        <PrivateRoutes exact component={SignInUpPage} path="/SignIn" />
-
-        <PrivateRoutes exact component={SignIn} path="/SignIn" />
-
+        <Route exact path="/">
+          <NewUser
+            setStep={setStep}
+            step={step}
+            noteData={noteData}
+            setNoteData={setNoteData}
+            onSaveNote={onSaveNote}
+            noteColor={noteColor}
+            setNoteColor={setNoteColor}
+            onSaveColor={onSaveColor}
+          />
+        </Route>
         <PrivateRoutes exact component={ProfilePage} path="/Profile" />
 
-        <PrivateRoutes exact component={CreateTask} path="/CreateTask" />
+        <PrivateRoutes exact component={CreateTask} path="/TaskPage" />
 
         <PrivateRoutes exact component={AllNotesCreate} path="/AllNote" />
 
         <PrivateRoutes exact component={AllGoals} path="/AllGoals" />
 
         <PrivateRoutes exact component={Edit} path="/editprofile" />
+
+        {/* <Route path="*">
+          <div>
+            <h1>PAGE NOT FOUND</h1>
+          </div>
+        </Route> */}
       </Switch>
     </>
   );

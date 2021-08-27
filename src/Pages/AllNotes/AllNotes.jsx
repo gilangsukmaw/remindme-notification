@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Container, Button } from "react-bootstrap";
 import pinAllNote from "../../assets/images/pinAllNote.png";
+import "../AllNotes/AllNotes.scss";
+
 const AllNotesCreate = () => {
   return (
     <div>
-      <div className="allNote__navbar col-lg-3"></div>
-      <div className="allNote__container col-lg-9">
+      <div className="allNote__navbar"></div>
+      <div className="allNote__container">
         <h1>My All Notes</h1>
         <div className="allNote__top">
           <img src={pinAllNote} alt="" />

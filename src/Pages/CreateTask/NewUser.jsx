@@ -3,11 +3,23 @@ import RemindmeLogo from "../../assets/images/RemindmeLogo.png";
 import welcomeLogo from "../../assets/images/welcomeLogo.png";
 import "../../assets/styles/NewUser.scss";
 import CobaCalendar from "../../Calendar";
+import Navbar from "../../component/navbar/navbar";
+import ModalTest from "../../modal/modalTest";
 
-const NewUser = () => {
+const NewUser = ({ ...props }) => {
+  const {
+    step,
+    setStep,
+    noteData,
+    setNoteData,
+    onSaveNote,
+    noteColor,
+    setNoteColor,
+    onSaveColor,
+  } = props;
   return (
     <div className="newUser__page">
-      <div className="newUser__sideBar col-lg-3 col-md-3"></div>
+      <div className="newUser__sideBar col-lg-3"></div>
       <div className="newUser__container col-lg-9">
         {/* <div className="row"> */}
         <div className="newUser__intro">
@@ -34,6 +46,18 @@ const NewUser = () => {
         </div>
         {/* </div> */}
       </div>
+      <ModalTest
+        setStep={setStep}
+        step={step}
+        setStep={setStep}
+        step={step}
+        noteData={noteData}
+        setNoteData={setNoteData}
+        onSaveNote={onSaveNote}
+        noteColor={noteColor}
+        setNoteColor={setNoteColor}
+        onSaveColor={onSaveColor}
+      />
     </div>
   );
 };

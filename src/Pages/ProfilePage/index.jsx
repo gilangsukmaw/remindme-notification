@@ -26,15 +26,15 @@ const ProfilePage = () => {
               </div>
             </Link>
             <div className="firstname">
-              <h4>First Name</h4>
+              <h5>First Name</h5>
               <p>Amalia</p>
-              <h4>Last Name</h4>
+              <h5>Last Name</h5>
               <p> Nurlita</p>
-              <h4>Username</h4>
+              <h5>Username</h5>
               <p>Amalia Anrlt</p>
-              <h4>Email</h4>
+              <h5>Email</h5>
               <p>Amalia_Anrlt@gmail.com</p>
-              <h4>Password</h4>
+              <h5>Password</h5>
               <p>************</p>
             </div>
           </div>

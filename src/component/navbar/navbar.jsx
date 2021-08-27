@@ -6,22 +6,24 @@ import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import CreateTask from "../../modal/CreateTask";
 import PlusCreateTask from "../../assets/images/PlusCreateTask.png";
-function Navbar() {
+function Navbar({ ...props }) {
   const [open, setOpen] = useState(false);
+  const { setStep } = props;
   return (
     <>
       <nav className="sidebar">
-        {/* <ul> */}
         <div className="sidebar__top">
-          <div className="headers">
-            <img src={pp} alt="" />
-            <p>Amalia Nurlita</p>
-          </div>
-          <div className="sidebarItems Task">
-            <Link to="/TaskPage">
-              <img src={PlusCreateTask} alt="" />
-              <p>Create a Task</p>
+          <div className="sidebarItems headers">
+            <Link to="/">
+              <img src={pp} alt="" />
+              <p>Amalia Nurlita</p>
             </Link>
+          </div>
+          <div className=" Task" onClick={() => setStep("CreateNote")}>
+            <FiIcons.FiPlusCircle />
+            <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>
+              Create a Task
+            </h5>
           </div>
           <div className="sidebarItems content">
             <Link to="/allNotes">
@@ -52,7 +54,6 @@ function Navbar() {
               <span>Logout</span>
             </Link>
           </li>
-          {/* </ul> */}
         </div>
       </nav>
     </>

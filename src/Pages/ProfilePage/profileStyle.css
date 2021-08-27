@@ -2,9 +2,7 @@
   margin-left: 360px;
   padding-top: 2rem;
 }
-body {
-  height: 100vh;
-}
+
 .head {
   display: flex;
   justify-content: center;
@@ -17,7 +15,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-right: 200px;
+  margin-right: 100px;
 }
 
 .wrapper a {
@@ -30,7 +28,7 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  width: 35vw;
+  width: 40vw;
 }
 .edit {
   display: flex;
@@ -42,13 +40,7 @@ body {
 
 .firstname {
   margin-left: 2rem;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: #342d50;
-}
-
-.wrapper-edit {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
 }

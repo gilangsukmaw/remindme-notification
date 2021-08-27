@@ -5,31 +5,11 @@ import NoteModal from "./ModalNote";
 import ModalCreateTask from "./ModalTask";
 import SaveGoals from "./SaveGoalsModal/SaveGoalsModal";
 import SaveNotes from "./SaveNotesModal/SaveNotesModal";
-import "./tesStyle.css";
 
-const CreateTask = () => {
-  const [step, setStep] = useState("");
-  const [noteData, setNoteData] = useState({
-    title: "",
-    note: "",
-  });
-  const onSaveNote = () => {
-    console.log(noteData);
-  };
-  const [noteColor, setNoteColor] = useState("#f1f4fa");
-  const onSaveColor = () => {
-    console.log(noteColor);
-  };
+const ModalTest = ({ ...props }) => {
+  const { step, setStep, noteData, setNoteData, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
   return (
     <>
-      <button
-        className="openTaskModal"
-        onClick={() => {
-          setStep("CreateNote");
-        }}
-      >
-        Create Task
-      </button>
       {/* step to note */}
       {step === "CreateNote" && <ModalCreateTask changeStep={(item) => setStep(item)} onClose={(item) => setStep(item)} />}
       {step === "InputNote" && (
@@ -67,4 +47,4 @@ const CreateTask = () => {
   );
 };
 
-export default CreateTask;
+export default ModalTest;
