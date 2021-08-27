@@ -9,9 +9,9 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import "./modal.scss";
 
-function SignInUpPage(props) {
+function SignInUpPage({ ...props }) {
   const [SignUpPage, setSignUpPage] = useState(false);
-  console.log("props", props);
+
   return (
     <>
       <div>
