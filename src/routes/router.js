@@ -11,6 +11,7 @@ import NewUser from "../Pages/CreateTask/NewUser";
 import LandingPage from "../Pages/LandingPage/LandingPage";
 import SignUp from "../Pages/SigninPage/SignUp";
 import SignIn from "../Pages/SigninPage/SignIn";
+import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 
 function Router() {
   const [isLogin, setIsLogin] = useState(true);
@@ -29,6 +30,8 @@ function Router() {
         <PrivateRoutes exact component={ProfilePage} path="/Profile" />
 
         <PrivateRoutes exact component={CreateTask} path="/CreateTask" />
+
+        <PrivateRoutes exact component={AllNotesCreate} path="/AllNote" />
 
         <PrivateRoutes exact component={AllGoals} path="/AllGoals" />
 
