@@ -10,18 +10,20 @@ import Navbar from "../component/navbar/navbar";
 import NewUser from "../Pages/CreateTask/NewUser";
 import LandingPage from "../Pages/LandingPage/LandingPage";
 import SignUp from "../Pages/SigninPage/SignUp";
+import SignIn from "../Pages/SigninPage/SignIn";
 
 function Router() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   return (
     <>
+      <Route exact path="/">
+        <LandingPage />
+      </Route>
       {isLogin ? <Navbar /> : null}
       <Switch>
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
         <PrivateRoutes exact component={SignUp} path="/SignUp" />
 
+        <PrivateRoutes exact component={SignIn} path="/SignIn" />
         <PrivateRoutes exact component={ProfilePage} path="/Profile" />
 
         <PrivateRoutes exact component={CreateTask} path="/CreateTask" />

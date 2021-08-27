@@ -18,9 +18,15 @@ function LandingPage() {
             <img src={LogoLandingHeader} alt="" />
           </div>
           <div className="header__button">
-            <button>Home</button>
-            <button>Register</button>
-            <button>Login</button>
+            <Link to="/">
+              <button>Home</button>
+            </Link>
+            <Link to="/SignUp">
+              <button>Register</button>
+            </Link>
+            <Link to="/SignIn">
+              <button>Login</button>
+            </Link>
           </div>
         </div>
         <div className="landing__intro">
@@ -62,26 +68,46 @@ function LandingPage() {
           <div className="footer__home">
             <p>Home</p>
             <ul>
-              <li>About</li>
-              <li>Career</li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Career</a>
+              </li>
             </ul>
           </div>
           <div className="footer__about">
             <p>About</p>
             <ul>
-              <li>What</li>
-              <li>Why</li>
-              <li>Developer</li>
-              <li>Demo</li>
+              <li>
+                <a href="#">What</a>
+              </li>
+              <li>
+                <a href="#">Why</a>
+              </li>
+              <li>
+                <a href="#">Developer</a>
+              </li>
+              <li>
+                <a href="#">Demo</a>
+              </li>
             </ul>
           </div>
           <div className="footer__help">
             <p>Help</p>
             <ul>
-              <li>Contact Form</li>
-              <li>Location</li>
-              <li>Consultation</li>
-              <li>FAQ</li>
+              <li>
+                <a href="#">Contact Form</a>
+              </li>
+              <li>
+                <a href="#">Location</a>
+              </li>
+              <li>
+                <a href="#">Consultation</a>
+              </li>
+              <li>
+                <a href="#">FAQ</a>
+              </li>
             </ul>
           </div>
         </div>

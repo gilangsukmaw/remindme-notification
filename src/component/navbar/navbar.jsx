@@ -18,14 +18,10 @@ function Navbar() {
             <p>Amalia Nurlita</p>
           </div>
           <div className="sidebarItems Task">
-            {/* <Link to="/TaskPage"> */}
-            {/* <button> */}
-            <CreateTask />
-            {/* <img src={PlusCreateTask} alt="" />
-            <p>Create a Task</p> */}
-            {/* </button> */}
-
-            {/* </Link> */}
+            <Link to="/TaskPage">
+              <img src={PlusCreateTask} alt="" />
+              <p>Create a Task</p>
+            </Link>
           </div>
           <div className="sidebarItems content">
             <Link to="/allNotes">
