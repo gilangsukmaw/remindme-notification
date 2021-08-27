@@ -13,26 +13,26 @@ const AllNotesCreate = () => {
           <img src={pinAllNote} alt="" />
           <p>Pinned Notes</p>
         </div>
-        <Carousel fade>
-          <Carousel.Item>
-            <div className="allNote__card">
-              <div className="allNote__title">
-                <h5>Understanding Business Value</h5>
-                <img src={PinCard} alt="" />
-              </div>
-              <div className="allNote__time">
-                <p>11 Juni 2021</p>
-              </div>
-              <div className="allNote__content">
-                <p>
-                  As designer that understands how to<br></br>continually bring
-                  value to the business while<br></br> also advocating for the
-                  user is a golden egg<br></br> for organizations.
-                </p>
-              </div>
+        {/* <Carousel fade> */}
+        <Carousel.Item>
+          <div className="allNote__card">
+            <div className="allNote__title">
+              <h5>Understanding Business Value</h5>
+              <img src={PinCard} alt="" />
             </div>
-          </Carousel.Item>
-        </Carousel>
+            <div className="allNote__time">
+              <p>11 Juni 2021</p>
+            </div>
+            <div className="allNote__content">
+              <p>
+                As designer that understands how to<br></br>continually bring
+                value to the business while<br></br> also advocating for the
+                user is a golden egg<br></br> for organizations.
+              </p>
+            </div>
+          </div>
+        </Carousel.Item>
+        {/* </Carousel> */}
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ return (
                 <Carousel.Item>
                     <h3>Achieve Your Goal </h3>
                     <p> Reach your goal faster</p>
-                    <img className="d-block w-100" style={{maxWidth:'600px', maxHeight:'auto'}}src={gambar2}
+                    <img data-testid='ImgSignIn' className="d-block w-100" style={{maxWidth:'600px', maxHeight:'auto'}}src={gambar2}
                         alt="Second slide" />
                 </Carousel.Item>
                 <Carousel.Item>

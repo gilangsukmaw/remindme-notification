@@ -1,0 +1,58 @@
+.OkButton .btn-primary {
+  border: 1px solid #625BAD;
+  border-radius: 40px;
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+.OkButton .btn-primary:hover, .OkButton .btn-primary:active, .OkButton .btn-primary:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+.SaveNotes {
+  background-color: rgba(241, 244, 250, 0.8);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+.SaveNotes .modal .show {
+  background: #F1F4FA;
+}
+
+.SaveNotes .modal-dialog {
+  width: 100rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.SaveNotes .modal-body {
+  text-align: center;
+  padding: 0;
+}
+
+.SaveNotes .modal-header {
+  padding-top: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: none;
+}
+
+.SaveNotes .modal-content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.75rem;
+  border: none;
+  -webkit-box-shadow: 1rem;
+          box-shadow: 1rem;
+  background: #F1F4FA;
+  height: 25rem;
+  width: 25rem;
+}
+
+.SaveNotes .modal-footer {
+  padding-bottom: 4rem;
+  border: none;
+}
+/*# sourceMappingURL=SaveNotesModal.css.map */

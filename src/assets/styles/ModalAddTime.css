@@ -1,0 +1,246 @@
+.time__outside {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.time__outside.modal-backdrop {
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+.btn-close button {
+  border: none;
+  background-color: none;
+}
+
+.time__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #342D50;
+}
+
+.time__title button {
+  border: 1px solid #625BAD;
+  border-radius: 21px;
+  width: 100%;
+  max-width: 169px;
+  color: #342D50;
+}
+
+.time__title button:hover, .time__title button:active, .time__title button:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+.time__title h1 {
+  font-size: 30px;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+
+.time__button {
+  height: 100%;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 20px;
+}
+
+.time__button button {
+  margin: 0 auto;
+  border: 1px solid #625BAD;
+  border-radius: 21px;
+  width: 100%;
+  max-width: 169px;
+  color: #342D50;
+  background-color: #FFBCC2;
+}
+
+.time__button button:hover, .time__button button:active, .time__button button:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+.time__button .notification {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+}
+
+.time__button .notification p {
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.time__button button.notification {
+  border: 1px solid #625BAD;
+  border-radius: 21px;
+  width: 100%;
+  max-width: 169px;
+  color: #342D50;
+  background-color: #B6C6E5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+}
+
+.time__button button.notification:hover, .time__button button.notification:active, .time__button button.notification:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+.time__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 550px;
+  padding: 20px;
+  width: 594px;
+  background-color: #FFBCC2;
+  -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.time__wrapper {
+  height: 100%;
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+button.time__save, button.time__cancel {
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #625BAD;
+  border-radius: 21px;
+  width: 100%;
+  max-width: 169px;
+  color: #342D50;
+}
+
+button.time__save:hover, button.time__save:active, button.time__save:focus, button.time__cancel:hover, button.time__cancel:active, button.time__cancel:focus {
+  background-color: #625BAD;
+  color: #ffffff;
+}
+
+button.time__save {
+  margin-bottom: 1rem;
+}
+
+.time__button2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.time__input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.time__input .time__date input {
+  border: 1px solid #625BAD;
+  border-radius: 10px;
+  height: 2.5em;
+  width: 150px;
+  margin-right: 2em;
+  outline: none;
+  background-color: #FFBCC2;
+}
+
+.time__input .time__time input {
+  border: 1px solid #625BAD;
+  border-radius: 10px;
+  height: 2.5em;
+  width: 100px;
+  outline: none;
+  background-color: #FFBCC2;
+}
+
+.time__input h3 {
+  color: #342D50;
+}
+
+.time__calendar {
+  padding-top: 2rem;
+  background-color: #FFBCC2;
+}
+
+.time__calendar .calendar {
+  width: 350px;
+  border-radius: 20px;
+  height: auto;
+  background-color: #FFBCC2;
+}
+
+.time__calendar .calendar .header {
+  display: none;
+}
+
+.time__calendar .calendar .body {
+  background-color: #FFBCC2;
+}
+
+.time__calendar .calendar .day .before {
+  color: #342D50;
+}
+/*# sourceMappingURL=ModalAddTime.css.map */

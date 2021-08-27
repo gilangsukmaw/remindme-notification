@@ -1,0 +1,98 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.calendar {
+  width: 400px;
+  background-color: #F1F4FA;
+  height: 350px;
+}
+
+.calendar .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1rem;
+}
+
+.calendar .header .current {
+  font-family: 'Poppins', sans-serif;
+}
+
+.calendar .header .header__left, .calendar .header .header__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 30%;
+}
+
+.calendar .header .header__left .previous, .calendar .header .header__left .next, .calendar .header .header__right .previous, .calendar .header .header__right .next {
+  cursor: pointer;
+}
+
+.calendar .body {
+  background-color: #F1F4FA;
+  border-radius: 20px;
+}
+
+.calendar .body .day-names {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.calendar .body .day-names .week {
+  position: relative;
+  width: calc(100% / 7);
+  height: 44px;
+  display: inline-block;
+  padding: 0;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.calendar .day {
+  position: relative;
+  width: calc(100% / 7);
+  height: 44px;
+  display: inline-block;
+  padding: 0;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.calendar .day .before {
+  color: #c5bebe;
+}
+
+.calendar .day .selected {
+  background-color: #625BAD;
+  width: 20px;
+  height: 30px;
+  margin: auto;
+  color: white;
+  border-radius: 20px;
+}
+
+.calendar .day .today {
+  background-color: #d9d9da;
+  width: 20px;
+  height: 30px;
+  margin: auto;
+  border-radius: 20px;
+}
+/*# sourceMappingURL=CobaCalendar.css.map */

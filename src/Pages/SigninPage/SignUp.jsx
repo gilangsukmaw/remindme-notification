@@ -13,12 +13,11 @@ import "./modal.scss";
 import ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
 import SignInUpPage from "./SignInBase";
+import axios from "axios";
 
 function SignUp(props) {
   const { ganti } = props;
-
   const [page, setPage] = useState(1);
-
   const [values, setValues] = React.useState({
     password: "",
     showPassword: false,
@@ -37,6 +36,41 @@ function SignUp(props) {
   // };
   const [modalShow, setModalShow] = React.useState(false);
 
+  const [state, setState] = useState({
+    username: "",
+    email: "",
+    password: "",
+    firstname: "",
+    lastname: "",
+  });
+  // const backtoHome = () => {
+  //     window.location.replace("/");
+  // };
+  const submitSignUp = (e) => {
+    e.preventDefault();
+    if (
+      (state.username === "") |
+      (state.email === "") |
+      (state.password === "") |
+      (state.firstname === "") |
+      (state.lastname === "")
+    ) {
+      alert("please fill all the form");
+      return;
+    } else {
+      axios
+        .post(`https://remindme.gabatch13.my.id/api/v1/auth/signup`, state)
+        .then((res) => {
+          setModalShow(true);
+          ganti();
+        });
+    }
+  };
+
+  // const handlePasswordChange = (prop) => (event) => {
+  // setValues({ ...values, [prop]: event.target.value });
+  // };
+
   function MyVerticallyCenteredModal(props) {
     return (
       <Modal
@@ -49,7 +83,7 @@ function SignUp(props) {
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-            <img src={ceklis} alt="" />
+            <img src={ceklis}></img>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body style={{}}>
@@ -116,10 +150,14 @@ function SignUp(props) {
             ) : null}
 
             {/* --------------------------------page one---------------------------------- */}
-            <Form className="InformationBox">
+            <Form onSubmit={submitSignUp} className="InformationBox">
               <Form.Group className="mb-4 mt-4" controlId="FirstName">
                 {page === 1 ? (
                   <Form.Control
+                    value={state.firstname}
+                    onChange={(e) =>
+                      setState({ ...state, firstname: e.target.value })
+                    }
                     style={{
                       width: "100%",
                       borderRadius: "10px",
@@ -135,6 +173,10 @@ function SignUp(props) {
               <Form.Group className="mb-4 mt-4" controlId="LastName">
                 {page === 2 ? (
                   <Form.Control
+                    value={state.lastname}
+                    onChange={(e) =>
+                      setState({ ...state, lastname: e.target.value })
+                    }
                     style={{
                       width: "100%",
                       borderRadius: "10px",
@@ -150,6 +192,10 @@ function SignUp(props) {
               <Form.Group className="mb-4 mt-4" controlId="Username">
                 {page === 3 ? (
                   <Form.Control
+                    value={state.username}
+                    onChange={(e) =>
+                      setState({ ...state, username: e.target.value })
+                    }
                     style={{
                       width: "100%",
                       borderRadius: "10px",
@@ -165,6 +211,10 @@ function SignUp(props) {
               <Form.Group className="mb-4 mt-4" controlId="email">
                 {page === 4 ? (
                   <Form.Control
+                    value={state.email}
+                    onChange={(e) =>
+                      setState({ ...state, email: e.target.value })
+                    }
                     style={{
                       width: "100%",
                       borderRadius: "10px",
@@ -182,6 +232,10 @@ function SignUp(props) {
                 {page === 5 ? (
                   <Form.Group className="mb-4" controlId="formBasicPassword">
                     <Form.Control
+                      value={state.password}
+                      onChange={(e) =>
+                        setState({ ...state, password: e.target.value })
+                      }
                       style={{
                         width: "100%",
                         borderRadius: "10px",
@@ -230,71 +284,91 @@ function SignUp(props) {
                   </Form.Group>
                 ) : null}
               </Form.Group>
+
+              {/* --------------------------------Button--------------------------------- */}
+              <div
+                className="signUpButton justify-content-between"
+                style={{ width: "100%" }}
+              >
+                {page === 1 ? (
+                  <Button
+                    className="ButtonUnguOutline"
+                    onClick={ganti}
+                    style={{
+                      height: "2.5rem",
+                      width: "45%",
+                      borderRadius: "35px",
+                      fontWeight: "600",
+                      background: "transparent",
+                      border: "1px solid #625BAD",
+                      fontWeight: "600",
+                      color: "#625BAD",
+                    }}
+                  >
+                    Home
+                  </Button>
+                ) : (
+                  <Button
+                    className="ButtonUngu"
+                    onClick={() => setPage(page - 1)}
+                    style={{
+                      height: "2.5rem",
+                      width: "45%",
+                      borderRadius: "35px",
+                      fontWeight: "600",
+                      border: "1px solid #625BAD",
+                      color: "#ffffff",
+                      backgroundColor: "#625BAD",
+                    }}
+                  >
+                    Prev
+                  </Button>
+                )}
+                {page === 5 ? null : (
+                  <Button
+                    className="ButtonUngu"
+                    onClick={() => setPage(page + 1)}
+                    style={{
+                      height: "2.5rem",
+                      width: "45%",
+                      borderRadius: "35px",
+                      fontWeight: "600",
+                      border: "1px solid #625BAD",
+                      color: "#ffffff",
+                      backgroundColor: "#625BAD",
+                    }}
+                  >
+                    Next
+                  </Button>
+                )}
+                {page === 5 ? (
+                  <Button
+                    className="ButtonUngu"
+                    type="submit"
+                    value="Submit"
+                    onClick={() => setModalShow(true)}
+                    style={{
+                      height: "2.5rem",
+                      width: "45%",
+                      borderRadius: "35px",
+                      fontWeight: "600",
+                      border: "1px solid #625BAD",
+                      color: "#ffffff",
+                      backgroundColor: "#625BAD",
+                    }}
+                  >
+                    Submit
+                  </Button>
+                ) : null}
+                {/* type="submit" value="Submit"*/}
+                {/*sementara pakai button, nanti saat sdh ada fungsi, modal masukin ke fungsi*/}
+                <MyVerticallyCenteredModal
+                  show={modalShow}
+                  onClick={() => setModalShow(false)}
+                  onHide={() => setModalShow(false)}
+                />
+              </div>
             </Form>
-            {/* --------------------------------Button--------------------------------- */}
-            <div
-              className="signUpButton justify-content-between"
-              style={{ width: "100%" }}
-            >
-              {page === 1 ? (
-                <button
-                  className="ButtonUnguOutline"
-                  variant="outline-warning"
-                  onClick={ganti}
-                  style={{
-                    width: "45%",
-                    borderRadius: "35px",
-                    fontWeight: "600",
-                  }}
-                >
-                  Home
-                </button>
-              ) : (
-                <button
-                  className="ButtonUngu"
-                  onClick={() => setPage(page - 1)}
-                  style={{
-                    width: "45%",
-                    borderRadius: "35px",
-                    fontWeight: "600",
-                  }}
-                >
-                  Prev
-                </button>
-              )}
-              {page === 5 ? null : (
-                <button
-                  className="ButtonUngu"
-                  variant="warning"
-                  onClick={() => setPage(page + 1)}
-                  style={{
-                    width: "45%",
-                    borderRadius: "35px",
-                    fontWeight: "600",
-                  }}
-                >
-                  Next
-                </button>
-              )}
-              {page === 5 ? (
-                <button
-                  className="ButtonUngu"
-                  type="submit"
-                  value="Submit"
-                  variant="warning"
-                  onClick={() => setModalShow(true)}
-                  style={{ width: "45%", borderRadius: "35px" }}
-                >
-                  Submit
-                </button>
-              ) : null}
-              {/* type="submit" value="Submit"*/}
-              {/*sementara pakai button, nanti saat sdh ada fungsi, modal masukin ke fungsi*/}
-              <MyVerticallyCenteredModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-              />
-            </div>
 
             {/* <h1>{page}</h1> */}
           </div>
@@ -305,3 +379,17 @@ function SignUp(props) {
 }
 
 export default SignUp;
+
+// username: auliaFE,
+// email: auliaFE@gmail.com,
+// password: Hehehe123$,
+// firstname: aulia,
+// lastname: feglints,
+
+// response : 201 sukses
+// {username: "auliaFE", email: "auliaFE@gmail.com", password: "Hehehe123$", firstname: "aulia",…}
+// email: "auliaFE@gmail.com"
+// firstname: "aulia"
+// lastname: "feglints"
+// password: "Hehehe123$"
+// username: "auliaFE"
