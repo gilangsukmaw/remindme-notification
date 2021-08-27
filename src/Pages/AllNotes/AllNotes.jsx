@@ -1,26 +1,28 @@
 import React from "react";
 import { useState } from "react";
+import Horizontal from "@alphasquad/horizontal-scroll-view";
 
 const AllNotesCreate = () => {
-  const [title, setTitle] = useState("");
-  const [note, setNote] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const createNote = () => {
-    console.log(title);
-    console.log(note);
-    console.log(date);
-    console.log(time);
-  };
-  return (
-    <div className="allNote">
-      <div className="allNote__pin">
-        <div className="allNote__card">
-          <div className="allNote__title">{/* {setAllNote.map(())} */}</div>
-          <div className="allNote__content"></div>
-        </div>
+  const Item = (props) => {
+    let { item } = props;
+    return (
+      <div className="contentWrapper">
+        <img src={item.image} alt="" />
+        <h1>{item.title}</h1>
+        <p>{item.content}</p>
       </div>
-      <div className="allNote__unpinned"></div>
+    );
+  };
+
+  return (
+    <div>
+      <Horizontal
+        // data={data} // Array of object
+        Component={Item} // Component that is going to be rendered and recieve object from above array
+        wrapperClass="customClass"
+        scrollLength={100} // How much the scroll should jump on left or right contorl click
+        showControls={true}
+      />
     </div>
   );
 };
