@@ -26,7 +26,7 @@ function Navbar({ ...props }) {
             </h5>
           </div>
           <div className="sidebarItems content">
-            <Link to="/allNotes">
+            <Link to="/AllNote">
               <p>All Notes</p>
             </Link>
           </div>
