@@ -4,23 +4,24 @@ import './modal.scss'
 import { useState } from "react"
 import axios from 'axios'
 
-
+// username: auliaFE,
+// email: auliaFE@gmail.com,
+// password: Hehehe123$,
 
 function SignIn() {
 
     const [state, setState] = useState({
-        email: "",
-        password: ""
+        emailorusername: "",
+        password: "",
     });
-    const add = (e) => {
+    const submitSignIn = (e) => {
         e.preventDefault()
-        if (state.movieTitile === "" | state.genre === "" | state.release === "" | state.trailer === "" | state.synopsis === "") {
-            alert("kolom kosong, tolong diisi terlebih dahulu")
+        if (state.emailorusername === "" | state.password === "" ) {
+            alert("fill the form first")
             return;
         } else {
-
-            axios.post(`https://demovie.gabatch13.my.id/auth/login`, state).then(res => {
-                localStorage.setItem('Token', res.data.token); localStorage.setItem('USERID', res.data._id);
+            axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signin`, state).then(res => {
+                localStorage.setItem('Token', res.data.token); localStorage.setItem('USERID', res.data.data.id);localStorage.setItem('USEREMAIL', res.data.data.email);localStorage.setItem('USERNAME', res.data.data.username);
             })
         }
     }
@@ -53,15 +54,15 @@ function SignIn() {
                     Enter your email address or username you’ve created when you registering and last, don’t forget to
                     enter the right password
                 </p>
-                <Form className="SignInform">
+                <Form onSubmit={submitSignIn} className="SignInform">
                     <Form.Group className="mb-4 mt-4 " controlId="formBasicEmail">
-                        <Form.Control style={{ borderRadius:'10px', border:'2px solid #B6C6E5'}}
+                        <Form.Control value={state.emailorusername} onChange={(e) => setState({ ...state, emailorusername: e.target.value })} style={{ borderRadius:'10px', border:'2px solid #B6C6E5'}}
                             type="text" placeholder="Email / Username" />
                     </Form.Group>
 
                     <div className='d-flex flex-column'>
                         <Form.Group className="mb-4" controlId="formBasicPassword">
-                            <Form.Control style={{ borderRadius:'10px', border:'2px solid #B6C6E5'}}
+                            <Form.Control value={state.password} onChange={(e) => setState({ ...state, password: e.target.value })} style={{ borderRadius:'10px', border:'2px solid #B6C6E5'}}
                                 variant="secondary" type={values.showPassword ? "text" : "password" }
                                 placeholder="Password" />
                             <Button style={{float:'right', marginTop:'-2.5rem', background:'none', border:'none'}} onMouseDown={handleMouseDownPassword} onClick={handleClickShowPassword}>
@@ -83,7 +84,7 @@ function SignIn() {
                         </Form.Group>
                     </div>
 
-                    <button className='ButtonUngu' data-testid='ButtonSignIn'  type="submit" style={{width:'100%', borderRadius:'35px', fontWeight:'600'}}>
+                    <button className='ButtonUngu' data-testid='ButtonSignIn' value="Submit" type="submit" style={{width:'100%', borderRadius:'35px', fontWeight:'600'}}>
                         Sign In
                     </button>
                 </Form>
