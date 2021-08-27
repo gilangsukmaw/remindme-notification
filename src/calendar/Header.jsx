@@ -1,4 +1,3 @@
-import { isThisMonth } from "date-fns";
 import React from "react";
 
 export default function CalendarHeader({ value, setValue }) {
