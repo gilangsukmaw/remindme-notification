@@ -79,12 +79,8 @@
   color: #342d50;
   border-bottom: 1px solid #625bad;
 }
-/* .content p {
-  margin-left: 15px;
-} */
 
 .Logout {
-  /* margin-top: 12rem; */
   font-size: 20px;
   display: flex;
   justify-content: center;
