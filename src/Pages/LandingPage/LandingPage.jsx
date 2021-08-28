@@ -10,7 +10,7 @@ import instagram from "../../assets/images/instagram.png";
 import { Link, useParams } from "react-router-dom";
 
 function LandingPage(...props) {
-  const { ganti, register } = props;
+  const { ganti, register, clear } = props;
   return (
     <div className="landing">
       <div className="landing__top">
