@@ -5,7 +5,6 @@ import CobaCalendar from "../../Calendar";
 import "./SettingGoals.scss";
 import * as dayjs from "dayjs";
 
-
 function SettingGoalsCard({ changeStep }) {
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
@@ -26,7 +25,7 @@ function SettingGoalsCard({ changeStep }) {
           className="GoalSetting shadow"
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
-      centered
+          centered
         >
           <div className="SetGoalsContainer shadow text-dark">
             <Modal.Header style={{ alignItems: "flex-start" }} closeButton>
