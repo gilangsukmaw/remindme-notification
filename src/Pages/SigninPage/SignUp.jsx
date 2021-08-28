@@ -159,6 +159,7 @@ function SignUp(props) {
                       setState({ ...state, firstname: e.target.value })
                     }
                     style={{
+                      height: "2.5rem",
                       width: "100%",
                       borderRadius: "10px",
                       border: "2px solid #B6C6E5",
@@ -178,6 +179,7 @@ function SignUp(props) {
                       setState({ ...state, lastname: e.target.value })
                     }
                     style={{
+                      height: "2.5rem",
                       width: "100%",
                       borderRadius: "10px",
                       border: "2px solid #B6C6E5",
@@ -197,6 +199,7 @@ function SignUp(props) {
                       setState({ ...state, username: e.target.value })
                     }
                     style={{
+                      height: "2.5rem",
                       width: "100%",
                       borderRadius: "10px",
                       border: "2px solid #B6C6E5",
@@ -216,6 +219,7 @@ function SignUp(props) {
                       setState({ ...state, email: e.target.value })
                     }
                     style={{
+                      height: "2.5rem",
                       width: "100%",
                       borderRadius: "10px",
                       border: "2px solid #B6C6E5",
@@ -237,6 +241,7 @@ function SignUp(props) {
                         setState({ ...state, password: e.target.value })
                       }
                       style={{
+                        height: "2.5rem",
                         width: "100%",
                         borderRadius: "10px",
                         border: "2px solid #B6C6E5",

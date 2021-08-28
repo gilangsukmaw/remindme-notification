@@ -9,7 +9,8 @@ import facebook from "../../assets/images/facebook.png";
 import instagram from "../../assets/images/instagram.png";
 import { Link } from "react-router-dom";
 
-function LandingPage() {
+function LandingPage(props) {
+  const { ganti } = props;
   return (
     <div className="landing">
       <div className="landing__top">
@@ -21,13 +22,10 @@ function LandingPage() {
             </h6>
           </div>
           <div className="header__button">
-            <Link to="/">
-              <button>Home</button>
-            </Link>
-            <Link to="/SignIn">
+            <Link to="/auth">
               <button>Register</button>
             </Link>
-            <Link to="/SignIn">
+            <Link to={{ pathname: "/auth", state: true }}>
               <button>Login</button>
             </Link>
           </div>
@@ -36,11 +34,10 @@ function LandingPage() {
           <div className="intro__left">
             <h1>Find Balance in Your Life</h1>
             <p>
-              Why do we use it? It is a long established fact that a reader will
-              be<br></br>distracted by the readable content of a page when
+              Why do we use it? It is a long established fact that a reader will be<br></br>distracted by the readable content of a page when
               <br></br>looking at its layout.
             </p>
-            <Link to="/SignUp">
+            <Link to="/auth">
               <button>Get Started</button>
             </Link>
           </div>

@@ -3,7 +3,20 @@ import "./profileStyle.css";
 import pencil from "../../assets/images/Vector (2).png";
 import { Link } from "react-router-dom";
 import edit from "../../assets/images/Ellipse 107.png";
+import axios from "axios";
+import { useState, useEffect } from "react";
 const ProfilePage = () => {
+  const [user, setUser] = useState([]);
+  const getData = async () => {
+    await axios
+      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`)
+      .then((result) => setUser(result.data))
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  console.log("data user", user);
   return (
     <div>
       <div className="profile">
@@ -13,10 +26,10 @@ const ProfilePage = () => {
         <div className="wrapper">
           <div className="head">
             <img src={pp} alt="profile pictures" style={{ width: "230px" }} />
-            <div className="edit-profile">
+            {/* <div className="edit-profile">
               <img src={edit} alt="edit" />
             </div>
-            <p style={{ marginTop: "-40px" }}>Edit Photo</p>
+            <p style={{ marginTop: "-40px" }}>Edit Photo</p> */}
           </div>
           <div className="contents">
             <Link to="/editProfile">

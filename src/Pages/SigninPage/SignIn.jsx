@@ -1,17 +1,11 @@
 import React from "react";
-import {
-Container,
-Col,
-Carousel,
-Form,
-Button,
-FormControl,
-InputGroup,
-} from "react-bootstrap";
+import { Container, Col, Carousel, Form, Button, FormControl, InputGroup } from "react-bootstrap";
 import "./modal.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./Sign.css";
+
 
 // username: auliaFE,
 // email: auliaFE@gmail.com,
@@ -23,26 +17,24 @@ password: "",
 showPassword: false,
 });
 
-const [state, setState] = useState({
-emailorusername: "",
-password: "",
-});
-const submitSignIn = (e) => {
-e.preventDefault();
-if ((state.emailorusername === "") | (state.password === "")) {
-alert("fill the form first");
-return;
-} else {
-axios
-.post(`https://remindme.gabatch13.my.id/api/v1/auth/signin`, state)
-.then((res) => {
-localStorage.setItem("Token", res.data.token);
-localStorage.setItem("USERID", res.data.data.id);
-localStorage.setItem("USEREMAIL", res.data.data.email);
-localStorage.setItem("USERNAME", res.data.data.username);
-});
-}
-};
+  const [state, setState] = useState({
+    emailorusername: "",
+    password: "",
+  });
+  const submitSignIn = (e) => {
+    e.preventDefault();
+    if ((state.emailorusername === "") | (state.password === "")) {
+      alert("fill the form first");
+      return;
+    } else {
+      axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signin`, state).then((res) => {
+        localStorage.setItem("Token", res.data.token);
+        localStorage.setItem("USERID", res.data.data.id);
+        localStorage.setItem("USEREMAIL", res.data.data.email);
+        localStorage.setItem("USERNAME", res.data.data.username);
+      });
+    }
+  };
 
 const [value, setValue] = React.useState({
 password: "",
@@ -71,7 +63,7 @@ return (
         <Form.Control value={state.emailorusername} onChange={(e)=>
           setState({ ...state, emailorusername: e.target.value })
           }
-          style={{ borderRadius: "10px", border: "2px solid #B6C6E5" }}
+          style={{height: '2.5rem', borderRadius: "10px", border: "2px solid #B6C6E5" }}
           type="text"
           placeholder="Email / Username"
           />
@@ -82,7 +74,7 @@ return (
           <Form.Control value={state.password} onChange={(e)=>
             setState({ ...state, password: e.target.value })
             }
-            style={{ borderRadius: "10px", border: "2px solid #B6C6E5" }}
+            style={{  height: '2.5rem',borderRadius: "10px", border: "2px solid #B6C6E5" }}
             variant="secondary"
             type={values.showPassword ? "text" : "password"}
             placeholder="Password"
@@ -112,7 +104,7 @@ return (
         </Form.Group>
       </div>
 
-      <button className="ButtonUngu" data-testid="ButtonSignIn" value="Submit" type="submit"
+      <button className="ButtonUngu" variant-warning data-testid="ButtonSignIn" value="Submit" type="submit"
         style={{ width: "100%", borderRadius: "35px", fontWeight: "600" }}>
         Sign In
       </button>

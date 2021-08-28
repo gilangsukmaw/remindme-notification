@@ -1,72 +1,61 @@
-import React from 'react'
-import { Container, Col, Carousel} from 'react-bootstrap';
-import './Sign.css'
-import gambar1 from '../../assets/images/Ilustrasi Tangan.png'
-import gambar2 from '../../assets/images/Illustrasi [Recovered] 1.png'
-import gambar3 from '../../assets/images/Illustrasi [Recovered] 1-1.png'
-import { useState } from "react"
-import SignIn from './SignIn';
-import SignUp from './SignUp';
-import './modal.scss'
+import React from "react";
+import { Container, Col, Carousel } from "react-bootstrap";
+import "./Sign.css";
+import gambar1 from "../../assets/images/Ilustrasi Tangan.png";
+import gambar2 from "../../assets/images/Illustrasi [Recovered] 1.png";
+import gambar3 from "../../assets/images/Illustrasi [Recovered] 1-1.png";
+import { useState } from "react";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import "./modal.scss";
 
-
-function SignInUpPage() {
-const [SignUpPage, setSignUpPage] = useState(true);
-
-
-
-
-return (
-<>
-    <div >
-        <Container className='d-flex flex-row align-items-start justify-content-center'
-            style={{maxWidth:'1440px', marginLeft:'auto', marginRight:'auto', marginTop:'5%', }}>
-
-            <Col className='LeftBox d-flex flex-column align-items-end justify-content-center' style={{maxWidth:'50%',borderRight:'1px solid #B6C6E5', paddingRight:'3rem'}}>
-            <Carousel className='CarouselBox d-flex justify-content-center align-items-start flex-column text-dark' interval={5000}
-                controls={false}>
-                <Carousel.Item>
-                    <h3>Organize Your Life</h3>
-                    <p> Set your life to be more scheduled</p>
-                    <img className="d-block w-100" style={{maxWidth:'600px', maxHeight:'auto'}} src={gambar1}
-                        alt="First slide" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <h3>Achieve Your Goal </h3>
-                    <p> Reach your goal faster</p>
-                    <img data-testid='ImgSignIn' className="d-block w-100" style={{maxWidth:'600px', maxHeight:'auto'}}src={gambar2}
-                        alt="Second slide" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <h3>No More Forget </h3>
-                    <p> Get a reminder to let you know what you want to do</p>
-                    <img className="d-block w-100" style={{maxWidth:'600px', maxHeight:'auto'}} src={gambar3}
-                        alt="Third slide" />
-                </Carousel.Item>
+function SignInUpPage(props) {
+  const [SignUpPage, setSignUpPage] = useState(false);
+  console.log("props", props);
+  return (
+    <>
+      <div>
+        <Container className="d-flex flex-row align-items-start justify-content-center" style={{ maxWidth: "1440px", marginLeft: "auto", marginRight: "auto", marginTop: "5%" }}>
+          <Col className="LeftBox d-flex flex-column align-items-end justify-content-center" style={{ maxWidth: "50%", borderRight: "1px solid #B6C6E5", paddingRight: "3rem" }}>
+            <Carousel className="CarouselBox d-flex justify-content-center align-items-start flex-column text-dark" interval={5000} controls={false}>
+              <Carousel.Item>
+                <h3>Organize Your Life</h3>
+                <p> Set your life to be more scheduled</p>
+                <img className="d-block w-100" style={{ maxWidth: "600px", maxHeight: "auto" }} src={gambar1} alt="First slide" />
+              </Carousel.Item>
+              <Carousel.Item>
+                <h3>Achieve Your Goal </h3>
+                <p> Reach your goal faster</p>
+                <img data-testid="ImgSignIn" className="d-block w-100" style={{ maxWidth: "600px", maxHeight: "auto" }} src={gambar2} alt="Second slide" />
+              </Carousel.Item>
+              <Carousel.Item>
+                <h3>No More Forget </h3>
+                <p> Get a reminder to let you know what you want to do</p>
+                <img className="d-block w-100" style={{ maxWidth: "600px", maxHeight: "auto" }} src={gambar3} alt="Third slide" />
+              </Carousel.Item>
             </Carousel>
-            </Col>
+          </Col>
 
-            
-            {/* <Col style={{maxWidth:'10%'}} className='Line'>
+          {/* <Col style={{maxWidth:'10%'}} className='Line'>
             </Col> */}
 
-
-            <Col className='RightBox align-content-start flex-wrap d-flex justify-content-start align-self-start align-items-center flex-column' style={{maxWidth:'50%', }}>
-            {SignUpPage ?
-            <SignIn /> :
-            <SignUp ganti={()=> setSignUpPage(true)} />}
-            {!SignUpPage ? null : <p className="SignUpQuestion text-center mt-2" >Don't have an account yet? <a
-                    style={{ cursor: 'pointer', textDecoration:'none', fontWeight:'700' }} onClick={()=> setSignUpPage(false)}
-                    className="text-dark">Sign Up</a></p>}
-
-            </Col>
+          <Col className="RightBox align-content-start flex-wrap d-flex justify-content-start align-self-start align-items-center flex-column" style={{ maxWidth: "50%" }}>
+            {SignUpPage ? <SignIn /> : <SignUp ganti={() => setSignUpPage(true)} />}
+            {!SignUpPage ? null : (
+              <p className="SignUpQuestion text-center mt-2">
+                Don't have an account yet?{" "}
+                <a style={{ cursor: "pointer", textDecoration: "none", fontWeight: "700" }} onClick={() => setSignUpPage(false)} className="text-dark">
+                  Sign Up
+                </a>
+              </p>
+            )}
+          </Col>
         </Container>
-    </div>
-    {/* <a href='/TaskPage'><button>TaskPage</button></a>   
+      </div>
+      {/* <a href='/TaskPage'><button>TaskPage</button></a>   
     <a href='/Calendar'><button>Calendar Workshop</button></a> */}
-
-</>
-)
+    </>
+  );
 }
 
-export default SignInUpPage
+export default SignInUpPage;

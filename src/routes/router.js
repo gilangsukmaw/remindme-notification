@@ -9,9 +9,11 @@ import Navbar from "../component/navbar/navbar";
 import NewUser from "../Pages/CreateTask/NewUser";
 import CreateTask from "../modal/CreateTask";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
+import LandingPage from "../Pages/LandingPage/LandingPage";
+import SignUp from "../Pages/SigninPage/SignUp";
 
 function Router() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [step, setStep] = useState("");
   const [noteData, setNoteData] = useState({
     title: "",
@@ -28,17 +30,17 @@ function Router() {
     <>
       {isLogin ? <Navbar setStep={setStep} /> : null}
       <Switch>
+        <Route exact path="/newUser">
+          <NewUser setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
+        </Route>
         <Route exact path="/">
-          <NewUser
-            setStep={setStep}
-            step={step}
-            noteData={noteData}
-            setNoteData={setNoteData}
-            onSaveNote={onSaveNote}
-            noteColor={noteColor}
-            setNoteColor={setNoteColor}
-            onSaveColor={onSaveColor}
-          />
+          <LandingPage />
+        </Route>
+        <Route exact path="/auth">
+          <SignInUpPage />
+        </Route>
+        <Route exact path="/signUp">
+          <SignUp />
         </Route>
         <PrivateRoutes exact component={ProfilePage} path="/Profile" />
 

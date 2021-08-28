@@ -14,16 +14,14 @@ function Navbar({ ...props }) {
       <nav className="sidebar">
         <div className="sidebar__top">
           <div className="sidebarItems headers">
-            <Link to="/">
+            <Link to="/newUser">
               <img src={pp} alt="" />
               <p>Amalia Nurlita</p>
             </Link>
           </div>
           <div className=" Task" onClick={() => setStep("CreateNote")}>
             <FiIcons.FiPlusCircle />
-            <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>
-              Create a Task
-            </h5>
+            <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create a Task</h5>
           </div>
           <div className="sidebarItems content">
             <Link to="/AllNote">
