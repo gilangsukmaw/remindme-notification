@@ -1,62 +1,66 @@
-.LeftBox{
-    .LogoFull{
+.LeftBox {
+    .LogoFull {
         display: flex;
         width: 100%;
+
         img {
             float: left;
         }
     }
 }
-.ModalSignUp{
+
+.ModalSignUp {
 
     .modal-dialog {
-        justify-content: center ;
-        max-width: 25rem ;
-        
-    
+        justify-content: center;
+        max-width: 25rem;
+
+
     }
-    .modal-body{
+
+    .modal-body {
         text-align: center;
-        
+
     }
+
     .modal-header {
-        padding-top: 3.5rem ;
+        padding-top: 3.5rem;
         min-height: 10rem;
-        border-bottom: none ;
+        border-bottom: none;
     }
-    
+
     .modal-header img {
         width: 100px;
-    
+
     }
-    
+
     .modal-content {
-        align-items: center ;
-        border-radius: 0.75rem ;
+        align-items: center;
+        border-radius: 0.75rem;
         border: none;
-        box-shadow: 1rem ;
+        box-shadow: 1rem;
     }
-    
+
     .ModalSignUp p {
-        max-width: 20rem ;
-    
+        max-width: 20rem;
+
         font-size: 1.5rem;
         text-align: center;
     }
-    
+
     .modal-footer {
-    padding-bottom: 4rem ;
-        border: none ;
+        padding-bottom: 4rem;
+        border: none;
     }
 }
 
 .ButtonUngu {
-    font-Weight:600;
-        border: 1px solid #625BAD ;
-        border-radius: 40px;
-        background-color: #625BAD;
-        color: #ffffff;
-        height: 2.5rem;
+    font-Weight: 600;
+    border: 1px solid #625BAD;
+    border-radius: 40px;
+    background-color: #625BAD;
+    color: #ffffff;
+    height: 2.5rem;
 }
 
 // .ButtonUnguOutline {
@@ -69,32 +73,32 @@
 //     height: 2.5rem;
 // }
 
-.CarouselBox{
+.CarouselBox {
 
-.carousel-indicators {
-    margin-bottom: -1.5rem ;
+    .carousel-indicators {
+        margin-bottom: -1.5rem;
 
+    }
+
+    .carousel-indicators .active {
+        background-color: #625AAD;
+    }
+
+
+    .carousel-indicators button {
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: #C4C4C4;
+
+    }
 }
 
-.carousel-indicators .active {
-    background-color: #625AAD;
-}
-
-
-.carousel-indicators button {
-    border-radius: 50% ;
-    width: 10px ;
-    height: 10px;
-    background-color: #C4C4C4 ;
-    
-}
-}
 // =====Sign In===========
 .SignInform {
     width: 100%;
-// .form-control{
-   
-// }
+
+    .form-control {}
 }
 
 
@@ -119,7 +123,8 @@
 
 .InformationBox {
     width: 28rem;
-    .form-control{
+
+    .form-control {
         text-align: left;
     }
 }
@@ -130,9 +135,10 @@
     margin-left: 4rem;
 }
 
-#formBasicPassword{
+#formBasicPassword {
     width: 28rem;
 }
+
 .SiginInform {
     width: 28rem;
 
@@ -174,6 +180,7 @@
     margin-top: 1rem;
     display: flex;
     justify-content: space-between;
+
     // .ButtonUnguOutline{
     //     width: 45%;}
     a {
@@ -187,22 +194,21 @@
 }
 
 .SignUpQuestion {
-    margin-left: 9rem;
-    font-size: 1.25rem !important;
-    
-    
+    font-size: 1.25rem;
+
+
 }
 
-.RightBox{
-    width: auto ;
-    align-content: flex-start ;
+.RightBox {
+    width: auto;
+    align-content: flex-start;
 }
 
 
 @media screen and (max-width: 1440px) {
     .SignUpQuestion {
-        margin-left: 8rem;
-        font-size: 1.25rem !important;
+        // margin-left: 8rem;
+        font-size: 1.25rem;
     }
 
     .ContainerSignIn {
@@ -211,7 +217,7 @@
 
     .SignIn-Container {
         /* width: 20rem; */
-        margin-top: 1rem;
+        margin-top: 2rem;
         margin-left: 4rem !important;
     }
 
@@ -242,22 +248,24 @@
         width: 20rem;
     }
 
-   
+
 
     .SignUpQuestion {
-        margin-left: 5rem;
-        font-size: 1rem !important;
+        // margin-left: 5rem;
+        font-size: 1rem;
     }
 
     .ContainerSignIn {
         margin-left: 1.5rem !important;
     }
-    #formBasicPassword{
+
+    #formBasicPassword {
         width: 20rem;
     }
+
     .SignIn-Container {
         width: 20rem;
-        margin-top: 2rem;
+        margin-top: 4rem;
         margin-left: 1.5rem;
     }
 
@@ -302,18 +310,21 @@
 
 @media screen and (max-width: 768px) {
     .SignUpBigBox {
-        margin-left: 1rem !important;
+        margin-left: 1rem;
     }
-    #formBasicPassword{
+
+    #formBasicPassword {
         width: 18rem;
     }
+
     .SignUp-Container {
         margin-top: 2rem;
         margin-left: 0.8rem;
 
     }
-    .SignInform{
-        margin-top: -1rem !important;
+
+    .SignInform {
+        margin-top: -1rem;
     }
 
     .SignUp-Container p {
@@ -328,11 +339,9 @@
         line-height: 2rem;
     }
 
-   
-
     .SignIn-Container {
         width: 18rem;
-        margin-top: 1rem;
+        margin-top: 4rem;
         margin-left: 1.5rem !important;
     }
 
@@ -341,29 +350,33 @@
         font-weight: 700;
     }
 
-    .SignIn-Container p {
-        font-size: 0.7rem;
-
+    .SignIn-Container {
+        p {
+            font-size: 0.80rem;
+        }
     }
+
     .SignUpQuestion {
-        margin-left: 2.5rem;
-        font-size: 0.9rem !important;
-        
+        p {
+            font-size: 10rem;
+        }
     }
 }
 
 @media screen and (max-width: 576px) {
 
-.BigContainer{
-    flex-direction: column;
+    .BigContainer {
+        flex-direction: column;
 
-}
-.LeftBox{
-    width: auto ;
+    }
 
-}
-.RightBox{
-    width: auto ;
-    align-content: center ;
-}
+    .LeftBox {
+        width: auto;
+
+    }
+
+    .RightBox {
+        width: auto;
+        align-content: center;
+    }
 }
