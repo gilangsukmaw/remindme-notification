@@ -34,8 +34,7 @@ function LandingPage(...props) {
           <div className="intro__left">
             <h1>Find Balance in Your Life</h1>
             <p>
-              Why do we use it? It is a long established fact that a reader will
-              be<br></br>distracted by the readable content of a page when
+              Why do we use it? It is a long established fact that a reader will be<br></br>distracted by the readable content of a page when
               <br></br>looking at its layout.
             </p>
             <Link to="/auth/register">
