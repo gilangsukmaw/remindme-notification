@@ -8,10 +8,12 @@ import { useState } from "react";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import "./modal.scss";
+import LandingPage from "../LandingPage/LandingPage";
 
 function SignInUpPage(props) {
   const [SignUpPage, setSignUpPage] = useState(false);
   console.log("props", props);
+  <LandingPage ganti={() => setSignUpPage(true)} />
   return (
     <>
       <div>

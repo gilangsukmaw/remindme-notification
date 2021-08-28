@@ -26,7 +26,7 @@ function LandingPage(props) {
               <button>Register</button>
             </Link>
             <Link to={{ pathname: "/auth", state: true }}>
-              <button>Login</button>
+              <button onClick={ganti}>Login</button>
             </Link>
           </div>
         </div>

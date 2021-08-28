@@ -51,14 +51,15 @@
         height: 2.5rem;
 }
 
-.ButtonUnguOutline {
-    font-Weight:600;
-    background:transparent;
-    border: 1px solid #625BAD ;
-    border-radius: 40px;
-    color: #625BAD;
-    height: 2.5rem;
-}
+// .ButtonUnguOutline {
+//     // width: 20rem%;
+//     font-Weight:600;
+//     background:transparent;
+//     border: 1px solid #625BAD ;
+//     border-radius: 40px;
+//     color: #625BAD;
+//     height: 2.5rem;
+// }
 
 .CarouselBox{
 
@@ -83,9 +84,9 @@
 // =====Sign In===========
 .SignInform {
     width: 100%;
-.form-control{
+// .form-control{
    
-}
+// }
 }
 
 
@@ -165,6 +166,11 @@
     margin-top: 1rem;
     display: flex;
     justify-content: space-between;
+    // .ButtonUnguOutline{
+    //     width: 45%;}
+    a {
+        width: 45%;
+    }
 }
 
 .carousel.item {

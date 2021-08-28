@@ -296,12 +296,11 @@ function SignUp(props) {
                 style={{ width: "100%" }}
               >
                 {page === 1 ? (
-                  <Button
+                  <Link to='/'><Button
                     className="ButtonUnguOutline"
-                    onClick={ganti}
                     style={{
                       height: "2.5rem",
-                      width: "45%",
+                      width: "100%",
                       borderRadius: "35px",
                       fontWeight: "600",
                       background: "transparent",
@@ -311,7 +310,7 @@ function SignUp(props) {
                     }}
                   >
                     Home
-                  </Button>
+                  </Button></Link>
                 ) : (
                   <Button
                     className="ButtonUngu"
@@ -374,7 +373,12 @@ function SignUp(props) {
                 />
               </div>
             </Form>
-
+            <p className="SignInQuestion text-center mt-4">
+                Already a member?{" "}
+                <a style={{ cursor: "pointer", textDecoration: "none", fontWeight: "700" }} onClick={ganti} className="text-dark">
+                  Sign In
+                </a>
+              </p>
             {/* <h1>{page}</h1> */}
           </div>
         </div>
