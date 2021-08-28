@@ -13,7 +13,7 @@ import LandingPage from "../Pages/LandingPage/LandingPage";
 import SignUp from "../Pages/SigninPage/SignUp";
 
 function Router() {
-  const [isLogin, setIsLogin] = useState(false);
+  const isLogin = localStorage.getItem("Token");
   const [step, setStep] = useState("");
   const [noteData, setNoteData] = useState({
     title: "",
@@ -42,10 +42,6 @@ function Router() {
         <Route exact path="/auth">
           <SignInUpPage />
         </Route>
-        <Route exact path="/signUp">
-          <SignUp />
-        </Route>
-
         <PrivateRoutes exact component={CreateTask} path="/TaskPage" />
 
         <PrivateRoutes exact component={AllNotesCreate} path="/AllNote" />

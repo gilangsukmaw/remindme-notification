@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Modal,
-  Col,
-  Form,
-  Button,
-  FormControl,
-  InputGroup,
-} from "react-bootstrap";
+import { Modal, Col, Form, Button, FormControl, InputGroup } from "react-bootstrap";
 import { useState } from "react";
 import "./Sign.css";
 import "./modal.scss";
@@ -48,22 +41,14 @@ function SignUp(props) {
   // };
   const submitSignUp = (e) => {
     e.preventDefault();
-    if (
-      (state.username === "") |
-      (state.email === "") |
-      (state.password === "") |
-      (state.firstname === "") |
-      (state.lastname === "")
-    ) {
+    if ((state.username === "") | (state.email === "") | (state.password === "") | (state.firstname === "") | (state.lastname === "")) {
       alert("please fill all the form");
       return;
     } else {
-      axios
-        .post(`https://remindme.gabatch13.my.id/api/v1/auth/signup`, state)
-        .then((res) => {
-          setModalShow(true);
-          ganti();
-        });
+      axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signup`, state).then((res) => {
+        setModalShow(true);
+        ganti();
+      });
     }
   };
 
@@ -73,14 +58,7 @@ function SignUp(props) {
 
   function MyVerticallyCenteredModal(props) {
     return (
-      <Modal
-        className="ModalSignUp shadow"
-        sytle={{ maxWidth: "1rem" }}
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
+      <Modal className="ModalSignUp shadow" sytle={{ maxWidth: "1rem" }} {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
             <img src={ceklis}></img>
@@ -119,35 +97,19 @@ function SignUp(props) {
           <div className="SignUp-Container d-flex align-items-center justify-content-center flex-column">
             {/* --------------------------------page one---------------------------------- */}
             {page === 1 ? <h3>First Name</h3> : null}
-            {page === 1 ? (
-              <p>
-                The first step to start is enter your first name in this box
-                below
-              </p>
-            ) : null}
+            {page === 1 ? <p>The first step to start is enter your first name in this box below</p> : null}
             {/* --------------------------------page two---------------------------------- */}
             {page === 2 ? <h3>Last Name</h3> : null}
-            {page === 2 ? (
-              <p>Let us know you better, with entering your last name </p>
-            ) : null}
+            {page === 2 ? <p>Let us know you better, with entering your last name </p> : null}
             {/* --------------------------------page three-------------------------------- */}
             {page === 3 ? <h3>Username </h3> : null}
-            {page === 3 ? (
-              <p>What should we call you? Please enter your username </p>
-            ) : null}
+            {page === 3 ? <p>What should we call you? Please enter your username </p> : null}
             {/* --------------------------------page four--------------------------------- */}
             {page === 4 ? <h3>Email</h3> : null}
-            {page === 4 ? (
-              <p>
-                Tell us how to reach you by enter your Email address in the box
-                below{" "}
-              </p>
-            ) : null}
+            {page === 4 ? <p>Tell us how to reach you by enter your Email address in the box below </p> : null}
             {/* --------------------------------page five--------------------------------- */}
             {page === 5 ? <h3>Password</h3> : null}
-            {page === 5 ? (
-              <p>Don’t let anyone know when you enter your password </p>
-            ) : null}
+            {page === 5 ? <p>Don’t let anyone know when you enter your password </p> : null}
 
             {/* --------------------------------page one---------------------------------- */}
             <Form onSubmit={submitSignUp} className="InformationBox">
@@ -155,9 +117,7 @@ function SignUp(props) {
                 {page === 1 ? (
                   <Form.Control
                     value={state.firstname}
-                    onChange={(e) =>
-                      setState({ ...state, firstname: e.target.value })
-                    }
+                    onChange={(e) => setState({ ...state, firstname: e.target.value })}
                     style={{
                       width: "100%",
                       borderRadius: "10px",
@@ -174,9 +134,7 @@ function SignUp(props) {
                 {page === 2 ? (
                   <Form.Control
                     value={state.lastname}
-                    onChange={(e) =>
-                      setState({ ...state, lastname: e.target.value })
-                    }
+                    onChange={(e) => setState({ ...state, lastname: e.target.value })}
                     style={{
                       width: "100%",
                       borderRadius: "10px",
@@ -193,9 +151,7 @@ function SignUp(props) {
                 {page === 3 ? (
                   <Form.Control
                     value={state.username}
-                    onChange={(e) =>
-                      setState({ ...state, username: e.target.value })
-                    }
+                    onChange={(e) => setState({ ...state, username: e.target.value })}
                     style={{
                       width: "100%",
                       borderRadius: "10px",
@@ -212,9 +168,7 @@ function SignUp(props) {
                 {page === 4 ? (
                   <Form.Control
                     value={state.email}
-                    onChange={(e) =>
-                      setState({ ...state, email: e.target.value })
-                    }
+                    onChange={(e) => setState({ ...state, email: e.target.value })}
                     style={{
                       width: "100%",
                       borderRadius: "10px",
@@ -233,9 +187,7 @@ function SignUp(props) {
                   <Form.Group className="mb-4" controlId="formBasicPassword">
                     <Form.Control
                       value={state.password}
-                      onChange={(e) =>
-                        setState({ ...state, password: e.target.value })
-                      }
+                      onChange={(e) => setState({ ...state, password: e.target.value })}
                       style={{
                         width: "100%",
                         borderRadius: "10px",
@@ -256,26 +208,12 @@ function SignUp(props) {
                       onClick={handleClickShowPassword}
                     >
                       {!values.showPassword ? (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="#625BAD"
-                          className="bi bi-eye-slash-fill"
-                          viewBox="0 0 16 16"
-                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#625BAD" className="bi bi-eye-slash-fill" viewBox="0 0 16 16">
                           <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
                           <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
                         </svg>
                       ) : (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="#625BAD"
-                          className="bi bi-eye-fill"
-                          viewBox="0 0 16 16"
-                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#625BAD" className="bi bi-eye-fill" viewBox="0 0 16 16">
                           <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
                           <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
                         </svg>
@@ -286,10 +224,7 @@ function SignUp(props) {
               </Form.Group>
 
               {/* --------------------------------Button--------------------------------- */}
-              <div
-                className="signUpButton justify-content-between"
-                style={{ width: "100%" }}
-              >
+              <div className="signUpButton justify-content-between" style={{ width: "100%" }}>
                 {page === 1 ? (
                   <Button
                     className="ButtonUnguOutline"
@@ -362,11 +297,7 @@ function SignUp(props) {
                 ) : null}
                 {/* type="submit" value="Submit"*/}
                 {/*sementara pakai button, nanti saat sdh ada fungsi, modal masukin ke fungsi*/}
-                <MyVerticallyCenteredModal
-                  show={modalShow}
-                  onClick={() => setModalShow(false)}
-                  onHide={() => setModalShow(false)}
-                />
+                <MyVerticallyCenteredModal show={modalShow} onClick={() => setModalShow(false)} onHide={() => setModalShow(false)} />
               </div>
             </Form>
 

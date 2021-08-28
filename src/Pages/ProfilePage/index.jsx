@@ -55,7 +55,7 @@ const ProfilePage = ({ ...props }) => {
           </div>
         </div>
       </div>
-      <ModalTest setStep={setStep} step={step} setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
+      <ModalTest setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
     </div>
   );
 };
