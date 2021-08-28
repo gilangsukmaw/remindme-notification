@@ -6,7 +6,6 @@ import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import axios from "axios";
 function Navbar({ ...props }) {
-  const [open, setOpen] = useState(false);
   const { setStep } = props;
   const [user, setUser] = useState([]);
   const Token = localStorage.getItem("Token");
@@ -17,13 +16,14 @@ function Navbar({ ...props }) {
       .catch((err) => console.log(err));
   };
   console.log("user", user);
-  useEffect(() => {
-    getData();
-  }, []);
+
   function LogOut() {
     localStorage.clear();
     window.location.replace("/");
   }
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
       <nav className="sidebar">
@@ -31,7 +31,7 @@ function Navbar({ ...props }) {
           <div className="sidebarItems headers">
             <Link to="/newUser">
               <img src={pp} alt="" />
-              <p>Amalia Nurlita</p>
+              <p>{user.data ? user.data.username : null}</p>
             </Link>
           </div>
           <div className=" Task" onClick={() => setStep("CreateNote")}>
