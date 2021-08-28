@@ -117,3 +117,10 @@ $font-family: "Poppins", sans-serif;
     }
   }
 }
+
+@media (max-width: 768px) {
+  .newUser__card {
+    display: flex;
+    flex-direction:column;
+  }
+}

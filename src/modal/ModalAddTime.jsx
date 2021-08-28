@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
-// import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.css";
 import CobaCalendar from "../../src/Calendar";
 
