@@ -8,15 +8,21 @@ import { useState } from "react";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import "./modal.scss";
+import LandingPage from "../LandingPage/LandingPage";
+import logofull from "../../assets/images/logoFull.png";
+import { useParams } from "react-router-dom";
 
-function SignInUpPage({ ...props }) {
-  const [SignUpPage, setSignUpPage] = useState(true);
-
+function SignInUpPage(...props) {
+  const { type } = useParams();
+  console.log("type", type);
   return (
     <>
       <div>
         <Container className="d-flex flex-row align-items-start justify-content-center" style={{ maxWidth: "1440px", marginLeft: "auto", marginRight: "auto", marginTop: "5%" }}>
           <Col className="LeftBox d-flex flex-column align-items-end justify-content-center" style={{ maxWidth: "50%", borderRight: "1px solid #B6C6E5", paddingRight: "3rem" }}>
+            <div className="LogoFull">
+              <img src={logofull} style={{ float: "left" }}></img>
+            </div>
             <Carousel className="CarouselBox d-flex justify-content-center align-items-start flex-column text-dark" interval={5000} controls={false}>
               <Carousel.Item>
                 <h3>Organize Your Life</h3>
@@ -40,15 +46,7 @@ function SignInUpPage({ ...props }) {
             </Col> */}
 
           <Col className="RightBox align-content-start flex-wrap d-flex justify-content-start align-self-start align-items-center flex-column" style={{ maxWidth: "50%" }}>
-            {SignUpPage ? <SignIn /> : <SignUp ganti={() => setSignUpPage(true)} />}
-            {!SignUpPage ? null : (
-              <p className="SignUpQuestion text-center mt-2">
-                Don't have an account yet?{" "}
-                <a style={{ cursor: "pointer", textDecoration: "none", fontWeight: "700" }} onClick={() => setSignUpPage(false)} className="text-dark">
-                  Sign Up
-                </a>
-              </p>
-            )}
+            {type === "login" ? <SignIn /> : <SignUp />}
           </Col>
         </Container>
       </div>

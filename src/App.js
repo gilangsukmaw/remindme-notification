@@ -1,5 +1,8 @@
 import Router from "./routes/router";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import "./index.css";
+import "./Custom.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

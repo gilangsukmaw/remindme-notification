@@ -10,7 +10,6 @@ import NewUser from "../Pages/CreateTask/NewUser";
 import CreateTask from "../modal/CreateTask";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 import LandingPage from "../Pages/LandingPage/LandingPage";
-import SignUp from "../Pages/SigninPage/SignUp";
 
 function Router() {
   const isLogin = localStorage.getItem("Token");
@@ -39,7 +38,7 @@ function Router() {
         <Route exact path="/">
           <LandingPage />
         </Route>
-        <Route exact path="/auth">
+        <Route exact path="/auth/:type">
           <SignInUpPage />
         </Route>
         <PrivateRoutes exact component={CreateTask} path="/TaskPage" />

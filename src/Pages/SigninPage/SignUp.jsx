@@ -119,6 +119,7 @@ function SignUp(props) {
                     value={state.firstname}
                     onChange={(e) => setState({ ...state, firstname: e.target.value })}
                     style={{
+                      height: "2.5rem",
                       width: "100%",
                       borderRadius: "10px",
                       border: "2px solid #B6C6E5",
@@ -136,6 +137,7 @@ function SignUp(props) {
                     value={state.lastname}
                     onChange={(e) => setState({ ...state, lastname: e.target.value })}
                     style={{
+                      height: "2.5rem",
                       width: "100%",
                       borderRadius: "10px",
                       border: "2px solid #B6C6E5",
@@ -153,6 +155,7 @@ function SignUp(props) {
                     value={state.username}
                     onChange={(e) => setState({ ...state, username: e.target.value })}
                     style={{
+                      height: "2.5rem",
                       width: "100%",
                       borderRadius: "10px",
                       border: "2px solid #B6C6E5",
@@ -170,6 +173,7 @@ function SignUp(props) {
                     value={state.email}
                     onChange={(e) => setState({ ...state, email: e.target.value })}
                     style={{
+                      height: "2.5rem",
                       width: "100%",
                       borderRadius: "10px",
                       border: "2px solid #B6C6E5",
@@ -189,6 +193,7 @@ function SignUp(props) {
                       value={state.password}
                       onChange={(e) => setState({ ...state, password: e.target.value })}
                       style={{
+                        height: "2.5rem",
                         width: "100%",
                         borderRadius: "10px",
                         border: "2px solid #B6C6E5",
@@ -226,22 +231,23 @@ function SignUp(props) {
               {/* --------------------------------Button--------------------------------- */}
               <div className="signUpButton justify-content-between" style={{ width: "100%" }}>
                 {page === 1 ? (
-                  <Button
-                    className="ButtonUnguOutline"
-                    onClick={ganti}
-                    style={{
-                      height: "2.5rem",
-                      width: "45%",
-                      borderRadius: "35px",
-                      fontWeight: "600",
-                      background: "transparent",
-                      border: "1px solid #625BAD",
-                      fontWeight: "600",
-                      color: "#625BAD",
-                    }}
-                  >
-                    Home
-                  </Button>
+                  <Link to="/">
+                    <Button
+                      className="ButtonUnguOutline"
+                      style={{
+                        height: "2.5rem",
+                        width: "100%",
+                        borderRadius: "35px",
+                        fontWeight: "600",
+                        background: "transparent",
+                        border: "1px solid #625BAD",
+                        fontWeight: "600",
+                        color: "#625BAD",
+                      }}
+                    >
+                      Home
+                    </Button>
+                  </Link>
                 ) : (
                   <Button
                     className="ButtonUngu"
@@ -301,6 +307,12 @@ function SignUp(props) {
               </div>
             </Form>
 
+            <p className="SignInQuestion text-center mt-4">
+              Already a member?{" "}
+              <Link to="/auth/login" style={{ cursor: "pointer", textDecoration: "none", fontWeight: "700" }} onClick={ganti} className="text-dark">
+                Sign In
+              </Link>
+            </p>
             {/* <h1>{page}</h1> */}
           </div>
         </div>

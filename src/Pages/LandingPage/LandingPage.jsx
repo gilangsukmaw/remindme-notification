@@ -7,9 +7,10 @@ import LandingGoogle from "../../assets/images/LandingGoogle.png";
 import twitter from "../../assets/images/twitter.png";
 import facebook from "../../assets/images/facebook.png";
 import instagram from "../../assets/images/instagram.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-function LandingPage() {
+function LandingPage(...props) {
+  const { ganti, register } = props;
   return (
     <div className="landing">
       <div className="landing__top">
@@ -21,8 +22,11 @@ function LandingPage() {
             </h6>
           </div>
           <div className="header__button">
-            <Link to="/auth">
-              <button>Login/Register</button>
+            <Link to="/auth/login">
+              <button>Login</button>
+            </Link>
+            <Link to="/auth/register">
+              <button>Register</button>
             </Link>
           </div>
         </div>
