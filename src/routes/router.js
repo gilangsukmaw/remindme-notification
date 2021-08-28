@@ -48,11 +48,11 @@ function Router() {
 
         <PrivateRoutes exact component={Edit} path="/editprofile" />
 
-        {/* <Route path="*">
+        <Route path="*">
           <div>
             <h1>PAGE NOT FOUND</h1>
           </div>
-        </Route> */}
+        </Route>
       </Switch>
     </>
   );

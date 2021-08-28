@@ -45,15 +45,15 @@ form {
 }
 input {
   width: 450px;
-  height: 40px;
+  min-height: 40px;
   border: 1px solid #625bad;
   border-radius: 10px;
   font-weight: bolder;
   color: #342d50;
   padding-left: 2rem;
 }
-input:focus:active {
-  border-style: none;
+input:focus {
+  outline: none;
 }
 
 .input-password {
