@@ -22,6 +22,7 @@ function LandingPage(...props) {
             </h6>
           </div>
           <div className="header__button">
+            {/* tes */}
             <Link to="/auth/login">
               <button>Login</button>
             </Link>
