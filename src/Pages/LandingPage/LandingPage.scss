@@ -21,7 +21,7 @@
 .header__button {
     display: flex;
     justify-content: space-evenly;
-    width: 40%;
+    width: 30%;
     button {
         &:hover, &:active, &:focus {
             background-color: #625BAD;
@@ -53,11 +53,13 @@
 }
 
 .intro__right img {
-    width: 100%;
+   width: 100%;
+   max-width: 500px;
 }
 
 .landing__top {
-    background-color: #E5E5E5;
+    background-image: linear-gradient(to bottom, rgba(122, 96, 196, 0.3), rgba(209, 204, 223, 1));
+    padding: auto 2rem;
 }
 
 
@@ -81,7 +83,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding: 2rem 2rem 0 2rem;
-    background-color: #7d73e6;
+    background-color: #625BAD;
     height: 100%;
     width: 100%;
 
@@ -94,16 +96,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30%;
+    width: 40%;
     a:hover {
         color: salmon;
     }
 }
 
 .footer__center {
-    width: 30%;
-    padding-left: 3rem;
+    // padding-left: 3rem;
     font-weight: bold;
+    .center__app {
+        display: flex;
+    }
     .center__app img {
     margin-right: 1rem;
     }
@@ -139,7 +143,7 @@
 }
 
 .most__bottom {
-    background-color: #7d73e6;
+    background-color: #625BAD;
     display: flex;
     justify-content: flex-end;
     padding: 2rem;

@@ -1,14 +1,14 @@
 import Router from "./routes/router";
 import { BrowserRouter } from "react-router-dom";
-import NewUser from "./Pages/CreateTask/NewUser";
+import CreateTask from "./modal/CreateTask";
 
 function App() {
   return (
     <>
       <div>
         <BrowserRouter>
-          <Router />
-          {/* <NewUser /> */}
+          {/* <Router /> */}
+          <CreateTask />
         </BrowserRouter>
       </div>
     </>

@@ -2,11 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { Modal, Col, Form, Button, SplitButton } from "react-bootstrap";
 import CobaCalendar from "../../Calendar";
-import "react-calendar/dist/Calendar.css";
 import "./SettingGoals.scss";
 import * as dayjs from "dayjs";
 
-import "react-datepicker/dist/react-datepicker.css";
 
 function SettingGoalsCard({ changeStep }) {
   var utc = require("dayjs/plugin/utc");
