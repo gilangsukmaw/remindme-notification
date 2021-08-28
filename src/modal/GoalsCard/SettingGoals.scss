@@ -1,5 +1,5 @@
 .SetGoalsContainer {
-  width: 28rem;
+  width: 31rem;
   height: 55rem;
   background-color: #f1f4fa;
   border-radius: 25px;
@@ -117,6 +117,12 @@
 
 }
 
+.mt-3 {
+  p {
+    margin-top: 0;
+  }
+}
+
 .ChooseValue {
   width: 80%;
   float: right;
@@ -197,7 +203,7 @@
     height: 250px;
   }
 }
-
+.BuiltorQuitButton{
 .d-flex {
   button {
     background-color: #b6c6e5;
@@ -210,6 +216,7 @@
       color: #ffffff;
       border: none;
   }
+}
 }
 }
 

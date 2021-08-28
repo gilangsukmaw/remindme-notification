@@ -1,20 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import pp from "../../assets/images/Ellipse 34.png";
 import logout from "../../assets/images/logout.png";
 import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
-import CreateTask from "../../modal/CreateTask";
-import PlusCreateTask from "../../assets/images/PlusCreateTask.png";
+import axios from "axios";
 function Navbar({ ...props }) {
   const [open, setOpen] = useState(false);
   const { setStep } = props;
+  const [user, setUser] = useState([]);
+  const Token = localStorage.getItem("Token");
+  const getData = async () => {
+    await axios
+      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, { headers: { Authorization: `Bearer ${Token}` } })
+      .then((result) => setUser(result.data))
+      .catch((err) => console.log(err));
+  };
+  console.log("user", user);
+  useEffect(() => {
+    getData();
+  }, []);
+  function LogOut() {
+    localStorage.clear();
+    window.location.replace("/");
+  }
   return (
     <>
       <nav className="sidebar">
         <div className="sidebar__top">
           <div className="sidebarItems headers">
-            <Link to="/">
+            <Link to="/newUser">
               <img src={pp} alt="" />
               <p>Amalia Nurlita</p>
             </Link>
@@ -24,7 +39,7 @@ function Navbar({ ...props }) {
             <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create a Task</h5>
           </div>
           <div className="sidebarItems content">
-            <Link to="/allNotes">
+            <Link to="/AllNote">
               <p>All Notes</p>
             </Link>
           </div>
@@ -36,21 +51,13 @@ function Navbar({ ...props }) {
           <div className="sidebarItems content">
             <Link to="/Profile">
               <p>My Profile</p>
-              {/* <div className="my-profile text-black">
-                <p>My Profile</p>{" "}
-                <span>
-                  <FiIcons.FiArrowRight />
-                </span>
-              </div> */}
             </Link>
           </div>
         </div>
         <div className="sidebar__bottom">
-          <li className="Logout">
-            <Link to="/">
-              <img src={logout} alt="logout" />
-              <span>Logout</span>
-            </Link>
+          <li className="Logout" onClick={LogOut}>
+            <img src={logout} alt="logout" />
+            <span>Logout</span>
           </li>
         </div>
       </nav>

@@ -2,16 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { Modal, Col, Form, Button, SplitButton } from "react-bootstrap";
 import CobaCalendar from "../../Calendar";
-// import "react-calendar/dist/Calendar.css";
 import "./SettingGoals.scss";
 import * as dayjs from "dayjs";
-
-// import "react-datepicker/dist/react-datepicker.css";
 
 function SettingGoalsCard({ changeStep }) {
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
-  const [modalShow, setModalShow] = React.useState(true);
+  const [modalShow, setModalShow] = useState(true);
   const [startDate, setStartDate] = useState(new Date());
   const [bColor, setbColor] = useState();
   const handleSubmit = (e) => {
@@ -31,7 +28,7 @@ function SettingGoalsCard({ changeStep }) {
           centered
         >
           <div className="SetGoalsContainer shadow text-dark">
-            <Modal.Header closeButton style={{ alignItems: "flex-start" }}>
+            <Modal.Header style={{ alignItems: "flex-start" }} closeButton>
               <h1
                 style={{ fontSize: "1.8rem", fontWeight: "600", padding: "0" }}
                 className="mb-4"
@@ -96,7 +93,7 @@ function SettingGoalsCard({ changeStep }) {
                     className="ChooseValue mb-3"
                     style={{
                       float: "left",
-                      paddingLeft: "0.5rem",
+                      // paddingLeft: "0.5rem",
                       borderRadius: "10px",
                       border: "1px solid #B6C6E5",
                     }}
@@ -147,7 +144,7 @@ function SettingGoalsCard({ changeStep }) {
                   </Form.Select>
                 </Col>
               </div>
-              <div className="mt-3">
+              <div className="mt-1">
                 <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
                   Choose Progress bar Color
                 </p>

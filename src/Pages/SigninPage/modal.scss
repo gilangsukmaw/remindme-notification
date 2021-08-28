@@ -1,3 +1,12 @@
+.LeftBox{
+    .LogoFull{
+        display: flex;
+        width: 100%;
+        img {
+            float: left;
+        }
+    }
+}
 .ModalSignUp{
 
     .modal-dialog {
@@ -48,26 +57,22 @@
         background-color: #625BAD;
         color: #ffffff;
         height: 2.5rem;
-        
-    
 }
 
-.ButtonUnguOutline {
-    font-Weight:600;
-
-    background:transparent;
-    border: 1px solid #625BAD ;
-    border-radius: 40px;
-    color: #625BAD;
-    height: 2.5rem;
-
-}
+// .ButtonUnguOutline {
+//     // width: 20rem%;
+//     font-Weight:600;
+//     background:transparent;
+//     border: 1px solid #625BAD ;
+//     border-radius: 40px;
+//     color: #625BAD;
+//     height: 2.5rem;
+// }
 
 .CarouselBox{
 
 .carousel-indicators {
     margin-bottom: -1.5rem ;
-    /* background: black !important; */
 
 }
 
@@ -82,5 +87,283 @@
     height: 10px;
     background-color: #C4C4C4 ;
     
+}
+}
+// =====Sign In===========
+.SignInform {
+    width: 100%;
+// .form-control{
+   
+// }
+}
+
+
+.CarouselBox {
+    max-width: 90%;
+    align-items: flex-start;
+}
+
+.CarouselBox h3 {
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.SignText {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.SignUpBox {
+    margin-top: 5rem;
+}
+
+.InformationBox {
+    width: 28rem;
+    .form-control{
+        text-align: left;
+    }
+}
+
+.SignIn-Container {
+    width: 28rem;
+    margin-top: 3rem;
+    margin-left: 4rem;
+}
+
+#formBasicPassword{
+    width: 28rem;
+}
+.SiginInform {
+    width: 28rem;
+
+}
+
+.SignIn-Container h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.SignIn-Container p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.SignUp-Container {
+    width: 28rem;
+    margin-left: 4rem;
+
+}
+
+.SignUp-Container p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.SignUp-Container h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+
+.signUpButton {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    // .ButtonUnguOutline{
+    //     width: 45%;}
+    a {
+        width: 45%;
+    }
+}
+
+.carousel.item {
+    /* max-width: 400px !important; */
+    justify-content: center;
+}
+
+.SignUpQuestion {
+    margin-left: 9rem;
+    font-size: 1.25rem !important;
+    
+    
+}
+
+.RightBox{
+    width: auto ;
+    align-content: flex-start ;
+}
+
+
+@media screen and (max-width: 1440px) {
+    .SignUpQuestion {
+        margin-left: 8rem;
+        font-size: 1.25rem !important;
+    }
+
+    .ContainerSignIn {
+        margin-left: 4rem !important;
+    }
+
+    .SignIn-Container {
+        /* width: 20rem; */
+        margin-top: 1rem;
+        margin-left: 4rem !important;
+    }
+
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .CarouselBox p {
+        font-size: 0.8rem;
+    }
+
+    .CarouselBox h3 {
+        font-weight: 500;
+
+    }
+
+    .SignText {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .SignUpBox {
+        margin-top: 2rem;
+    }
+
+    .InformationBox {
+        width: 20rem;
+    }
+
+   
+
+    .SignUpQuestion {
+        margin-left: 5rem;
+        font-size: 1rem !important;
+    }
+
+    .ContainerSignIn {
+        margin-left: 1.5rem !important;
+    }
+    #formBasicPassword{
+        width: 20rem;
+    }
+    .SignIn-Container {
+        width: 20rem;
+        margin-top: 2rem;
+        margin-left: 1.5rem;
+    }
+
+    .SignIn-Container h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0rem;
+    }
+
+    .SignIn-Container p {
+        font-size: 0.9rem;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .SignUpBigBox {
+        margin-left: 1rem !important;
+    }
+
+    .InformationBox {
+        margin-top: -1rem;
+    }
+
+    .SignUp-Container {
+        width: 20rem;
+        margin-top: 4rem;
+        margin-left: 3rem;
+    }
+
+    .SignUp-Container p {
+        font-size: 1rem;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .SignUp-Container h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .SignUpBigBox {
+        margin-left: 1rem !important;
+    }
+    #formBasicPassword{
+        width: 18rem;
+    }
+    .SignUp-Container {
+        margin-top: 2rem;
+        margin-left: 0.8rem;
+
+    }
+    .SignInform{
+        margin-top: -1rem !important;
+    }
+
+    .SignUp-Container p {
+        font-size: 1rem;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .SignUp-Container h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 2rem;
+    }
+
+   
+
+    .SignIn-Container {
+        width: 18rem;
+        margin-top: 1rem;
+        margin-left: 1.5rem !important;
+    }
+
+    .SignIn-Container h3 {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .SignIn-Container p {
+        font-size: 0.7rem;
+
+    }
+    .SignUpQuestion {
+        margin-left: 2.5rem;
+        font-size: 0.9rem !important;
+        
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+.BigContainer{
+    flex-direction: column;
+
+}
+.LeftBox{
+    width: auto ;
+
+}
+.RightBox{
+    width: auto ;
+    align-content: center ;
 }
 }

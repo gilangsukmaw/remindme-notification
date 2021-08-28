@@ -1,0 +1,209 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+* {
+  color: #342D50;
+}
+
+.detailNote__outside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.detailNote__outside.modal-backdrop {
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+.detailNote__close button {
+  background: none;
+  border: none;
+  font-size: 30px;
+}
+
+.detailNote__close button img {
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.detailNote__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 2rem;
+}
+
+.detailNote__container {
+  -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  width: 400px;
+  background-color: #FFBCC2;
+}
+
+.detailNote__top {
+  width: 60%;
+}
+
+.detailNote__top h1 {
+  font-size: 30px;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0;
+}
+
+.detailNote__icon {
+  width: 40%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.detailNote__icon button {
+  background: none;
+  border: none;
+  width: 30px;
+}
+
+.detailNote__title h2 {
+  font-size: 26px;
+}
+
+.detailNote__reminder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 50%;
+  margin: 1rem 0;
+}
+
+.detailNote__reminder h3 {
+  font-size: 20px;
+}
+
+.detailNote__time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.detailNote__time img {
+  width: 27px;
+  height: 27px;
+  margin-left: 0.5rem;
+}
+
+.detailNote__titleContent h3 {
+  font-size: 22px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.detailNote__content p {
+  font-size: 14px;
+}
+
+.detailNote__color {
+  height: 3rem;
+}
+
+.detailNote__color button {
+  border-radius: 21px;
+  -webkit-box-shadow: inset 0px 1px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0px 1px 10px rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  border: none;
+  margin-right: 0.8rem;
+}
+
+.detailNote__color button:hover, .detailNote__color button:focus, .detailNote__color button:active {
+  background-color: #625BAD;
+  color: white;
+  border: 1px solid #625BAD;
+}
+
+.detailNote__color button.color0 {
+  background-color: #ffffff;
+}
+
+.detailNote__color button.color1 {
+  background-color: #FFBCC2;
+}
+
+.detailNote__color button.color2 {
+  background-color: #FCF3A1;
+}
+
+.detailNote__color button.color3 {
+  background-color: #D1CDFA;
+}
+
+.detailNote__color button.color4 {
+  background-color: #FF8888;
+}
+
+.detailNote__color button.color5 {
+  background-color: #CCF0D7;
+}
+
+.detailNote__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 2rem;
+}
+
+.detailNote__button button {
+  background-color: #B6C6E5;
+  border: none;
+  border-radius: 21px;
+  color: #ffffff;
+  height: 50px;
+  width: 100%;
+  margin: 0.5rem 0;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.detailNote__button button:hover, .detailNote__button button:active, .detailNote__button button:focus {
+  background-color: #625BAD;
+}
+/*# sourceMappingURL=ModalDetailNote.css.map */

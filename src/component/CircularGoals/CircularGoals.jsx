@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  Container,
-  Col,
-  Carousel,
-  Form,
-  Button,
-  FormControl,
-  InputGroup,
-} from "react-bootstrap";
+import { Container, Col, Carousel, Form, Button, FormControl, InputGroup } from "react-bootstrap";
 import { useState } from "react";
 // import { CircularProgressbar } from "react-circular-progressbar";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+
+// const data = []
 
 function CircularGoals() {
   const [colorCard, setcolorCard] = useState();
@@ -41,11 +35,32 @@ function CircularGoals() {
     <>
       <div className="bigContainer d-flex flex-row">
         <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div
-            className="CircularCard"
-            id="CircularCard"
-            style={{ width: 150, height: 150 }}
-          >
+          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
+            <a href="#">
+              <CircularProgressbar
+                background
+                strokeWidth={5}
+                backgroundPadding={0}
+                value={percentage}
+                text={`${percentage}%`}
+                styles={{
+                  path: { stroke: `${strokeColor()}` },
+                  trail: { stroke: "none" },
+                  background: { fill: `${color}` },
+                  text: {
+                    fill: "#342D50",
+                    fontSize: "25px",
+                  },
+                }}
+              />
+            </a>
+          </div>
+          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
+            Feed Fish
+          </p>
+        </Container>
+        <Container className="CircularCard d-flex flex-column align-items-center ">
+          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
             <CircularProgressbar
               background
               strokeWidth={5}
@@ -68,11 +83,7 @@ function CircularGoals() {
           </p>
         </Container>
         <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div
-            className="CircularCard"
-            id="CircularCard"
-            style={{ width: 150, height: 150 }}
-          >
+          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
             <CircularProgressbar
               background
               strokeWidth={5}
@@ -95,11 +106,7 @@ function CircularGoals() {
           </p>
         </Container>
         <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div
-            className="CircularCard"
-            id="CircularCard"
-            style={{ width: 150, height: 150 }}
-          >
+          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
             <CircularProgressbar
               background
               strokeWidth={5}
@@ -122,11 +129,7 @@ function CircularGoals() {
           </p>
         </Container>
         <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div
-            className="CircularCard"
-            id="CircularCard"
-            style={{ width: 150, height: 150 }}
-          >
+          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
             <CircularProgressbar
               background
               strokeWidth={5}
@@ -149,11 +152,7 @@ function CircularGoals() {
           </p>
         </Container>
         <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div
-            className="CircularCard"
-            id="CircularCard"
-            style={{ width: 150, height: 150 }}
-          >
+          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
             <CircularProgressbar
               background
               strokeWidth={5}
@@ -176,11 +175,7 @@ function CircularGoals() {
           </p>
         </Container>
         <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div
-            className="CircularCard"
-            id="CircularCard"
-            style={{ width: 150, height: 150 }}
-          >
+          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
             <CircularProgressbar
               background
               strokeWidth={5}
@@ -203,11 +198,30 @@ function CircularGoals() {
           </p>
         </Container>
         <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div
-            className="CircularCard"
-            id="CircularCard"
-            style={{ width: 150, height: 150 }}
-          >
+          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
+            <CircularProgressbar
+              background
+              strokeWidth={5}
+              backgroundPadding={0}
+              value={percentage}
+              text={`${percentage}%`}
+              styles={{
+                path: { stroke: `${strokeColor()}` },
+                trail: { stroke: "none" },
+                background: { fill: `${color}` },
+                text: {
+                  fill: "#342D50",
+                  fontSize: "25px",
+                },
+              }}
+            />
+          </div>
+          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
+            Feed Fish
+          </p>
+        </Container>
+        <Container className="CircularCard d-flex flex-column align-items-center ">
+          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
             <CircularProgressbar
               background
               strokeWidth={5}
@@ -231,7 +245,7 @@ function CircularGoals() {
         </Container>
       </div>
 
-      <div>
+      {/* <div>
         <p>tes warna</p>
         <div className="ColorPicker">
           <Button
@@ -255,7 +269,7 @@ function CircularGoals() {
             onClick={() => setcolorCard("#CCF0D7")}
           ></Button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

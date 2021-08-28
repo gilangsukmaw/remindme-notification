@@ -1,6 +1,6 @@
 .sidebar {
   background-color: #b6c6e5;
-  height: 100vh;
+  height: 100%;
   width: 326px;
   display: flex;
   justify-content: space-between;
@@ -87,16 +87,14 @@
   font-size: 20px;
   display: flex;
   justify-content: center;
-  color: #342d50 !important;
+  color: #342d50;
 }
 .Logout img {
   width: 23px;
   margin-right: 10px;
 }
-.Logout a {
-  text-decoration: none;
-  color: #342d50;
-}
-.Logout a:hover {
+
+.Logout:hover {
   color: #fff;
+  cursor: pointer;
 }

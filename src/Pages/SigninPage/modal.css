@@ -1,0 +1,76 @@
+.ModalSignUp .modal-dialog {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 25rem;
+}
+
+.ModalSignUp .modal-body {
+  text-align: center;
+}
+
+.ModalSignUp .modal-header {
+  padding-top: 3.5rem;
+  min-height: 10rem;
+  border-bottom: none;
+}
+
+.ModalSignUp .modal-header img {
+  width: 100px;
+}
+
+.ModalSignUp .modal-content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.75rem;
+  border: none;
+  -webkit-box-shadow: 1rem;
+          box-shadow: 1rem;
+}
+
+.ModalSignUp .ModalSignUp p {
+  max-width: 20rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.ModalSignUp .modal-footer {
+  padding-bottom: 4rem;
+  border: none;
+}
+
+.ButtonUngu {
+  font-Weight: 600;
+  border: 1px solid #625BAD;
+  border-radius: 40px;
+  background-color: #625BAD;
+  color: #ffffff;
+  height: 2.5rem;
+}
+
+.ButtonUnguOutline {
+  font-Weight: 600;
+  background: transparent;
+  border: 1px solid #625BAD;
+  border-radius: 40px;
+  color: #625BAD;
+  height: 2.5rem;
+}
+
+.CarouselBox .carousel-indicators {
+  margin-bottom: -1.5rem;
+  /* background: black !important; */
+}
+
+.CarouselBox .carousel-indicators .active {
+  background-color: #625AAD;
+}
+
+.CarouselBox .carousel-indicators button {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #C4C4C4;
+}
+/*# sourceMappingURL=modal.css.map */
