@@ -47,7 +47,6 @@ function SignUp(props) {
     } else {
       axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signup`, state).then((res) => {
         setModalShow(true);
-        ganti();
       });
     }
   };

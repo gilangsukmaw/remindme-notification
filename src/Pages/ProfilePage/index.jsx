@@ -9,9 +9,10 @@ import ModalTest from "../../modal/modalTest";
 const ProfilePage = ({ ...props }) => {
   const { step, setStep, noteData, setNoteData, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
   const [user, setUser] = useState([]);
+  const Token = localStorage.getItem("Token");
   const getData = async () => {
     await axios
-      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`)
+      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, { headers: { Authorization: `Bearer ${Token}` } })
       .then((result) => setUser(result.data))
       .catch((err) => console.log(err));
   };
@@ -42,13 +43,13 @@ const ProfilePage = ({ ...props }) => {
             </Link>
             <div className="firstname">
               <h5>First Name</h5>
-              <p>Amalia</p>
+              <p>{user.data ? user.data.firstname : null}</p>
               <h5>Last Name</h5>
-              <p> Nurlita</p>
+              <p> {user.data ? user.data.lastname : null}</p>
               <h5>Username</h5>
-              <p>Amalia Anrlt</p>
+              <p>{user.data ? user.data.username : null}</p>
               <h5>Email</h5>
-              <p>Amalia_Anrlt@gmail.com</p>
+              <p>{user.data ? user.data.email : null}</p>
               <h5>Password</h5>
               <p>************</p>
             </div>

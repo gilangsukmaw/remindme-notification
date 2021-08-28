@@ -4,11 +4,9 @@ import "./Sign.css";
 import gambar1 from "../../assets/images/Ilustrasi Tangan.png";
 import gambar2 from "../../assets/images/Illustrasi [Recovered] 1.png";
 import gambar3 from "../../assets/images/Illustrasi [Recovered] 1-1.png";
-import { useState } from "react";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import "./modal.scss";
-import LandingPage from "../LandingPage/LandingPage";
 import logofull from "../../assets/images/logoFull.png";
 import { useParams } from "react-router-dom";
 

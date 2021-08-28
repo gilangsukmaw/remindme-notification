@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import SignInUpPage from "../Pages/SigninPage/SignInBase";
 import ProfilePage from "../Pages/ProfilePage";
@@ -10,21 +10,20 @@ import NewUser from "../Pages/CreateTask/NewUser";
 import CreateTask from "../modal/CreateTask";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 import LandingPage from "../Pages/LandingPage/LandingPage";
+import axios from "axios";
 
 function Router() {
   const isLogin = localStorage.getItem("Token");
+  const Token = localStorage.getItem("Token");
   const [step, setStep] = useState("");
   const [noteData, setNoteData] = useState({
     title: "",
     note: "",
   });
-  const onSaveNote = () => {
-    console.log(noteData);
-  };
+  const onSaveNote = () => {};
   const [noteColor, setNoteColor] = useState("#f1f4fa");
-  const onSaveColor = () => {
-    console.log(noteColor);
-  };
+  const onSaveColor = () => {};
+
   return (
     <>
       {isLogin ? <Navbar setStep={setStep} /> : null}
