@@ -10,11 +10,7 @@ import instagram from "../../assets/images/instagram.png";
 import { Link, useParams } from "react-router-dom";
 
 function LandingPage(...props) {
-<<<<<<< HEAD
-  const { ganti, register, clear } = props;
-=======
   const { register } = props;
->>>>>>> e6b4740a3011d8516157a5f3738c0e79194496ff
   return (
     <div className="landing">
       <div className="landing__top">
@@ -38,8 +34,7 @@ function LandingPage(...props) {
           <div className="intro__left">
             <h1>Find Balance in Your Life</h1>
             <p>
-              Why do we use it? It is a long established fact that a reader will
-              be<br></br>distracted by the readable content of a page when
+              Why do we use it? It is a long established fact that a reader will be<br></br>distracted by the readable content of a page when
               <br></br>looking at its layout.
             </p>
             <Link to="/auth/register">
