@@ -7,16 +7,7 @@ import Navbar from "../../component/navbar/navbar";
 import ModalTest from "../../modal/modalTest";
 
 const NewUser = ({ ...props }) => {
-  const {
-    step,
-    setStep,
-    noteData,
-    setNoteData,
-    onSaveNote,
-    noteColor,
-    setNoteColor,
-    onSaveColor,
-  } = props;
+  const { step, setStep, noteData, setNoteData, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
   return (
     <div className="newUser__page">
       <div className="newUser__sideBar col-lg-3"></div>
@@ -46,18 +37,7 @@ const NewUser = ({ ...props }) => {
         </div>
         {/* </div> */}
       </div>
-      <ModalTest
-        setStep={setStep}
-        step={step}
-        setStep={setStep}
-        step={step}
-        noteData={noteData}
-        setNoteData={setNoteData}
-        onSaveNote={onSaveNote}
-        noteColor={noteColor}
-        setNoteColor={setNoteColor}
-        onSaveColor={onSaveColor}
-      />
+      <ModalTest setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
     </div>
   );
 };

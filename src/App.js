@@ -13,7 +13,6 @@ function App() {
       <div>
         <BrowserRouter>
           <Router />
-          {/* <NewUser /> */}
         </BrowserRouter>
       </div>
     </>

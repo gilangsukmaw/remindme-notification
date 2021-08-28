@@ -44,7 +44,7 @@ export default function Edit() {
                 </h5>
                 <p style={{ fontWeight: "Bold" }}>Amalianurlita97@gmail.com</p>
               </div>
-              <div>
+              <div className="label password">
                 <h5 htmlfor="" className="">
                   Password
                 </h5>

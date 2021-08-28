@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import edit from "../../assets/images/Ellipse 107.png";
 import axios from "axios";
 import { useState, useEffect } from "react";
-const ProfilePage = () => {
+import ModalTest from "../../modal/modalTest";
+const ProfilePage = ({ ...props }) => {
+  const { step, setStep, noteData, setNoteData, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
   const [user, setUser] = useState([]);
   const getData = async () => {
     await axios
@@ -53,6 +55,7 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
+      <ModalTest setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
     </div>
   );
 };

@@ -32,6 +32,7 @@ showPassword: false,
         localStorage.setItem("USERID", res.data.data.id);
         localStorage.setItem("USEREMAIL", res.data.data.email);
         localStorage.setItem("USERNAME", res.data.data.username);
+        window.location.replace("/newUser");
       });
     }
   };

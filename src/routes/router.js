@@ -13,7 +13,7 @@ import LandingPage from "../Pages/LandingPage/LandingPage";
 import SignUp from "../Pages/SigninPage/SignUp";
 
 function Router() {
-  const [isLogin, setIsLogin] = useState(false);
+  const isLogin = localStorage.getItem("Token");
   const [step, setStep] = useState("");
   const [noteData, setNoteData] = useState({
     title: "",
@@ -33,17 +33,15 @@ function Router() {
         <Route exact path="/newUser">
           <NewUser setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
         </Route>
+        <Route exact path="/profile">
+          <ProfilePage setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
+        </Route>
         <Route exact path="/">
           <LandingPage />
         </Route>
         <Route exact path="/auth/:type">
           <SignInUpPage />
         </Route>
-        <Route exact path="/signUp">
-          <SignUp />
-        </Route>
-        <PrivateRoutes exact component={ProfilePage} path="/Profile" />
-
         <PrivateRoutes exact component={CreateTask} path="/TaskPage" />
 
         <PrivateRoutes exact component={AllNotesCreate} path="/AllNote" />
