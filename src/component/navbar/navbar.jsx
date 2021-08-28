@@ -9,12 +9,14 @@ function Navbar({ ...props }) {
   const [open, setOpen] = useState(false);
   const { setStep } = props;
   const [user, setUser] = useState([]);
+  const Token = localStorage.getItem("Token");
   const getData = async () => {
     await axios
-      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`)
+      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, { headers: { Authorization: `Bearer ${Token}` } })
       .then((result) => setUser(result.data))
       .catch((err) => console.log(err));
   };
+  console.log("user", user);
   useEffect(() => {
     getData();
   }, []);
