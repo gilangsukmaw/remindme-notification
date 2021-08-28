@@ -10,7 +10,7 @@ import SignUp from "./SignUp";
 import "./modal.scss";
 
 function SignInUpPage({ ...props }) {
-  const [SignUpPage, setSignUpPage] = useState(false);
+  const [SignUpPage, setSignUpPage] = useState(true);
 
   return (
     <>

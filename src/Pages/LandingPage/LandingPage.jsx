@@ -22,10 +22,7 @@ function LandingPage() {
           </div>
           <div className="header__button">
             <Link to="/auth">
-              <button>Register</button>
-            </Link>
-            <Link to="/auth">
-              <button>Login</button>
+              <button>Login/Register</button>
             </Link>
           </div>
         </div>
