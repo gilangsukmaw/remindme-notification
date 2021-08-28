@@ -7,10 +7,11 @@ import LandingGoogle from "../../assets/images/LandingGoogle.png";
 import twitter from "../../assets/images/twitter.png";
 import facebook from "../../assets/images/facebook.png";
 import instagram from "../../assets/images/instagram.png";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 
-function LandingPage(props) {
-  const { ganti } = props;
+
+function LandingPage(...props) {
+  const { ganti, register } = props;
   return (
     <div className="landing">
       <div className="landing__top">
@@ -22,10 +23,10 @@ function LandingPage(props) {
             </h6>
           </div>
           <div className="header__button">
-            <Link to="/auth">
-              <button>Register</button>
+            <Link to="/auth/signIn">
+              <button onClick={register}>Register</button>
             </Link>
-            <Link to={{ pathname: "/auth", state: true }}>
+            <Link to={{ pathname: "/auth/signUp", state: true }}>
               <button onClick={ganti}>Login</button>
             </Link>
           </div>

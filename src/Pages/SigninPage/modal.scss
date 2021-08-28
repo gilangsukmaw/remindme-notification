@@ -1,4 +1,12 @@
-
+.LeftBox{
+    .LogoFull{
+        display: flex;
+        width: 100%;
+        img {
+            float: left;
+        }
+    }
+}
 .ModalSignUp{
 
     .modal-dialog {
@@ -112,7 +120,7 @@
 .InformationBox {
     width: 28rem;
     .form-control{
-        text-align: none;
+        text-align: left;
     }
 }
 
@@ -198,7 +206,7 @@
     }
 
     .ContainerSignIn {
-        margin-left: 3rem !important;
+        margin-left: 4rem !important;
     }
 
     .SignIn-Container {
@@ -242,7 +250,7 @@
     }
 
     .ContainerSignIn {
-        margin-left: 1rem !important;
+        margin-left: 1.5rem !important;
     }
     #formBasicPassword{
         width: 20rem;
@@ -266,7 +274,7 @@
     }
 
     .SignUpBigBox {
-        margin-left: 3rem !important;
+        margin-left: 1rem !important;
     }
 
     .InformationBox {
@@ -294,7 +302,7 @@
 
 @media screen and (max-width: 768px) {
     .SignUpBigBox {
-        margin-left: 1.5rem !important;
+        margin-left: 1rem !important;
     }
     #formBasicPassword{
         width: 18rem;

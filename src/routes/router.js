@@ -36,7 +36,7 @@ function Router() {
         <Route exact path="/">
           <LandingPage />
         </Route>
-        <Route exact path="/auth">
+        <Route exact path="/auth/:type">
           <SignInUpPage />
         </Route>
         <Route exact path="/signUp">
