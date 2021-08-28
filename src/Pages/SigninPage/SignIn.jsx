@@ -60,7 +60,7 @@ function SignIn() {
             <Form.Control
               value={state.emailorusername}
               onChange={(e) => setState({ ...state, emailorusername: e.target.value })}
-              style={{ height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
+              style={{textAlign:'left', height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
               type="text"
               placeholder="Email / Username"
             />
@@ -71,10 +71,11 @@ function SignIn() {
               <Form.Control
                 value={state.password}
                 onChange={(e) => setState({ ...state, password: e.target.value })}
-                style={{ height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
+                style={{ textAlign:'left',height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
                 variant="secondary"
                 type={values.showPassword ? "text" : "password"}
                 placeholder="Password"
+               
               />
               <Button
                 style={{

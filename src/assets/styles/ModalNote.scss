@@ -94,6 +94,7 @@ $color-text: #625bad;
   textarea,
   input {
     @include note__content();
+    width: 100%;
     outline: none;
     background: transparent;
   }
