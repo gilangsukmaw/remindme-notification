@@ -18,9 +18,7 @@ const AllNotesCreate = (noteData) => {
         {/* <Carousel.Item> */}
         <div className="allNote__card">
           <div className="allNote__title">
-            {noteData.map((data) => (
-              <h5>{noteData.title}</h5>
-            ))}
+            {noteData ? <h5>{noteData.title}</h5> : null}
             <img src={PinCard} alt="" />
           </div>
           <div className="allNote__time">
@@ -28,9 +26,7 @@ const AllNotesCreate = (noteData) => {
           </div>
           <div className="allNote__content">
             <p>
-              As designer that understands how to<br></br>continually bring
-              value to the business while<br></br> also advocating for the user
-              is a golden egg<br></br> for organizations.
+              As designer that understands how to<br></br>continually bring value to the business while<br></br> also advocating for the user is a golden egg<br></br> for organizations.
             </p>
           </div>
         </div>
