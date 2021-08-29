@@ -57,7 +57,7 @@ $time-background: #FFBCC2;
     button {
         margin: 0 auto;
         @include time__button();
-        background-color: $time-background;
+        // background-color: $time-background;
     }
     .notification {
         display: flex;
@@ -85,7 +85,7 @@ $time-background: #FFBCC2;
     height: 550px;
     padding: 20px;
     width: 594px;
-    background-color: $time-background;
+    background-color: #F1F4FA;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
 }
@@ -127,7 +127,8 @@ button.time__save {
     width: 150px;
     margin-right: 2em;
     outline: none;
-    background-color: $time-background;
+    background-color: #F1F4FA;
+    padding: 5px;
     }
     .time__time input {
     border: 1px solid #625BAD;
@@ -135,7 +136,8 @@ button.time__save {
     height: 2.5em;
     width: 100px;
     outline: none;
-    background-color: $time-background;
+    background-color: #F1F4FA;
+    padding: 5px;
     }
     h3 {
         color: $color-text;
@@ -144,17 +146,17 @@ button.time__save {
 
 .time__calendar{
     padding-top: 2rem;
-    background-color: $time-background;
+    background-color: #F1F4FA;
     .calendar {
         width: 350px;
         border-radius: 20px;
         height: auto;
-        background-color: $time-background;
+        background-color: #F1F4FA;
         .header {
             display: none;
         }
         .body {
-            background-color: $time-background;
+            background-color: #F1F4FA;
         }
         .day {
             .before {

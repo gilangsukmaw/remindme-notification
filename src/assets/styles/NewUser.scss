@@ -24,8 +24,8 @@ $font-family: "Poppins", sans-serif;
   height: 100vh;
 }
 
-.newUser__sideBar {
-  //   width: 100%;
+.newUser__card__logo {
+    width: 100%;
 }
 
 .newUser__intro {
@@ -119,8 +119,38 @@ $font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 768px) {
+
+
   .newUser__card {
     display: flex;
     flex-direction:column;
+    align-items: center;
+   
+  }
+
+  .newUser__container {
+    margin-left: 360px;
+    // overflow: auto;
+    margin-top: 15rem;
+    
+  }
+
+  .newUser__card__calendar {
+    .calendar {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .newUser__card__logo {
+    height: auto;
+    img {
+      width: 350px;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .newUser__card__calendar {
+    margin-bottom: 3rem;
   }
 }

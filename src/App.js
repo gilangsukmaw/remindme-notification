@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import "./Custom.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import CreateTask from "./modal/CreateTask";
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
       <div>
         <BrowserRouter>
           <Router />
-          {/* <CreateTask /> */}
         </BrowserRouter>
       </div>
     </>
