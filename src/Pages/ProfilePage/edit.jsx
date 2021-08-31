@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import pp from "../../assets/images/Ellipse 34.png";
-import editButton from "../../assets/images/Ellipse 107.png";
+import edit from "../../assets/images/Ellipse 107.png";
 import "./editStyle.css";
 import { useParams } from "react-router-dom";
 import ModalEditPhoto from "./ModalEditPhoto";
