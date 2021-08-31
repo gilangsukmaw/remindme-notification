@@ -34,8 +34,8 @@ const NewUser = ({ ...props }) => {
   }, []);
   return (
     <div className="newUser__page">
-      <div className="newUser__sideBar col-lg-3"></div>
-      <div className="newUser__container col-lg-9">
+      <div className="newUser__sideBar col-lg-3 col-md-6"></div>
+      <div className="newUser__container col-lg-9 col-md-6">
         {/* <div className="row"> */}
         <div className="newUser__intro">
           <div className="newUser__logo">
@@ -52,10 +52,7 @@ const NewUser = ({ ...props }) => {
           <div className="newUser__card__logo">
             <img src={welcomeLogo} alt="" />
           </div>
-          <Container
-            className="newUser__card__calendar"
-         
-          >
+          <Container className="newUser__card__calendar">
             <CobaCalendar />
             <div className="newUser__card__exp">
               <button className="exp__today"></button>

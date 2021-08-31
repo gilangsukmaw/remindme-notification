@@ -18,10 +18,10 @@ $font-family: "Poppins", sans-serif;
   align-items: center;
 }
 .newUser__container {
-  // background-color: rgba(200, 200, 200, 0.5);
   display: flex;
   flex-direction: column;
   height: 100vh;
+
 }
 
 .newUser__intro {
@@ -137,22 +137,28 @@ $font-family: "Poppins", sans-serif;
 //   }
 // }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
 .newUser__intro {
-  padding-bottom: 10rem;
+  justify-items: flex-start;
+  margin-left: -230px;
+  justify-content: center;
 }
   .newUser__card {
     display: flex;
     flex-direction:column;
     align-items: center;
-   
+   margin-left: 3rem;
   }
 
   .newUser__container {
-    margin-left: 360px;
-    // overflow: auto;
-    // margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    
+    
+  }
+  .newUser__container .col-lg-9 {
+    max-width: 5rem;
     
     
   }
@@ -176,5 +182,11 @@ $font-family: "Poppins", sans-serif;
 
   .newUser__card__calendar {
     margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .newUser__card {
+    margin-right: 7rem;
   }
 }
