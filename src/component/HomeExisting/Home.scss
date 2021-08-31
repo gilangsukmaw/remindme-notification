@@ -53,8 +53,11 @@
     margin-left: 2rem;
 
     .CalendarBox {
-        height: 28rem;
-        background-color: black;
+        .calendar__container {
+            .calendar {
+                margin: auto;
+            }
+        }
     }
 
     .ReminderTitle {
@@ -114,5 +117,22 @@
             font-size: 18px;
             font-weight: 600;
         }
+    }
+}
+
+.ext__calendar {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        border: none;
+        &.exp__today {
+            background: #625bad;
+            border-radius: 10px;
+          }
+        &.exp__chosen {
+            background: #b6c6e5;
+            border-radius: 10px;
+            margin-left: 2rem;
+          }
     }
 }
