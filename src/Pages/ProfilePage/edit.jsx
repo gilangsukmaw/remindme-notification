@@ -3,20 +3,11 @@ import { Link } from "react-router-dom";
 import pp from "../../assets/images/Ellipse 34.png";
 import editButton from "../../assets/images/Ellipse 107.png";
 import "./editStyle.css";
-import axios from "axios";
-export default function Edit() {
-  const [edit, setEdit] = useState([]);
-  const Token = localStorage.getItem("Token");
-  const editData = async () => {
-    await axios
-      .put("https://remindme.gabatch13.my.id/api/v1/user", { headers: { Authorization: `Bearer ${Token}` } })
-      .then((result) => setEdit(result.data))
-      .catch((err) => console.log(err));
-  };
+import { useParams } from "react-router-dom";
+import ModalEditPhoto from "./ModalEditPhoto";
 
-  useEffect(() => {
-    editData();
-  }, []);
+export default function Edit({ ...props }) {
+  const { type } = useParams();
   return (
     <div>
       <div className="profile">
@@ -27,7 +18,8 @@ export default function Edit() {
           <div className="head">
             <img src={pp} alt="profile pictures" style={{ width: "230px" }} />
             <div className="edit-profile">
-              <img src={editButton} alt="edit" />
+              {type === "EditPhoto" ? <ModalEditPhoto /> : null}
+              <img src={edit} alt="edit" />
             </div>
             <p style={{ marginTop: "-40px" }}>Edit Photo</p>
           </div>

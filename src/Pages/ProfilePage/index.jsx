@@ -7,12 +7,23 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import ModalTest from "../../modal/modalTest";
 const ProfilePage = ({ ...props }) => {
-  const { step, setStep, noteData, setNoteData, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
+  const {
+    step,
+    setStep,
+    noteData,
+    setNoteData,
+    onSaveNote,
+    noteColor,
+    setNoteColor,
+    onSaveColor,
+  } = props;
   const [user, setUser] = useState([]);
   const Token = localStorage.getItem("Token");
   const getData = async () => {
     await axios
-      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, { headers: { Authorization: `Bearer ${Token}` } })
+      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, {
+        headers: { Authorization: `Bearer ${Token}` },
+      })
       .then((result) => setUser(result.data))
       .catch((err) => console.log(err));
   };
@@ -56,7 +67,16 @@ const ProfilePage = ({ ...props }) => {
           </div>
         </div>
       </div>
-      <ModalTest setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
+      <ModalTest
+        setStep={setStep}
+        step={step}
+        noteData={noteData}
+        setNoteData={setNoteData}
+        onSaveNote={onSaveNote}
+        noteColor={noteColor}
+        setNoteColor={setNoteColor}
+        onSaveColor={onSaveColor}
+      />
     </div>
   );
 };

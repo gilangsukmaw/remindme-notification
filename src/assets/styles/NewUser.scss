@@ -15,26 +15,23 @@ $font-family: "Poppins", sans-serif;
 .newUser__page {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .newUser__container {
-  // background-color: rgba(200, 200, 200, 0.5);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   height: 100vh;
-}
-
-.newUser__sideBar {
-  //   width: 100%;
 }
 
 .newUser__intro {
   display: flex;
   flex-direction: row;
+  margin-top: 2rem;
 }
 
 .newUser__logo img {
-  width: 45px;
+  width: 100%;
+  max-width: 45px;
 }
 
 .newUser__greet h3 {
@@ -45,13 +42,17 @@ $font-family: "Poppins", sans-serif;
 .newUser__card {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  align-items: center;
+  // width: 100%;
+  height: 100vh;
 }
 
 .newUser__card__calendar {
   background-color: #f1f4fa;
   padding: 20px;
   border-radius: 20px;
+  max-width: 450px;
+  max-height: 500px;
   .newUser__card__exp {
     display: flex;
     justify-content: flex-end;
@@ -118,25 +119,68 @@ $font-family: "Poppins", sans-serif;
   }
 }
 
-@media (max-width: 768px) {
+// @media (max-width: 1024px) {
+//   .newUser__card {
+//     display: flex;
+//     flex-direction:row;
+//     align-items: center;
+
+//   }
+//   .newUser__container {
+//     width: 768px;
+
+//     margin-left: 100px;
+//     // overflow: auto;
+
+//   }
+// }
+
+@media (max-width: 1024px) {
+  .newUser__intro {
+    justify-items: flex-start;
+    margin-left: -230px;
+    justify-content: center;
+  }
+  .newUser__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 3rem;
+  }
+
   .newUser__container {
-    margin-left: 360px;
-    // overflow: auto;
-    margin-top: 15rem;
+    display: flex;
+    align-items: center;
+  }
+  .newUser__container .col-lg-9 {
+    max-width: 5rem;
   }
 
-  .newUser_card_calendar {
+  .newUser__card__calendar {
+    max-width: 450px;
+    max-height: 500px;
     .calendar {
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
     }
   }
 
-  .newUser_card_logo {
+  .newUser__card__logo {
+    height: auto;
     img {
-      width: 200px;
-      margin-bottom: 3rem;
+      width: 350px;
+      margin-bottom: 2rem;
     }
+  }
+
+  .newUser__card__calendar {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .newUser__card {
+    margin-right: 7rem;
   }
 
   .newUser_card_calendar {
