@@ -119,8 +119,36 @@ $font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 768px) {
-  .newUser__card {
-    display: flex;
-    flex-direction:column;
+  .newUser__container {
+    margin-left: 360px;
+    // overflow: auto;
+    margin-top: 15rem;
+  }
+
+  .newUser_card_calendar {
+    .calendar {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  .newUser_card_logo {
+    img {
+      width: 200px;
+      margin-bottom: 3rem;
+    }
+  }
+
+  .newUser_card_calendar {
+    margin-bottom: 3rem;
+  }
+}
+@media (min-width: 769px) {
+  .newUser__card > .newUser_card_logo > img {
+    width: 10px;
+  }
+
+  .newUser_card_calendar {
+    margin-bottom: 3rem;
   }
 }

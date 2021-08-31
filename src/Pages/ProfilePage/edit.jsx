@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import pp from "../../assets/images/Ellipse 34.png";
-import edit from "../../assets/images/Ellipse 107.png";
+import editButton from "../../assets/images/Ellipse 107.png";
 import "./editStyle.css";
+import axios from "axios";
 export default function Edit() {
+  const [edit, setEdit] = useState([]);
+  const Token = localStorage.getItem("Token");
+  const editData = async () => {
+    await axios
+      .put("https://remindme.gabatch13.my.id/api/v1/user", { headers: { Authorization: `Bearer ${Token}` } })
+      .then((result) => setEdit(result.data))
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    editData();
+  }, []);
   return (
     <div>
       <div className="profile">
@@ -14,7 +27,7 @@ export default function Edit() {
           <div className="head">
             <img src={pp} alt="profile pictures" style={{ width: "230px" }} />
             <div className="edit-profile">
-              <img src={edit} alt="edit" />
+              <img src={editButton} alt="edit" />
             </div>
             <p style={{ marginTop: "-40px" }}>Edit Photo</p>
           </div>
