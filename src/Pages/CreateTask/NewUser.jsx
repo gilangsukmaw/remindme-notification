@@ -54,7 +54,7 @@ const NewUser = ({ ...props }) => {
           </div>
           <Container
             className="newUser__card__calendar"
-            style={{ maxWidth: "450px", maxHeight: "500px" }}
+         
           >
             <CobaCalendar />
             <div className="newUser__card__exp">

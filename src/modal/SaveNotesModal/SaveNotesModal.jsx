@@ -4,10 +4,10 @@ import "./SaveNotesModal.scss";
 import Ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
 
-function SaveNotes() {
+function SaveNotes({ changeStep }) {
   const [modalShow, setModalShow] = React.useState(true);
 
-  function SaveNotes(props) {
+  function SaveNotesModal(props) {
     return (
       <>
         <Modal
@@ -45,7 +45,7 @@ function SaveNotes() {
                   fontWeight: "700",
                   fontSize: "1.5rem",
                 }}
-                onClick={props.onHide}
+                onClick={() => props.onHide("")}
               >
                 Ok
               </Button>
@@ -59,7 +59,7 @@ function SaveNotes() {
   return (
     <div>
       {/* <Button onClick={()=> setModalShow(true)}>SaveNotes Modal (Tombol Sementara)</Button> */}
-      <SaveNotes show={modalShow} onHide={() => setModalShow(false)} />
+      <SaveNotesModal show={modalShow} onHide={changeStep} />
     </div>
   );
 }

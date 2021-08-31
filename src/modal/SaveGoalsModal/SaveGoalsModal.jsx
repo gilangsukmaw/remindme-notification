@@ -4,7 +4,7 @@ import "./SaveGoalsModal.scss";
 import Ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
 
-function SaveGoals() {
+function SaveGoals({changeStep}) {
   const [modalShow, setModalShow] = React.useState(true);
 
   function SaveGoalModal(props) {
@@ -45,7 +45,7 @@ function SaveGoals() {
                   fontWeight: "700",
                   fontSize: "1.5rem",
                 }}
-                onClick={props.onHide}
+                onClick={() => props.onHide("")}
               >
                 Ok
               </Button>
@@ -59,7 +59,7 @@ function SaveGoals() {
   return (
     <div>
       {/* <Button onClick={()=> setModalShow(true)}>SaveNotes Modal (Tombol Sementara)</Button> */}
-      <SaveGoalModal show={modalShow} onHide={() => setModalShow(false)} />
+      <SaveGoalModal show={modalShow} onHide={changeStep} />
     </div>
   );
 }
