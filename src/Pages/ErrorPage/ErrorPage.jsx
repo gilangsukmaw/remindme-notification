@@ -16,7 +16,7 @@ function ErrorPage ()  {
                     </div>
                 </div>
                 <div className="ass">
-                    <img src={img1}  style={{ width:"450px", height:"450"}} alt="" />
+                    <img src={img1} className="images" alt="" />
                 </div>
             </div>
     );
