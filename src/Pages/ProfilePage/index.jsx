@@ -38,13 +38,13 @@ const ProfilePage = ({ ...props }) => {
             </Link>
             <div className="firstname">
               <h5>First Name</h5>
-              <p>{user ? user.data.firstname : null}</p>
+              <p>{user ? user.data && user.data.firstname : null}</p>
               <h5>Last Name</h5>
-              <p> {user ? user.data.lastname : null}</p>
+              <p> {user ? user.data && user.data.lastname : null}</p>
               <h5>Username</h5>
-              <p>{user ? user.data.username : null}</p>
+              <p>{user ? user.data && user.data.username : null}</p>
               <h5>Email</h5>
-              <p>{user ? user.data.email : null}</p>
+              <p>{user ? user.data && user.data.email : null}</p>
               <h5>Password</h5>
               <p>************</p>
             </div>
