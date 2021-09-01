@@ -50,7 +50,10 @@ input {
   border-radius: 10px;
   font-weight: bolder;
   color: #342d50;
-  padding-left: 2rem;
+}
+.label.email input {
+  border: none;
+  background-color: transparent;
 }
 input:focus {
   outline: none;
@@ -69,9 +72,6 @@ input:focus {
   border: none;
 }
 
-.label {
-  margin-bottom: 1rem;
-}
 .btn-save:active {
   transform: scale3d(0.9, 0.9, 1);
   transition: 100ms;
