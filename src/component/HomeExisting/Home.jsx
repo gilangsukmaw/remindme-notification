@@ -5,7 +5,7 @@ import HomeNotes from "./HomeNotes";
 import CircularNotes from "../../component/CircularGoals/CircularNotes";
 import ReminderCard from "./ReminderCard";
 import Garis from "../../assets/images/GoalDetailLine.png";
-import Calendar from "../../calendar/CobaCalendar";
+import CobaCalendar from "../../Calendar";
 import moment from "moment";
 
 function HomeExisting() {
@@ -38,7 +38,13 @@ function HomeExisting() {
         <Col style={{ width: "50%" }}>
           <div className="CalendarContainer shadow">
             <div className="CalendarBox">
-              <Calendar />
+              <CobaCalendar />
+            </div>
+            <div className="ext__calendar">
+              <button className="exp__today"></button>
+              <p>Chosen Date</p>
+              <button className="exp__chosen"></button>
+              <p>Today</p>
             </div>
             <div>
               <img
@@ -48,7 +54,8 @@ function HomeExisting() {
                   padding: "0 0rem 0 0rem",
                 }}
                 src={Garis}
-              ></img>
+                alt=""
+              />
             </div>
 
             <div className="ReminderContainer ">

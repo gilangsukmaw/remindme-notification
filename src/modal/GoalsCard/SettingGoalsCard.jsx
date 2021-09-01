@@ -193,7 +193,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
               </div>
               {/* <h1>{`${bColor}`}</h1> */}
 
-              <div className="d-flex justify-content-center">
+              <div className="saveButton d-flex justify-content-center">
                 <Button
                   type="submit"
                   className="GoalSubmitButton mt-4"

@@ -39,7 +39,7 @@ function Navbar({ ...props }) {
             <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create a Task</h5>
           </div>
           <div className="sidebarItems content">
-            <Link to="/AllNote">
+            <Link to="/allNote">
               <p>All Notes</p>
             </Link>
           </div>

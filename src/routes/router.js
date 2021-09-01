@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import SignInUpPage from "../Pages/SigninPage/SignInBase";
 import ProfilePage from "../Pages/ProfilePage";
@@ -7,15 +7,11 @@ import AllGoals from "../Pages/GoalsPage/AllGoals";
 import PrivateRoutes from "./privateRoutes";
 import Navbar from "../component/navbar/navbar";
 import NewUser from "../Pages/CreateTask/NewUser";
-import CreateTask from "../modal/CreateTask";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 import LandingPage from "../Pages/LandingPage/LandingPage";
-import axios from "axios";
-import cobaCoba from "../modal/GoalsCard/cobaCoba";
 
 function Router() {
   const isLogin = localStorage.getItem("Token");
-  const Token = localStorage.getItem("Token");
   const [step, setStep] = useState("");
   const [noteData, setNoteData] = useState({
     title: "",
@@ -30,10 +26,28 @@ function Router() {
       {isLogin ? <Navbar setStep={setStep} /> : null}
       <Switch>
         <Route exact path="/newUser">
-          <NewUser setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
+          <NewUser
+            setStep={setStep}
+            step={step}
+            noteData={noteData}
+            setNoteData={setNoteData}
+            onSaveNote={onSaveNote}
+            noteColor={noteColor}
+            setNoteColor={setNoteColor}
+            onSaveColor={onSaveColor}
+          />
         </Route>
         <Route exact path="/profile">
-          <ProfilePage setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
+          <ProfilePage
+            setStep={setStep}
+            step={step}
+            noteData={noteData}
+            setNoteData={setNoteData}
+            onSaveNote={onSaveNote}
+            noteColor={noteColor}
+            setNoteColor={setNoteColor}
+            onSaveColor={onSaveColor}
+          />
         </Route>
         <Route exact path="/">
           <LandingPage />
@@ -41,22 +55,18 @@ function Router() {
         <Route exact path="/auth/:type">
           <SignInUpPage />
         </Route>
-        <Route exact path="/cobaCoba">
-          <cobaCoba />
-        </Route>
-        <PrivateRoutes exact component={CreateTask} path="/TaskPage" />
 
-        <PrivateRoutes exact component={AllNotesCreate} path="/AllNote" />
+        <PrivateRoutes exact component={AllNotesCreate} path="/allNote" />
 
-        <PrivateRoutes exact component={AllGoals} path="/AllGoals" />
+        <PrivateRoutes exact component={AllGoals} path="/allGoals" />
 
-        <PrivateRoutes exact component={Edit} path="/editprofile" />
+        <PrivateRoutes exact component={Edit} path="/editProfile" />
 
-        {/* <Route path="*">
+        <Route path="*">
           <div>
             <h1>PAGE NOT FOUND</h1>
           </div>
-        </Route> */}
+        </Route>
       </Switch>
     </>
   );
