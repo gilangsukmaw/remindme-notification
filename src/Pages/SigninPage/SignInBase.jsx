@@ -7,7 +7,7 @@ import gambar3 from "../../assets/images/Illustrasi [Recovered] 1-1.png";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import "./modal.scss";
-import logofull from "../../assets/images/logoFull.png";
+// import logofull from "../../assets/images/logoFull.png";
 import { useParams } from "react-router-dom";
 
 function SignInUpPage(...props) {
@@ -18,9 +18,9 @@ function SignInUpPage(...props) {
       <div>
         <Container className="d-flex flex-row align-items-start justify-content-center" style={{ maxWidth: "1440px", marginLeft: "auto", marginRight: "auto", marginTop: "5%" }}>
           <Col className="LeftBox d-flex flex-column align-items-end justify-content-center" style={{ maxWidth: "50%", borderRight: "1px solid #B6C6E5", paddingRight: "3rem" }}>
-            <div className="LogoFull">
+            {/* <div className="LogoFull">
               <img src={logofull} style={{ float: "left" }}></img>
-            </div>
+            </div> */}
             <Carousel className="CarouselBox d-flex justify-content-center align-items-start flex-column text-dark" interval={5000} controls={false}>
               <Carousel.Item>
                 <h3>Organize Your Life</h3>

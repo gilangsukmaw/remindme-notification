@@ -4,12 +4,15 @@ import { Modal, Col, Form, Button, SplitButton } from "react-bootstrap";
 import CobaCalendar from "../../Calendar";
 import "./SettingGoals.scss";
 import * as dayjs from "dayjs";
+import vectorClose from "../../assets/images/vectorClose.png";
 
-function SettingGoalsCard({ changeStep }) {
+
+function SettingGoalsCard({ changeStep,onClose }) {
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
-  const [modalShow, setModalShow] = useState(true);
+  const [modalShow, setModalShow] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  console.log (dayjs(startDate));
   const [bColor, setbColor] = useState();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,8 +20,15 @@ function SettingGoalsCard({ changeStep }) {
     changeStep("SaveGoals");
   };
 
+  const [state, setState] = useState({
+    name: "",
+    goal_type: "",
+    date: "",
+    target: "",
+    lastname: "",
+  });
+
   return (
-    <div>
       <>
         <Modal
           show
@@ -28,13 +38,22 @@ function SettingGoalsCard({ changeStep }) {
           centered
         >
           <div className="SetGoalsContainer shadow text-dark">
-            <Modal.Header style={{ alignItems: "flex-start" }} closeButton>
+            <Modal.Header style={{ alignItems: "flex-start" }} >
+            
+
               <h1
                 style={{ fontSize: "1.8rem", fontWeight: "600", padding: "0" }}
                 className="mb-4"
               >
                 My Goal
               </h1>
+              <Button style={{background:'none',border:'none', marginTop:'-1.25rem',marginRight:'-1.25rem'}}
+            onClick={() => {
+              onClose("");
+            }}
+          >
+            <img style={{width:"20px", }} src={vectorClose} alt="" />
+          </Button>
             </Modal.Header>
 
             <Form onSubmit={handleSubmit}>
@@ -108,7 +127,8 @@ function SettingGoalsCard({ changeStep }) {
                     </div>
                   </div>
                   <div className="Goals__calendar " style={{ float: "left" }}>
-                    <CobaCalendar onChange={(date) => setStartDate(date)} />
+                    <CobaCalendar onClick={() => setStartDate()} onChange={() => setStartDate()} />
+                    <h1>{dayjs(startDate).format("DD/MM/YYYY")}</h1>
                   </div>
                 </Col>
                 <Col className="kolomValue  " style={{ maxWidth: "30%" }}>
@@ -159,16 +179,16 @@ function SettingGoalsCard({ changeStep }) {
                   onClick={() => setbColor("#FCF3A1")}
                 ></Button>
                 <Button
-                  style={{ backgroundColor: "#B1A8FF" }}
-                  onClick={() => setbColor("#B1A8FF")}
+                  style={{ backgroundColor: "#CCF0D7" }}
+                  onClick={() => setbColor("#CCF0D7")}
                 ></Button>
                 <Button
                   style={{ backgroundColor: "#FF8888" }}
                   onClick={() => setbColor("#FF8888")}
                 ></Button>
                 <Button
-                  style={{ backgroundColor: "#CCF0D7" }}
-                  onClick={() => setbColor("#CCF0D7")}
+                  style={{ backgroundColor: "#D1CDFA" }}
+                  onClick={() => setbColor("#D1CDFA")}
                 ></Button>
               </div>
               {/* <h1>{`${bColor}`}</h1> */}
@@ -176,7 +196,7 @@ function SettingGoalsCard({ changeStep }) {
               <div className="d-flex justify-content-center">
                 <Button
                   type="submit"
-                  className="mt-3"
+                  className="GoalSubmitButton mt-4"
                   style={{
                     width: "100%",
                     fontWeight: "700",
@@ -196,7 +216,6 @@ function SettingGoalsCard({ changeStep }) {
           </div>
         </Modal>
       </>
-    </div>
   );
 }
 

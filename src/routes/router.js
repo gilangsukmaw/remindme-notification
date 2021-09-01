@@ -11,6 +11,7 @@ import CreateTask from "../modal/CreateTask";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 import LandingPage from "../Pages/LandingPage/LandingPage";
 import axios from "axios";
+import cobaCoba from "../modal/GoalsCard/cobaCoba";
 
 function Router() {
   const isLogin = localStorage.getItem("Token");
@@ -39,6 +40,9 @@ function Router() {
         </Route>
         <Route exact path="/auth/:type">
           <SignInUpPage />
+        </Route>
+        <Route exact path="/cobaCoba">
+          <cobaCoba />
         </Route>
         <PrivateRoutes exact component={CreateTask} path="/TaskPage" />
 
