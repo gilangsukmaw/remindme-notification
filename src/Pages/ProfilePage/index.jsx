@@ -9,20 +9,12 @@ import ModalTest from "../../modal/modalTest";
 const ProfilePage = ({ ...props }) => {
   const { step, setStep, noteData, setNoteData, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
   const dispatch = useDispatch();
-  const { user, loading } = useSelector((state) => state.userData.userInfo);
+  const { user } = useSelector((state) => state.userData.userInfo);
 
-  // const getData = async () => {
-  //   await axios
-  //     .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, {
-  //       headers: { Authorization: `Bearer ${Token}` },
-  //     })
-  //     .then((result) => setUser(result.data))
-  //     .catch((err) => console.log(err));
-  // };
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
-  console.log("data user", user);
+  console.log("user redux", user);
   return (
     <div>
       <div className="profile">
@@ -46,13 +38,13 @@ const ProfilePage = ({ ...props }) => {
             </Link>
             <div className="firstname">
               <h5>First Name</h5>
-              {/* <p>{user.info ? user.info.firstname : null}</p> */}
+              <p>{user ? user.data.firstname : null}</p>
               <h5>Last Name</h5>
-              {/* <p> {user.info ? user.info.lastname : null}</p> */}
+              <p> {user ? user.data.lastname : null}</p>
               <h5>Username</h5>
-              {/* <p>{user.info ? user.info.username : null}</p> */}
+              <p>{user ? user.data.username : null}</p>
               <h5>Email</h5>
-              {/* <p>{user.info ? user.info.email : null}</p> */}
+              <p>{user ? user.data.email : null}</p>
               <h5>Password</h5>
               <p>************</p>
             </div>
