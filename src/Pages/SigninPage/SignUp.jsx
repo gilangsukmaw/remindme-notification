@@ -287,7 +287,7 @@ function SignUp(props) {
                     className="ButtonUngu"
                     type="submit"
                     value="Submit"
-                    onClick={() => setModalShow(true)}
+                    // onClick={() => setModalShow(true)}
                     style={{
                       height: "2.5rem",
                       width: "45%",
