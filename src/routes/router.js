@@ -9,6 +9,8 @@ import Navbar from "../component/navbar/navbar";
 import NewUser from "../Pages/CreateTask/NewUser";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 import LandingPage from "../Pages/LandingPage/LandingPage";
+import axios from "axios";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 function Router() {
   const isLogin = localStorage.getItem("Token");
@@ -63,9 +65,7 @@ function Router() {
         <PrivateRoutes exact component={Edit} path="/editProfile" />
 
         <Route path="*">
-          <div>
-            <h1>PAGE NOT FOUND</h1>
-          </div>
+          <ErrorPage/>
         </Route>
       </Switch>
     </>
