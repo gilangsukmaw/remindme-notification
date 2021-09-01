@@ -24,10 +24,10 @@ function LandingPage(...props) {
           <div className="header__button">
             {/* tes */}
             <Link to="/auth/login">
-              <button>Login</button>
+              <button style={{padding:'0 2rem 0 2rem'}}>Login</button>
             </Link>
             <Link to="/auth/register">
-              <button>Register</button>
+              <button style={{marginRight:'5rem'}}>Register</button>
             </Link>
           </div>
         </div>
