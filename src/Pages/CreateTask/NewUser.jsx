@@ -28,7 +28,7 @@ const NewUser = ({ ...props }) => {
           </div>
           <div className="newUser__greet">
             <h3>
-              Hi, {user ? user.data.firstname : null} {user ? user.data.lastname : null}
+              Hi, {user ? user.data && user.data.firstname : null} {user ? user.data && user.data.lastname : null}
             </h3>
           </div>
         </div>

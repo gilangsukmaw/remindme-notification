@@ -25,7 +25,7 @@ function Navbar({ ...props }) {
           <div className="sidebarItems headers">
             <Link to="/newUser">
               <img src={pp} alt="" />
-              <p>{user ? user.data.username : null}</p>
+              <p>{user ? user.data && user.data.username : null}</p>
             </Link>
           </div>
           <div className=" Task" onClick={() => setStep("CreateNote")}>
