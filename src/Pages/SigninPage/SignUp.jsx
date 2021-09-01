@@ -177,6 +177,7 @@ function SignUp(props) {
                       borderRadius: "10px",
                       border: "2px solid #B6C6E5",
                     }}
+                    required
                     type="email"
                     placeholder="Email"
                   />
