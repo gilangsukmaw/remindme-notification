@@ -9,6 +9,7 @@ import Navbar from "../component/navbar/navbar";
 import NewUser from "../Pages/CreateTask/NewUser";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 import LandingPage from "../Pages/LandingPage/LandingPage";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 function Router() {
   const isLogin = localStorage.getItem("Token");
@@ -26,28 +27,10 @@ function Router() {
       {isLogin ? <Navbar setStep={setStep} /> : null}
       <Switch>
         <Route exact path="/newUser">
-          <NewUser
-            setStep={setStep}
-            step={step}
-            noteData={noteData}
-            setNoteData={setNoteData}
-            onSaveNote={onSaveNote}
-            noteColor={noteColor}
-            setNoteColor={setNoteColor}
-            onSaveColor={onSaveColor}
-          />
+          <NewUser setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
         </Route>
         <Route exact path="/profile">
-          <ProfilePage
-            setStep={setStep}
-            step={step}
-            noteData={noteData}
-            setNoteData={setNoteData}
-            onSaveNote={onSaveNote}
-            noteColor={noteColor}
-            setNoteColor={setNoteColor}
-            onSaveColor={onSaveColor}
-          />
+          <ProfilePage setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
         </Route>
         <Route exact path="/">
           <LandingPage />
@@ -63,9 +46,7 @@ function Router() {
         <PrivateRoutes exact component={Edit} path="/editProfile" />
 
         <Route path="*">
-          <div>
-            <h1>PAGE NOT FOUND</h1>
-          </div>
+          <ErrorPage />
         </Route>
       </Switch>
     </>
