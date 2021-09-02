@@ -5,15 +5,17 @@ import { put, takeEvery } from "redux-saga/effects";
 function* getUser(actions) {
   const { error } = actions;
   try {
-    const res = yield axios.get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`);
+    const res = yield axios.get(
+      `https://remindme.gabatch13.my.id/api/v1/user/getinfo`
+    );
     yield put({
       type: GET_USER_SUCCESS,
       payload: res.data,
     });
-  } catch (err) {
+  } catch (error) {
     yield put({
       type: GET_USER_FAIL,
-      error: error,
+      payload: error,
     });
   }
 }

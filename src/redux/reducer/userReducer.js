@@ -16,7 +16,7 @@ const userData = (state = initialState, action) => {
         ...state,
         userInfo: {
           loading: true,
-          error: null,
+          // error: null,
         },
       };
     case GET_USER_SUCCESS:
@@ -30,7 +30,6 @@ const userData = (state = initialState, action) => {
       };
     case GET_USER_FAIL:
       return {
-        ...state,
         userInfo: {
           user: [],
           loading: false,
