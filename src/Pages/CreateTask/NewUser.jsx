@@ -5,33 +5,18 @@ import welcomeLogo from "../../assets/images/welcomeLogo.png";
 import "../../assets/styles/NewUser.scss";
 import CobaCalendar from "../../Calendar";
 import ModalTest from "../../modal/modalTest";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../redux/action/user";
 
 const NewUser = ({ ...props }) => {
-  const {
-    step,
-    setStep,
-    noteData,
-    setNoteData,
-    onSaveNote,
-    noteColor,
-    setNoteColor,
-    onSaveColor,
-  } = props;
-  const [user, setUser] = useState([]);
-  const Token = localStorage.getItem("Token");
-  const getData = async () => {
-    await axios
-      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, {
-        headers: { Authorization: `Bearer ${Token}` },
-      })
-      .then((result) => setUser(result.data))
-      .catch((err) => console.log(err));
-  };
-  console.log("user", user);
+  const { step, setStep, noteData, setNoteData, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.userData.userInfo);
+
   useEffect(() => {
-    getData();
-  }, []);
+    dispatch(getUser());
+  }, [dispatch]);
+
   return (
     <div className="newUser__page">
       <div className="newUser__sideBar col-lg-3 col-md-6"></div>
@@ -43,8 +28,7 @@ const NewUser = ({ ...props }) => {
           </div>
           <div className="newUser__greet">
             <h3>
-              Hi, {user.data ? user.data.firstname : null}{" "}
-              {user.data ? user.data.lastname : null}
+              Hi, {user ? user.data && user.data.firstname : null} {user ? user.data && user.data.lastname : null}
             </h3>
           </div>
         </div>
@@ -64,16 +48,7 @@ const NewUser = ({ ...props }) => {
         </div>
         {/* </div> */}
       </div>
-      <ModalTest
-        setStep={setStep}
-        step={step}
-        noteData={noteData}
-        setNoteData={setNoteData}
-        onSaveNote={onSaveNote}
-        noteColor={noteColor}
-        setNoteColor={setNoteColor}
-        onSaveColor={onSaveColor}
-      />
+      <ModalTest setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
     </div>
   );
 };

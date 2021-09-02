@@ -5,8 +5,10 @@ import { put, takeEvery } from "redux-saga/effects";
 function* getUser(actions) {
   const { error } = actions;
   try {
+    const Token = localStorage.getItem("Token");
     const res = yield axios.get(
-      `https://remindme.gabatch13.my.id/api/v1/user/getinfo`
+      `https://remindme.gabatch13.my.id/api/v1/user/getinfo`,
+      { headers: { Authorization: `Bearer ${Token}` } }
     );
     yield put({
       type: GET_USER_SUCCESS,

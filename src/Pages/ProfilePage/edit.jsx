@@ -23,7 +23,6 @@ export default function Edit() {
       console.log({ error });
     }
   };
-  console.log("token", Token);
 
   const getData = async () => {
     await axios

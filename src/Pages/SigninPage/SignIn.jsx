@@ -62,7 +62,9 @@ function SignIn() {
               onChange={(e) => setState({ ...state, emailorusername: e.target.value })}
               style={{textAlign:'left', height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
               type="text"
+              required
               placeholder="Email / Username"
+              // pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
             />
           </Form.Group>
 
@@ -74,6 +76,7 @@ function SignIn() {
                 style={{ textAlign:'left',height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
                 variant="secondary"
                 type={values.showPassword ? "text" : "password"}
+                required
                 placeholder="Password"
                
               />

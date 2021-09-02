@@ -1,29 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../redux/action/user";
 import pp from "../../assets/images/Ellipse 34.png";
 import logout from "../../assets/images/logout.png";
 import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
-import axios from "axios";
 function Navbar({ ...props }) {
   const { setStep } = props;
-  const [user, setUser] = useState([]);
-  const Token = localStorage.getItem("Token");
-  const getData = async () => {
-    await axios
-      .get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, { headers: { Authorization: `Bearer ${Token}` } })
-      .then((result) => setUser(result.data))
-      .catch((err) => console.log(err));
-  };
-  console.log("user", user);
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.userData.userInfo);
 
   function LogOut() {
     localStorage.clear();
     window.location.replace("/");
   }
   useEffect(() => {
-    getData();
-  }, []);
+    dispatch(getUser());
+  }, [dispatch]);
   return (
     <>
       <nav className="sidebar">
@@ -31,7 +25,7 @@ function Navbar({ ...props }) {
           <div className="sidebarItems headers">
             <Link to="/newUser">
               <img src={pp} alt="" />
-              <p>{user.data ? user.data.username : null}</p>
+              <p>{user ? user.data && user.data.username : null}</p>
             </Link>
           </div>
           <div className=" Task" onClick={() => setStep("CreateNote")}>

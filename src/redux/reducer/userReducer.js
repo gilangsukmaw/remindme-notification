@@ -11,6 +11,10 @@ const initialState = {
 const userData = (state = initialState, action) => {
   const { type, payload, error } = action;
   switch (type) {
+    default:
+      return {
+        ...state,
+      };
     case GET_USER_BEGIN:
       return {
         ...state,
@@ -36,8 +40,6 @@ const userData = (state = initialState, action) => {
           error: error,
         },
       };
-    default:
-      return state;
   }
 };
 
