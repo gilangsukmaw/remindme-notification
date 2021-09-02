@@ -70,7 +70,7 @@ function SignUp(props) {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Link to="/">
+          <Link to="/auth/login">
             <button
               className="ButtonUngu"
               style={{

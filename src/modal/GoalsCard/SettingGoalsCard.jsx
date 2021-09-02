@@ -8,18 +8,22 @@ import vectorClose from "../../assets/images/vectorClose.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import SaveGoalModal from '../SaveGoalsModal/SaveGoalsModal'
 
 
 
-function SettingGoalsCard({ changeStep,onClose }) {
+function SettingGoalsCard({ show,changeStep,onClose, props }) {
+
+
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
+
   const [modalShow, setModalShow] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-  console.log (dayjs(startDate));
   const [bColor, setbColor] = useState();
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    submitGoals();
     console.log("hei");
     changeStep("SaveGoals");
   };
@@ -28,25 +32,29 @@ function SettingGoalsCard({ changeStep,onClose }) {
   const [state, setState] = useState({
     name: '' ,
     goal_type:'',
-    build:'',
     date:dayjs(),
-    target:0,
+    target:'',
     target_type:'',
     color:'',
      });
 
      const submitGoals = async (e) => {
         try {
-            const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/goals`, state, { headers: { Authorization: `Bearer ${Token}` } });onClose("");
+            const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/goals`, state, { headers: { Authorization: `Bearer ${Token}` } });onClose("");changeStep("SaveGoals");
+
             console.log(res)
         } catch (error) {
-            console.log({ error })
+          if (error.response.status === 400) {
+            alert(`Harap diisi semua`)};
+            if (error.response.status === 403) {
+            alert(`Sesi anda habis, mohon login kembali`);
+           
+          }
+
+          
         }
     };
-        
       
-    
-  
 
   return (
       <>
@@ -76,7 +84,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
           </Button>
             </Modal.Header>
             {/* onSubmit={submitGoals} */}
-            <Form onSubmit={submitGoals()} >
+            <Form onSubmit={submitGoals}  >
               <Form.Group className="mb-4" controlId="GoalText">
                 <Form.Control style={{textAlign:'left', borderRadius: "10px", height:'2.5rem'}}
                   className="Goals__Title"
@@ -85,7 +93,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
                   value={state.name} onChange={(e) => setState({ ...state,name: e.target.value  })}
 
                 />
-                <p>{`${state.name}`}</p>
+                {/* <p>{`${state.name}`}</p> */}
               </Form.Group>
               <div>
                 <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
@@ -120,7 +128,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
                   >
                     Quit
                   </Button>
-                  <p>{`${state.goal_type}`}</p>
+                  {/* <p>{`${state.goal_type}`}</p> */}
                 </Col>
               </div>
               <div className="d-flex flex-row justify-content-between">
@@ -153,7 +161,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
                     title={`${state.date}`}
                     id="ChooseValue"
                   ></SplitButton> */}
-                  <div className="MonthYear mb-3 mt-5" style={{}}>
+                  <div className="MonthYear mb-1 mt-4" style={{fontWeight:'600'}}>
                     <div>{dayjs(`${state.date}`).format("MMM,")}</div>
 
                     <div style={{ paddingLeft: "0.25rem" }}>
@@ -169,7 +177,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
                     inline
                   />
                     {/* <CobaCalendar value={state.date} onClick={(e) => setState({ ...state,date: e.target.value  })} /> */}
-                    <p>{`${state.date}`}</p>
+                    {/* <p>{`${state.date}`}</p> */}
                   </div>
                 </Col>
                 <Col className="kolomValue  " style={{ maxWidth: "30%" }}>
@@ -180,7 +188,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
                   placeholder="Target"
                   value={state.target} onChange={(e) => setState({ ...state,target: e.target.value  })}
                 />
-                  <p>{`${state.target}`}</p>
+                  {/* <p>{`${state.target}`}</p> */}
               </Form.Group>
                 <p style={{ fontSize: "1.3rem", fontWeight: "600", float:'right' }}>
                   Set Value
@@ -197,10 +205,10 @@ function SettingGoalsCard({ changeStep,onClose }) {
                       L (Liter)
                     </option>
                     <option id="PilihItem" value="Mililiter" >
-                      ML (Mili Liter)
+                      ML (Mililiter)
                     </option>
                     <option id="PilihItem" value="Kilometer" >
-                      KM (Kilo Meter)
+                      KM (Kilometer)
                     </option>
                     <option id="PilihItem" value="Meter" >
                       M (Meter)
@@ -227,7 +235,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
                       Other
                     </option>
                   </Form.Select>
-                  <p>{`${state.target_type}`}</p>
+                  {/* <p>{`${state.target_type}`}</p> */}
                 </Col>
               </div>
               <div className="mt-1">
@@ -235,7 +243,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
                   Choose Progress bar Color
                 </p>
               </div>
-              <div className="ColorPicker">
+              <div className="ColorPicker mb-2">
                 <Button
                   style={{ backgroundColor: "#FFBCC2" }}
                   // onClick={() => setbColor("#FFBCC2")}
@@ -258,13 +266,14 @@ function SettingGoalsCard({ changeStep,onClose }) {
                   value={state.color} onClick={(e) => setState({ ...state, color: '#D1CDFA' })}
                 ></Button>
               </div>
-              <p>{`${state.color}`}</p>
+              {/* <p>{`${state.color}`}</p> */}
 
               <div className="saveButton d-flex justify-content-center">
                 <Button
-                type="submit"
-                value="Submit"
-                  // onClick={() => submitGoals()}
+                // type="submit"
+                // value="Submit"
+                  onClick={() => submitGoals()}
+                  
                   className="GoalSubmitButton mt-4"
                   style={{
                     width: "100%",
@@ -274,7 +283,7 @@ function SettingGoalsCard({ changeStep,onClose }) {
                   }}
 
                   // onClick={() => {
-                  //   props.changeStep("SaveGoals");
+                  //   changeStep("SaveGoals");
                   //   console.log("hello");
                   // }}
                 >
@@ -283,7 +292,11 @@ function SettingGoalsCard({ changeStep,onClose }) {
               </div>
             </Form>
           </div>
+         
         </Modal>
+        
+        {/* <SaveGoalModal tutup={() => setModalShow(true)}/> */}
+
       </>
   );
 }

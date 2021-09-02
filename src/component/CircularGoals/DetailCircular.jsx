@@ -19,7 +19,7 @@ if (color === '#FCF3A1') {return '#E5D119'};
 if (color === '#B1A8FF') {return '#A258FF'};
 if (color === '#FF8888') {return '#FF586A'};
 } ;
-console.log (strokeColor)
+// console.log (strokeColor)
 const percentage = 80;
 return (
 <>
