@@ -1,3 +1,7 @@
 export const GET_USER_BEGIN = "GET_USER_BEGIN";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAIL = "GET_USER_FAIL";
+
+export const POST_NOTE_BEGIN = "POST_NOTE_BEGIN";
+export const POST_NOTE_SUCCESS = "POST_NOTE_SUCCESS";
+export const POST_NOTE_FAIL = "POST_NOTE_FAIL";
