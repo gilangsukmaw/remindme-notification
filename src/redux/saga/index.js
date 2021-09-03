@@ -4,6 +4,5 @@ import { watchSetNote } from "./noteSaga";
 
 export default function* rootSaga() {
   // function generator
-  yield all([watchGetUser()]);
-  yield all([watchSetNote()]);
+  yield all([watchGetUser(), watchSetNote()]);
 }

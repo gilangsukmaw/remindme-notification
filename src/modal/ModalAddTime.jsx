@@ -5,14 +5,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import CobaCalendar from "../../src/Calendar";
 
 export default function TimeModal({
-  onClose,
+  // onClose,
   changeStep,
   changeColor,
-  changeColor1,
-  changeColor2,
-  changeColor3,
-  changeColor4,
-  changeColor5,
+  // changeColor1,
+  // changeColor2,
+  // changeColor3,
+  // changeColor4,
+  // changeColor5,
   noteData,
   onSave,
 }) {

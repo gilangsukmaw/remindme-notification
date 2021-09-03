@@ -15,7 +15,7 @@ export default function NoteModal({
   changeStep,
 }) {
   const [color, setColor] = useState();
-  const [body, setBody] = useState({
+  const [noteInput, setNoteInput] = useState({
     title: "",
     body: "",
     dateNote: "",
@@ -24,8 +24,8 @@ export default function NoteModal({
   });
   const dispatch = useDispatch();
   const changeNote = (e) => {
-    setBody({
-      ...body,
+    setNoteInput({
+      ...noteInput,
       title: e.target.value,
       body: e.target.value,
       dateNote: e.target.value,
@@ -35,7 +35,7 @@ export default function NoteModal({
   };
   const handlePostNote = async (e) => {
     e.preventDefault();
-    await dispatch(setNote(body));
+    await dispatch(setNote(noteInput));
   };
   console.log(noteData);
   return (
@@ -67,16 +67,16 @@ export default function NoteModal({
             <input
               className="note__input"
               placeholder="Title"
-              name="title"
-              // value={noteData.title}
-              onChange={(e) => changeNote(e)}
+              // name="title"
+              value={noteData.title}
+              onChange={(e) => changeDataTitle(e.target.value)}
             />
             <textarea
               className="note__textarea"
               placeholder="Note"
-              name="body"
-              // value={noteData.note}
-              onChange={(e) => changeNote(e)}
+              // name="body"
+              value={noteData.note}
+              onChange={(e) => changeDataNote(e.target.value)}
             ></textarea>
           </div>
           <div className="note__color">
