@@ -47,7 +47,7 @@ function SaveGoals({changeStep, onClose}) {
                   fontWeight: "700",
                   fontSize: "1.5rem",
                 }}
-                onClick={() => setModalShow(false)}
+                onClick={ changeStep}
               >
                 Ok
               </Button>
