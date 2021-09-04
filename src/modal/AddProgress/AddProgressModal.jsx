@@ -12,17 +12,17 @@ import { getAllGoals, getDetailGoals } from "../../redux/action/goals";
 function AddProgressModal(props) {
 const [modalShow, setModalShow] = React.useState(false);
 const {color, type, id} = props;
-console.log (type)
-console.log (color)
-console.log (id)
+// console.log (type)
+// console.log (color)
+// console.log (id)
 
 function AddProgressModal(props) {
     const dispatch = useDispatch();
 
     const {color, type, id} = props;
-    console.log (type)
-    console.log (color)
-    console.log (id)
+    // console.log (type)
+    // console.log (color)
+    // console.log (id)
 
         const Token = localStorage.getItem("Token");
 
@@ -58,6 +58,9 @@ function AddProgressModal(props) {
             const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/goals/${id}`, state, { headers: { Authorization: `Bearer ${Token}` } });
             setModalShow(false);
             dispatch(getAllGoals());
+            dispatch(getDetailGoals(id));
+            // res.data.data.currnet_percent === 100 ? null : null
+            
             console.log(res);
         } catch (error) {
           if (error.response.status === 400) {
@@ -90,10 +93,10 @@ return (
                 <Form.Group className="ValuePlaceholderLeft PlaceHolder" controlId="enter value">
                     <Form.Control style={{float:'right', marginRight:'0.5rem', borderRadius:'10px', border:'2px solid #B6C6E5'}} type="number"
                         placeholder="Enter Value" 
-                        value={state.progress} onChange={(e) => setState({ ...state,progress: e.target.value  })} />
-                        <p>{`${state?.progress}`}</p>
+                        value={state.progress} onChange={(e) => setState({ ...state,progress: parseInt(e.target.value) })} />
+                        {/* <p>{`${state?.progress}`}</p>
                         <p>{`${state?.color}`}</p>
-                        <p>{`${id}`}</p>
+                        <p>{`${id}`}</p> */}
 
 
                 </Form.Group>

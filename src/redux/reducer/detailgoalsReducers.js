@@ -27,7 +27,7 @@ const detailGoals = (state = initialState, action) => {
       return {
         ...state,
         detailData: {
-          detail: payload,
+          details: payload,
           loading: false,
           error: null,
         },
@@ -36,7 +36,7 @@ const detailGoals = (state = initialState, action) => {
       return {
         ...state,
         detailData: {
-          detail: [],
+          details: [],
           loading: false,
           error: error,
         },

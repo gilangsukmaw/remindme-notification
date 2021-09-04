@@ -27,7 +27,7 @@ function LandingPage(...props) {
               <button style={{padding:'0 2rem 0 2rem'}}>Login</button>
             </Link>
             <Link to="/auth/register">
-              <button style={{paddingRight:'5rem'}}>Register</button>
+              <button style={{padding:'0 2rem 0 2rem'}}>Register</button>
             </Link>
           </div>
         </div>

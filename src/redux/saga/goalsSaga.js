@@ -33,9 +33,10 @@ function* detailGoals(actions) {
   try {
     const Token = localStorage.getItem("Token");
     const res = yield axios.get(`https://remindme.gabatch13.my.id/api/v1/goals/${goalsId}`, { headers: { Authorization: `Bearer ${Token}` } });
+    console.log('datares' ,res)
     yield put({
       type: GET_DETAILGOALS_SUCCESS,
-      payload: res.data,
+      payload: res.data.data,
     });
   } catch (err) {
     yield put({

@@ -35,12 +35,7 @@ const percentage = currentPercentage;
 return (
 <>
     <div className='MainContainer '>
-        <div className='GoalDetails'>
-            <p>Goal Detail</p>
-            <div className='EditButton'><Button style={{fontSize:'20px',
-fontWeight: '600',border:'0',background: '#625BAD',borderRadius:'21px',height: '38px'
-,width: '129px'}}>Edit Goal</Button></div>
-        </div>
+        
 
         <Container style={{width:'90%'}} className='detailContainer'>
             <Col style={{width:'50%'}} className='CircularContainer'>
@@ -62,16 +57,7 @@ fontWeight: '600',border:'0',background: '#625BAD',borderRadius:'21px',height: '
             </div>
             <AddProgressModal id={`${id}`} color={color} type={`${type}`}/>
             </Col>
-            <Col style={{width:'50%'}} className='ProgressList'>
-            <div className='ProgressListText'>
-                <p>History</p>
-            </div>
-            <div className='MappingBar ' style={{background:'#CCF0D7'}}>
-                {/* logo buat maping blm dimasukin */}
-                <p>250 ml</p>
-                {/* text mapping */}
-            </div>
-            </Col>
+           
         </Container>
     </div>
 </>
