@@ -15,6 +15,7 @@ export default function TimeModal({
   // changeColor5,
   noteData,
   onSave,
+  props,
 }) {
   const [newEvent, setNewEvent] = useState({ start: "", end: "" });
 

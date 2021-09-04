@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
 import userData from "./userReducer";
-import noteData from "./noteReducer";
+import allNote from "./noteReducer";
+import allGoals from "./goals.Reducer";
 export default combineReducers({
   userData,
-  noteData,
+  allNote,
+  allGoals,
 });

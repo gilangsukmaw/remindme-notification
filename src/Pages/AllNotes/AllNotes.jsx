@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { Container, Button, Carousel } from "react-bootstrap";
 import pinAllNote from "../../assets/images/pinAllNote.png";
 import PinCard from "../../assets/images/PinCard.png";
 import "../AllNotes/AllNotes.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getNote } from "../../redux/action/note";
 
-const AllNotesCreate = (noteData) => {
-  const data = [1, 2, 3, 4, 5];
+const AllNotesCreate = () => {
+  const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.allNote.noteData);
+
+  useEffect(() => {
+    dispatch(getNote());
+  }, [dispatch]);
+  console.log("note", data);
   return (
     <div>
       <div className="allNote__container">
@@ -14,22 +22,22 @@ const AllNotesCreate = (noteData) => {
           <img src={pinAllNote} alt="" />
           <p>Pinned Notes</p>
         </div>
+        {data?.data?.map((item, index) => (
+          <div key={index} className="allNote__card">
+            <div className="allNote__title">
+              <h5>{item?.title}</h5>
+              <img src={PinCard} alt="" />
+            </div>
+            <div className="allNote__time">
+              <p>{item?.dateNote}</p>
+            </div>
+            <div className="allNote__content">
+              <p>{item?.body}</p>
+            </div>
+          </div>
+        ))}
         {/* <Carousel fade> */}
         {/* <Carousel.Item> */}
-        <div className="allNote__card">
-          <div className="allNote__title">
-            {noteData ? <h5>{noteData.title}</h5> : null}
-            <img src={PinCard} alt="" />
-          </div>
-          <div className="allNote__time">
-            <p>11 Juni 2021</p>
-          </div>
-          <div className="allNote__content">
-            <p>
-              As designer that understands how to<br></br>continually bring value to the business while<br></br> also advocating for the user is a golden egg<br></br> for organizations.
-            </p>
-          </div>
-        </div>
         {/* </Carousel.Item> */}
         {/* </Carousel> */}
       </div>

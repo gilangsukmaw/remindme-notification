@@ -1,8 +1,8 @@
-import { POST_NOTE_BEGIN } from "../const/type";
+import { GET_NOTE_BEGIN } from "../const/type";
 
-export const setNote = (body) => {
+export const getNote = (body) => {
   return {
-    type: POST_NOTE_BEGIN,
+    type: GET_NOTE_BEGIN,
     body,
   };
 };

@@ -1,43 +1,40 @@
-import {
-  POST_NOTE_BEGIN,
-  POST_NOTE_SUCCESS,
-  POST_NOTE_FAIL,
-} from "../const/type";
+import { GET_NOTE_BEGIN, GET_NOTE_SUCCESS, GET_NOTE_FAIL } from "../const/type";
 
 const initialState = {
-  noteInfo: {
+  noteData: {
     data: [],
     loading: false,
     error: null,
   },
 };
 
-const noteData = (state = initialState, action) => {
+const allNote = (state = initialState, action) => {
   const { type, payload, error } = action;
   switch (type) {
     default:
       return {
         ...state,
       };
-    case POST_NOTE_BEGIN:
+    case GET_NOTE_BEGIN:
       return {
         ...state,
-        noteInfo: {
+        noteData: {
           loading: true,
+          error: null,
         },
       };
-    case POST_NOTE_SUCCESS:
+    case GET_NOTE_SUCCESS:
       return {
         ...state,
-        noteInfo: {
+        noteData: {
           data: payload,
           loading: false,
           error: null,
         },
       };
-    case POST_NOTE_FAIL:
+    case GET_NOTE_FAIL:
       return {
-        noteInfo: {
+        noteData: {
           data: [],
           loading: false,
           error: error,
@@ -46,4 +43,4 @@ const noteData = (state = initialState, action) => {
   }
 };
 
-export default noteData;
+export default allNote;

@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   span {
     color: #625bad;
   }
@@ -33,7 +34,7 @@
 .header__button {
   display: flex;
   justify-content: space-evenly;
-  width: 30%;
+  width: 20%;
   button {
     &:hover,
     &:active,
@@ -93,11 +94,9 @@
 }
 
 .landing__footer {
-  // margin-top: 9rem;
-
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 2rem 2rem 0 2rem;
   background-color: #625bad;
   height: 100%;
@@ -113,7 +112,7 @@
 .footer__left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 40%;
   a:hover {
     color: salmon;
@@ -233,5 +232,32 @@
   }
 }
 
-@media (max-width: 1024px) {
+
+@media screen and (width: 1440px) {
+  .landing__top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .landing__header{
+      width: 1250px;
+    }
+  }
+}
+@media (width: 1024px) {
+  .landing__header{
+    width: 1000px;
+  }
+}
+
+@media screen and (width: 1980px) {
+  .landing__top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .landing__header{
+      width: 1250px;
+    }
+  }
 }
