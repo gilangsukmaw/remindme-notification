@@ -1,9 +1,21 @@
-.allNote__container {
-    padding-left: 400px;
+.unpinned__container {
+    margin-left: 400px;
     margin-right: 5rem;
 }
 
-.allNote__top {
+.unpinned__date {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+    margin: 2rem auto;
+    h3 {
+        margin: auto 1rem;
+    }
+}
+
+.unpinned__top {
     display: flex;
     align-items: center;
     margin: 1rem auto;
@@ -18,13 +30,14 @@
     }
 }
 
-.allNote__wrapper {
+.unpinned__wrapper {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    overflow-y: auto;
 }
 
-.allNote__card {
+.unpinned__card {
     background-color: #FFBCC2;
     // width: 100%;
     min-width: 20rem;
@@ -32,7 +45,7 @@
     border-radius: 20px;
     padding: 1rem;
     margin: 1rem;
-    .allNote__title {
+    .unpinned__title {
         display: flex;
         justify-content: space-between;
         img {
@@ -42,17 +55,9 @@
     }
 }
 
-.allNote__borderLine {
-    img {
-        margin-top: 2rem;
-        margin-left: 400px;
-        width: 65%;
-    }
-}
-
 @media (max-width: 1024px) {
 
-    .allNote__borderLine {
+    .unpinned__borderLine {
         img {
         width: 55%;
         }
@@ -60,7 +65,7 @@
 }
 
 @media (max-width: 768px) {
-    .allNote__container {
+    .unpinned__container {
         margin-right: 0;
     }
 }

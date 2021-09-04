@@ -6,18 +6,40 @@ import NoteModal from "./ModalNote";
 import ModalCreateTask from "./ModalTask";
 import SaveGoals from "./SaveGoalsModal/SaveGoalsModal";
 import SaveNotes from "./SaveNotesModal/SaveNotesModal";
+import axios from "axios";
 
 const ModalTest = ({ ...props }) => {
-  const {
-    step,
-    setStep,
-    noteData,
-    setNoteData,
-    onSaveNote,
-    noteColor,
-    setNoteColor,
-    onSaveColor,
-  } = props;
+  const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } =
+    props;
+  const [noteInput, setNoteInput] = useState({
+    title: "",
+    body: "",
+    dateNote: "",
+    timeNote: "",
+    pinned: false,
+    color: "",
+  });
+
+  const Token = localStorage.getItem("Token");
+  const submitNote = async (e) => {
+    try {
+      const res = await axios.post(
+        "https://remindme.gabatch13.my.id/api/v1/notes",
+        noteInput,
+        {
+          headers: {
+            Authorization: `Bearer ${Token}`,
+          },
+        }
+      );
+      setStep("SaveNotes");
+      console.log(res);
+    } catch (error) {
+      if (error.response.status === 400) {
+        alert("Harap diisi semua");
+      }
+    }
+  };
   return (
     <>
       {/* step to note */}
@@ -31,10 +53,18 @@ const ModalTest = ({ ...props }) => {
         <NoteModal
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
-          onSave={onSaveNote}
-          noteData={noteData}
-          changeDataTitle={(item) => setNoteData({ ...noteData, title: item })}
-          changeDataNote={(item) => setNoteData({ ...noteData, note: item })}
+          onSave={submitNote}
+          noteData={noteInput}
+          changeDataTitle={(item) =>
+            setNoteInput({ ...noteInput, title: item })
+          }
+          changeDataBody={(item) => setNoteInput({ ...noteInput, body: item })}
+          changeDataColor={(item) =>
+            setNoteInput({ ...noteInput, color: item })
+          }
+          changeDataPinned={(item) =>
+            setNoteInput({ ...noteInput, pinned: item })
+          }
         />
       )}
       {step === "AddTime" && (
@@ -42,18 +72,14 @@ const ModalTest = ({ ...props }) => {
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
           onSave={(onSaveNote, onSaveColor)}
-          noteData={noteData}
+          noteData={noteInput}
+          changeDataDate={(item) =>
+            setNoteInput({ ...noteInput, dateNote: item })
+          }
+          changeDataTime={(item) =>
+            setNoteInput({ ...noteInput, timeNote: item })
+          }
           changeColor={() => setNoteColor({ ...noteColor, color: "#FFBCC2" })}
-        />
-      )}
-      {step === "GoBacktoNoteModal" && (
-        <NoteModal
-          changeStep={(item) => setStep(item)}
-          onClose={(item) => setStep(item)}
-          onSave={onSaveNote}
-          noteData={noteData}
-          changeDataTitle={(item) => setNoteData({ ...noteData, title: item })}
-          changeDataNote={(item) => setNoteData({ ...noteData, note: item })}
         />
       )}
       {step === "SaveNotes" && (

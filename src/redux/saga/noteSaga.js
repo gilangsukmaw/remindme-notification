@@ -5,13 +5,13 @@ import { put, takeEvery } from "redux-saga/effects";
 function* getNote(actions) {
   const { body } = actions;
   const Token = localStorage.getItem("Token");
+  yield console.log(Token);
   try {
     const res = yield axios.get(
       `https://remindme.gabatch13.my.id/api/v1/notes/`,
-      body,
       { headers: { Authorization: `Bearer ${Token}` } }
     );
-    console.log(res.data.data);
+    yield console.log(res.data.data);
     yield put({
       type: GET_NOTE_SUCCESS,
       payload: res.data,

@@ -8,16 +8,21 @@ export default function TimeModal({
   // onClose,
   changeStep,
   changeColor,
-  // changeColor1,
-  // changeColor2,
-  // changeColor3,
-  // changeColor4,
-  // changeColor5,
+  changeDataDate,
+  changeDataTime,
   noteData,
   onSave,
   props,
 }) {
   const [newEvent, setNewEvent] = useState({ start: "", end: "" });
+  const [noteInput, setNoteInput] = useState({
+    title: "",
+    body: "",
+    dateNote: "",
+    timeNote: "",
+    pinned: false,
+    color: "",
+  });
 
   return (
     <div className="time__outside modal-backdrop">
@@ -33,11 +38,23 @@ export default function TimeModal({
           <div className="time__input">
             <div className="time__date">
               <h3>Date</h3>
-              <input type="text" className="input-time" id="time" />
+              <input
+                onChange={(e) => changeDataDate(e.target.value)}
+                value={noteData.dateNote}
+                type="text"
+                className="input-time"
+                id="time"
+              />
             </div>
             <div className="time__time">
               <h3>Time</h3>
-              <input type="text" className="input-time" id="time" />
+              <input
+                onChange={(e) => changeDataTime(e.target.value)}
+                value={noteData.timeNote}
+                type="text"
+                className="input-time"
+                id="time"
+              />
             </div>
           </div>
           <div className="time__calendar">
@@ -53,8 +70,8 @@ export default function TimeModal({
             <button
               className="time__save"
               onClick={() => {
-                changeStep("GoBacktoNoteModal");
-                onSave();
+                changeStep("InputNote");
+                // onSave();
                 // handleAddEvent();
               }}
             >
@@ -62,7 +79,7 @@ export default function TimeModal({
             </button>
             <button
               className="time__cancel"
-              onClick={() => changeStep("GoBacktoNoteModal")}
+              onClick={() => changeStep("InputNote")}
             >
               Cancel
             </button>
