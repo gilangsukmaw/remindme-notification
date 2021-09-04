@@ -48,12 +48,7 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
             alert(`Harap diisi semua`)};
             if (error.response.status === 403) {
             alert(`Sesi anda habis, mohon login kembali`);
-           
-          }
-
-          
-        }
-    };
+        }}};
       
 
   return (
