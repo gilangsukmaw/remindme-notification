@@ -6,14 +6,24 @@ import vectorClose from "../assets/images/vectorClose.png";
 import notifLogo from "../assets/images/notifLogo.png";
 import "bootstrap/dist/css/bootstrap.css";
 
-function DetailNote({ closeDetailNote }) {
+export default function DetailNote({
+  onClose,
+  changeDataBody,
+  changeDataTitle,
+  noteData,
+  changeDataColor,
+  changeDataPinned,
+  onSave,
+  setStep,
+  changeStep,
+}) {
   return (
     <div className="detailNote__outside modal-backdrop">
       <div className="detailNote__container position-relative">
         <div className="detailNote__close position-absolute top-0 start-100 translate-middle">
           <button
             onClick={() => {
-              closeDetailNote(false);
+              onClose(false);
             }}
           >
             <img src={vectorClose} alt="" />
@@ -24,7 +34,7 @@ function DetailNote({ closeDetailNote }) {
             <h1>Note Details</h1>
           </div>
           <div className="detailNote__icon">
-            <button>
+            <button onClick={() => changeDataPinned(!noteData.pinned)}>
               <img src={PinEdit} alt="" />
             </button>
             <button>
@@ -33,32 +43,26 @@ function DetailNote({ closeDetailNote }) {
           </div>
         </div>
         <div className="detailNote__title">
-          <h2>UI Seminar</h2>
+          <h2>{}</h2>
         </div>
         <div className="detailNote__reminder">
           <div className="detailNote__date">
             <h3>Date</h3>
-            <h6>13.06.2021</h6>
+            <h6>date</h6>
           </div>
           <div className="detailNote__time">
             <div className="detailNote__clock">
               <h3>Time</h3>
-              <h6>11:30</h6>
+              <h6>time</h6>
             </div>
             <img src={notifLogo} alt="" />
           </div>
         </div>
-        <div className="detailNote__titleContent">
+        {/* <div className="detailNote__titleContent">
           <h3>Title: Understanding Business</h3>
-        </div>
+        </div> */}
         <div className="detailNote__content">
-          <p>
-            As designer that understands how to continually bring value to the
-            business while also advocating for the user is a golden egg for
-            organizations. As designer that understands how to continually bring
-            value to the business while also advocating for the user is a golden
-            egg for organizations.
-          </p>
+          <p>hei</p>
         </div>
         <div className="detailNote__color">
           <button className="color0"></button>
@@ -69,27 +73,27 @@ function DetailNote({ closeDetailNote }) {
           <button className="color5"></button>
         </div>
         <div className="detailNote__button">
-          <button>Edit</button>
-          <button>Mark as done</button>
+          <button onClick={() => changeStep("NoteModal")}>Edit</button>
+          <button onClick={() => setStep("SaveChanges")}>Mark as done</button>
         </div>
       </div>
     </div>
   );
 }
 
-export default function ModalDetailNote() {
-  const [modalDetailNote, setModalDetailNote] = useState(false);
-  return (
-    <div className="detailNote__openNote">
-      <button
-        className="openDetailNote"
-        onClick={() => {
-          setModalDetailNote(true);
-        }}
-      >
-        Detail Note
-      </button>
-      {modalDetailNote && <DetailNote closeDetailNote={setModalDetailNote} />}
-    </div>
-  );
-}
+// export default function ModalDetailNote() {
+//   const [modalDetailNote, setModalDetailNote] = useState(false);
+//   return (
+//     <div className="detailNote__openNote">
+//       <button
+//         className="openDetailNote"
+//         onClick={() => {
+//           setModalDetailNote(true);
+//         }}
+//       >
+//         Detail Note
+//       </button>
+//       {modalDetailNote && <DetailNote closeDetailNote={setModalDetailNote} />}
+//     </div>
+//   );
+// }
