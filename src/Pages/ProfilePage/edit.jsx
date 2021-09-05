@@ -54,10 +54,10 @@ export default function Edit() {
         </div>
         <div className="wrapper-edit">
           <div className="head">
-            <img src={pp} alt="profile pictures" style={{ width: "230px" }} />
+            <img  src={user?.data?.image} alt="" style={{width:'230px', height:'230px', borderRadius:'100%', marginBottom:'0.78rem', boxShadow:'10px 15px 20px 0px grey'}}/>
             <div className="edit-profile">
               {/* {type === "EditPhoto" ? <ModalEditPhoto /> : null} */}
-              <img src={edit} alt="edit" />
+              <img src={edit} style={{width:'12.2rem', }} alt="edit" />
             </div>
             <p style={{ marginTop: "-40px" }}>Edit Photo</p>
           </div>

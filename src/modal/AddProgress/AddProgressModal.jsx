@@ -7,6 +7,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllGoals, getDetailGoals } from "../../redux/action/goals";
+import Swal from 'sweetalert2'
 
 
 function AddProgressModal(props) {
@@ -46,12 +47,23 @@ function AddProgressModal(props) {
             }
           }
  
-         
+          const {details} = useSelector((state) => state.detailGoals.detailData);
+
           const [state, setState] = useState({
-          progress: 0 ,
+          progress: '' ,
           color:cardColor(),
     
      });
+
+     function congrats() {
+        if (details?.current_percent === 100) {
+            Swal.fire(
+                'There is still missing parts',
+                'Please Check Again',
+                'warning',
+              );
+        }
+        } ;
 
      const submitAddProgress = async (e) => {
         try {
@@ -59,9 +71,12 @@ function AddProgressModal(props) {
             setModalShow(false);
             dispatch(getAllGoals());
             dispatch(getDetailGoals(id));
-            // res.data.data.currnet_percent === 100 ? null : null
+            congrats();
             
-            console.log(res);
+            if (details?.current_percent === 100) {
+                alert('helloworld');
+            }
+           
         } catch (error) {
           if (error.response.status === 400) {
             console.log(error);
@@ -69,7 +84,7 @@ function AddProgressModal(props) {
             if (error.response.status === 403) {
             alert(`Sesi anda habis, mohon login kembali`);
         }}};
-      
+      console.log ('cek4',details);
 
 
 return (

@@ -21,7 +21,7 @@ function AllGoals() {
 const dispatch = useDispatch();
 const { goals } = useSelector((state) => state.allGoals.goalsData);
 const {details} = useSelector((state) => state.detailGoals.detailData);
-console.log('datadetail', details);
+// console.log('datadetail', details);
 
 function picture () {
   if (details?.target_type === 'Mililiter') {return droplet};
@@ -42,7 +42,7 @@ function picture () {
 useEffect(() => {
   dispatch(getAllGoals());
 }, [dispatch]);
-console.log(goals);
+// console.log(goals);
 // console.log(details);
 
 
@@ -121,14 +121,14 @@ return (
         <p style={{fontWeight:'600', color:'black'}}>History</p>
       </div>
       {/* {details?.progress?.map((item,index=> (item.)))} */}
-      <div>
+      <div className='HistoryList'>
         {details?.progresses?.map((item, index) => (
-        <Container>
+        <Container key={index}>
           <div className='MappingBar mb-3' style={{background:`${item?.color}`}}>
             {/* logo buat maping blm dimasukin */}
 
-            <div className='mappingGoals' key={index}>
-              <p><img style={{margin:'0 1rem 0.25rem 0', width: "2.5rem", height: "2.5rem" }} src={picture()} alt="" />
+            <div className='mappingGoals' >
+              <p><img style={{margin:'0 1rem 0.25rem 0', width: "2rem", height: "2rem" }} src={picture()} alt="" />
               {item?.progress} 
               {" "}
               {details?.target_type}</p>
