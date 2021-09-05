@@ -1,4 +1,14 @@
-import { GET_NOTE_BEGIN, GET_NOTE_SUCCESS, GET_NOTE_FAIL } from "../const/type";
+import {
+  GET_NOTE_BEGIN,
+  GET_NOTE_SUCCESS,
+  GET_NOTE_FAIL,
+  UPDATE_NOTE_BEGIN,
+  UPDATE_NOTE_SUCCESS,
+  UPDATE_NOTE_FAIL,
+  DELETE_NOTE_BEGIN,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAIL,
+} from "../const/type";
 
 const initialState = {
   noteData: {
@@ -33,6 +43,52 @@ const allNote = (state = initialState, action) => {
         },
       };
     case GET_NOTE_FAIL:
+      return {
+        noteData: {
+          data: [],
+          loading: false,
+          error: error,
+        },
+      };
+    case DELETE_NOTE_BEGIN:
+      return {
+        noteData: {
+          data: [],
+          loading: true,
+          error: null,
+        },
+      };
+    case DELETE_NOTE_SUCCESS:
+      return {
+        noteData: {
+          data: [...state.todos.filter((item) => item.id !== action.payload)],
+        },
+      };
+    case DELETE_NOTE_FAIL:
+      return {
+        noteData: {
+          data: [],
+          loading: false,
+          error: error,
+        },
+      };
+    case UPDATE_NOTE_BEGIN:
+      return {
+        ...state,
+        noteData: {
+          data: [],
+          loading: true,
+          error: null,
+        },
+      };
+    case UPDATE_NOTE_SUCCESS:
+      return {
+        ...state,
+        noteData: state.noteData.data.map(
+          (newUpdate) => [newUpdate.id, newUpdate].values
+        ),
+      };
+    case UPDATE_NOTE_FAIL:
       return {
         noteData: {
           data: [],

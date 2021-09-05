@@ -19,26 +19,27 @@ const AllNotesCreate = () => {
     <div>
       <div className="allNote__container">
         <h1>My All Notes</h1>
-
         <div className="allNote__top">
           <img src={pinAllNote} alt="" />
           <p>Pinned Notes</p>
         </div>
         <div className="allNote__wrapper">
-          {data?.data?.map((item, index) => (
-            <div key={index} className="allNote__card">
-              <div className="allNote__title">
-                <h5>{item?.title}</h5>
-                <img src={PinCard} alt="" />
+          {data?.data
+            ?.filter((data) => data.pinned === true)
+            .map((item, index) => (
+              <div key={index} className="allNote__card">
+                <div className="allNote__title">
+                  <h5>{item?.title}</h5>
+                  <img src={PinCard} alt="" />
+                </div>
+                <div className="allNote__time">
+                  <p>{item?.dateNote}</p>
+                </div>
+                <div className="allNote__content">
+                  <p>{item?.body}</p>
+                </div>
               </div>
-              <div className="allNote__time">
-                <p>{item?.dateNote}</p>
-              </div>
-              <div className="allNote__content">
-                <p>{item?.body}</p>
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
       <div className="allNote__borderLine">
