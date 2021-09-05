@@ -18,7 +18,7 @@ const AllNotesCreate = (noteData) => {
         {/* <Carousel.Item> */}
         <div className="allNote__card">
           <div className="allNote__title">
-            {noteData ? <h5>{noteData.title}</h5> : null}
+            <h5>{noteData.title}</h5>
             <img src={PinCard} alt="" />
           </div>
           <div className="allNote__time">
