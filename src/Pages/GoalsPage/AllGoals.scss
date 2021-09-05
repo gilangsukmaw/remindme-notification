@@ -1,0 +1,66 @@
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+    }
+    ::-webkit-scrollbar-thumb{
+    background: #B6C6E5;
+    border-radius: 9px;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+    background: #625BAD;
+    }
+    ::-webkit-scrollbar-track{
+    background: #FFFFFF;
+    border-radius: 9px;
+    box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+    }
+
+.DetailBox {
+    display: flex;
+    flex-direction: row;
+}
+.GoalDetails{
+    align-self: center;
+}
+
+.ProgressList{
+    .HistoryList{
+        max-height:415px ;
+    overflow: auto;
+
+   
+    .mappingGoals p{
+        font-size: 1.7rem;
+        font-weight: 400;
+
+    }
+    }
+    
+}
+@media (max-width: 768px) {
+    .DetailBox {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+       
+
+        .ProgressList {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .ul {
+                padding: 0;
+                margin: 0;
+            }
+
+            .MappingBar {
+                padding: 0;
+                margin-left: 0rem;
+            }
+
+            .ProgressListText p {
+                text-align: center;
+            }
+        }
+    }
+}

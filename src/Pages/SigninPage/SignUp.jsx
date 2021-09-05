@@ -70,7 +70,7 @@ function SignUp(props) {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Link to="/">
+          <Link to="/auth/login">
             <button
               className="ButtonUngu"
               style={{
@@ -287,7 +287,7 @@ function SignUp(props) {
                     className="ButtonUngu"
                     type="submit"
                     value="Submit"
-                    onClick={() => setModalShow(true)}
+                    // onClick={() => setModalShow(true)}
                     style={{
                       height: "2.5rem",
                       width: "45%",

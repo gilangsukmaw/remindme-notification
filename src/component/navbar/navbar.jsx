@@ -24,7 +24,7 @@ function Navbar({ ...props }) {
         <div className="sidebar__top">
           <div className="sidebarItems headers">
             <Link to="/newUser">
-              <img src={pp} alt="" />
+              <img src={user?.data?.image} alt="" style={{width:'80px', height:'80px', borderRadius:'100%',boxShadow:'0px 0px 10px 1px #625BAD'}}/>
               <p>{user ? user.data && user.data.username : null}</p>
             </Link>
           </div>
