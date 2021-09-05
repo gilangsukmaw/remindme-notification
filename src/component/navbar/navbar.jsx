@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/action/user";
-import pp from "../../assets/images/Ellipse 34.png";
+// import pp from "../../assets/images/Ellipse 34.png";
 import logout from "../../assets/images/logout.png";
 import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
