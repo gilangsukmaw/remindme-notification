@@ -23,7 +23,7 @@ const ProfilePage = ({ ...props }) => {
         </div>
         <div className="wrapper">
           <div className="head">
-            <img src={pp} alt="profile pictures" style={{ width: "230px" }} />
+            <img src={user?.data?.image} alt="" style={{width:'230px', height:'230px', borderRadius:'100%', marginBottom:'2rem', boxShadow:'10px 15px 15px 0px #e3e3e3'}} />
             {/* <div className="edit-profile">
               <img src={edit} alt="edit" />
             </div>

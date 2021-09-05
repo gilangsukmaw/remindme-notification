@@ -1,42 +1,42 @@
-import { GET_ALLGOALS_FAIL, GET_ALLGOALS_SUCCESS, GET_ALLGOALS_BEGIN } from "../const/type";
+import { GET_DETAILGOALS_FAIL, GET_DETAILGOALS_SUCCESS, GET_DETAILGOALS_BEGIN } from "../const/type";
 
 const initialState = {
-    goalsData: {
-    Goals: [],
+  detailData: {
+    details: [],
     loading: false, 
     error: null,
   },
 };
 
-const allGoals = (state = initialState, action) => {
+const detailGoals = (state = initialState, action) => {
   const { type, payload, error } = action;
   switch (type) {
     default:
       return {
         ...state,
       };
-    case GET_ALLGOALS_BEGIN:
+    case GET_DETAILGOALS_BEGIN:
       return {
         ...state,
-        goalsData: {
+        detailData: {
           loading: true,
           error: null,
         },
       };
-    case GET_ALLGOALS_SUCCESS:
+    case GET_DETAILGOALS_SUCCESS:
       return {
         ...state,
-        goalsData: {
-          goals: payload,
+        detailData: {
+          details: payload,
           loading: false,
           error: null,
         },
       };
-    case GET_ALLGOALS_FAIL:
+    case GET_DETAILGOALS_FAIL:
       return {
         ...state,
-        goalsData: {
-          goals: [],
+        detailData: {
+          details: [],
           loading: false,
           error: error,
         },
@@ -44,4 +44,4 @@ const allGoals = (state = initialState, action) => {
   }
 };
 
-export default allGoals;
+export default detailGoals;
