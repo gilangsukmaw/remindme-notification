@@ -7,10 +7,11 @@ import "react-circular-progressbar/dist/styles.css";
 
 // const data = []
 
-function CircularGoals() {
+function CircularGoals(props) {
+  const { color, current_percent, id, name } = props;
   const [colorCard, setcolorCard] = useState();
 
-  const color = `${colorCard}`;
+  // const color = `${colorCard}`;
   function strokeColor() {
     if (color === "#FFBCC2") {
       return "#FF8888";
@@ -21,22 +22,21 @@ function CircularGoals() {
     if (color === "#FCF3A1") {
       return "#E5D119";
     }
-    if (color === "#B1A8FF") {
+    if (color === "#D1CDFA") {
       return "#A258FF";
     }
     if (color === "#FF8888") {
       return "#FF586A";
     }
   }
-  console.log(strokeColor);
-  const percentage = 80;
+//percentage dari mapping
+  const percentage = current_percent;
 
   return (
     <>
       <div className="bigContainer d-flex flex-row">
         <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <a href="#">
+          <div className="CircularCard" id="CircularCard" style={{ width: 125, height: 125 }}>
               <CircularProgressbar
                 background
                 strokeWidth={5}
@@ -53,196 +53,12 @@ function CircularGoals() {
                   },
                 }}
               />
-            </a>
           </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
-            Feed Fish
+          <p className="CardTitle mt-3" style={{lineHeight:'1.2rem',textAlign:'center', fontSize: "1.5rem" }}>
+            {name}
           </p>
         </Container>
-        <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <CircularProgressbar
-              background
-              strokeWidth={5}
-              backgroundPadding={0}
-              value={percentage}
-              text={`${percentage}%`}
-              styles={{
-                path: { stroke: `${strokeColor()}` },
-                trail: { stroke: "none" },
-                background: { fill: `${color}` },
-                text: {
-                  fill: "#342D50",
-                  fontSize: "25px",
-                },
-              }}
-            />
-          </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
-            Feed Fish
-          </p>
-        </Container>
-        <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <CircularProgressbar
-              background
-              strokeWidth={5}
-              backgroundPadding={0}
-              value={percentage}
-              text={`${percentage}%`}
-              styles={{
-                path: { stroke: `${strokeColor()}` },
-                trail: { stroke: "none" },
-                background: { fill: `${color}` },
-                text: {
-                  fill: "#342D50",
-                  fontSize: "25px",
-                },
-              }}
-            />
-          </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
-            Feed Fish
-          </p>
-        </Container>
-        <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <CircularProgressbar
-              background
-              strokeWidth={5}
-              backgroundPadding={0}
-              value={percentage}
-              text={`${percentage}%`}
-              styles={{
-                path: { stroke: `${strokeColor()}` },
-                trail: { stroke: "none" },
-                background: { fill: `${color}` },
-                text: {
-                  fill: "#342D50",
-                  fontSize: "25px",
-                },
-              }}
-            />
-          </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
-            Feed Fish
-          </p>
-        </Container>
-        <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <CircularProgressbar
-              background
-              strokeWidth={5}
-              backgroundPadding={0}
-              value={percentage}
-              text={`${percentage}%`}
-              styles={{
-                path: { stroke: `${strokeColor()}` },
-                trail: { stroke: "none" },
-                background: { fill: `${color}` },
-                text: {
-                  fill: "#342D50",
-                  fontSize: "25px",
-                },
-              }}
-            />
-          </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
-            Feed Fish
-          </p>
-        </Container>
-        <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <CircularProgressbar
-              background
-              strokeWidth={5}
-              backgroundPadding={0}
-              value={percentage}
-              text={`${percentage}%`}
-              styles={{
-                path: { stroke: `${strokeColor()}` },
-                trail: { stroke: "none" },
-                background: { fill: `${color}` },
-                text: {
-                  fill: "#342D50",
-                  fontSize: "25px",
-                },
-              }}
-            />
-          </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
-            Feed Fish
-          </p>
-        </Container>
-        <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <CircularProgressbar
-              background
-              strokeWidth={5}
-              backgroundPadding={0}
-              value={percentage}
-              text={`${percentage}%`}
-              styles={{
-                path: { stroke: `${strokeColor()}` },
-                trail: { stroke: "none" },
-                background: { fill: `${color}` },
-                text: {
-                  fill: "#342D50",
-                  fontSize: "25px",
-                },
-              }}
-            />
-          </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
-            Feed Fish
-          </p>
-        </Container>
-        <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <CircularProgressbar
-              background
-              strokeWidth={5}
-              backgroundPadding={0}
-              value={percentage}
-              text={`${percentage}%`}
-              styles={{
-                path: { stroke: `${strokeColor()}` },
-                trail: { stroke: "none" },
-                background: { fill: `${color}` },
-                text: {
-                  fill: "#342D50",
-                  fontSize: "25px",
-                },
-              }}
-            />
-          </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
-            Feed Fish
-          </p>
-        </Container>
-        <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <CircularProgressbar
-              background
-              strokeWidth={5}
-              backgroundPadding={0}
-              value={percentage}
-              text={`${percentage}%`}
-              styles={{
-                path: { stroke: `${strokeColor()}` },
-                trail: { stroke: "none" },
-                background: { fill: `${color}` },
-                text: {
-                  fill: "#342D50",
-                  fontSize: "25px",
-                },
-              }}
-            />
-          </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
-            Feed Fish
-          </p>
-        </Container>
+       
       </div>
 
       {/* <div>

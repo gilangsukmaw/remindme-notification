@@ -33,7 +33,8 @@
 .header__button {
   display: flex;
   justify-content: space-evenly;
-  width: 30%;
+  width: 25%;
+  padding-right: 3rem;
   button {
     &:hover,
     &:active,
@@ -233,5 +234,32 @@
   }
 }
 
-@media (max-width: 1024px) {
+
+@media screen and (width: 1440px) {
+  .landing__top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .landing__header{
+      width: 1250px;
+    }
+  }
+}
+@media (width: 1024px) {
+  .landing__header{
+    width: 1000px;
+  }
+}
+
+@media screen and (width: 1980px) {
+  .landing__top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .landing__header{
+      width: 1250px;
+    }
+  }
 }
