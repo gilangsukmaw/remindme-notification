@@ -1,9 +1,12 @@
 import axios from "axios";
-import { GET_NOTE_BEGIN, GET_NOTE_SUCCESS, GET_NOTE_FAIL } from "../const/type";
+import {
+  DELETE_NOTE_BEGIN,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAIL,
+} from "../const/type";
 import { put, takeEvery } from "redux-saga/effects";
 
-function* getNote(actions) {
-  const { body } = actions;
+function* deleteNote(id) {
   const Token = localStorage.getItem("Token");
   yield console.log(Token);
   try {
@@ -13,17 +16,17 @@ function* getNote(actions) {
     );
     yield console.log(res.data.data);
     yield put({
-      type: GET_NOTE_SUCCESS,
-      payload: res.data,
+      type: DELETE_NOTE_SUCCESS,
+      payload: id,
     });
   } catch (error) {
     yield put({
-      type: GET_NOTE_FAIL,
+      type: DELETE_NOTE_FAIL,
       payload: error,
     });
   }
 }
 
-export function* watchGetNote() {
-  yield takeEvery(GET_NOTE_BEGIN, getNote);
+export function* watchDeleteNote() {
+  yield takeEvery(DELETE_NOTE_BEGIN, deleteNote);
 }

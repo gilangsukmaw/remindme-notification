@@ -1,29 +1,32 @@
 import axios from "axios";
-import { GET_NOTE_BEGIN, GET_NOTE_SUCCESS, GET_NOTE_FAIL } from "../const/type";
+import {
+  UPDATE_NOTE_BEGIN,
+  UPDATE_NOTE_SUCCESS,
+  UPDATE_NOTE_FAIL,
+} from "../const/type";
 import { put, takeEvery } from "redux-saga/effects";
 
-function* getNote(actions) {
-  const { body } = actions;
+function* updateNote(id, newUpdate) {
   const Token = localStorage.getItem("Token");
   yield console.log(Token);
   try {
-    const res = yield axios.get(
+    const res = yield axios.put(
       `https://remindme.gabatch13.my.id/api/v1/notes/`,
       { headers: { Authorization: `Bearer ${Token}` } }
     );
     yield console.log(res.data.data);
     yield put({
-      type: GET_NOTE_SUCCESS,
-      payload: res.data,
+      type: UPDATE_NOTE_SUCCESS,
+      payload: { id, newUpdate },
     });
   } catch (error) {
     yield put({
-      type: GET_NOTE_FAIL,
+      type: UPDATE_NOTE_FAIL,
       payload: error,
     });
   }
 }
 
-export function* watchGetNote() {
-  yield takeEvery(GET_NOTE_BEGIN, getNote);
+export function* watchUpdateNote() {
+  yield takeEvery(UPDATE_NOTE_BEGIN, updateNote);
 }
