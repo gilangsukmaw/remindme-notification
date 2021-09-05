@@ -3,6 +3,8 @@ import vectorPinLogo from "../assets/images/vectorPinLogo.png";
 import "../assets/styles/ModalNote.scss";
 import vectorClose from "../assets/images/vectorClose.png";
 import "bootstrap/dist/css/bootstrap.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 // import { useDispatch } from "react-redux";
 // import { setNote } from "../redux/action/note";
 import axios from "axios";
@@ -65,7 +67,8 @@ export default function NoteModal({
               className="color1"
             ></button>
             <button
-              onClick={() => changeDataColor("#FCF3A1")}
+              value={noteData.color}
+              onChange={() => changeDataColor("#FCF3A1")}
               className="color2"
             ></button>
             <button

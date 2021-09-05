@@ -6,8 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNote } from "../../redux/action/note";
 import Line from "../../assets/images/GoalDetailLine.png";
 import AllNoteUnpinned from "../AllNotesUnpinned/AllNoteUnpinned";
+import ModalDetailNote from "../../modal/ModalDetailNote";
 
-const AllNotesCreate = () => {
+const AllNotesCreate = ({ ...props }) => {
+  const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } =
+    props;
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.allNote.noteData);
 
@@ -27,18 +30,20 @@ const AllNotesCreate = () => {
           {data?.data
             ?.filter((data) => data.pinned === true)
             .map((item, index) => (
-              <div key={index} className="allNote__card">
-                <div className="allNote__title">
-                  <h5>{item?.title}</h5>
-                  <img src={PinCard} alt="" />
+              <button onClick={() => (props.setStep = "EditNote")}>
+                <div key={index} className="allNote__card">
+                  <div className="allNote__title">
+                    <h5>{item?.title}</h5>
+                    <img src={PinCard} alt="" />
+                  </div>
+                  <div className="allNote__time">
+                    <p>{item?.dateNote}</p>
+                  </div>
+                  <div className="allNote__content">
+                    <p>{item?.body}</p>
+                  </div>
                 </div>
-                <div className="allNote__time">
-                  <p>{item?.dateNote}</p>
-                </div>
-                <div className="allNote__content">
-                  <p>{item?.body}</p>
-                </div>
-              </div>
+              </button>
             ))}
         </div>
       </div>

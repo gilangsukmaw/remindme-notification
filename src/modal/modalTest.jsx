@@ -7,6 +7,9 @@ import ModalCreateTask from "./ModalTask";
 import SaveGoals from "./SaveGoalsModal/SaveGoalsModal";
 import SaveNotes from "./SaveNotesModal/SaveNotesModal";
 import axios from "axios";
+import ModalDetailNote from "./ModalDetailNote";
+import SaveChanges from "./ModalSaveChanges";
+import DetailNote from "./ModalDetailNote";
 
 const ModalTest = ({ ...props }) => {
   const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } =
@@ -106,6 +109,34 @@ const ModalTest = ({ ...props }) => {
       {/* step to edit photo */}
       {step === "EditPhoto" && (
         <EditPhoto changeStep={(item) => setStep(item)} />
+      )}
+      {/* step to edit note */}
+      {step === "EditNote" && (
+        <ModalDetailNote
+          changeStep={(item) => setStep(item)}
+          onClose={(item) => setStep(item)}
+          onSave={submitNote}
+          noteData={noteInput}
+          changeDataTitle={(item) =>
+            setNoteInput({ ...noteInput, title: item })
+          }
+          changeDataBody={(item) => setNoteInput({ ...noteInput, body: item })}
+          changeDataColor={(item) =>
+            setNoteInput({ ...noteInput, color: item })
+          }
+          changeDataPinned={(item) =>
+            setNoteInput({ ...noteInput, pinned: item })
+          }
+          changeDataDate={(item) =>
+            setNoteInput({ ...noteInput, dateNote: item })
+          }
+          changeDataTime={(item) =>
+            setNoteInput({ ...noteInput, timeNote: item })
+          }
+        />
+      )}
+      {step === "SaveChanges" && (
+        <SaveChanges changeStep={(item) => setStep(item)} />
       )}
     </>
   );

@@ -4,6 +4,8 @@ import "./index.css";
 import "./Custom.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SaveChanges from "./modal/ModalSaveChanges";
+import ModalDetailNote from "./modal/ModalDetailNote";
+import DetailNote from "./modal/ModalDetailNote";
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       <div>
         <BrowserRouter>
           {/* <SaveChanges /> */}
+          {/* <DetailNote /> */}
           <Router />
         </BrowserRouter>
       </div>
