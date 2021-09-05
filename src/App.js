@@ -3,12 +3,16 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import "./Custom.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ModalEditSuccess from "./modal/ModalEditSuccess";
+import SaveEdits from "./modal/ModalEditSuccess";
+import ModalEditPhoto from "./modal/ModalEditPhoto";
 
 function App() {
   return (
     <>
       <div>
         <BrowserRouter>
+          {/* <ModalEditPhoto /> */}
           <Router />
         </BrowserRouter>
       </div>
