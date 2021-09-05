@@ -1,9 +1,9 @@
 import { GET_ALLGOALS_FAIL, GET_ALLGOALS_SUCCESS, GET_ALLGOALS_BEGIN } from "../const/type";
 
 const initialState = {
-    goalsData: {
+  goalsData: {
     Goals: [],
-    loading: false, 
+    loading: false,
     error: null,
   },
 };

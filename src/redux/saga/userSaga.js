@@ -10,10 +10,10 @@ function* getUser(actions) {
       type: GET_USER_SUCCESS,
       payload: res.data,
     });
-  } catch (err) {
+  } catch (error) {
     yield put({
       type: GET_USER_FAIL,
-      error: error,
+      payload: error,
     });
   }
 }
