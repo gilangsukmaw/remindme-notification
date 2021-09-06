@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 
 
 function AddProgressModal(props) {
-const [modalShow, setModalShow] = React.useState(false);
+const [progressShow, setProgressShow] = useState(false);
 const {color, type, id} = props;
 // console.log (type)
 // console.log (color)
@@ -68,7 +68,7 @@ function AddProgressModal(props) {
      const submitAddProgress = async (e) => {
         try {
             const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/goals/${id}`, state, { headers: { Authorization: `Bearer ${Token}` } });
-            setModalShow(false);
+            setProgressShow(false);
             dispatch(getAllGoals());
             dispatch(getDetailGoals(id));
             congrats();
@@ -140,12 +140,12 @@ return (
 return (
 <div className='AddProgressButton' style={{marginBottom:'3.5rem'}}>
 {/* Background Color akan diganti sesuai warna background Detail Progress */}
-    <Button style={{backgroundColor:`${color}`}} onClick={()=> setModalShow(true)}> 
+    <Button style={{backgroundColor:`${color}`}} onClick={()=> setProgressShow(true)}> 
     <img className='AddProgressImg'
             style={{width:'34px', height:'34px', marginRight:'1rem'}} src={Logo}></img>
         <div style={{color:'Black'}} className='AddProgressText'>Add Progress </div>
     </Button>
-    <AddProgressModal id={id} color={color} type={type}  show={modalShow} onHide={()=> setModalShow(false)} />
+    <AddProgressModal id={id} color={color} type={type}  show={progressShow} onHide={()=> setProgressShow(false)} />
 </div>
 )
 }
