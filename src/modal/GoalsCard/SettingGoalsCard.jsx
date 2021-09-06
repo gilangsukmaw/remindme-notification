@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Modal, Col, Form, Button,Tooltip, OverlayTrigger, SplitButton } from "react-bootstrap";
+import { Modal, Col, Form, Button,Tooltip, OverlayTrigger } from "react-bootstrap";
 // import CobaCalendar from "../../Calendar";
 import "./SettingGoals.scss";
 import * as dayjs from "dayjs";
@@ -162,20 +162,7 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
                   disabled
                   placeholder={dayjs(`${state.date}`).format("DD/MM/YYYY")}
                 />
-                  {/* <SplitButton
-                    disabled
-                    align="end"
-                    className="ChooseValue mb-3"
-                    style={{
-                      float: "left",
-                      // paddingLeft: "0.5rem",
-                      borderRadius: "10px",
-                      border: "1px solid #B6C6E5",
-                    }}
-                    // title={dayjs(`${startDate}`).format("DD/MM/YYYY")}
-                    title={`${state.date}`}
-                    id="ChooseValue"
-                  ></SplitButton> */}
+                 
                   <div className="MonthYear mb-1 mt-4" style={{fontWeight:'600'}}>
                     <div>{dayjs(`${state.date}`).format("MMM,")}</div>
 
