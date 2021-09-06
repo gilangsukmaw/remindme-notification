@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Modal, Col, Form, Button, SplitButton } from "react-bootstrap";
+import { Modal, Col, Form, Button,Tooltip, OverlayTrigger } from "react-bootstrap";
 // import CobaCalendar from "../../Calendar";
 import "./SettingGoals.scss";
 import * as dayjs from "dayjs";
@@ -9,6 +9,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import SaveGoalModal from '../SaveGoalsModal/SaveGoalsModal'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+// import 'sweetalert2/src/sweetalert2.scss'
 
 
 
@@ -20,7 +22,6 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
 
   const [modalShow, setModalShow] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-  const [bColor, setbColor] = useState();
   const handleSubmit = (e) => {
     // e.preventDefault();
     submitGoals();
@@ -45,15 +46,18 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
             console.log(res)
         } catch (error) {
           if (error.response.status === 400) {
-            alert(`Harap diisi semua`)};
+            Swal.fire({
+              icon: 'warning',
+              width: 450,
+              confirmButtonText: "Ok",
+              confirmButtonColor: "#625BAD",
+              title: 'There is still missing inputs',
+              text: 'Please Check Again',
+              
+            })};
             if (error.response.status === 403) {
             alert(`Sesi anda habis, mohon login kembali`);
-           
-          }
-
-          
-        }
-    };
+        }}};
       
 
   return (
@@ -103,7 +107,17 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
 
               <div className="BuiltorQuitButton mt-4 mb-4">
                 <Col className="d-flex flex-row justify-content-between">
+                <OverlayTrigger className='InformationPopUp'
+                  placement='bottom'
+                  overlay={
+                    <Tooltip id={`SetYourGoals`} >
+                      Set Your  <strong>Goals</strong>.
+                    </Tooltip>
+                  }
+
+                >
                   <Button
+                  title='hahahah'
                     className="BuildButton"
                     variant="secondary"
                     value={state.goal_type} onClick={(e) => setState({ ...state,goal_type: "build"  })}
@@ -111,11 +125,12 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
                       borderRadius: "40px",
                       width: "45%",
                       fontWeight: "700",
-                      
                     }}
                   >
                     Build
                   </Button>
+                  </OverlayTrigger>
+                  
                   <Button
                     className="BuildButton"
                     variant="secondary"
@@ -147,20 +162,7 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
                   disabled
                   placeholder={dayjs(`${state.date}`).format("DD/MM/YYYY")}
                 />
-                  {/* <SplitButton
-                    disabled
-                    align="end"
-                    className="ChooseValue mb-3"
-                    style={{
-                      float: "left",
-                      // paddingLeft: "0.5rem",
-                      borderRadius: "10px",
-                      border: "1px solid #B6C6E5",
-                    }}
-                    // title={dayjs(`${startDate}`).format("DD/MM/YYYY")}
-                    title={`${state.date}`}
-                    id="ChooseValue"
-                  ></SplitButton> */}
+                 
                   <div className="MonthYear mb-1 mt-4" style={{fontWeight:'600'}}>
                     <div>{dayjs(`${state.date}`).format("MMM,")}</div>
 

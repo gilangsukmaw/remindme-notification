@@ -8,6 +8,9 @@ import {
   DELETE_NOTE_BEGIN,
   DELETE_NOTE_SUCCESS,
   DELETE_NOTE_FAIL,
+  GET_NOTEDETAIL_BEGIN,
+  GET_NOTEDETAIL_SUCCESS,
+  GET_NOTEDETAIL_FAIL,
 } from "../const/type";
 
 const initialState = {
@@ -15,6 +18,11 @@ const initialState = {
     data: [],
     loading: false,
     error: null,
+  },
+  noteDataDetail: {
+    detail: [],
+    loadingDetail: false,
+    errorDetail: null,
   },
 };
 
@@ -50,52 +58,78 @@ const allNote = (state = initialState, action) => {
           error: error,
         },
       };
-    case DELETE_NOTE_BEGIN:
+    case GET_NOTEDETAIL_BEGIN:
       return {
-        noteData: {
-          data: [],
+        ...state,
+        noteDataDetail: {
           loading: true,
           error: null,
         },
       };
-    case DELETE_NOTE_SUCCESS:
+    case GET_NOTEDETAIL_SUCCESS:
       return {
-        noteData: {
-          data: [...state.todos.filter((item) => item.id !== action.payload)],
+        ...state,
+        noteDataDetail: {
+          data: payload,
+          loading: false,
+          error: null,
         },
       };
-    case DELETE_NOTE_FAIL:
+    case GET_NOTEDETAIL_FAIL:
       return {
-        noteData: {
+        ...state,
+        noteDataDetail: {
           data: [],
           loading: false,
           error: error,
         },
       };
-    case UPDATE_NOTE_BEGIN:
-      return {
-        ...state,
-        noteData: {
-          data: [],
-          loading: true,
-          error: null,
-        },
-      };
-    case UPDATE_NOTE_SUCCESS:
-      return {
-        ...state,
-        noteData: state.noteData.data.map(
-          (newUpdate) => [newUpdate.id, newUpdate].values
-        ),
-      };
-    case UPDATE_NOTE_FAIL:
-      return {
-        noteData: {
-          data: [],
-          loading: false,
-          error: error,
-        },
-      };
+    //   case DELETE_NOTE_BEGIN:
+    //     return {
+    //       noteData: {
+    //         data: [],
+    //         loading: true,
+    //         error: null,
+    //       },
+    //     };
+    //   case DELETE_NOTE_SUCCESS:
+    //     return {
+    //       noteData: {
+    //         data: [...state.todos.filter((item) => item.id !== action.payload)],
+    //       },
+    //     };
+    //   case DELETE_NOTE_FAIL:
+    //     return {
+    //       noteData: {
+    //         data: [],
+    //         loading: false,
+    //         error: error,
+    //       },
+    //     };
+    //   case UPDATE_NOTE_BEGIN:
+    //     return {
+    //       ...state,
+    //       noteData: {
+    //         data: [],
+    //         loading: true,
+    //         error: null,
+    //       },
+    //     };
+    //   case UPDATE_NOTE_SUCCESS:
+    //     return {
+    //       ...state,
+    //       noteData: state.noteData.data.map(
+    //         (newUpdate) => [newUpdate.id, newUpdate].values
+    //       ),
+    //     };
+    //   case UPDATE_NOTE_FAIL:
+    //     return {
+    //       noteData: {
+    //         data: [],
+    //         loading: false,
+    //         error: error,
+    //       },
+    //     };
   }
 };
 

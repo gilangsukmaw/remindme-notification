@@ -15,8 +15,8 @@ const color = `${colorCard}`
 function strokeColor () {
 if (color === '#FFBCC2') {return '#FF8888'};
 if (color === '#CCF0D7') {return '#34A69A'};
-if (color === '#FCF3A1') {return '#E5D119'};
-if (color === '#B1A8FF') {return '#A258FF'};
+if (color === '#FCF3A1') {return '#F6E64C'};
+if (color === '#D1CDFA') {return '#A258FF'};
 if (color === '#FF8888') {return '#FF586A'};
 } ;
 console.log (strokeColor)

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/styles/ModalDetailNote.scss";
 import PinEdit from "../assets/images/PinEdit.png";
 import TrashEdit from "../assets/images/TrashEdit.png";
 import vectorClose from "../assets/images/vectorClose.png";
 import notifLogo from "../assets/images/notifLogo.png";
 import "bootstrap/dist/css/bootstrap.css";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getNote, getNoteDetail } from "../redux/action/note";
 
 export default function DetailNote({
   onClose,
@@ -17,6 +20,20 @@ export default function DetailNote({
   setStep,
   changeStep,
 }) {
+  const { allData } = useSelector((state) => state.allNote.noteData);
+  const { detail } = useSelector((state) => state.allNote.noteDataDetail);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getNote());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getNoteDetail());
+  }, [dispatch]);
+
+  console.log("allData", allData);
+  console.log("datadetail", detail?.data?.id);
   return (
     <div className="detailNote__outside modal-backdrop">
       <div className="detailNote__container position-relative">

@@ -3,10 +3,105 @@
   flex-direction: column;
   align-items: center;
 }
+.edit-Form {
+  font-size: 20px;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.bungkusSemua {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.bungkusFirstname {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 50rem;
+}
+.input-Edit {
+  padding-left: 1.5rem;
+  max-width: 20rem;
+  width: 450px;
+  min-height: 40px;
+  border: 1px solid #625bad;
+  border-radius: 10px;
+  font-weight: bolder;
+  color: #342d50;
+}
+
+.label {
+  margin-bottom: 1rem;
+}
+.label.email input {
+  background-color: #cccccc;
+}
+.password-confirm {
+  margin-bottom: 1rem;
+}
+h4 {
+  margin-bottom: 0.5rem;
+}
+.btn-save {
+  background: #625bad;
+  border-radius: 40px;
+  width: 450px;
+  height: 60px;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.418);
+  border: none;
+}
+
+.bungkusTombol {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn-save:active {
+  transform: scale3d(0.9, 0.9, 1);
+  transition: 100ms;
+}
+
+.edit-profile {
+  margin-top: -68px;
+}
+
+.content-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: #342d50;
+}
+form {
+  width: 450px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.input-password {
+  margin-bottom: 1rem;
+}
+.input-password-confirm {
+  margin-bottom: 1.5rem;
+}
 
 @media (max-width: 768px) {
   .content-edit form input {
     width: 250px;
+  }
+  .bungkusFirstname {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10rem;
   }
   .profile {
     padding: 0;
@@ -27,52 +122,12 @@
   .label.password input {
     margin-bottom: unset;
   }
-}
-.edit-profile {
-  margin-top: -68px;
-}
+  .wrapper-edit {
+    align-items: flex-end;
+  }
 
-.content-edit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  color: #342d50;
-}
-form {
-  width: 450px;
-  border: none;
-}
-input {
-  width: 450px;
-  min-height: 40px;
-  border: 1px solid #625bad;
-  border-radius: 10px;
-  font-weight: bolder;
-  color: #342d50;
-}
-.label.email input {
-  border: none;
-  background-color: transparent;
-}
-input:focus {
-  outline: none;
-}
-
-.input-password {
-  margin-bottom: 1rem;
-}
-.btn-save {
-  background: #625bad;
-  border-radius: 40px;
-  width: 450px;
-  height: 60px;
-  color: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.418);
-  border: none;
-}
-
-.btn-save:active {
-  transform: scale3d(0.9, 0.9, 1);
-  transition: 100ms;
+  .bungkusTombol {
+    margin-left: 10rem;
+    margin-top: 00.5rem;
+  }
 }

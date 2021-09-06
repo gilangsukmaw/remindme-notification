@@ -22,22 +22,21 @@ function CircularGoals(props) {
     if (color === "#FCF3A1") {
       return "#E5D119";
     }
-    if (color === "#B1A8FF") {
+    if (color === "#D1CDFA") {
       return "#A258FF";
     }
     if (color === "#FF8888") {
       return "#FF586A";
     }
   }
-  // console.log(strokeColor);
+//percentage dari mapping
   const percentage = current_percent;
 
   return (
     <>
       <div className="bigContainer d-flex flex-row">
         <Container className="CircularCard d-flex flex-column align-items-center ">
-          <div className="CircularCard" id="CircularCard" style={{ width: 150, height: 150 }}>
-            <a href="#">
+          <div className="CircularCard" id="CircularCard" style={{ width: 125, height: 125 }}>
               <CircularProgressbar
                 background
                 strokeWidth={5}
@@ -54,9 +53,8 @@ function CircularGoals(props) {
                   },
                 }}
               />
-            </a>
           </div>
-          <p className="CardTitle mt-4" style={{ fontSize: "1.60rem" }}>
+          <p className="CardTitle mt-3" style={{lineHeight:'1.2rem',textAlign:'center', fontSize: "1.5rem" }}>
             {name}
           </p>
         </Container>

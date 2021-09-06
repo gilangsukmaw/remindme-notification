@@ -7,6 +7,9 @@ import ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
 import SignInUpPage from "./SignInBase";
 import axios from "axios";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Cross from '../../assets/images/OopsCross.svg'
+import SaveLogo from '../../assets/images/saveLogo.svg'
 
 function SignUp(props) {
   const { ganti } = props;
@@ -39,17 +42,60 @@ function SignUp(props) {
   // const backtoHome = () => {
   //     window.location.replace("/");
   // };
-  const submitSignUp = (e) => {
-    e.preventDefault();
-    if ((state.username === "") | (state.email === "") | (state.password === "") | (state.firstname === "") | (state.lastname === "")) {
-      alert("please fill all the form");
-      return;
-    } else {
-      axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signup`, state).then((res) => {
-        setModalShow(true);
-      });
-    }
-  };
+  // const submitSignUp = (e) => {
+  //   e.preventDefault();
+  //   if ((state.username === "") | (state.email === "") | (state.password === "") | (state.firstname === "") | (state.lastname === "")) {
+  //     alert("please fill all the form");
+  //     return;
+  //   } else {
+  //     axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signup`, state).then((res) => {
+  //       setModalShow(true);
+  //     });
+  //   }
+  // };
+
+  const submitSignUp = async (e) => {
+    try {
+        const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signup`, state).then((res) => {
+          setModalShow(true);
+        });
+    } catch (error) {
+      if (error.response.status === 400) {
+        console.log("ini error" ,error.response.data.errors[0]);
+        Swal.fire({
+          imageUrl: (`${Cross}`),
+          imageWidth: 100,
+          imageHeight: 100,
+          imageAlt: 'Custom image',
+          width: 450,
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#625BAD",
+          title: (error.response.data.errors[0]),
+          text: 'Please Check Again',
+          
+        })};
+        if (error.response.status === 401) {
+          console.log("ini error" ,error.response.data.errors[0]);
+          Swal.fire({
+            imageUrl: (`${Cross}`),
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+            width: 450,
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#625BAD",
+            title: (error.response.data.errors[0]),
+            text: 'Please Check Again',
+            
+          })};
+        if (error.response.status === 403) {
+        alert(`Sesi anda habis, mohon login kembali`);
+        if (error.response.status === 500) {
+          alert(`Sepertinya ada yang salah`);
+          
+      }
+        
+    }}};
 
   // const handlePasswordChange = (prop) => (event) => {
   // setValues({ ...values, [prop]: event.target.value });
@@ -125,6 +171,7 @@ function SignUp(props) {
                     }}
                     type="text"
                     placeholder="First Name"
+                    required
                   />
                 ) : null}
               </Form.Group>
@@ -143,6 +190,7 @@ function SignUp(props) {
                     }}
                     type="text"
                     placeholder="Last Name"
+                    required
                   />
                 ) : null}
               </Form.Group>
@@ -161,6 +209,7 @@ function SignUp(props) {
                     }}
                     type="text"
                     placeholder="Username"
+                    required
                   />
                 ) : null}
               </Form.Group>
@@ -180,6 +229,8 @@ function SignUp(props) {
                     required
                     type="email"
                     placeholder="Email"
+                    pattern='[^@]+@[^@]+\.[^@]+'
+                    // /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                   />
                 ) : null}
               </Form.Group>
@@ -201,6 +252,9 @@ function SignUp(props) {
                       variant="secondary"
                       type={values.showPassword ? "text" : "password"}
                       placeholder="Password"
+                      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+title='Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:'
+                      required
                     />
                     <Button
                       style={{
@@ -285,9 +339,9 @@ function SignUp(props) {
                 {page === 5 ? (
                   <Button
                     className="ButtonUngu"
-                    type="submit"
-                    value="Submit"
-                    // onClick={() => setModalShow(true)}
+                    // type="submit"
+                    // value="Submit"
+                    onClick={() =>submitSignUp()}
                     style={{
                       height: "2.5rem",
                       width: "45%",

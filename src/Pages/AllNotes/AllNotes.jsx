@@ -7,10 +7,23 @@ import { getNote } from "../../redux/action/note";
 import Line from "../../assets/images/GoalDetailLine.png";
 import AllNoteUnpinned from "../AllNotesUnpinned/AllNoteUnpinned";
 import ModalDetailNote from "../../modal/ModalDetailNote";
+import ModalTest from "../../modal/modalTest";
 
 const AllNotesCreate = ({ ...props }) => {
-  const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } =
-    props;
+  const {
+    changeStep,
+    onClose,
+    onSave,
+    setStep,
+    noteData,
+    changeDataTitle,
+    changeDataBody,
+    changeDataColor,
+    changeDataPinned,
+    changeDataDate,
+    changeDataTime,
+  } = props;
+  console.log(props);
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.allNote.noteData);
 
@@ -30,20 +43,24 @@ const AllNotesCreate = ({ ...props }) => {
           {data?.data
             ?.filter((data) => data.pinned === true)
             .map((item, index) => (
-              <button onClick={() => (props.setStep = "EditNote")}>
-                <div key={index} className="allNote__card">
-                  <div className="allNote__title">
-                    <h5>{item?.title}</h5>
-                    <img src={PinCard} alt="" />
-                  </div>
-                  <div className="allNote__time">
-                    <p>{item?.dateNote}</p>
-                  </div>
-                  <div className="allNote__content">
-                    <p>{item?.body}</p>
-                  </div>
+              // <button >
+              <div
+                key={index}
+                className="allNote__card"
+                onClick={() => setStep("EditNote")}
+              >
+                <div className="allNote__title">
+                  <h5>{item?.title}</h5>
+                  <img src={PinCard} alt="" />
                 </div>
-              </button>
+                <div className="allNote__time">
+                  <p>{item?.dateNote}</p>
+                </div>
+                <div className="allNote__content">
+                  <p>{item?.body}</p>
+                </div>
+              </div>
+              // </button>
             ))}
         </div>
       </div>
@@ -53,6 +70,19 @@ const AllNotesCreate = ({ ...props }) => {
       <div className="allNote__unpinned">
         <AllNoteUnpinned />
       </div>
+      <ModalTest
+        changeStep={changeStep}
+        onClose={onClose}
+        onSave={onSave}
+        setStep={setStep}
+        noteData={noteData}
+        changeDataTitle={changeDataTitle}
+        changeDataBody={changeDataBody}
+        changeDataColor={changeDataColor}
+        changeDataPinned={changeDataPinned}
+        changeDataDate={changeDataDate}
+        changeDataTime={changeDataTime}
+      />
     </div>
   );
 };

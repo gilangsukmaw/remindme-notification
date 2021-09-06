@@ -1,4 +1,4 @@
-import { GET_USER_FAIL, GET_USER_SUCCESS, GET_USER_BEGIN } from "../const/type";
+import { GET_USER_FAIL, GET_USER_SUCCESS, GET_USER_BEGIN, PUT_ALERT_SUCCESS, PUT_ALERT_BEGIN } from "../const/type";
 
 const initialState = {
   userInfo: {
@@ -6,6 +6,8 @@ const initialState = {
     loading: false,
     error: null,
   },
+  showModal: false,
+  ShowModalPhoto: false,
 };
 
 const userData = (state = initialState, action) => {
@@ -14,6 +16,11 @@ const userData = (state = initialState, action) => {
     default:
       return {
         ...state,
+      };
+    case PUT_ALERT_SUCCESS:
+      return {
+        ...state,
+        showModal: payload,
       };
     case GET_USER_BEGIN:
       return {

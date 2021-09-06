@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import EditPhoto from "../Pages/ProfilePage/ModalEditPhoto";
+import React from "react";
+import EditPhoto from "./ModalEditPhoto";
 import SettingGoalsCard from "./GoalsCard/SettingGoalsCard";
 import TimeModal from "./ModalAddTime";
 import NoteModal from "./ModalNote";
@@ -10,6 +10,7 @@ import axios from "axios";
 import ModalDetailNote from "./ModalDetailNote";
 import SaveChanges from "./ModalSaveChanges";
 import DetailNote from "./ModalDetailNote";
+import { useState } from "react";
 
 const ModalTest = ({ ...props }) => {
   const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } =

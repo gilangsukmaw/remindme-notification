@@ -27,7 +27,7 @@ function LandingPage(...props) {
               <button>Login</button>
             </Link>
             <Link to="/auth/register">
-              <button>Register</button>
+              <button style={{ padding: "0 2rem 0 2rem" }}>Register</button>
             </Link>
           </div>
         </div>
@@ -54,7 +54,7 @@ function LandingPage(...props) {
           <div className="left__top">
             <h2>Need Help With Anything?</h2>
             <p>
-              Let’s hear about it with <a href="#">Contact Us!</a>
+              Let’s hear about it with <a href="#top">Contact Us!</a>
             </p>
           </div>
         </div>
@@ -72,10 +72,10 @@ function LandingPage(...props) {
             <p>Home</p>
             <ul>
               <li>
-                <a href="#">About</a>
+                <a href="#top">About</a>
               </li>
               <li>
-                <a href="#">Career</a>
+                <a href="#top">Career</a>
               </li>
             </ul>
           </div>
@@ -83,16 +83,16 @@ function LandingPage(...props) {
             <p>About</p>
             <ul>
               <li>
-                <a href="#">What</a>
+                <a href="#top">What</a>
               </li>
               <li>
-                <a href="#">Why</a>
+                <a href="#top">Why</a>
               </li>
               <li>
-                <a href="#">Developer</a>
+                <a href="#top">Developer</a>
               </li>
               <li>
-                <a href="#">Demo</a>
+                <a href="#top">Demo</a>
               </li>
             </ul>
           </div>
@@ -100,16 +100,16 @@ function LandingPage(...props) {
             <p>Help</p>
             <ul>
               <li>
-                <a href="#">Contact Form</a>
+                <a href="#top">Contact Form</a>
               </li>
               <li>
-                <a href="#">Location</a>
+                <a href="#top">Location</a>
               </li>
               <li>
-                <a href="#">Consultation</a>
+                <a href="#top">Consultation</a>
               </li>
               <li>
-                <a href="#">FAQ</a>
+                <a href="#top">FAQ</a>
               </li>
             </ul>
           </div>

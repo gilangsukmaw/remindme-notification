@@ -1,17 +1,22 @@
 import { all } from "@redux-saga/core/effects";
-import { watchGetUser } from "./userSaga";
+import { watchGetUser, watchPutModal, watchPutUser } from "./userSaga";
+import { watchallGoals, watchDetailGoals } from "./goalsSaga";
 import { watchGetNote } from "./noteSaga";
-import { watchallGoals } from "./goalsSaga";
 import { watchUpdateNote } from "./updateNoteSaga";
 import { watchDeleteNote } from "./deleteNoteSaga";
+import { watchGetNoteDetail } from "./noteSaga";
 
 export default function* rootSaga() {
   // function generator
   yield all([
     watchGetUser(),
-    watchGetNote(),
+    watchPutUser(),
+    watchPutModal(),
     watchallGoals(),
+    watchDetailGoals(),
     watchDeleteNote(),
     watchUpdateNote(),
+    watchGetNote(),
+    watchGetNoteDetail(),
   ]);
 }

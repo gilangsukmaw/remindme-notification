@@ -3,18 +3,19 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import "./Custom.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SaveChanges from "./modal/ModalSaveChanges";
-import ModalDetailNote from "./modal/ModalDetailNote";
 import DetailNote from "./modal/ModalDetailNote";
+// import ModalEditSuccess from "./modal/ModalEditSuccess";
+// import SaveEdits from "./modal/ModalEditSuccess";
+// import ModalEditPhoto from "./modal/ModalEditPhoto";
 
 function App() {
   return (
     <>
       <div>
         <BrowserRouter>
-          {/* <SaveChanges /> */}
-          {/* <DetailNote /> */}
+          {/* <ModalEditPhoto /> */}
           <Router />
+          {/* <DetailNote /> */}
         </BrowserRouter>
       </div>
     </>
