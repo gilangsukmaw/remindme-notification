@@ -103,11 +103,8 @@
 }
 
 .landing__footer {
-<<<<<<< HEAD
   margin-top: 3rem;
 
-=======
->>>>>>> e7648acefa58c02b6cfdde868f54001bb81af726
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -280,24 +277,14 @@
   }
 }
 
-<<<<<<< HEAD
 @media screen and (min-width: 1980px) {
   .landing__top{
-=======
-@media screen and (width: 1980px) {
-  .landing__top {
->>>>>>> e7648acefa58c02b6cfdde868f54001bb81af726
     display: flex;
     flex-direction: column;
     align-items: center;
 
-<<<<<<< HEAD
     .landing__header{
       width: 1400px;
-=======
-    .landing__header {
-      width: 1250px;
->>>>>>> e7648acefa58c02b6cfdde868f54001bb81af726
     }
   }
 }
