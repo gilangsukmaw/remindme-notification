@@ -14,7 +14,7 @@ function NotesPinnedCard() {
       >
         <div className="CardTittle d-flex flex-row justify-content-between">
           {/* Title diganti dari maping */}
-          <p>Understanding Business Value</p> <img src={Pin}></img>
+          <p>Understanding Business Value</p> <img src={Pin} alt="" />
         </div>
         <div className="CardTanggal">
           {/* tanggal diganti dari maping */}
