@@ -1,11 +1,22 @@
-import React from "react";
-// import { Container, Button, Carousel } from "react-bootstrap";
+import React, { useEffect } from "react";
 import pinAllNote from "../../assets/images/pinAllNote.png";
 import PinCard from "../../assets/images/PinCard.png";
 import "../AllNotes/AllNotes.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getNote } from "../../redux/action/note";
+import Line from "../../assets/images/GoalDetailLine.png";
+import AllNoteUnpinned from "../AllNotesUnpinned/AllNoteUnpinned";
+import ModalDetailNote from "../../modal/ModalDetailNote";
 
-const AllNotesCreate = (noteData) => {
-  const data = [1, 2, 3, 4, 5];
+const AllNotesCreate = ({ ...props }) => {
+  const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
+  const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.allNote.noteData);
+
+  useEffect(() => {
+    dispatch(getNote());
+  }, []);
+  console.log("note", data);
   return (
     <div>
       <div className="allNote__container">
@@ -14,24 +25,32 @@ const AllNotesCreate = (noteData) => {
           <img src={pinAllNote} alt="" />
           <p>Pinned Notes</p>
         </div>
-        {/* <Carousel fade> */}
-        {/* <Carousel.Item> */}
-        <div className="allNote__card">
-          <div className="allNote__title">
-            {noteData ? <h5>{noteData.title}</h5> : null}
-            <img src={PinCard} alt="" />
-          </div>
-          <div className="allNote__time">
-            <p>11 Juni 2021</p>
-          </div>
-          <div className="allNote__content">
-            <p>
-              As designer that understands how to<br></br>continually bring value to the business while<br></br> also advocating for the user is a golden egg<br></br> for organizations.
-            </p>
-          </div>
+        <div className="allNote__wrapper">
+          {data?.data
+            ?.filter((data) => data.pinned === true)
+            .map((item, index) => (
+              <button onClick={() => (props.setStep = "EditNote")}>
+                <div key={index} className="allNote__card">
+                  <div className="allNote__title">
+                    <h5>{item?.title}</h5>
+                    <img src={PinCard} alt="" />
+                  </div>
+                  <div className="allNote__time">
+                    <p>{item?.dateNote}</p>
+                  </div>
+                  <div className="allNote__content">
+                    <p>{item?.body}</p>
+                  </div>
+                </div>
+              </button>
+            ))}
         </div>
-        {/* </Carousel.Item> */}
-        {/* </Carousel> */}
+      </div>
+      <div className="allNote__borderLine">
+        <img src={Line} alt="" />
+      </div>
+      <div className="allNote__unpinned">
+        <AllNoteUnpinned />
       </div>
     </div>
   );
