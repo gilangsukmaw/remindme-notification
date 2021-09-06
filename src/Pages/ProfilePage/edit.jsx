@@ -5,14 +5,16 @@ import "./editStyle.css";
 import { putUser, getUser } from "../../redux/action/user";
 import { useDispatch, useSelector } from "react-redux";
 import ModalEditSuccess from "../../modal/ModalEditSuccess";
+import axios from "axios";
 
 export default function Edit() {
   const { user } = useSelector((state) => state.userData.userInfo);
   const showModal = useSelector((state) => state.userData.showModal);
   const dispatch = useDispatch();
   const Token = localStorage.getItem("Token");
-
+  const [imageSelected, setImageSelected] = useState("");
   const [update, setUpdate] = useState({
+    image: " ",
     firstname: "",
     lastname: "",
     username: "",
@@ -21,6 +23,12 @@ export default function Edit() {
     new_password: "",
     confirm_password: "",
   });
+  const uploadImage = () => {
+    const formData = new FormData();
+    formData.append("file", imageSelected);
+
+    axios.put(`https://remindme.gabatch13.my.id/api/v1/user`, formData, update, { headers: { Authorization: `Bearer ${Token}` } });
+  };
 
   useEffect(() => {
     dispatch(getUser());
@@ -39,10 +47,10 @@ export default function Edit() {
         </div>
         <div className="wrapper-edit">
           <div className="head">
-            <img  src={user?.data?.image} alt="" style={{width:'230px', height:'230px', borderRadius:'100%', marginBottom:'0.78rem', boxShadow:'10px 15px 20px 0px grey'}}/>
+            <img src={user?.data?.image} alt="" style={{ width: "230px", height: "230px", borderRadius: "100%", marginBottom: "0.78rem", boxShadow: "10px 15px 20px 0px grey" }} />
             <div className="edit-profile">
               {/* {type === "EditPhoto" ? <ModalEditPhoto /> : null} */}
-              <img src={edit} style={{width:'12.2rem', }} alt="edit" />
+              <img src={edit} style={{ width: "12.2rem" }} alt="edit" />
             </div>
             <p style={{ marginTop: "-40px" }}>Edit Photo</p>
           </div>
@@ -50,6 +58,12 @@ export default function Edit() {
             <form className="edit-Form" onSubmit={(e) => e.preventDefault()}>
               <div className="bungkusSemua">
                 <div className="bungkusFirstname">
+                  <div className="label">
+                    <h4 htmlfor="" className="">
+                      Upload Image
+                    </h4>
+                    <input type="file" className="input-Edit" onChange={(e) => setUpdate({ ...update, image: e.target.files[0] })} />
+                  </div>
                   <div className="label">
                     <h4 htmlfor="" className="">
                       First Name
@@ -96,7 +110,7 @@ export default function Edit() {
                 </div>
               </div>
               <div className="bungkusTombol">
-                <button type="submit" className="btn-save" onClick={() => dispatch(putUser(update))}>
+                <button type="submit" className="btn-save" onClick={(() => dispatch(putUser(update)), uploadImage)}>
                   Save
                 </button>
                 {showModal ? <ModalEditSuccess /> : null}
