@@ -2,15 +2,11 @@ import axios from "axios";
 import { GET_NOTE_BEGIN, GET_NOTE_SUCCESS, GET_NOTE_FAIL } from "../const/type";
 import { put, takeEvery } from "redux-saga/effects";
 
-function* getNote(actions) {
-  const { body } = actions;
+function* getNote() {
   const Token = localStorage.getItem("Token");
   yield console.log(Token);
   try {
-    const res = yield axios.get(
-      `https://remindme.gabatch13.my.id/api/v1/notes/`,
-      { headers: { Authorization: `Bearer ${Token}` } }
-    );
+    const res = yield axios.get(`https://remindme.gabatch13.my.id/api/v1/notes/`, { headers: { Authorization: `Bearer ${Token}` } });
     yield console.log(res.data.data);
     yield put({
       type: GET_NOTE_SUCCESS,
