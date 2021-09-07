@@ -7,6 +7,8 @@ import CobaCalendar from "../../Calendar";
 import ModalTest from "../../modal/modalTest";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/action/user";
+import HomeExisting from "../../component/HomeExisting/Home"
+
 
 const NewUser = ({ ...props }) => {
   const { step, setStep, noteData, setNoteData, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
@@ -18,6 +20,9 @@ const NewUser = ({ ...props }) => {
   }, [dispatch]);
 
   return (
+    <>
+    
+    {/* <HomeExisting/> */}
     <div className="newUser__page">
       <div className="newUser__sideBar col-lg-3 col-md-6"></div>
       <div className="newUser__container col-lg-9 col-md-6">
@@ -50,6 +55,7 @@ const NewUser = ({ ...props }) => {
       </div>
       <ModalTest setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
     </div>
+    </>
   );
 };
 

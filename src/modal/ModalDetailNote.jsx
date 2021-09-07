@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "../assets/styles/ModalDetailNote.scss";
 import PinEdit from "../assets/images/PinEdit.png";
 import TrashEdit from "../assets/images/TrashEdit.png";
@@ -6,17 +5,7 @@ import vectorClose from "../assets/images/vectorClose.png";
 import notifLogo from "../assets/images/notifLogo.png";
 import "bootstrap/dist/css/bootstrap.css";
 
-export default function DetailNote({
-  onClose,
-  changeDataBody,
-  changeDataTitle,
-  noteData,
-  changeDataColor,
-  changeDataPinned,
-  onSave,
-  setStep,
-  changeStep,
-}) {
+export default function DetailNote({ onClose, changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, onSave, setStep, changeStep }) {
   return (
     <div className="detailNote__outside modal-backdrop">
       <div className="detailNote__container position-relative">

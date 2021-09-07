@@ -5,29 +5,19 @@ import Ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
 
 function SaveNotes({ changeStep }) {
-  const [modalShow, setModalShow] = React.useState(true);
+  const [modalShow] = React.useState(true);
 
   function SaveNotesModal(props) {
     return (
       <>
-        <Modal
-          className="SaveNotes shadow"
-          sytle={{ maxWidth: "1rem" }}
-          {...props}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
+        <Modal className="SaveNotes shadow" sytle={{ maxWidth: "1rem" }} {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
           <Modal.Header>
             <Modal.Title id="contained-modal-title-vcenter">
               <img style={{ width: "57px" }} src={Ceklis} alt="" />
             </Modal.Title>
           </Modal.Header>
           <Modal.Body style={{}}>
-            <p
-              className="text-dark "
-              style={{ fontWeight: "580", fontSize: "1.5rem" }}
-            >
+            <p className="text-dark " style={{ fontWeight: "580", fontSize: "1.5rem" }}>
               Congratulations!<br></br>
               You successfully saved <br></br>
               your Note

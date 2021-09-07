@@ -7,7 +7,8 @@ import "../assets/styles/ModalEditPhoto.scss";
 
 export default function ModalEditPhoto() {
   return (
-    <div id="modal">
+    <>
+    {/* <div id="modal">
       <div className="edit__outside modal-backdrop">
         <div className="click__outside"></div>
         <div className="edit__container">
@@ -41,16 +42,17 @@ export default function ModalEditPhoto() {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
+    </>
   );
 }
 
 function EditPhoto() {
-  const [openEdit, setOpenEdit] = useState(false);
+  // const [openEdit, setOpenEdit] = useState(false);
 
   return (
     <>
-      <button
+      {/* <button
         className="openEdit
     "
         onClick={() => {
@@ -59,7 +61,7 @@ function EditPhoto() {
       >
         edit success!
       </button>
-      {openEdit && <ModalEditPhoto closeModal={() => setOpenEdit(false)} />}
+      {openEdit && <ModalEditPhoto closeModal={() => setOpenEdit(false)} />} */}
     </>
   );
 }

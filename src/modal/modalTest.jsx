@@ -9,7 +9,6 @@ import SaveNotes from "./SaveNotesModal/SaveNotesModal";
 import axios from "axios";
 import ModalDetailNote from "./ModalDetailNote";
 import SaveChanges from "./ModalSaveChanges";
-import DetailNote from "./ModalDetailNote";
 import { useState } from "react";
 
 const ModalTest = ({ ...props }) => {

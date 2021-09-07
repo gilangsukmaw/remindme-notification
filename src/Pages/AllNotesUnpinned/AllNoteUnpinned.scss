@@ -1,71 +1,75 @@
 .unpinned__container {
-    margin-left: 400px;
-    margin-right: 5rem;
+  margin-left: 400px;
+  margin-right: 5rem;
 }
 
 .unpinned__date {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 0;
-    margin: 0;
-    margin: 2rem auto;
-    h3 {
-        margin: auto 1rem;
-    }
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  margin: 2rem auto;
+  h3 {
+    margin: auto 1rem;
+  }
 }
 
 .unpinned__top {
-    display: flex;
-    align-items: center;
-    margin: 1rem auto;
-    
-    p {
-        margin: 0;
-    }
-    img {
-        width: 1rem;
-        height: 1rem;
-        margin-right: 1rem;
-    }
+  display: flex;
+  align-items: center;
+  margin: 1rem auto;
+
+  p {
+    margin: 0;
+  }
+  img {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
+  }
 }
 
 .unpinned__wrapper {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    overflow-y: auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 .unpinned__card {
-    background-color: #FFBCC2;
-    // width: 100%;
-    min-width: 20rem;
-    min-height: 10rem;
-    border-radius: 20px;
-    padding: 1rem;
-    margin: 1rem;
-    .unpinned__title {
-        display: flex;
-        justify-content: space-between;
-        img {
-            width: 1rem;
-            height: 1rem;
-        }
+  background-color: #ffbcc2;
+  display: flexbox;
+  flex-direction: column;
+  // box-sizing:content-box;
+  overflow: auto;
+  max-width: 15rem;
+  max-height: 30rem;
+  // max-width: 250px;
+  // max-height: 300px;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem;
+  text- .unpinned__title {
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 1rem;
+      height: 1rem;
     }
+  }
 }
 
 @media (max-width: 1024px) {
-
-    .unpinned__borderLine {
-        img {
-        width: 55%;
-        }
+  .unpinned__borderLine {
+    img {
+      width: 55%;
     }
+  }
 }
 
 @media (max-width: 768px) {
-    .unpinned__container {
-        margin-right: 0;
-    }
+  .unpinned__container {
+    margin-right: 0;
+  }
 }

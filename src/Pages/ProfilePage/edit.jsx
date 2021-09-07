@@ -5,11 +5,12 @@ import "./editStyle.css";
 import { putUser, getUser } from "../../redux/action/user";
 import { useDispatch, useSelector } from "react-redux";
 import ModalEditSuccess from "../../modal/ModalEditSuccess";
-export default function Edit() {
+import EditPhotoProfile from "../../modal/EditPhoto/EditPhoto";
+
+export default function Edit(step, changeStep) {
   const { user } = useSelector((state) => state.userData.userInfo);
   const showModal = useSelector((state) => state.userData.showModal);
   const dispatch = useDispatch();
-  const Token = localStorage.getItem("Token");
 
   const [update, setUpdate] = useState({
     firstname: "",
@@ -38,13 +39,18 @@ export default function Edit() {
           <h1>Edit Profile</h1>
         </div>
         <div className="wrapper-edit">
-          <div className="head-edit">
+          <div className="head">
             <img src={user?.data?.image} alt="" style={{ width: "230px", height: "230px", borderRadius: "100%", marginBottom: "0.78rem", boxShadow: "10px 15px 20px 0px grey" }} />
+
             <div className="edit-profile">
-              <img src={edit} style={{ width: "12.2rem" }} alt="edit" />
-              <p style={{ marginTop: "-40px", marginLeft: "3.5rem" }}>Edit Photo</p>
+              {/* {step === "EditPhoto" ? <ModalEditPhoto /> : null} */}
+              <EditPhotoProfile firstname={user?.data?.firstname} lastname={user?.data?.lastname} username={user?.data?.username} />
+
+              {/* <img src={edit} style={{width:'12.2rem', }} alt="edit" /> */}
             </div>
+            {/* <p style={{ marginTop: "-60px" }}>Edit Photo</p> */}
           </div>
+
           <div className="content-edit">
             <form className="edit-Form" onSubmit={(e) => e.preventDefault()}>
               <div className="bungkusSemua">

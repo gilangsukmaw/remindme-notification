@@ -5,7 +5,8 @@ import "./Custom.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ModalEditSuccess from "./modal/ModalEditSuccess";
 import SaveEdits from "./modal/ModalEditSuccess";
-import ModalEditPhoto from "./modal/ModalEditPhoto";
+// import ModalEditPhoto from "./modal/ModalEditPhoto";
+import Photo from './Pages/ProfilePage/Photo.jsx'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div>
         <BrowserRouter>
           {/* <ModalEditPhoto /> */}
+          {/* <Photo/> */}
           <Router />
         </BrowserRouter>
       </div>

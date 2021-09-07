@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import centang from "../assets/images/saveLogo.png";
 import "../assets/styles/ModalEdit.scss";
 import { useDispatch } from "react-redux";

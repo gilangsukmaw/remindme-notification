@@ -1,20 +1,30 @@
 import React from "react";
 import './AllGoals.scss';
 import CircularGoals from "../../component/CircularGoals/CircularGoals";
-import { Container,Row, Col, Button, Carousel,Spinner, Placeholder } from "react-bootstrap";
+import { Form, OverlayTrigger, Tooltip, Modal, Container, Col, Button,Spinner, Placeholder } from "react-bootstrap";
 import Garis from "../../assets/images/GoalDetailLine.png";
 import DetailCircular from "../../component/CircularGoals/DetailCircular";
 import "./goalsStyle.css";
 import { getAllGoals, getDetailGoals } from "../../redux/action/goals";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SaveLogo from '../../assets/images/saveLogo.svg'
+import Cross from '../../assets/images/OopsCross.svg'
 import clock from '../../assets/images/clock.png' ;
 import droplet from '../../assets/images/Droplet.svg' ;
 import length from '../../assets/images/Length.svg' ;
 import plate from '../../assets/images/plate.png' ;
 import ProgressLogo from '../../assets/images/AddProgressLogo.png' ;
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import '../../modal/GoalsCard/SettingGoals.scss'
+import * as dayjs from "dayjs";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
+
+
 
 
 function AllGoals() {
@@ -23,7 +33,7 @@ const { goals } = useSelector((state) => state.allGoals.goalsData);
 const {details} = useSelector((state) => state.detailGoals.detailData);
 // console.log('datadetail', details);
 
-function picture () {
+function logo () {
   if (details?.target_type === 'Mililiter') {return droplet};
   if (details?.target_type === 'Kilometer') {return length};
   if (details?.target_type === 'Meter') {return length};
@@ -37,13 +47,12 @@ function picture () {
   
   } ;
 
-
-
 useEffect(() => {
   dispatch(getAllGoals());
 }, [dispatch]);
 // console.log(goals);
 // console.log(details);
+  
 
 
 // dispatch(getAllGoals(item?.id))
@@ -65,6 +74,267 @@ useEffect(() => {
 // }}};
 // onClick={()=> {GetDetailGoals(item?.id)}}
 
+// =======================edit modal=====================================
+const [EditModal, setEditModal] = useState(false);
+
+function MyVerticallyCenteredModal(props) {
+  const [startDate, setStartDate] = useState(new Date());
+  const Token = localStorage.getItem("Token");
+  const [state, setState] = useState({
+    name: details?.name ,
+     date:`${dayjs()}`,
+     target:`${details?.target}`,
+     color:details?.color,
+     });
+    //  name: details?.name ,
+    //  date:dayjs(),
+    //  target:details?.target,
+    //  color:details?.color,
+     const submitGoals = async (e) => {
+        try {
+            const res = await axios.put(`https://remindme.gabatch13.my.id/api/v1/goals/${details?.id}`, state, { headers: { Authorization: `Bearer ${Token}` } });
+            setEditModal(false);
+            dispatch(getAllGoals());
+            dispatch(getDetailGoals(details?.id));
+            Swal.fire({
+              imageUrl: (`${SaveLogo}`),
+              imageWidth: 100,
+              imageHeight: 100,
+              imageAlt: 'Custom image',
+              width: 450,
+              confirmButtonText: "Ok",
+              confirmButtonColor: "#625BAD",
+              // title: 'Congratulations! You successfully saved your goal',
+              text: 'Congratulations! You successfully saved your goal',
+
+            })
+            console.log(res)
+        } catch (error) {
+          if (error.response.status === 400) {
+            console.log("ini error" ,error.response.data.errors[0]);
+            Swal.fire({
+              imageUrl: (`${Cross}`),
+              imageWidth: 100,
+              imageHeight: 100,
+              imageAlt: 'Custom image',
+              width: 450,
+              confirmButtonText: "Ok",
+              confirmButtonColor: "#625BAD",
+              title: (error.response.data.errors[0]),
+              text: 'Please Check Again',
+              
+            })};
+            if (error.response.status === 403) {
+            alert(`Sesi anda habis, mohon login kembali`);
+            if (error.response.status === 500) {
+              alert(`Sepertinya ada yang salah`);
+              
+          }
+            
+        }}};
+      
+  return (
+    <Modal className="GoalSetting shadow"  sytle={{ maxWidth: "1rem" }} {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+        <div className="SetGoalsContainer shadow text-dark">
+            <Modal.Header closeButton style={{ alignItems: "flex-start" }} >
+
+              <button style={{border:'none',background:'none', }}><h1 style={{ fontSize: "1.8rem", fontWeight: "600", padding: "0" }}
+                className="mb-4" >
+                Edit My Goal
+              </h1>
+              </button>
+             
+
+            </Modal.Header>
+            
+            {/* onSubmit={submitGoals} */}
+            <Form onSubmit={submitGoals}  >
+              <Form.Group className="mb-4" controlId="GoalText">
+
+                <Form.Control style={{textAlign:'left', borderRadius: "10px", height:'2.5rem'}}
+                  className="Goals__Title"
+                  type="text"
+                  placeholder="What is Your Goal?"
+                  value={state.name} onChange={(e) => setState({ ...state,name: e.target.value  })}
+                />
+
+              </Form.Group>
+              <div>
+                <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
+                  Built or Quit This Goal?
+                </p>
+              </div>
+             
+              <div className="BuiltorQuitButton mt-4 mb-4">
+                <Col className="d-flex flex-row justify-content-between">
+                <OverlayTrigger placement='bottom' overlay={<Tooltip id="tooltip-disabled">You already Choose "{details?.goal_type}"</Tooltip>}>
+                <span style={{width: "45%", }}>
+                  <Button disabled style={{ pointerEvents: 'none', width:'100%', borderRadius: "40px", fontWeight: "700", }}>
+                    Build
+                  </Button>
+                </span>
+              </OverlayTrigger>
+              <OverlayTrigger placement='bottom' overlay={<Tooltip id="tooltip-disabled">You already Choose "{details?.goal_type}"</Tooltip>}>
+                <span style={{width: "45%", }}>
+                  <Button disabled style={{ pointerEvents: 'none', width:'100%', borderRadius: "40px", fontWeight: "700", }}>
+                    Quit
+                  </Button>
+                </span>
+              </OverlayTrigger>
+          
+                </Col>
+              </div>
+              <div className="d-flex flex-row justify-content-between">
+                <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
+                  Choose Time
+                </p>
+                <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
+                  Set Target
+                </p>
+              </div>
+              <div className="d-flex flex-row justify-content-between">
+                <Col className="kolomCalendar" style={{ maxWidth: "45%" }}>
+                <Form.Control style={{background:'none',width:'9rem',textAlign:'left',borderRadius: "10px", height:'2.5rem',border: "1px solid #B6C6E5",}}
+                  className="Goals__Target"
+                  disabled
+                  placeholder={dayjs(`${state.date}`).format("DD/MM/YYYY")}
+                />
+                 
+                  <div className="MonthYear mb-1 mt-4" style={{fontWeight:'600'}}>
+                    <div>{dayjs(`${state.date}`).format("MMM,")}</div>
+
+                    <div style={{ paddingLeft: "0.25rem" }}>
+                      {dayjs(`${state.date}`).format("YYYY")}
+                    </div>
+                  </div>
+                  <div className="Goals__calendar " style={{ float: "left" }}>
+                  <DatePicker
+                    selected={startDate}
+                    // value={state.date}
+                    // onChange={(date) => setState((date)}
+                    onChange={(date) => setState({ ...state,date: dayjs(date).format('YYYY-MM-DDTHH:mm:ss.000[Z]')  })}
+                    inline
+                  />
+                    {/* <CobaCalendar value={state.date} onClick={(e) => setState({ ...state,date: e.target.value  })} /> */}
+                    {/* <p>{`${state.date}`}</p> */}
+                  </div>
+                </Col>
+                <Col className="kolomValue  " style={{ maxWidth: "30%" }}>
+                <Form.Group className="mb-4" controlId="GoalText">
+                <Form.Control style={{textAlign:'left',borderRadius: "10px", height:'2.5rem' }}
+                  className="Goals__Target"
+                  type="number"
+                  placeholder="Target"
+                  value={state.target} onChange={(e) => setState({ ...state,target: e.target.value  })}
+                />
+                  {/* <p>{`${state.target}`}</p> */}
+              </Form.Group>
+                <p style={{ fontSize: "1.3rem", fontWeight: "600", float:'right' }}>
+                  Set Value
+                </p>
+                  <Form.Select disabled value={details?.target_type} 
+                    className="PilihSatuan me-sm-2"
+                    id="PilihSatuan"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    <option id="PilihItem" value="0">
+                      Select
+                    </option>
+                    <option id="PilihItem" value="Liter" >
+                      L (Liter)
+                    </option>
+                    <option id="PilihItem" value="Mililiter" >
+                      ML (Mililiter)
+                    </option>
+                    <option id="PilihItem" value="Kilometer" >
+                      KM (Kilometer)
+                    </option>
+                    <option id="PilihItem" value="Meter" >
+                      M (Meter)
+                    </option>
+                    <option id="PilihItem" value="Hours">
+                      Hours
+                    </option>
+                    <option id="PilihItem" value="Minutes" >
+                      Minute
+                    </option>
+                    <option id="PilihItem" value="Times" >
+                      Times
+                    </option>
+                    <option id="PilihItem" value="Plate" >
+                      Plate
+                    </option>
+                    <option id="PilihItem" value="Drink" >
+                      Drink
+                    </option>
+                    <option id="PilihItem" value="Other" >
+                      Other
+                    </option>
+                  </Form.Select>
+                  {/* <p>{`${state.target_type}`}</p> */}
+                </Col>
+              </div>
+              <div className="mt-1">
+                <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
+                  Choose Progress bar Color
+                </p>
+              </div>
+              <div className="ColorPicker mb-2">
+                
+                <Button
+                  style={{ backgroundColor: "#FFBCC2" }}
+                  value={state.color} onClick={(e) => setState({ ...state, color: '#FFBCC2' })}
+                ></Button>
+                <Button
+                  style={{ backgroundColor: "#FCF3A1" }}
+                  value={state.color} onClick={(e) => setState({ ...state, color: '#FCF3A1' })}
+                ></Button>
+                <Button
+                  style={{ backgroundColor: "#CCF0D7" }}
+                  value={state.color} onClick={(e) => setState({ ...state, color: '#CCF0D7' })}
+                ></Button>
+                <Button
+                  style={{ backgroundColor: "#FF8888" }}
+                  value={state.color} onClick={(e) => setState({ ...state, color: '#FF8888' })}
+                ></Button>
+                <Button
+                  style={{ backgroundColor: "#D1CDFA" }}
+                  value={state.color} onClick={(e) => setState({ ...state, color: '#D1CDFA' })}
+                ></Button>
+              </div>
+              {/* <p>{`${state.color}`}</p> */}
+
+              <div className="saveButton d-flex justify-content-center">
+                <Button
+                // type="submit"
+                // value="Submit"
+                  onClick={() => submitGoals()}
+                  
+                  className="GoalSubmitButton mt-4"
+                  style={{
+                    width: "100%",
+                    fontWeight: "700",
+                    height: "3rem",
+                    borderRadius: "35px",
+                  }}
+
+                  // onClick={() => {
+                  //   changeStep("SaveGoals");
+                  //   console.log("hello");
+                  // }}
+                >
+                  Save
+                </Button>
+              </div>
+            </Form>
+          </div>
+    
+    </Modal>
+  );
+}
+
+
+// ======================================================================
 return (
 <>
 
@@ -93,7 +363,7 @@ return (
       <p>Goal Detail</p>
       <div className='EditButton'><Button style={{fontSize:'20px',
       fontWeight: '600',border:'0',background: '#625BAD',borderRadius:'21px',height: '38px'
-      ,width: '129px'}}>Edit Goal</Button></div>
+      ,width: '129px'}} onClick={()=> {setEditModal(true)}}>Edit Goal</Button></div>
     </div>} 
     {/* ==================mapping detail goals=================== */}
     {details?.length === 0 ? null :
@@ -114,8 +384,8 @@ return (
           type={details?.target_type} id={details?.id} />)}
       </div>
       </Col>
-      {/* ==================mapping history goals=================== */}
 
+      {/* ==================mapping history goals=================== */}
       <Col lg={6} md={6} className='ProgressList'>
       <div className='ProgressListText'>
         <p style={{fontWeight:'600', color:'black'}}>History</p>
@@ -128,7 +398,7 @@ return (
             {/* logo buat maping blm dimasukin */}
 
             <div className='mappingGoals' >
-              <p><img style={{margin:'0 1rem 0.25rem 0', width: "2rem", height: "2rem" }} src={picture()} alt="" />
+              <p><img style={{margin:'0 1rem 0.25rem 0', width: "2rem", height: "2rem" }} src={logo()} alt="" />
               {item?.progress} 
               {" "}
               {details?.target_type}</p>
@@ -138,10 +408,13 @@ return (
         </Container>))}
 
       </div>
-      </Col>
+      </Col>  
+
     </Container>} 
 
   </div>
+  <MyVerticallyCenteredModal show={EditModal}  onHide={() => setEditModal(false)} />
+
 </>
 );
 }
