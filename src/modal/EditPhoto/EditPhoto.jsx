@@ -13,14 +13,14 @@ import { getUser } from "../../redux/action/user";
 function EditPhotoProfile(props) {
   const USEREMAIL = localStorage.getItem("USEREMAIL");
   const [EditPhotoShow, setEditPhotoShow] = useState(false);
-  const { firstname, lastname, username } = props;
+  const { firstname, lastname, username, onHide } = props;
   // console.log (firstname, lastname , username, USEREMAIL)
   // console.log (color)
   // console.log (id)
 
   function EditPhotoProfile(props) {
     const Token = localStorage.getItem("Token");
-    const { firstname, lastname, username, email } = props;
+    const { firstname, lastname, username, email, onHide } = props;
 
     const [PhotoGalleryShow, setPhotoGalleryShow] = useState(false);
 
@@ -62,11 +62,14 @@ function EditPhotoProfile(props) {
         </Modal.Header> */}
           <div>
             <div className="edit__outside modal-backdrop">
-              <div className="click__outside"></div>
               <div className="edit__container">
                 <div className="edit__wrapper">
                   <div className="edit__title">
                     <p>Edit Photo</p>
+                    <p style={{ color: "#f1f4fa" }}>klafnaslkfnaklsfnas</p>
+                    <p style={{ cursor: "pointer" }} onClick={onHide}>
+                      X
+                    </p>
                   </div>
                   <div className="edit__button">
                     <div className="edit__remove">
@@ -119,12 +122,12 @@ function EditPhotoProfile(props) {
   return (
     <div className="EditPhotoButton d-flex flex-column" style={{}}>
       {/* Background Color akan diganti sesuai warna background Detail Progress */}
-      <Button id="ButtonPhoto" variant="outline-light" style={{}} onClick={() => setEditPhotoShow(true)}>
+      <button id="ButtonPhoto" style={{}} onClick={() => setEditPhotoShow(true)}>
         <img src={edit} style={{ width: "12.5rem" }} alt="edit"></img>
         <div style={{ color: "White", marginTop: "-2.5rem" }} className="AddProgressText">
           Edit Photo
         </div>
-      </Button>
+      </button>
       <EditPhotoProfile email={`${USEREMAIL}`} username={username} firstname={firstname} lastname={lastname} show={EditPhotoShow} onHide={() => setEditPhotoShow(false)} />
     </div>
   );

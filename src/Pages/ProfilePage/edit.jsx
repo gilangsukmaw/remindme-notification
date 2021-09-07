@@ -31,7 +31,6 @@ export default function Edit(step, changeStep) {
   }, [user?.data]);
 
   console.log("user edit", update);
-  console.log("open modal", openEdit);
   return (
     <div>
       <div className="profile">
