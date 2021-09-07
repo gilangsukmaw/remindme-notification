@@ -7,10 +7,12 @@ import leftArrow from "../../assets/images/leftArrow.png";
 import rightArrow from "../../assets/images/rightArrow.png";
 import unpinnedLogo from "../../assets/images/unpinnedLogo.png";
 import "../AllNotesUnpinned/AllNoteUnpinned.scss";
+import { changeStep } from "../../redux/action/global";
 
 export default function AllNoteUnpinned(props) {
   const { data } = useSelector((state) => state.allNote.noteData);
   const { dateNote } = props;
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -24,7 +26,11 @@ export default function AllNoteUnpinned(props) {
           {data?.data
             ?.filter((data) => data.pinned === false)
             .map((item, index) => (
-              <div key={index} className="unpinned__card">
+              <div
+                key={index}
+                className="unpinned__card"
+                onClick={() => dispatch(changeStep("EditNote"))}
+              >
                 <div className="unpinned__title">
                   <h5>{item?.title}</h5>
                   <img src={unpinnedLogo} alt="" />

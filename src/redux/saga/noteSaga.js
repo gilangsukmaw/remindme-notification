@@ -7,7 +7,7 @@ import {
   GET_NOTEDETAIL_SUCCESS,
   GET_NOTEDETAIL_FAIL,
 } from "../const/type";
-import { put, takeEvery } from "redux-saga/effects";
+import { put, takeEvery, takeLatest } from "redux-saga/effects";
 const Token = localStorage.getItem("Token");
 
 function* getNote() {
@@ -38,6 +38,7 @@ function* getNoteDetail(actions) {
       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
       { headers: { Authorization: `Bearer ${Token}` } }
     );
+    yield console.log("res", res);
     yield put({
       type: GET_NOTEDETAIL_SUCCESS,
       payload: res.data,

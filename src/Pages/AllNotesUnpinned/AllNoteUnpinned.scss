@@ -34,24 +34,32 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    overflow-y: auto;
+    
 }
 
 .unpinned__card {
     background-color: #FFBCC2;
     // width: 100%;
-    min-width: 20rem;
-    min-height: 10rem;
+    width: 350px;
+  height: 200px;
     border-radius: 20px;
     padding: 1rem;
     margin: 1rem;
     .unpinned__title {
         display: flex;
         justify-content: space-between;
+        width: 300px;
         img {
             width: 1rem;
             height: 1rem;
         }
+    }
+    .unpinned__time {
+        width: 300px;
+    }
+    .unpinned__content {
+        width: 300px;
+        height: 150px;
     }
 }
 
@@ -64,8 +72,20 @@
     }
 }
 
+// @media (max-width: 768px) {
+//     .unpinned__container {
+//         margin-right: 0;
+//     }
+// }
 @media (max-width: 768px) {
     .unpinned__container {
-        margin-right: 0;
+      margin-right: 2rem;
     }
-}
+  
+    .unpinned__borderLine {
+      img {
+  
+        width: 21rem ;
+      }
+    }
+  }

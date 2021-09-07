@@ -3,9 +3,12 @@ import { Modal, Button } from "react-bootstrap";
 import "./SaveNotesModal.scss";
 import Ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeStep } from "../../redux/action/global";
 
-function SaveNotes({ changeStep }) {
+function SaveNotes() {
   const [modalShow, setModalShow] = React.useState(true);
+  const dispatch = useDispatch();
 
   function SaveNotesModal(props) {
     return (
@@ -45,7 +48,7 @@ function SaveNotes({ changeStep }) {
                   fontWeight: "700",
                   fontSize: "1.5rem",
                 }}
-                onClick={() => props.onHide("")}
+                onClick={() => dispatch(changeStep(""))}
               >
                 Ok
               </Button>

@@ -24,6 +24,9 @@ const initialState = {
     loadingDetail: false,
     errorDetail: null,
   },
+  noteDataDelete: {
+    data: [],
+  },
 };
 
 const allNote = (state = initialState, action) => {
@@ -84,52 +87,54 @@ const allNote = (state = initialState, action) => {
           error: error,
         },
       };
-    //   case DELETE_NOTE_BEGIN:
-    //     return {
-    //       noteData: {
-    //         data: [],
-    //         loading: true,
-    //         error: null,
-    //       },
-    //     };
-    //   case DELETE_NOTE_SUCCESS:
-    //     return {
-    //       noteData: {
-    //         data: [...state.todos.filter((item) => item.id !== action.payload)],
-    //       },
-    //     };
-    //   case DELETE_NOTE_FAIL:
-    //     return {
-    //       noteData: {
-    //         data: [],
-    //         loading: false,
-    //         error: error,
-    //       },
-    //     };
-    //   case UPDATE_NOTE_BEGIN:
-    //     return {
-    //       ...state,
-    //       noteData: {
-    //         data: [],
-    //         loading: true,
-    //         error: null,
-    //       },
-    //     };
-    //   case UPDATE_NOTE_SUCCESS:
-    //     return {
-    //       ...state,
-    //       noteData: state.noteData.data.map(
-    //         (newUpdate) => [newUpdate.id, newUpdate].values
-    //       ),
-    //     };
-    //   case UPDATE_NOTE_FAIL:
-    //     return {
-    //       noteData: {
-    //         data: [],
-    //         loading: false,
-    //         error: error,
-    //       },
-    //     };
+    case DELETE_NOTE_BEGIN:
+      return {
+        noteData: {
+          data: [],
+          loading: true,
+          error: null,
+        },
+      };
+    case DELETE_NOTE_SUCCESS:
+      return {
+        noteData: {
+          data: [
+            ...state.noteData.filter((item) => item.id !== action.payload),
+          ],
+        },
+      };
+    case DELETE_NOTE_FAIL:
+      return {
+        noteData: {
+          data: [],
+          loading: false,
+          error: error,
+        },
+      };
+    case UPDATE_NOTE_BEGIN:
+      return {
+        ...state,
+        noteData: {
+          data: [],
+          loading: true,
+          error: null,
+        },
+      };
+    case UPDATE_NOTE_SUCCESS:
+      return {
+        ...state,
+        noteData: state.noteData.data.map(
+          (newUpdate) => [newUpdate.id, newUpdate].values
+        ),
+      };
+    case UPDATE_NOTE_FAIL:
+      return {
+        noteData: {
+          data: [],
+          loading: false,
+          error: error,
+        },
+      };
   }
 };
 

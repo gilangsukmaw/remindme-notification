@@ -4,20 +4,21 @@ import {
   DELETE_NOTE_SUCCESS,
   DELETE_NOTE_FAIL,
 } from "../const/type";
-import { put, takeEvery } from "redux-saga/effects";
+import { put, takeLatest } from "redux-saga/effects";
 
-function* deleteNote(id) {
+function* deleteNote(actions) {
+  const { id } = actions;
   const Token = localStorage.getItem("Token");
   yield console.log(Token);
   try {
     const res = yield axios.get(
-      `https://remindme.gabatch13.my.id/api/v1/notes/`,
+      `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
       { headers: { Authorization: `Bearer ${Token}` } }
     );
-    yield console.log(res.data.data);
+    yield console.log("delete", res);
     yield put({
       type: DELETE_NOTE_SUCCESS,
-      payload: id,
+      payload: res.data.data,
     });
   } catch (error) {
     yield put({
@@ -28,5 +29,5 @@ function* deleteNote(id) {
 }
 
 export function* watchDeleteNote() {
-  yield takeEvery(DELETE_NOTE_BEGIN, deleteNote);
+  yield takeLatest(DELETE_NOTE_BEGIN, deleteNote);
 }

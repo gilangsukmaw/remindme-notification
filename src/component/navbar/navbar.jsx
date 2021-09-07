@@ -6,6 +6,7 @@ import logout from "../../assets/images/logout.png";
 import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { changeStep } from "../../redux/action/global";
 
 function Navbar({ ...props }) {
   const { setStep } = props;
@@ -38,7 +39,10 @@ function Navbar({ ...props }) {
               <p>{user ? user.data && user.data.username : null}</p>
             </Link>
           </div>
-          <div className=" Task" onClick={() => setStep("CreateNote")}>
+          <div
+            className=" Task"
+            onClick={() => dispatch(changeStep("CreateNote"))}
+          >
             <FiIcons.FiPlusCircle />
             <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>
               Create a Task

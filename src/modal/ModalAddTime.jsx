@@ -3,10 +3,12 @@ import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import CobaCalendar from "../../src/Calendar";
+import { useDispatch } from "react-redux";
+import { changeStep } from "../redux/action/global";
 
 export default function TimeModal({
   // onClose,
-  changeStep,
+
   changeColor,
   changeDataDate,
   changeDataTime,
@@ -23,7 +25,7 @@ export default function TimeModal({
     pinned: false,
     color: "",
   });
-
+  const dispatch = useDispatch();
   return (
     <div className="time__outside modal-backdrop">
       <div
@@ -70,7 +72,7 @@ export default function TimeModal({
             <button
               className="time__save"
               onClick={() => {
-                changeStep("InputNote");
+                dispatch(changeStep("InputNote"));
                 // onSave();
                 // handleAddEvent();
               }}
@@ -79,7 +81,7 @@ export default function TimeModal({
             </button>
             <button
               className="time__cancel"
-              onClick={() => changeStep("InputNote")}
+              onClick={() => dispatch(changeStep("InputNote"))}
             >
               Cancel
             </button>

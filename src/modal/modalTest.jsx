@@ -11,8 +11,11 @@ import ModalDetailNote from "./ModalDetailNote";
 import SaveChanges from "./ModalSaveChanges";
 import DetailNote from "./ModalDetailNote";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { changeStep } from "../redux/action/global";
 
 const ModalTest = ({ ...props }) => {
+  const dispatch = useDispatch();
   const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } =
     props;
   const [noteInput, setNoteInput] = useState({
@@ -36,24 +39,26 @@ const ModalTest = ({ ...props }) => {
           },
         }
       );
-      setStep("SaveNotes");
+      dispatch(changeStep("SaveNotes"));
       console.log(res);
     } catch (error) {
-      if (error.response.status === 400) {
-        alert("Harap diisi semua");
+      if (error.response.status === 404) {
+        alert("Empty, try create some note");
       }
     }
   };
+  const modalStep = useSelector((state) => state.global.modalStep);
+  console.log("step", modalStep);
   return (
     <>
       {/* step to note */}
-      {step === "CreateNote" && (
+      {modalStep === "CreateNote" && (
         <ModalCreateTask
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
         />
       )}
-      {step === "InputNote" && (
+      {modalStep === "InputNote" && (
         <NoteModal
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
@@ -71,7 +76,7 @@ const ModalTest = ({ ...props }) => {
           }
         />
       )}
-      {step === "AddTime" && (
+      {modalStep === "AddTime" && (
         <TimeModal
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
@@ -83,10 +88,10 @@ const ModalTest = ({ ...props }) => {
           changeDataTime={(item) =>
             setNoteInput({ ...noteInput, timeNote: item })
           }
-          changeColor={() => setNoteColor({ ...noteColor, color: "#FFBCC2" })}
+          changeColor={(item) => setNoteInput({ ...noteInput, color: item })}
         />
       )}
-      {step === "SaveNotes" && (
+      {modalStep === "SaveNotes" && (
         <SaveNotes
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
@@ -94,13 +99,13 @@ const ModalTest = ({ ...props }) => {
       )}
 
       {/* step to goals */}
-      {step === "CreateGoals" && (
+      {modalStep === "CreateGoals" && (
         <SettingGoalsCard
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
         />
       )}
-      {step === "SaveGoals" && (
+      {modalStep === "SaveGoals" && (
         <SaveGoals
           changeStep={(item) => setStep(item)}
           // onClose={(item) => setStep(item)}
@@ -108,11 +113,11 @@ const ModalTest = ({ ...props }) => {
       )}
 
       {/* step to edit photo */}
-      {step === "EditPhoto" && (
+      {modalStep === "EditPhoto" && (
         <EditPhoto changeStep={(item) => setStep(item)} />
       )}
       {/* step to edit note */}
-      {step === "EditNote" && (
+      {modalStep === "EditNote" && (
         <ModalDetailNote
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
@@ -136,7 +141,7 @@ const ModalTest = ({ ...props }) => {
           }
         />
       )}
-      {step === "SaveChanges" && (
+      {modalStep === "SaveChanges" && (
         <SaveChanges changeStep={(item) => setStep(item)} />
       )}
     </>

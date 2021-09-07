@@ -8,39 +8,40 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getNote, getNoteDetail } from "../redux/action/note";
+import ModalTest from "./modalTest";
+import { changeStep } from "../redux/action/global";
+import { deleteNote } from "../redux/action/note";
 
-export default function DetailNote({
-  onClose,
-  changeDataBody,
-  changeDataTitle,
-  noteData,
-  changeDataColor,
-  changeDataPinned,
-  onSave,
-  setStep,
-  changeStep,
-}) {
-  const { allData } = useSelector((state) => state.allNote.noteData);
-  const { detail } = useSelector((state) => state.allNote.noteDataDetail);
+export default function DetailNote({ ...props }) {
+  const {
+    noteData,
+    changeDataPinned,
+    onSave,
+    changeDataTitle,
+    changeDataBody,
+    changeDataColor,
+  } = props;
+  // const { allData } = useSelector((state) => state.allNote.noteData);
+  // const { detail } = useSelector((state) => state.allNote.noteDataDetail);
   const dispatch = useDispatch();
+  console.log("prop detail", props);
 
-  useEffect(() => {
-    dispatch(getNote());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getNoteDetail());
-  }, [dispatch]);
-
-  console.log("allData", allData);
-  console.log("datadetail", detail?.data?.id);
+  // useEffect(
+  //   (id) => {
+  //     dispatch(getNoteDetail(id));
+  //   },
+  //   [dispatch]
+  // );
+  console.log(dispatch);
+  console.log("allData");
+  // console.log("datadetail", detail?.data?.id);
   return (
     <div className="detailNote__outside modal-backdrop">
       <div className="detailNote__container position-relative">
         <div className="detailNote__close position-absolute top-0 start-100 translate-middle">
           <button
             onClick={() => {
-              onClose(false);
+              dispatch(changeStep(""));
             }}
           >
             <img src={vectorClose} alt="" />
@@ -54,7 +55,12 @@ export default function DetailNote({
             <button onClick={() => changeDataPinned(!noteData.pinned)}>
               <img src={PinEdit} alt="" />
             </button>
-            <button>
+            <button
+              onClick={(id) => {
+                getNoteDetail();
+                dispatch(deleteNote(id));
+              }}
+            >
               <img src={TrashEdit} alt="" />
             </button>
           </div>
@@ -75,9 +81,6 @@ export default function DetailNote({
             <img src={notifLogo} alt="" />
           </div>
         </div>
-        {/* <div className="detailNote__titleContent">
-          <h3>Title: Understanding Business</h3>
-        </div> */}
         <div className="detailNote__content">
           <p>hei</p>
         </div>
@@ -90,27 +93,23 @@ export default function DetailNote({
           <button className="color5"></button>
         </div>
         <div className="detailNote__button">
-          <button onClick={() => changeStep("NoteModal")}>Edit</button>
-          <button onClick={() => setStep("SaveChanges")}>Mark as done</button>
+          <button
+            onClick={() => {
+              dispatch(changeStep("InputNote"));
+            }}
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => {
+              dispatch(changeStep("SaveChanges"));
+              onSave();
+            }}
+          >
+            Mark as done
+          </button>
         </div>
       </div>
     </div>
   );
 }
-
-// export default function ModalDetailNote() {
-//   const [modalDetailNote, setModalDetailNote] = useState(false);
-//   return (
-//     <div className="detailNote__openNote">
-//       <button
-//         className="openDetailNote"
-//         onClick={() => {
-//           setModalDetailNote(true);
-//         }}
-//       >
-//         Detail Note
-//       </button>
-//       {modalDetailNote && <DetailNote closeDetailNote={setModalDetailNote} />}
-//     </div>
-//   );
-// }
