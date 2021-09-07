@@ -21,7 +21,7 @@
 .allNote__wrapper {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow-y: auto;
 
   button {
     border-style: none;
@@ -32,11 +32,12 @@
 .allNote__card {
   background-color: #ffbcc2;
   // width: 100%;
-  max-width: 20rem;
-  max-height: 10rem;
+  width: 20rem;
+  height: 10rem;
   border-radius: 20px;
   padding: 1rem;
   margin: 1rem;
+  overflow: auto;
   .allNote__title {
     display: flex;
     justify-content: space-between;
@@ -46,12 +47,19 @@
     }
   }
 }
-
+.allNote__wrapper {
+  overflow-x: auto;
+}
 .allNote__borderLine {
   img {
     margin-top: 2rem;
     margin-left: 400px;
     width: 65%;
+  }
+}
+.allNote__content {
+  p {
+    overflow-wrap: break-word;
   }
 }
 

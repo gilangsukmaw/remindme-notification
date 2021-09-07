@@ -37,14 +37,27 @@
   overflow-y: auto;
 }
 
+.unpinned__content {
+  p {
+    overflow-wrap: break-word;
+  }
+}
+
+.unpinned__title {
+  max-width: 300px;
+  h5 {
+    overflow-wrap: break-word;
+  }
+}
+
 .unpinned__card {
   background-color: #ffbcc2;
   display: flexbox;
   flex-direction: column;
   // box-sizing:content-box;
   overflow: auto;
-  max-width: 15rem;
-  max-height: 30rem;
+  width: 350px;
+  height: 200px;
   // max-width: 250px;
   // max-height: 300px;
   border-radius: 20px;
