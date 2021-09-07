@@ -5,8 +5,10 @@ import "./editStyle.css";
 import { putUser, getUser } from "../../redux/action/user";
 import { useDispatch, useSelector } from "react-redux";
 import ModalEditSuccess from "../../modal/ModalEditSuccess";
+import ModalEditPhoto from "../../modal/ModalEditPhoto"
+import EditPhotoProfile from '../../modal/EditPhoto/EditPhoto';
 
-export default function Edit() {
+export default function Edit(step, changeStep) {
   const { user } = useSelector((state) => state.userData.userInfo);
   const showModal = useSelector((state) => state.userData.showModal);
   const dispatch = useDispatch();
@@ -38,14 +40,19 @@ export default function Edit() {
           <h1>Edit Profile</h1>
         </div>
         <div className="wrapper-edit">
+
           <div className="head">
             <img  src={user?.data?.image} alt="" style={{width:'230px', height:'230px', borderRadius:'100%', marginBottom:'0.78rem', boxShadow:'10px 15px 20px 0px grey'}}/>
-            <div className="edit-profile">
-              {/* {type === "EditPhoto" ? <ModalEditPhoto /> : null} */}
-              <img src={edit} style={{width:'12.2rem', }} alt="edit" />
+            
+           <div className="edit-profile">
+              {/* {step === "EditPhoto" ? <ModalEditPhoto /> : null} */}
+              <EditPhotoProfile firstname={user?.data?.firstname} lastname={user?.data?.lastname} username={user?.data?.username} />
+
+              {/* <img src={edit} style={{width:'12.2rem', }} alt="edit" /> */}
             </div>
-            <p style={{ marginTop: "-40px" }}>Edit Photo</p>
+            {/* <p style={{ marginTop: "-60px" }}>Edit Photo</p> */}
           </div>
+
           <div className="content-edit">
             <form className="edit-Form" onSubmit={(e) => e.preventDefault()}>
               <div className="bungkusSemua">

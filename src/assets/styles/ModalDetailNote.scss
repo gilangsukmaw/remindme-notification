@@ -14,9 +14,9 @@ $font-family: 'Poppins', sans-serif;
     font-family: $font-family;
 }
 
-* {
-    color: $color-text;
-}
+// * {
+//     color: $color-text;
+// }
 //mixin
 @mixin note__color {
         border-radius: 21px;

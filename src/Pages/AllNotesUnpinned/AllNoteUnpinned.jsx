@@ -26,14 +26,14 @@ export default function AllNoteUnpinned(props) {
             .map((item, index) => (
               <div key={index} className="unpinned__card">
                 <div className="unpinned__title">
-                  <h5>{item?.title}</h5>
+                  <h5 >{item?.title}</h5>
                   <img src={unpinnedLogo} alt="" />
                 </div>
                 <div className="unpinned__time">
-                  <p>{item?.dateNote}</p>
+                  <p >{item?.dateNote}</p>
                 </div>
                 <div className="unpinned__content">
-                  <p>{item?.body}</p>
+                  <p >{item?.body}</p>
                 </div>
               </div>
             ))}

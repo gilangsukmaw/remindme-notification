@@ -111,13 +111,11 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
                   placement='bottom'
                   overlay={
                     <Tooltip id={`SetYourGoals`} >
-                      Set Your  <strong>Goals</strong>.
+                      Build Amazing Goals
                     </Tooltip>
                   }
-
                 >
                   <Button
-                  title='hahahah'
                     className="BuildButton"
                     variant="secondary"
                     value={state.goal_type} onClick={(e) => setState({ ...state,goal_type: "build"  })}
@@ -130,7 +128,13 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
                     Build
                   </Button>
                   </OverlayTrigger>
-                  
+                   <OverlayTrigger className='InformationPopUp'
+                  placement='bottom'
+                  overlay={
+                    <Tooltip id={`SetYourGoals`} >
+                      Quit Something
+                    </Tooltip>
+                  }>
                   <Button
                     className="BuildButton"
                     variant="secondary"
@@ -143,7 +147,8 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
                   >
                     Quit
                   </Button>
-                  {/* <p>{`${state.goal_type}`}</p> */}
+                  </OverlayTrigger>
+
                 </Col>
               </div>
               <div className="d-flex flex-row justify-content-between">

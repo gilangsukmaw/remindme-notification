@@ -271,9 +271,15 @@
     width: 1000px;
   }
 }
-@media (min-width: 1500px) {
+@media (min-width: 1441px) {
   .landing__header{
-    width: 1400px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-content: space-between;
+
+.header__logo{
+    padding-right: 15rem;}
   }
 }
 
