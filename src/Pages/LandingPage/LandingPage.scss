@@ -54,10 +54,9 @@
 }
 
 .intro__left {
-  h1{
+  h1 {
     // margin-top: 2rem;
     font-weight: 600;
-
   }
   button {
     background: #625bad;
@@ -176,7 +175,7 @@
   background-color: #625bad;
   display: flex;
   justify-content: flex-end;
-  padding: 1rem 2rem 5rem 2rem ;
+  padding: 1rem 2rem 5rem 2rem;
   p {
     color: white;
   }
@@ -210,7 +209,7 @@
     flex-direction: column-reverse;
     padding-bottom: 3rem;
   }
-  .intro__right{
+  .intro__right {
     margin-top: -2rem;
   }
   .intro__left {
@@ -220,7 +219,7 @@
     p {
       text-align: center;
     }
-    h1{
+    h1 {
       margin-top: -3rem;
     }
     button {
@@ -252,7 +251,6 @@
     justify-content: center;
     padding-top: 1rem;
   }
-
 }
 
 @media screen and (width: 1440px) {
@@ -272,24 +270,25 @@
   }
 }
 @media (min-width: 1441px) {
-  .landing__header{
+  .landing__header {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     align-content: space-between;
 
-.header__logo{
-    padding-right: 15rem;}
+    .header__logo {
+      padding-right: 15rem;
+    }
   }
 }
 
 @media screen and (min-width: 1980px) {
-  .landing__top{
+  .landing__top {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .landing__header{
+    .landing__header {
       width: 1400px;
     }
   }
