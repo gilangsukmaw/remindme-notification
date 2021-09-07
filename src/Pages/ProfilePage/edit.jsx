@@ -5,8 +5,6 @@ import "./editStyle.css";
 import { putUser, getUser } from "../../redux/action/user";
 import { useDispatch, useSelector } from "react-redux";
 import ModalEditSuccess from "../../modal/ModalEditSuccess";
-import axios from "axios";
-
 export default function Edit() {
   const { user } = useSelector((state) => state.userData.userInfo);
   const showModal = useSelector((state) => state.userData.showModal);
@@ -14,7 +12,6 @@ export default function Edit() {
   const Token = localStorage.getItem("Token");
 
   const [update, setUpdate] = useState({
-    image: " ",
     firstname: "",
     lastname: "",
     username: "",
@@ -33,6 +30,7 @@ export default function Edit() {
   }, [user?.data]);
 
   console.log("user edit", update);
+  console.log("open modal", openEdit);
   return (
     <div>
       <div className="profile">
@@ -40,24 +38,17 @@ export default function Edit() {
           <h1>Edit Profile</h1>
         </div>
         <div className="wrapper-edit">
-          <div className="head">
+          <div className="head-edit">
             <img src={user?.data?.image} alt="" style={{ width: "230px", height: "230px", borderRadius: "100%", marginBottom: "0.78rem", boxShadow: "10px 15px 20px 0px grey" }} />
             <div className="edit-profile">
-              {/* {type === "EditPhoto" ? <ModalEditPhoto /> : null} */}
               <img src={edit} style={{ width: "12.2rem" }} alt="edit" />
+              <p style={{ marginTop: "-40px", marginLeft: "3.5rem" }}>Edit Photo</p>
             </div>
-            <p style={{ marginTop: "-40px" }}>Edit Photo</p>
           </div>
           <div className="content-edit">
             <form className="edit-Form" onSubmit={(e) => e.preventDefault()}>
               <div className="bungkusSemua">
                 <div className="bungkusFirstname">
-                  <div className="label">
-                    <h4 htmlfor="" className="">
-                      Upload Image
-                    </h4>
-                    <input type="file" className="input-Edit" onChange={(e) => setUpdate({ ...update, image: e.target.files[0] })} />
-                  </div>
                   <div className="label">
                     <h4 htmlfor="" className="">
                       First Name
