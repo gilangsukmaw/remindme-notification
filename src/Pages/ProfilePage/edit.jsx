@@ -12,7 +12,7 @@ export default function Edit() {
   const showModal = useSelector((state) => state.userData.showModal);
   const dispatch = useDispatch();
   const Token = localStorage.getItem("Token");
-  const [imageSelected, setImageSelected] = useState("");
+
   const [update, setUpdate] = useState({
     image: " ",
     firstname: "",
@@ -23,12 +23,6 @@ export default function Edit() {
     new_password: "",
     confirm_password: "",
   });
-  const uploadImage = () => {
-    const formData = new FormData();
-    formData.append("file", imageSelected);
-
-    axios.put(`https://remindme.gabatch13.my.id/api/v1/user`, formData, update, { headers: { Authorization: `Bearer ${Token}` } });
-  };
 
   useEffect(() => {
     dispatch(getUser());
@@ -110,7 +104,7 @@ export default function Edit() {
                 </div>
               </div>
               <div className="bungkusTombol">
-                <button type="submit" className="btn-save" onClick={(() => dispatch(putUser(update)), uploadImage)}>
+                <button type="submit" className="btn-save" onClick={() => dispatch(putUser(update))}>
                   Save
                 </button>
                 {showModal ? <ModalEditSuccess /> : null}
