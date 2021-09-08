@@ -9,17 +9,15 @@ export default function Edit(step, changeStep) {
   const { user } = useSelector((state) => state.userData.userInfo);
   const showModal = useSelector((state) => state.userData.showModal);
   const dispatch = useDispatch();
-
   const [update, setUpdate] = useState({
     firstname: "",
     lastname: "",
     username: "",
     email: "",
-    password: "",
+    pasword: "",
     new_password: "",
-    confirm_password: "",
+    confirm_pasword: "",
   });
-
   useEffect(() => {
     dispatch(getUser());
   }, []);

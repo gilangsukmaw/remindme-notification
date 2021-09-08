@@ -73,6 +73,15 @@
   }
 }
 
+.unpinned__card::-webkit-scrollbar {
+  display: none;
+}
+
+.unpinned__card {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
 @media (max-width: 1024px) {
   .unpinned__borderLine {
     img {
