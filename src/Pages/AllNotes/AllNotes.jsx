@@ -66,17 +66,15 @@ const AllNotesCreate = ({ ...props }) => {
                     await dispatch(changeStep("EditNote"));
                   }}
                 >
-                  <div className="allNote__overflow">
-                    <div className="allNote__title">
-                      <h5>{item?.title}</h5>
-                      <img src={PinCard} alt="" />
-                    </div>
-                    <div className="allNote__time">
-                      <p>{item?.dateNote}</p>
-                    </div>
-                    <div className="allNote__content">
-                      <p>{item?.body}</p>
-                    </div>
+                  <div className="allNote__title">
+                    <h5>{item?.title}</h5>
+                    <img src={PinCard} alt="" />
+                  </div>
+                  <div className="allNote__time">
+                    <p>{item?.dateNote}</p>
+                  </div>
+                  <div className="allNote__content">
+                    <p>{item?.body}</p>
                   </div>
                 </div>
                 // </button>
