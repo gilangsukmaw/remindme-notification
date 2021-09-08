@@ -30,10 +30,11 @@ function Navbar({ ...props }) {
                 src={user?.data?.image}
                 alt=""
                 style={{
-                  width: "80px",
-                  height: "80px",
+                  width: "100px",
+                  height: "100px",
                   borderRadius: "100%",
-                  boxShadow: "0px 0px 10px 1px #625BAD",
+                  boxShadow: "0px 0px 10px 10px #625BAD",
+                  marginBottom: "2rem",
                 }}
               />
               <p>{user ? user.data && user.data.username : null}</p>
@@ -59,7 +60,7 @@ function Navbar({ ...props }) {
             </Link>
           </div>
           <div className="sidebarItems content">
-            <Link to="/Profile">
+            <Link to="/profile">
               <p>My Profile</p>
             </Link>
           </div>

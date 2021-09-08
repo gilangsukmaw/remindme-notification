@@ -21,10 +21,14 @@ function Router() {
   const onSaveNote = () => {};
   const [noteColor, setNoteColor] = useState("#f1f4fa");
   const onSaveColor = () => {};
+  console.log("window location", window.location.pathname);
+
+  const validPage =
+    window.location.pathname === "/newUser" || window.location.pathname === "/profile" || window.location.pathname === "/allNote" || window.location.pathname === "/allGoals" || window.location.pathname === "/editProfile" ? true : false;
 
   return (
     <>
-      {isLogin ? <Navbar setStep={setStep} /> : null}
+      {isLogin && window.location.pathname !== "/" && validPage ? <Navbar setStep={setStep} /> : null}
       <Switch>
         <Route exact path="/newUser">
           <NewUser

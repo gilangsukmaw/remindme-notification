@@ -104,7 +104,9 @@ function MyVerticallyCenteredModal(props) {
               width: 450,
               confirmButtonText: "Ok",
               confirmButtonColor: "#625BAD",
-              title: 'Congratulations! You successfully saved your goal',
+              // title: 'Congratulations! You successfully saved your goal',
+              text: 'Congratulations! You successfully saved your goal',
+
             })
             console.log(res)
         } catch (error) {

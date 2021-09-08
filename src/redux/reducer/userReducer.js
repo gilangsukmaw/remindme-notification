@@ -1,4 +1,4 @@
-import { GET_USER_FAIL, GET_USER_SUCCESS, GET_USER_BEGIN, PUT_ALERT_SUCCESS, PUT_ALERT_BEGIN } from "../const/type";
+import { GET_USER_FAIL, GET_USER_SUCCESS, GET_USER_BEGIN, PUT_ALERT_SUCCESS } from "../const/type";
 
 const initialState = {
   userInfo: {

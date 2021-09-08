@@ -1,0 +1,88 @@
+.EditPhotoButton {
+  #ButtonPhoto {
+    background: transparent;
+    border: transparent !important;
+    border-color: transparent;
+    // width: 0px;
+    // height: 1px;
+    &:visited,
+    &:after,
+    &:focus,
+    &:active,
+    &:focus-visible {
+      border: transparent !important;
+      border-color: none;
+      outline-color: none;
+      outline: none;
+    }
+  }
+}
+
+.edit__outside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.modal-backdrop {
+    background-color: rgba(196, 196, 196, 0.5);
+  }
+}
+
+.edit__container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #f1f4fa;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  width: 616px;
+  height: 371px;
+}
+
+.edit__wrapper {
+  height: 300px;
+  width: 600px;
+  .edit__title {
+    display: flex;
+    justify-content: space-evenly;
+    p {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 20px;
+    }
+  }
+  button {
+    border: none;
+    background-color: #f1f4fa;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.edit__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+
+  .edit__remove,
+  .edit__take,
+  .edit__add {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    p {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+  }
+}

@@ -6,7 +6,6 @@ import CircularNotes from "../../component/CircularGoals/CircularNotes";
 import ReminderCard from "./ReminderCard";
 import Garis from "../../assets/images/GoalDetailLine.png";
 import CobaCalendar from "../../Calendar";
-import moment from "moment";
 
 function HomeExisting() {
   return (
@@ -28,9 +27,7 @@ function HomeExisting() {
                 <p>Your progress are growing up!</p>
               </div>
               <Container className="CircularGoals">
-                <CircularNotes
-                  style={{ height: "20rem", background: "black" }}
-                />
+                <CircularNotes style={{ height: "20rem", background: "black" }} />
               </Container>
             </div>
           </div>

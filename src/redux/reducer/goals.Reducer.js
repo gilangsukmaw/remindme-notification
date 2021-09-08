@@ -1,8 +1,4 @@
-import {
-  GET_ALLGOALS_FAIL,
-  GET_ALLGOALS_SUCCESS,
-  GET_ALLGOALS_BEGIN,
-} from "../const/type";
+import { GET_ALLGOALS_FAIL, GET_ALLGOALS_SUCCESS, GET_ALLGOALS_BEGIN } from "../const/type";
 
 const initialState = {
   goalsData: {

@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import pp from "../../assets/images/Ellipse 34.png";
-import edit from "../../assets/images/Ellipse 107.png";
 import "./editStyle.css";
 import { putUser, getUser } from "../../redux/action/user";
 import { useDispatch, useSelector } from "react-redux";
 import ModalEditSuccess from "../../modal/ModalEditSuccess";
+import EditPhotoProfile from "../../modal/EditPhoto/EditPhoto";
 
-export default function Edit() {
+export default function Edit(step, changeStep) {
   const { user } = useSelector((state) => state.userData.userInfo);
   const showModal = useSelector((state) => state.userData.showModal);
   const dispatch = useDispatch();
-  const Token = localStorage.getItem("Token");
 
   const [update, setUpdate] = useState({
     firstname: "",
@@ -39,13 +37,17 @@ export default function Edit() {
         </div>
         <div className="wrapper-edit">
           <div className="head">
-            <img  src={user?.data?.image} alt="" style={{width:'230px', height:'230px', borderRadius:'100%', marginBottom:'0.78rem', boxShadow:'10px 15px 20px 0px grey'}}/>
+            <img src={user?.data?.image} alt="" style={{ width: "230px", height: "230px", borderRadius: "100%", marginBottom: "0.78rem", boxShadow: "10px 15px 20px 0px grey" }} />
+
             <div className="edit-profile">
-              {/* {type === "EditPhoto" ? <ModalEditPhoto /> : null} */}
-              <img src={edit} style={{width:'12.2rem', }} alt="edit" />
+              {/* {step === "EditPhoto" ? <ModalEditPhoto /> : null} */}
+              <EditPhotoProfile firstname={user?.data?.firstname} lastname={user?.data?.lastname} username={user?.data?.username} />
+
+              {/* <img src={edit} style={{width:'12.2rem', }} alt="edit" /> */}
             </div>
-            <p style={{ marginTop: "-40px" }}>Edit Photo</p>
+            {/* <p style={{ marginTop: "-60px" }}>Edit Photo</p> */}
           </div>
+
           <div className="content-edit">
             <form className="edit-Form" onSubmit={(e) => e.preventDefault()}>
               <div className="bungkusSemua">
@@ -79,7 +81,7 @@ export default function Edit() {
                     <h4 htmlfor="" className="">
                       Old Password
                     </h4>
-                    <input type="password" className="input-Edit" value={update?.password} onChange={(e) => setUpdate({ ...update, password: e.target.value })} />
+                    <input type="password" className="input-Edit" onChange={(e) => setUpdate({ ...update, password: e.target.value })} />
                   </div>
                   <div className="label">
                     <h4 htmlfor="" className="">

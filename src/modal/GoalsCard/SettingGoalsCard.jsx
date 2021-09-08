@@ -133,13 +133,10 @@ function SettingGoalsCard({ show, onClose, props }) {
                   className="InformationPopUp"
                   placement="bottom"
                   overlay={
-                    <Tooltip id={`SetYourGoals`}>
-                      Set Your <strong>Goals</strong>.
-                    </Tooltip>
+                    <Tooltip id={`SetYourGoals`}>Build Amazing Goals</Tooltip>
                   }
                 >
                   <Button
-                    title="hahahah"
                     className="BuildButton"
                     variant="secondary"
                     value={state.goal_type}
@@ -153,21 +150,27 @@ function SettingGoalsCard({ show, onClose, props }) {
                     Build
                   </Button>
                 </OverlayTrigger>
-
-                <Button
-                  className="BuildButton"
-                  variant="secondary"
-                  value={state.goal_type}
-                  onClick={(e) => setState({ ...state, goal_type: "quit" })}
-                  style={{
-                    borderRadius: "40px",
-                    width: "45%",
-                    fontWeight: "700",
-                  }}
+                <OverlayTrigger
+                  className="InformationPopUp"
+                  placement="bottom"
+                  overlay={
+                    <Tooltip id={`SetYourGoals`}>Quit Something</Tooltip>
+                  }
                 >
-                  Quit
-                </Button>
-                {/* <p>{`${state.goal_type}`}</p> */}
+                  <Button
+                    className="BuildButton"
+                    variant="secondary"
+                    value={state.goal_type}
+                    onClick={(e) => setState({ ...state, goal_type: "quit" })}
+                    style={{
+                      borderRadius: "40px",
+                      width: "45%",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Quit
+                  </Button>
+                </OverlayTrigger>
               </Col>
             </div>
             <div className="d-flex flex-row justify-content-between">
