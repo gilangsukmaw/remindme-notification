@@ -13,6 +13,7 @@ import DetailNote from "./ModalDetailNote";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeStep } from "../redux/action/global";
+import ModalDelete from "../modal/ModalDelete";
 
 const ModalTest = ({ ...props }) => {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ const ModalTest = ({ ...props }) => {
         }
       );
       dispatch(changeStep("SaveNotes"));
+
       console.log(res);
     } catch (error) {
       if (error.response.status === 404) {
@@ -144,6 +146,7 @@ const ModalTest = ({ ...props }) => {
       {modalStep === "SaveChanges" && (
         <SaveChanges changeStep={(item) => setStep(item)} />
       )}
+      {modalStep === "DeleteSuccess" && <ModalDelete />}
     </>
   );
 };

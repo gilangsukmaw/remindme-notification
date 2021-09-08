@@ -34,32 +34,39 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    
+    overflow-y: auto;
 }
 
 .unpinned__card {
     background-color: #FFBCC2;
     // width: 100%;
     width: 350px;
-  height: 200px;
+    height: 200px;
     border-radius: 20px;
     padding: 1rem;
     margin: 1rem;
-    .unpinned__title {
-        display: flex;
-        justify-content: space-between;
-        width: 300px;
-        img {
-            width: 1rem;
-            height: 1rem;
-        }
+    overflow: auto;
+}
+
+.unpinned__title {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    img {
+        width: 1rem;
+        height: 1rem;
     }
-    .unpinned__time {
-        width: 300px;
-    }
-    .unpinned__content {
-        width: 300px;
-        height: 150px;
+}
+
+.unpinned__time {
+    width: 300px;
+}
+
+.unpinned__content {
+    // width: 300px;
+    // height: 150px;
+    p {
+        overflow-wrap: break-word;
     }
 }
 

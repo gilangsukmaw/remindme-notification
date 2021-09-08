@@ -9,7 +9,6 @@ import { put, takeLatest } from "redux-saga/effects";
 function* deleteNote(actions) {
   const { id } = actions;
   const Token = localStorage.getItem("Token");
-  yield console.log(Token);
   try {
     const res = yield axios.get(
       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
@@ -19,6 +18,7 @@ function* deleteNote(actions) {
     yield put({
       type: DELETE_NOTE_SUCCESS,
       payload: res.data.data,
+      id,
     });
   } catch (error) {
     yield put({

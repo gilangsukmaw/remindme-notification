@@ -12,7 +12,7 @@ const Token = localStorage.getItem("Token");
 
 function* getNote() {
   // const { body } = actions;
-  yield console.log(Token);
+  // yield console.log(Token);
   try {
     const res = yield axios.get(
       `https://remindme.gabatch13.my.id/api/v1/notes/`,

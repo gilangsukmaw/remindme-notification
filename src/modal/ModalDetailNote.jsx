@@ -57,8 +57,9 @@ export default function DetailNote({ ...props }) {
             </button>
             <button
               onClick={(id) => {
-                getNoteDetail();
+                getNoteDetail(id);
                 dispatch(deleteNote(id));
+                dispatch(changeStep("DeleteSuccess"));
               }}
             >
               <img src={TrashEdit} alt="" />

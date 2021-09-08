@@ -23,7 +23,7 @@ const AllNotesCreate = ({ ...props }) => {
     changeDataTime,
   } = props;
 
-  console.log(props);
+  // console.log(props);
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.allNote.noteData);
   // const modalStep = useSelector((state) => state.global.modalStep);
@@ -51,7 +51,6 @@ const AllNotesCreate = ({ ...props }) => {
                 onClick={async () => {
                   await dispatch(changeStep("EditNote"));
                   await dispatch(getNoteDetail(item.id));
-                  console.log("id", item.id);
                 }}
               >
                 <div className="allNote__overflow">

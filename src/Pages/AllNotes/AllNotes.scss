@@ -22,31 +22,27 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-
+  // overflow-y: auto;
+  
   button {
     border-style: none;
     background: none;
   }
 }
 
-.allNote__overflow {
-  overflow-y: auto;
-}
-
-.allNote__content p{
-  
-  overflow-wrap: anywhere;
-  
-}
+// .allNote__overflow {
+//   overflow-y: auto;
+// }
 
 .allNote__card {
   background-color: #ffbcc2;
   // width: 100%;
-  max-width: 350px;
-  max-height: 200px;
+  width: 350px;
+  height: 200px;
   border-radius: 20px;
   padding: 1rem;
   margin: 1rem;
+  overflow: auto;
   .allNote__title {
     display: flex;
     justify-content: space-between;
@@ -57,17 +53,19 @@
     }
   }
   .allNote__time {
-    
     width: 300px;
     
   }
   .allNote__content {
-    width: 300px;
-    height: 150px;
     p {
-      height: 100px;
+
+      // width: 300px;
+      // height: 150px;
+      overflow-wrap: break-word;
     }
-  }
+   
+    
+}
 }
 
 .allNote__borderLine {
@@ -93,7 +91,6 @@
 
   .allNote__borderLine {
     img {
-
       width: 21rem ;
     }
   }
