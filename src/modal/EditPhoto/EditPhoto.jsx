@@ -50,7 +50,7 @@ function EditPhotoProfile(props) {
           console.log(res.data);
           dispatch(getUser());
           setPhotoGalleryShow(false);
-          window.location.reload();
+          // window.location.reload();
         })
         .catch((err) => console.log(err));
     };

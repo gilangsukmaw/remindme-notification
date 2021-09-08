@@ -38,10 +38,9 @@ function* putUser(actions) {
     });
     // yield window.location.reload();
   } catch (err) {
-    console.log("put fail", err);
     yield put({
       type: PUT_USER_FAIL,
-      error: error,
+      payload: err.response.data.errors,
     });
   }
 }

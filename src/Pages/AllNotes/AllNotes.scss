@@ -21,7 +21,7 @@
 .allNote__wrapper {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow-y: auto;
 
   button {
     border-style: none;
@@ -32,11 +32,12 @@
 .allNote__card {
   background-color: #ffbcc2;
   // width: 100%;
-  max-width: 20rem;
-  max-height: 10rem;
+  width: 20rem;
+  height: 10rem;
   border-radius: 20px;
   padding: 1rem;
   margin: 1rem;
+  overflow-y: auto;
   .allNote__title {
     display: flex;
     justify-content: space-between;
@@ -47,11 +48,32 @@
   }
 }
 
+.allNote__card::-webkit-scrollbar {
+  display: none;
+}
+
+.allNote__wrapper::-webkit-scrollbar {
+  height: 10px;
+}
+
+.allNote__card {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+.allNote__wrapper::-webkit-scrollbar {
+  overflow-x: auto;
+}
+
 .allNote__borderLine {
   img {
     margin-top: 2rem;
     margin-left: 400px;
-    width: 65%;
+    width: 66%;
+  }
+}
+.allNote__content {
+  p {
+    overflow-wrap: break-word;
   }
 }
 
@@ -66,5 +88,15 @@
 @media (max-width: 768px) {
   .allNote__container {
     margin-right: 0;
+  }
+}
+
+@media (min-width: 1441px) {
+  .allNote__borderLine {
+    img {
+      margin-top: 2rem;
+      margin-left: 400px;
+      width: 78%;
+    }
   }
 }

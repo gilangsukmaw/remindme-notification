@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import pp from "../../assets/images/Ellipse 34.png";
-import edit from "../../assets/images/Ellipse 107.png";
 import "./editStyle.css";
 import { putUser, getUser } from "../../redux/action/user";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,17 +9,15 @@ export default function Edit(step, changeStep) {
   const { user } = useSelector((state) => state.userData.userInfo);
   const showModal = useSelector((state) => state.userData.showModal);
   const dispatch = useDispatch();
-
   const [update, setUpdate] = useState({
     firstname: "",
     lastname: "",
     username: "",
     email: "",
-    password: "",
+    pasword: "",
     new_password: "",
-    confirm_password: "",
+    confirm_pasword: "",
   });
-
   useEffect(() => {
     dispatch(getUser());
   }, []);
@@ -83,7 +79,7 @@ export default function Edit(step, changeStep) {
                     <h4 htmlfor="" className="">
                       Old Password
                     </h4>
-                    <input type="password" className="input-Edit" value={update?.password} onChange={(e) => setUpdate({ ...update, password: e.target.value })} />
+                    <input type="password" className="input-Edit" onChange={(e) => setUpdate({ ...update, password: e.target.value })} />
                   </div>
                   <div className="label">
                     <h4 htmlfor="" className="">

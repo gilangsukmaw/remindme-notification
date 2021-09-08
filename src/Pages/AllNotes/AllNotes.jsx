@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNote } from "../../redux/action/note";
 import Line from "../../assets/images/GoalDetailLine.png";
 import AllNoteUnpinned from "../AllNotesUnpinned/AllNoteUnpinned";
-import ModalDetailNote from "../../modal/ModalDetailNote";
 
 const AllNotesCreate = ({ ...props }) => {
   const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
