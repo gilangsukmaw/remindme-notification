@@ -45,8 +45,14 @@
 
 .unpinned__title {
   max-width: 300px;
+  display: flex;
+  justify-content: space-between;
   h5 {
     overflow-wrap: break-word;
+  }
+  img {
+    width: 1rem;
+    height: 1rem;
   }
 }
 

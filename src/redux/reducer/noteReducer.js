@@ -25,7 +25,12 @@ const initialState = {
     errorDetail: null,
   },
   noteDataDelete: {
-    data: [],
+    delete: [],
+  },
+  noteDataUpdate: {
+    update: [],
+    loadingUpdate: false,
+    errorUpdate: null,
   },
 };
 
@@ -89,24 +94,25 @@ const allNote = (state = initialState, action) => {
       };
     case DELETE_NOTE_BEGIN:
       return {
-        noteData: {
-          data: [],
+        ...state,
+        noteDataDelete: {
+          delete: [],
           loading: true,
           error: null,
         },
       };
     case DELETE_NOTE_SUCCESS:
       return {
-        noteData: {
-          data: [
-            ...state.noteData.filter((item) => item.id !== action.payload),
-          ],
+        ...state,
+        noteDataDelete: {
+          delete: [],
         },
       };
     case DELETE_NOTE_FAIL:
       return {
-        noteData: {
-          data: [],
+        ...state,
+        noteDataDelete: {
+          delete: [],
           loading: false,
           error: error,
         },
@@ -114,7 +120,7 @@ const allNote = (state = initialState, action) => {
     case UPDATE_NOTE_BEGIN:
       return {
         ...state,
-        noteData: {
+        noteDataUpdate: {
           data: [],
           loading: true,
           error: null,
@@ -123,13 +129,19 @@ const allNote = (state = initialState, action) => {
     case UPDATE_NOTE_SUCCESS:
       return {
         ...state,
-        noteData: state.noteData.data.map(
-          (newUpdate) => [newUpdate.id, newUpdate].values
-        ),
+        noteDataUpdate: {
+          data: payload,
+          loading: false,
+          error: error,
+        },
+        // noteDataUpdate: state.noteData.data.map(
+        //   (newUpdate) => [newUpdate.id, newUpdate].values
+        // ),
       };
     case UPDATE_NOTE_FAIL:
       return {
-        noteData: {
+        ...state,
+        noteDataUpdate: {
           data: [],
           loading: false,
           error: error,

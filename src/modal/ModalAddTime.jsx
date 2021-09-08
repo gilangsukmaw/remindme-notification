@@ -53,7 +53,7 @@ export default function TimeModal({
               <input
                 onChange={(e) => changeDataTime(e.target.value)}
                 value={noteData.timeNote}
-                type="time"
+                type="text"
                 className="input-time"
                 id="time"
               />

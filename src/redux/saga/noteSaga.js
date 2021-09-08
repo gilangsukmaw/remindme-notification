@@ -38,10 +38,10 @@ function* getNoteDetail(actions) {
       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
       { headers: { Authorization: `Bearer ${Token}` } }
     );
-    yield console.log("res", res);
+    yield console.log("res", res.data.data);
     yield put({
       type: GET_NOTEDETAIL_SUCCESS,
-      payload: res.data,
+      payload: res.data.data,
     });
   } catch (error) {
     yield put({

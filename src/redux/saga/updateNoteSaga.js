@@ -6,7 +6,7 @@ import {
 } from "../const/type";
 import { put, takeEvery } from "redux-saga/effects";
 
-function* updateNote(id, newUpdate) {
+function* updateNote(id, body) {
   const Token = localStorage.getItem("Token");
   // yield console.log(Token);
   try {
@@ -17,7 +17,7 @@ function* updateNote(id, newUpdate) {
     yield console.log(res.data.data);
     yield put({
       type: UPDATE_NOTE_SUCCESS,
-      payload: { id, newUpdate },
+      payload: { id, body },
     });
   } catch (error) {
     yield put({

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/styles/ModalDetailNote.scss";
 import PinEdit from "../assets/images/PinEdit.png";
 import TrashEdit from "../assets/images/TrashEdit.png";
@@ -8,33 +8,64 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getNote, getNoteDetail } from "../redux/action/note";
-import ModalTest from "./modalTest";
 import { changeStep } from "../redux/action/global";
 import { deleteNote } from "../redux/action/note";
 
 export default function DetailNote({ ...props }) {
-  const {
-    noteData,
-    changeDataPinned,
-    onSave,
-    changeDataTitle,
-    changeDataBody,
-    changeDataColor,
-  } = props;
+  const [updateNote, setUpdateNote] = useState({
+    title: "",
+    body: "",
+    dateNote: "",
+    pinned: false,
+    color: "",
+  });
+  const { changeDataPinned, noteData, stateId } = props;
+  useEffect(() => {
+    dispatch(getNote());
+  }, []);
+
+  // useEffect(() => {
+  //   setUpdateNote({
+  //     ...updateNote,
+  //     title: tes?.data?.title,
+  //     body: tes?.data?.body,
+  //     dateNote: tes?.data?.dateNote,
+  //     pinned: true,
+  //     color: tes?.data?.color,
+  //   });
+  // }, []);
   // const { allData } = useSelector((state) => state.allNote.noteData);
   // const { detail } = useSelector((state) => state.allNote.noteDataDetail);
+  const detail = useSelector((state) => state.allNote.noteDataDetail.data);
   const dispatch = useDispatch();
   console.log("prop detail", props);
-
-  // useEffect(
-  //   (id) => {
-  //     dispatch(getNoteDetail(id));
-  //   },
-  //   [dispatch]
-  // );
   console.log(dispatch);
   console.log("allData");
+  console.log("tesdetail", detail);
   // console.log("datadetail", detail?.data?.id);
+  // const state = {
+  //   noteDataDelete: {
+  //     delete: [],
+  //   },
+  // };
+
+  // const noteDelete = async (e) => {
+  //   const Token = localStorage.getItem("Token");
+  //   const { id } = id;
+  //   try {
+  //     const res = await axios.delete(
+  //       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
+  //       state,
+  //       { headers: { Authorization: `Bearer ${Token}` } }
+  //     );
+  //     dispatch(getNote());
+  //     console.log(res);
+  //   } catch (error) {
+  //     if (error.response.status === 404) {
+  //       alert(`error`);
+  //     }
+  //   }
+
   return (
     <div className="detailNote__outside modal-backdrop">
       <div className="detailNote__container position-relative">
@@ -56,10 +87,15 @@ export default function DetailNote({ ...props }) {
               <img src={PinEdit} alt="" />
             </button>
             <button
-              onClick={(id) => {
-                getNoteDetail(id);
-                dispatch(deleteNote(id));
-                dispatch(changeStep("DeleteSuccess"));
+              onClick={async () => {
+                // noteDelete();
+                console.log("ini id", detail.data.id);
+                // getNoteDetail(id);
+                // console.log("id", id);
+                // await dispatch(changeStep(""));
+                await dispatch(deleteNote(stateId));
+                await dispatch(getNote());
+                await dispatch(changeStep("DeleteSuccess"));
               }}
             >
               <img src={TrashEdit} alt="" />
@@ -67,23 +103,23 @@ export default function DetailNote({ ...props }) {
           </div>
         </div>
         <div className="detailNote__title">
-          <h2>{}</h2>
+          <h2>{stateId}</h2>
         </div>
         <div className="detailNote__reminder">
           <div className="detailNote__date">
             <h3>Date</h3>
-            <h6>date</h6>
+            <h6>{detail?.data?.id}</h6>
           </div>
           <div className="detailNote__time">
             <div className="detailNote__clock">
               <h3>Time</h3>
-              <h6>time</h6>
+              <h6>{detail?.data?.id}</h6>
             </div>
             <img src={notifLogo} alt="" />
           </div>
         </div>
         <div className="detailNote__content">
-          <p>hei</p>
+          <p>{detail?.data?.id}</p>
         </div>
         <div className="detailNote__color">
           <button className="color0"></button>
@@ -101,14 +137,14 @@ export default function DetailNote({ ...props }) {
           >
             Edit
           </button>
-          <button
+          {/* <button
             onClick={() => {
               dispatch(changeStep("SaveChanges"));
               onSave();
             }}
           >
             Mark as done
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
