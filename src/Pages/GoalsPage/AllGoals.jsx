@@ -50,8 +50,8 @@ function logo () {
 useEffect(() => {
   dispatch(getAllGoals());
 }, [dispatch]);
-// console.log(goals);
-// console.log(details);
+// console.log('inigoal', goals);
+// console.log('inidetil', details);
   
 
 
@@ -108,7 +108,7 @@ function MyVerticallyCenteredModal(props) {
               text: 'Congratulations! You successfully saved your goal',
 
             })
-            console.log(res)
+            
         } catch (error) {
           if (error.response.status === 400) {
             console.log("ini error" ,error.response.data.errors[0]);
@@ -342,10 +342,10 @@ return (
     {/* ==================mapping All Goals=================== */}
 
     <div className="PageTitle">
-      <p style={{ fontSize: "34px", fontWeight: "500",  }}>My All Goals</p>
+      <p style={{ fontSize: "34px", fontWeight: "600",  }}>My All Goals</p>
     </div>
     <div style={{margin: "0 2rem 0 2rem",}} className="GoalsContainer d-flex overflow-auto ">
-      {goals?.data?.map((item, index) => (
+      {goals?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
       <div className='mappingGoals' key={index}>
         <button style={{background:'none', border:'none'}} onClick={()=> {dispatch(getDetailGoals(item?.id))}}>
           <CircularGoals color={item?.color} current_percent={item?.current_percent} id={item?.id} name={item?.name} />
@@ -385,7 +385,7 @@ return (
       </div>
       </Col>
 
-      {/* ==================mapping history goals=================== */}
+      {/* ==================mapping history goals========================= */}
       <Col lg={6} md={6} className='ProgressList'>
       <div className='ProgressListText'>
         <p style={{fontWeight:'600', color:'black'}}>History</p>
@@ -395,18 +395,14 @@ return (
         {details?.progresses?.map((item, index) => (
         <Container key={index}>
           <div className='MappingBar mb-3' style={{background:`${item?.color}`}}>
-            {/* logo buat maping blm dimasukin */}
-
             <div className='mappingGoals' >
               <p><img style={{margin:'0 1rem 0.25rem 0', width: "2rem", height: "2rem" }} src={logo()} alt="" />
               {item?.progress} 
               {" "}
               {details?.target_type}</p>
             </div>
-            {/* text mapping */}
           </div>
         </Container>))}
-
       </div>
       </Col>  
 

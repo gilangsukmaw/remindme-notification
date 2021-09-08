@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Col } from "react-bootstrap";
 import "./Home.scss";
 import HomeNotes from "./HomeNotes";
@@ -6,8 +6,23 @@ import CircularNotes from "../../component/CircularGoals/CircularNotes";
 import ReminderCard from "./ReminderCard";
 import Garis from "../../assets/images/GoalDetailLine.png";
 import CobaCalendar from "../../Calendar";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getAllGoals, getDetailGoals } from "../../redux/action/goals";
+import { getNote } from "../../redux/action/note";
 function HomeExisting() {
+
+  const dispatch = useDispatch();
+  const { goals } = useSelector((state) => state.allGoals.goalsData);
+  const { data } = useSelector((state) => state.allNote.noteData);
+
+  useEffect(() => {
+    dispatch(getAllGoals());
+    dispatch(getNote());
+  }, [dispatch]);
+  console.log('Existing goal', goals);
+  console.log('Existing notes', data);
+
+
   return (
     <>
       <Container className="HomeContainer " style={{ maxWidth: "1360px" }}>
