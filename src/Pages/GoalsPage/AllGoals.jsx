@@ -21,13 +21,25 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import '../../modal/GoalsCard/SettingGoals.scss'
 import * as dayjs from "dayjs";
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import ModalTest from "../../modal/modalTest";
 
 
 
 
 
-function AllGoals() {
+
+function AllGoals({...props}) {
+   const {
+    onSave,
+    noteData,
+    changeDataTitle,
+    changeDataBody,
+    changeDataColor,
+    changeDataPinned,
+    changeDataDate,
+    changeDataTime,
+  } = props;
 const dispatch = useDispatch();
 const { goals } = useSelector((state) => state.allGoals.goalsData);
 const {details} = useSelector((state) => state.detailGoals.detailData);
@@ -414,7 +426,16 @@ return (
 
   </div>
   <MyVerticallyCenteredModal show={EditModal}  onHide={() => setEditModal(false)} />
-
+<ModalTest
+        onSave={onSave}
+        noteData={noteData}
+        changeDataTitle={changeDataTitle}
+        changeDataBody={changeDataBody}
+        changeDataColor={changeDataColor}
+        changeDataPinned={changeDataPinned}
+        changeDataDate={changeDataDate}
+        changeDataTime={changeDataTime}
+      />
 </>
 );
 }

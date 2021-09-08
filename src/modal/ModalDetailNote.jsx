@@ -89,11 +89,12 @@ export default function DetailNote({ ...props }) {
             <button
               onClick={async () => {
                 // noteDelete();
-                console.log("ini id", detail.data.id);
+                // console.log("ini id", detail.data.id);
                 // getNoteDetail(id);
                 // console.log("id", id);
                 // await dispatch(changeStep(""));
-                await dispatch(deleteNote(stateId));
+                await dispatch(deleteNote(detail?.id));
+                console.log("bunga", detail)
                 await dispatch(getNote());
                 await dispatch(changeStep("DeleteSuccess"));
               }}

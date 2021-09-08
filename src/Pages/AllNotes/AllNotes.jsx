@@ -31,8 +31,8 @@ const AllNotesCreate = ({ ...props }) => {
   }, []);
   const data = useSelector((state) => state.allNote.noteData.data);
   console.log("note", data);
-  const a = useSelector((state) => state.allNote.noteData);
-  console.log("==>", a);
+  // const a = useSelector((state) => state.allNote.noteData);
+  // console.log("==>", a);
   // const modalStep = useSelector((state) => state.global.modalStep);
   const [stateId, setStateId] = useState();
   const [hideDetail, setHideDetail] = useState(false);
@@ -63,7 +63,7 @@ const AllNotesCreate = ({ ...props }) => {
                     console.log("itemid", item?.id);
                     await setStateId(item?.id);
                     await dispatch(getNoteDetail(item?.id));
-                    await dispatch(changeStep("EditNote"));
+                    await dispatch(changeStep("EditNote", stateId));
                   }}
                 >
                   <div className="allNote__title">

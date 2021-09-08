@@ -1,13 +1,13 @@
 import React from "react";
-import { Container, Col, Carousel, Form, Button, FormControl, InputGroup } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import "./modal.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Sign.css";
-import Swal from 'sweetalert2/dist/sweetalert2.js'
-import Cross from '../../assets/images/OopsCross.svg'
-import SaveLogo from '../../assets/images/saveLogo.svg'
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import Cross from "../../assets/images/OopsCross.svg";
+import SaveLogo from "../../assets/images/saveLogo.svg";
 
 // username: auliaFE,
 // email: auliaFE@gmail.com,
@@ -41,50 +41,50 @@ function SignIn() {
 
   const submitSignIn = async (e) => {
     try {
-        const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signin`, state).then((res) => {
-          localStorage.setItem("Token", res.data.token);
-          localStorage.setItem("USERID", res.data.data.id);
-          localStorage.setItem("USEREMAIL", res.data.data.email);
-          localStorage.setItem("USERNAME", res.data.data.username);
-          window.location.replace("/newUser");
-        });
+      const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signin`, state).then((res) => {
+        localStorage.setItem("Token", res.data.token);
+        localStorage.setItem("USERID", res.data.data.id);
+        localStorage.setItem("USEREMAIL", res.data.data.email);
+        localStorage.setItem("USERNAME", res.data.data.username);
+        window.location.replace("/newUser");
+      });
     } catch (error) {
       if (error.response.status === 400) {
-        console.log("ini error" ,error.response.data.errors[0]);
+        console.log("ini error", error.response.data.errors[0]);
         Swal.fire({
-          imageUrl: (`${Cross}`),
+          imageUrl: `${Cross}`,
           imageWidth: 100,
           imageHeight: 100,
-          imageAlt: 'Custom image',
+          imageAlt: "Custom image",
           width: 450,
           confirmButtonText: "Ok",
           confirmButtonColor: "#625BAD",
-          title: (error.response.data.errors[0]),
-          text: 'Please Check Again',
-          
-        })};
-        if (error.response.status === 401) {
-          console.log("ini error" ,error.response.data.errors[0]);
-          Swal.fire({
-            imageUrl: (`${Cross}`),
-            imageWidth: 100,
-            imageHeight: 100,
-            imageAlt: 'Custom image',
-            width: 450,
-            confirmButtonText: "Ok",
-            confirmButtonColor: "#625BAD",
-            title: (error.response.data.errors[0]),
-            text: 'Please Check Again',
-            
-          })};
-        if (error.response.status === 403) {
+          title: error.response.data.errors[0],
+          text: "Please Check Again",
+        });
+      }
+      if (error.response.status === 401) {
+        console.log("ini error", error.response.data.errors[0]);
+        Swal.fire({
+          imageUrl: `${Cross}`,
+          imageWidth: 100,
+          imageHeight: 100,
+          imageAlt: "Custom image",
+          width: 450,
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#625BAD",
+          title: error.response.data.errors[0],
+          text: "Please Check Again",
+        });
+      }
+      if (error.response.status === 403) {
         alert(`Sesi anda habis, mohon login kembali`);
         if (error.response.status === 500) {
           alert(`Sepertinya ada yang salah`);
-          
+        }
       }
-        
-    }}};
+    }
+  };
 
   const [value, setValue] = React.useState({
     password: "",
@@ -110,7 +110,7 @@ function SignIn() {
             <Form.Control
               value={state.emailorusername}
               onChange={(e) => setState({ ...state, emailorusername: e.target.value })}
-              style={{textAlign:'left', height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
+              style={{ textAlign: "left", height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
               type="text"
               required
               placeholder="Email / Username"
@@ -123,11 +123,10 @@ function SignIn() {
               <Form.Control
                 value={state.password}
                 onChange={(e) => setState({ ...state, password: e.target.value })}
-                style={{ textAlign:'left',height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
+                style={{ textAlign: "left", height: "2.5rem", borderRadius: "10px", border: "2px solid #B6C6E5" }}
                 variant="secondary"
                 type={values.showPassword ? "text" : "password"}
                 placeholder="Password"
-               
               />
               <Button
                 style={{
@@ -154,7 +153,14 @@ function SignIn() {
             </Form.Group>
           </div>
 
-          <Button className="ButtonUngu" data-testid="ButtonSignIn" onClick={()=> {submitSignIn()}} style={{ width: "100%", borderRadius: "35px", fontWeight: "600",backgroundColor: '#625BAD', border:'1px solid #625BAD', }}>
+          <Button
+            className="ButtonUngu"
+            data-testid="ButtonSignIn"
+            onClick={() => {
+              submitSignIn();
+            }}
+            style={{ width: "100%", borderRadius: "35px", fontWeight: "600", backgroundColor: "#625BAD", border: "1px solid #625BAD" }}
+          >
             Sign In
           </Button>
         </Form>
