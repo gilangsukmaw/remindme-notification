@@ -45,13 +45,13 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
 
             console.log(res)
         } catch (error) {
-          if (error.response.status === 400) {
+          if (error.response.status === 400 ) {
             Swal.fire({
               icon: 'warning',
               width: 450,
               confirmButtonText: "Ok",
               confirmButtonColor: "#625BAD",
-              title: 'There is still missing inputs',
+              title: (error.response.data.errors[0]),
               text: 'Please Check Again',
               
             })};
@@ -161,14 +161,12 @@ function SettingGoalsCard({ show,changeStep,onClose, props }) {
               </div>
               <div className="d-flex flex-row justify-content-between">
                 <Col className="kolomCalendar" style={{ maxWidth: "45%" }}>
-                <Form.Control style={{background:'none',width:'9rem',textAlign:'left',borderRadius: "10px", height:'2.5rem',border: "1px solid #B6C6E5",
- }}
+                <Form.Control style={{background:'none',width:'9rem',textAlign:'left',borderRadius: "10px", height:'2.5rem',border: "1px solid #B6C6E5",}}
                   className="Goals__Target"
                   disabled
                   placeholder={dayjs(`${state.date}`).format("DD/MM/YYYY")}
                 />
-                 
-                  <div className="MonthYear mb-1 mt-4" style={{fontWeight:'600'}}>
+                 <div className="MonthYear mb-1 mt-4" style={{fontWeight:'600'}}>
                     <div>{dayjs(`${state.date}`).format("MMM,")}</div>
 
                     <div style={{ paddingLeft: "0.25rem" }}>

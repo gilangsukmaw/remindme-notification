@@ -4,27 +4,27 @@ import './Home.scss'
 import { Container, Col,} from 'react-bootstrap';
 
 
-function HomeNotes() {
-    
+function HomeNotes({...props}) {
+const {title, time, date, body, color} = props
+
 return (
 <>
     {/* Background color nanti diganti dengan yg dari mapping */}
-    <Container className='NotesCard text-dark' style={{backgroundColor: 'powderblue', marginBottom:'1rem'}}>
+    <Container className='NotesCard text-dark' style={{backgroundColor: `${color}`, marginBottom:'1rem'}}>
         <div className='CardTittle d-flex flex-row justify-content-between'>
             {/* Title diganti dari maping */}
-            <p>Title: Understanding Business Value</p> <img src={Pin}></img>
+            <p>{title}</p> <img src={Pin}></img>
         </div>
 
         <div className='NotesTime'>
             {/* tanggal diganti dari maping */}
-            <p>11 Agustus 2021</p>
-            <p>11:30-13:30</p>
+            <p>{date}</p>
+            <p>{time}</p>
         </div>
         
         <div className='MainNotes'>
             {/* Content diganti dari maping */}
-            <p>As designer that understands how to continually bring value to the business while also advocating for
-                the user is a golden egg for organizations.</p>
+            <p>{body}</p>
         </div>
 
     </Container>
