@@ -21,16 +21,9 @@ export default function TimeModal({
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
   const [startDate, setStartDate] = useState(new Date());
-  const [noteInput, setNoteInput] = useState({
-    title: "",
-    body: "",
-    time: "",
-    date: dayjs(),
-    timeNote: "",
-    pinned: false,
-    color: "",
-  });
+
   const dispatch = useDispatch();
+
   return (
     <div className="time__outside modal-backdrop">
       <div
@@ -46,12 +39,12 @@ export default function TimeModal({
             <div className="time__date">
               <h3>Date</h3>
               <input
-                onChange={(e) => changeDataDate(e.target.value)}
+                // onChange={(e) => changeDataDate(e.target.value)}
                 // value={noteData.date}
-                value={noteInput.date}
+                value={noteData.dateNote}
                 type="text"
                 disabled
-                placeholder={dayjs(`${noteInput.date}`).format("DD/MM/YYYY")}
+                placeholder={dayjs(`${noteData.dateNote}`).format("DD/MM/YYYY")}
                 className="input-time"
                 id="time"
               />
@@ -60,7 +53,7 @@ export default function TimeModal({
               <h3>Time</h3>
               <input
                 onChange={(e) => changeDataTime(e.target.value)}
-                value={noteInput.time}
+                value={noteData.time}
                 type="text"
                 className="input-time"
                 id="time"
@@ -70,12 +63,12 @@ export default function TimeModal({
           <div className="time__calendar">
             <DatePicker
               selected={startDate}
-              onChange={(date) =>
-                setNoteInput({
-                  ...noteInput,
-                  date: dayjs(date).format("YYYY-MM-DDTHH:mm:ss.000[Z]"),
-                })
-              }
+              onChange={(date) => {
+                console.log("date", dayjs(date).format("YYYY-MM-DD"));
+                changeDataDate(
+                  dayjs(date).format("YYYY-MM-DDTHH:mm:ss.000[Z]")
+                );
+              }}
               inline
             />
           </div>

@@ -18,6 +18,8 @@ import SaveChangesDetail from "./ModalSaveChanges";
 import * as dayjs from "dayjs";
 
 const ModalTest = ({ ...props }) => {
+  var utc = require("dayjs/plugin/utc");
+  dayjs.extend(utc);
   const dispatch = useDispatch();
   const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } =
     props;
@@ -26,6 +28,7 @@ const ModalTest = ({ ...props }) => {
     body: "",
     time: "",
     date: "",
+    dateNote: dayjs(),
     pinned: false,
     color: "",
   });
@@ -90,9 +93,7 @@ const ModalTest = ({ ...props }) => {
           changeDataDate={(item) =>
             setNoteInput({ ...noteInput, dateNote: item })
           }
-          changeDataTime={(item) =>
-            setNoteInput({ ...noteInput, timeNote: item })
-          }
+          changeDataTime={(item) => setNoteInput({ ...noteInput, time: item })}
           changeColor={(item) => setNoteInput({ ...noteInput, color: item })}
         />
       )}
