@@ -21,16 +21,22 @@ export default function TimeModal({
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
   const [startDate, setStartDate] = useState(new Date());
+  const [noteInput, setNoteInput] = useState({
+    title: "",
+    body: "",
+    time: "",
+    date: "",
+    timeNote: "",
+    pinned: false,
+    color: "",
+  });
 
+  console.log("noteInput", noteInput);
   const dispatch = useDispatch();
 
   return (
     <div className="time__outside modal-backdrop">
-      <div
-        className="time__container"
-        style={{ backgroundColor: `${noteData.color}` }}
-        value={noteData.color}
-      >
+      <div className="time__container" style={{ backgroundColor: `${noteData.color}` }} value={noteData.color}>
         <div className="time__wrapper">
           <div className="time__title">
             <h1>Pick Date</h1>
@@ -51,24 +57,18 @@ export default function TimeModal({
             </div>
             <div className="time__time">
               <h3>Time</h3>
-              <input
-                onChange={(e) => changeDataTime(e.target.value)}
-                value={noteData.time}
-                type="text"
-                className="input-time"
-                id="time"
-              />
+              <input onChange={(e) => setNoteInput({ ...noteInput, time: e.target.value })} value={noteInput.time} type="text" className="input-time" id="time" />
             </div>
           </div>
           <div className="time__calendar">
             <DatePicker
               selected={startDate}
-              onChange={(date) => {
-                console.log("date", dayjs(date).format("YYYY-MM-DD"));
-                changeDataDate(
-                  dayjs(date).format("YYYY-MM-DDTHH:mm:ss.000[Z]")
-                );
-              }}
+              onChange={(date) =>
+                setNoteInput({
+                  ...noteInput,
+                  date: dayjs(date).format("YYYY-MM-DD"),
+                })
+              }
               inline
             />
           </div>
@@ -82,17 +82,14 @@ export default function TimeModal({
             <button
               className="time__save"
               onClick={() => {
-                dispatch(changeStep("InputNote"));
-                // onSave()
+                dispatch(changeStep("InputNote", noteInput));
+                // onSave();
                 // handleAddEvent();
               }}
             >
               Save
             </button>
-            <button
-              className="time__cancel"
-              onClick={() => dispatch(changeStep("InputNote"))}
-            >
+            <button className="time__cancel" onClick={() => dispatch(changeStep("InputNote"))}>
               Cancel
             </button>
           </div>
