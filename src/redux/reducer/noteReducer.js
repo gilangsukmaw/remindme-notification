@@ -8,6 +8,9 @@ import {
   DELETE_NOTE_BEGIN,
   DELETE_NOTE_SUCCESS,
   DELETE_NOTE_FAIL,
+  GET_NOTEDETAIL_BEGIN,
+  GET_NOTEDETAIL_SUCCESS,
+  GET_NOTEDETAIL_FAIL,
 } from "../const/type";
 
 const initialState = {
@@ -15,6 +18,19 @@ const initialState = {
     data: [],
     loading: false,
     error: null,
+  },
+  noteDataDetail: {
+    detail: [],
+    loadingDetail: false,
+    errorDetail: null,
+  },
+  noteDataDelete: {
+    delete: [],
+  },
+  noteDataUpdate: {
+    update: [],
+    loadingUpdate: false,
+    errorUpdate: null,
   },
 };
 
@@ -50,24 +66,53 @@ const allNote = (state = initialState, action) => {
           error: error,
         },
       };
+    case GET_NOTEDETAIL_BEGIN:
+      return {
+        ...state,
+        noteDataDetail: {
+          loading: true,
+          errorDetail: null,
+        },
+      };
+    case GET_NOTEDETAIL_SUCCESS:
+      return {
+        ...state,
+        noteDataDetail: {
+          data: payload,
+          loading: false,
+          errorDetail: null,
+        },
+      };
+    case GET_NOTEDETAIL_FAIL:
+      return {
+        ...state,
+        noteDataDetail: {
+          data: [],
+          loading: false,
+          errorDetail: error,
+        },
+      };
     case DELETE_NOTE_BEGIN:
       return {
-        noteData: {
-          data: [],
+        ...state,
+        noteDataDelete: {
+          delete: [],
           loading: true,
           error: null,
         },
       };
     case DELETE_NOTE_SUCCESS:
       return {
-        noteData: {
-          data: [...state.todos.filter((item) => item.id !== action.payload)],
+        ...state,
+        noteDataDelete: {
+          delete: [],
         },
       };
     case DELETE_NOTE_FAIL:
       return {
-        noteData: {
-          data: [],
+        ...state,
+        noteDataDelete: {
+          delete: [],
           loading: false,
           error: error,
         },
@@ -75,7 +120,7 @@ const allNote = (state = initialState, action) => {
     case UPDATE_NOTE_BEGIN:
       return {
         ...state,
-        noteData: {
+        noteDataUpdate: {
           data: [],
           loading: true,
           error: null,
@@ -84,13 +129,19 @@ const allNote = (state = initialState, action) => {
     case UPDATE_NOTE_SUCCESS:
       return {
         ...state,
-        noteData: state.noteData.data.map(
-          (newUpdate) => [newUpdate.id, newUpdate].values
-        ),
+        noteDataUpdate: {
+          data: payload,
+          loading: false,
+          error: error,
+        },
+        // noteDataUpdate: state.noteData.data.map(
+        //   (newUpdate) => [newUpdate.id, newUpdate].values
+        // ),
       };
     case UPDATE_NOTE_FAIL:
       return {
-        noteData: {
+        ...state,
+        noteDataUpdate: {
           data: [],
           loading: false,
           error: error,
