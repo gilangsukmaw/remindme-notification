@@ -54,6 +54,7 @@ const AllNotesCreate = ({ ...props }) => {
               .map((item, index) => (
                 // <button >
                 <div
+                  style={{ backgroundColor: `${item?.color}` }}
                   key={index}
                   className="allNote__card"
                   onClick={async () => {
@@ -68,7 +69,7 @@ const AllNotesCreate = ({ ...props }) => {
                     <img src={PinCard} alt="" />
                   </div>
                   <div className="allNote__time">
-                    <p>{item?.dateNote}</p>
+                    <p>{item?.date}</p>
                   </div>
                   <div className="allNote__content">
                     <p>{item?.body}</p>

@@ -144,24 +144,141 @@ button.time__save {
     }
 }
 
-.time__calendar{
-    padding-top: 2rem;
-    background-color: #F1F4FA;
-    .calendar {
-        width: 350px;
-        border-radius: 20px;
-        height: auto;
-        background-color: #F1F4FA;
-        .header {
-            display: none;
-        }
-        .body {
-            background-color: #F1F4FA;
-        }
-        .day {
-            .before {
-                color: $color-text;
-            }
-        }
+// .time__calendar{
+//     padding-top: 2rem;
+//     background-color: #F1F4FA;
+//     .calendar {
+//         width: 350px;
+//         border-radius: 20px;
+//         height: auto;
+//         background-color: #F1F4FA;
+//         .header {
+//             display: none;
+//         }
+//         .body {
+//             background-color: #F1F4FA;
+//         }
+//         .day {
+//             .before {
+//                 color: $color-text;
+//             }
+//         }
+//     }
+// }
+
+.time__calendar {
+    .react-datepicker {
+      background: none;
+      border: none;
     }
-}
+  
+    .react-datepicker__navigation {
+      display: none;
+    }
+  
+    // .react-datepicker__navigation .react-datepicker__navigation--next{
+    //   display: none;
+    // }
+    .react-datepicker__month-container {
+      background: none;
+      border: none;
+    }
+  
+    .react-datepicker__header {
+      background: none;
+      border: none;
+    }
+  
+    .react-datepicker__current-month {
+      display: none;
+    }
+  
+    .react-datepicker__month {
+      background: none;
+      border: none;
+    }
+  
+    .react-datepicker__day--keyboard-selected,
+    .react-datepicker__month-text--keyboard-selected,
+    .react-datepicker__quarter-text--keyboard-selected,
+    .react-datepicker__year-text--keyboard-selected {
+      background-color: #625bad;
+      color: #ffffff;
+      border-radius: 10px;
+      width: 1.25rem;
+      margin-right: 0.391rem;
+      margin-left: 0.391rem;
+    }
+  
+    .react-datepicker__day--selected:hover,
+    .react-datepicker__day--in-selecting-range:hover,
+    .react-datepicker__day--in-range:hover,
+    .react-datepicker__month-text--selected:hover,
+    .react-datepicker__month-text--in-selecting-range:hover,
+    .react-datepicker__month-text--in-range:hover,
+    .react-datepicker__quarter-text--selected:hover,
+    .react-datepicker__quarter-text--in-selecting-range:hover,
+    .react-datepicker__quarter-text--in-range:hover,
+    .react-datepicker__year-text--selected:hover,
+    .react-datepicker__year-text--in-selecting-range:hover,
+    .react-datepicker__year-text--in-range:hover {
+  
+      background-color: #625bad;
+      color: #ffffff;
+      border-radius: 10px;
+      width: 1.25rem;
+      margin-right: 0.4rem;
+      margin-left: 0.4rem;
+      // width: 30px;
+      // height: 20px;
+    }
+  
+    .react-datepicker__day--selected,
+    .react-datepicker__day--in-selecting-range,
+    .react-datepicker__day--in-range,
+    .react-datepicker__month-text--selected,
+    .react-datepicker__month-text--in-selecting-range,
+    .react-datepicker__month-text--in-range,
+    .react-datepicker__quarter-text--selected,
+    .react-datepicker__quarter-text--in-selecting-range,
+    .react-datepicker__quarter-text--in-range,
+    .react-datepicker__year-text--selected,
+    .react-datepicker__year-text--in-selecting-range,
+    .react-datepicker__year-text--in-range {
+      background-color: #B6C6E5;
+      color: #ffffff;
+      border-radius: 10px;
+      width: 1.25rem;
+      margin-right: 0.4rem;
+      margin-left: 0.4rem;
+  
+      // width: 30px;
+      // height: 20px;
+    }
+  
+    .react-datepicker__day--keyboard-selected:hover,
+    .react-datepicker__month-text--keyboard-selected:hover,
+    .react-datepicker__quarter-text--keyboard-selected:hover,
+    .react-datepicker__year-text--keyboard-selected:hover {
+      background-color: #625bad;
+      color: #ffffff;
+      border-radius: 10px;
+      width: 1.25rem;
+      margin-right: 0.4rem;
+      margin-left: 0.4rem;
+  
+      // width: 30px;
+      //     height: 20px;
+    }
+  
+    // .calendar {
+    //   .header {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     margin: 0;
+    //     display: none;
+    //   }
+    //   width: 250px;
+    //   height: 250px;
+    // }
+  }
