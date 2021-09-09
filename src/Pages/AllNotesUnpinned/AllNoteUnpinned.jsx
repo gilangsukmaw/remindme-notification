@@ -68,7 +68,7 @@ export default function AllNoteUnpinned({ ...props }) {
                     <img src={unpinnedLogo} alt="" />
                   </div>
                   <div className="unpinned__time">
-                    <p>{item?.dateNote}</p>
+                    <p>{item?.date}</p>
                   </div>
                   <div className="unpinned__content">
                     <p>{item?.body}</p>
