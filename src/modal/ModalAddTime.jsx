@@ -81,7 +81,7 @@ export default function TimeModal({
             <button
               className="time__save"
               onClick={() => {
-                dispatch(changeStep("InputNote"));
+                dispatch(changeStep("InputNote", noteInput));
                 // onSave();
                 // handleAddEvent();
               }}
