@@ -24,7 +24,7 @@ function Navbar({ ...props }) {
       <nav className="sidebar">
         <div className="sidebar__top">
           <div className="sidebarItems headers">
-            <Link to="/newUser">
+            <Link to="/home">
               <img
                 src={user?.data?.image}
                 alt=""
@@ -41,7 +41,7 @@ function Navbar({ ...props }) {
           </div>
           <div className=" Task" onClick={() => dispatch(changeStep("CreateNote"))}>
             <FiIcons.FiPlusCircle />
-            <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create a Task</h5>
+            <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create Note/Goals</h5>
           </div>
           <div className="sidebarItems content">
             <Link to="/allNote">
