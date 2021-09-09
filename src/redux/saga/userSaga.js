@@ -1,11 +1,23 @@
 import axios from "axios";
-import { GET_USER_FAIL, GET_USER_SUCCESS, GET_USER_BEGIN, PUT_USER_SUCCESS, PUT_USER_FAIL, PUT_USER_BEGIN, PUT_ALERT_SUCCESS, PUT_ALERT_BEGIN } from "../const/type";
+import {
+  GET_USER_FAIL,
+  GET_USER_SUCCESS,
+  GET_USER_BEGIN,
+  PUT_USER_SUCCESS,
+  PUT_USER_FAIL,
+  PUT_USER_BEGIN,
+  PUT_ALERT_SUCCESS,
+  PUT_ALERT_BEGIN,
+} from "../const/type";
 import { put, takeEvery } from "redux-saga/effects";
 const Token = localStorage.getItem("Token");
 function* getUser(actions) {
   const { error } = actions;
   try {
-    const res = yield axios.get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, { headers: { Authorization: `Bearer ${Token}` } });
+    const res = yield axios.get(
+      `https://remindme.gabatch13.my.id/api/v1/user/getinfo`,
+      { headers: { Authorization: `Bearer ${Token}` } }
+    );
     yield put({
       type: GET_USER_SUCCESS,
       payload: res.data,
@@ -21,13 +33,20 @@ function* getUser(actions) {
 function* putUser(actions) {
   const { error, update } = actions;
   try {
-    const res = axios.put(`https://remindme.gabatch13.my.id/api/v1/user`, update, { headers: { Authorization: `Bearer ${Token}` } });
+    const res = axios.put(
+      `https://remindme.gabatch13.my.id/api/v1/user`,
+      update,
+      { headers: { Authorization: `Bearer ${Token}` } }
+    );
     yield put({
       type: PUT_USER_SUCCESS,
       payload: res.data,
     });
     // yield alert("Profile Updated");
-    const get = yield axios.get(`https://remindme.gabatch13.my.id/api/v1/user/getinfo`, { headers: { Authorization: `Bearer ${Token}` } });
+    const get = yield axios.get(
+      `https://remindme.gabatch13.my.id/api/v1/user/getinfo`,
+      { headers: { Authorization: `Bearer ${Token}` } }
+    );
     yield put({
       type: GET_USER_SUCCESS,
       payload: get.data,

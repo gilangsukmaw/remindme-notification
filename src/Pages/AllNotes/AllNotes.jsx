@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import pinAllNote from "../../assets/images/pinAllNote.png";
 import PinCard from "../../assets/images/PinCard.png";
 import "../AllNotes/AllNotes.scss";
@@ -17,7 +17,15 @@ const AllNotesCreate = ({ ...props }) => {
   useEffect(() => {
     dispatch(getNote());
   }, []);
-  const { data } = useSelector((state) => state.allNote.noteData);
+  const data = useSelector((state) => state.allNote.noteData.data);
+  console.log("note", data);
+  // const a = useSelector((state) => state.allNote.noteData);
+  // console.log("==>", a);
+  // const modalStep = useSelector((state) => state.global.modalStep);
+  const [stateId, setStateId] = useState();
+  const [hideDetail, setHideDetail] = useState(false);
+  console.log("noteid", stateId);
+
   return (
     <div>
       <div className="allNote__container">
@@ -32,18 +40,18 @@ const AllNotesCreate = ({ ...props }) => {
               <h1>Loading...</h1>
             </div>
           ) : (
-            data
-              .filter((data) => data.pinned === true)
+            data?.data
+              ?.filter((data) => data?.pinned === true)
               .map((item, index) => (
                 // <button >
-
                 <div
                   key={index}
                   className="allNote__card"
                   onClick={async () => {
+                    console.log("itemid", item?.id);
+                    await setStateId(item?.id);
                     await dispatch(getNoteDetail(item?.id));
-                    console.log("itewm id", item?.id);
-                    await dispatch(changeStep("EditNote"));
+                    await dispatch(changeStep("EditNote", stateId));
                   }}
                 >
                   <div className="allNote__title">

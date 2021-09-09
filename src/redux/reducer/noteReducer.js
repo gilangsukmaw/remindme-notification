@@ -71,25 +71,25 @@ const allNote = (state = initialState, action) => {
         ...state,
         noteDataDetail: {
           loading: true,
-          errorDetail: null,
+          error: null,
         },
       };
     case GET_NOTEDETAIL_SUCCESS:
       return {
         ...state,
         noteDataDetail: {
-          data: payload,
+          detail: payload,
           loading: false,
-          errorDetail: null,
+          error: null,
         },
       };
     case GET_NOTEDETAIL_FAIL:
       return {
         ...state,
         noteDataDetail: {
-          data: [],
+          detail: [],
           loading: false,
-          errorDetail: error,
+          error: error,
         },
       };
     case DELETE_NOTE_BEGIN:
