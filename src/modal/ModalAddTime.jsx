@@ -25,19 +25,17 @@ export default function TimeModal({
     title: "",
     body: "",
     time: "",
-    date: dayjs(),
+    date: "",
     timeNote: "",
     pinned: false,
     color: "",
   });
+
+  console.log("noteInput", noteInput);
   const dispatch = useDispatch();
   return (
     <div className="time__outside modal-backdrop">
-      <div
-        className="time__container"
-        style={{ backgroundColor: `${noteData.color}` }}
-        value={noteData.color}
-      >
+      <div className="time__container" style={{ backgroundColor: `${noteData.color}` }} value={noteData.color}>
         <div className="time__wrapper">
           <div className="time__title">
             <h1>Pick Date</h1>
@@ -58,13 +56,7 @@ export default function TimeModal({
             </div>
             <div className="time__time">
               <h3>Time</h3>
-              <input
-                onChange={(e) => changeDataTime(e.target.value)}
-                value={noteInput.time}
-                type="text"
-                className="input-time"
-                id="time"
-              />
+              <input onChange={(e) => setNoteInput({ ...noteInput, time: e.target.value })} value={noteInput.time} type="text" className="input-time" id="time" />
             </div>
           </div>
           <div className="time__calendar">
@@ -73,7 +65,7 @@ export default function TimeModal({
               onChange={(date) =>
                 setNoteInput({
                   ...noteInput,
-                  date: dayjs(date).format("YYYY-MM-DDTHH:mm:ss.000[Z]"),
+                  date: dayjs(date).format("YYYY-MM-DD"),
                 })
               }
               inline
@@ -96,10 +88,7 @@ export default function TimeModal({
             >
               Save
             </button>
-            <button
-              className="time__cancel"
-              onClick={() => dispatch(changeStep("InputNote"))}
-            >
+            <button className="time__cancel" onClick={() => dispatch(changeStep("InputNote"))}>
               Cancel
             </button>
           </div>
