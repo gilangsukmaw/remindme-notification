@@ -17,7 +17,7 @@ const AllNotesCreate = ({ ...props }) => {
   useEffect(() => {
     dispatch(getNote());
   }, []);
-  const data = useSelector((state) => state.allNote.noteData.data);
+  const data = useSelector((state) => state.allNote.noteData);
   console.log("note", data);
   // const a = useSelector((state) => state.allNote.noteData);
   // console.log("==>", a);
