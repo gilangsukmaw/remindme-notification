@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { getNote, getNoteDetail } from "../redux/action/note";
 import { changeStep } from "../redux/action/global";
 import { deleteNote } from "../redux/action/note";
+import * as dayjs from "dayjs";
 
 export default function DetailNote({ ...props }) {
   const [updateNote, setUpdateNote] = useState({
@@ -19,7 +20,7 @@ export default function DetailNote({ ...props }) {
     pinned: false,
     color: "",
   });
-  const { changeDataPinned, noteData, onSave } = props;
+  const { changeDataPinned, noteData, onSave, changeDataColor } = props;
 
   // const { allData } = useSelector((state) => state.allNote.noteData);
   // const { detail } = useSelector((state) => state.allNote.noteDataDetail);
@@ -48,7 +49,10 @@ export default function DetailNote({ ...props }) {
 
   return (
     <div className="detailNote__outside modal-backdrop">
-      <div className="detailNote__container position-relative">
+      <div
+        className="detailNote__container position-relative"
+        style={{ backgroundColor: `${noteDetail?.color}` }}
+      >
         <div className="detailNote__close position-absolute top-0 start-100 translate-middle">
           <button
             onClick={() => {
@@ -115,7 +119,8 @@ export default function DetailNote({ ...props }) {
           </button>
           <button
             onClick={() => {
-              dispatch(changeStep("SaveChanges"));
+              // dispatch(changeStep("SaveUpdateNote"));
+              dispatch(changeStep("SaveNotes"));
               onSave();
             }}
           >

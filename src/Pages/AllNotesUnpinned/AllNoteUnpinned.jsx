@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PinCard from "../../assets/images/PinCard.png";
 import unpinned from "../../assets/images/UnPinned.png";
@@ -8,6 +8,7 @@ import rightArrow from "../../assets/images/rightArrow.png";
 import unpinnedLogo from "../../assets/images/unpinnedLogo.png";
 import "../AllNotesUnpinned/AllNoteUnpinned.scss";
 import { changeStep } from "../../redux/action/global";
+import * as dayjs from "dayjs";
 
 export default function AllNoteUnpinned({ ...props }) {
   const {
@@ -29,12 +30,18 @@ export default function AllNoteUnpinned({ ...props }) {
   console.log("note unpinned", data);
   const b = useSelector((state) => state.allNote.noteData);
   console.log("==>", b);
+
+  const [date, setDate] = useState();
+
+  const d = new Date();
+  const day = dayjs(d);
+
   return (
     <div>
       <div className="unpinned__container">
         <div className="unpinned__date">
           <img src={leftArrow} alt="" />
-          <h3>09-09-2021</h3>
+          <h3>{`${day}`}</h3>
           <img src={rightArrow} alt="" />
         </div>
         <div className="unpinned__wrapper">
@@ -47,6 +54,7 @@ export default function AllNoteUnpinned({ ...props }) {
               ?.filter((data) => data?.pinned === false)
               .map((item, index) => (
                 <div
+                  style={{ backgroundColor: `${item?.color}` }}
                   key={index}
                   className="unpinned__card"
                   onClick={async () => {

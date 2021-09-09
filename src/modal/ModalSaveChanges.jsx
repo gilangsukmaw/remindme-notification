@@ -3,7 +3,7 @@ import saveLogo from "../assets/images/saveLogo.png";
 import "../assets/styles/ModalSaveChanges.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function ModalSaveChanges({ closeChanges }) {
+export default function SaveChangesDetail({ closeChanges }) {
   return (
     <div className="save__outside modal-backdrop">
       <div className="save__container">
@@ -17,21 +17,21 @@ function ModalSaveChanges({ closeChanges }) {
   );
 }
 
-export default function SaveChanges() {
-  const [openSaveChanges, setOpenSaveChanges] = useState(false);
-  return (
-    <>
-      <button
-        className="openSaveChanges"
-        onClick={() => {
-          setOpenSaveChanges(true);
-        }}
-      >
-        Saved changes!
-      </button>
-      {openSaveChanges && (
-        <ModalSaveChanges closeChanges={setOpenSaveChanges} />
-      )}
-    </>
-  );
-}
+// export default function SaveChangesDetail() {
+//   const [openSaveChanges, setOpenSaveChanges] = useState(false);
+//   return (
+//     <>
+//       <button
+//         className="openSaveChanges"
+//         onClick={() => {
+//           setOpenSaveChanges(true);
+//         }}
+//       >
+//         Saved changes!
+//       </button>
+//       {openSaveChanges && (
+//         <ModalSaveChanges closeChanges={setOpenSaveChanges} />
+//       )}
+//     </>
+//   );
+// }

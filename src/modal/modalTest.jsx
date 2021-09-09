@@ -14,6 +14,8 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeStep } from "../redux/action/global";
 import ModalDelete from "../modal/ModalDelete";
+import SaveChangesDetail from "./ModalSaveChanges";
+import * as dayjs from "dayjs";
 
 const ModalTest = ({ ...props }) => {
   const dispatch = useDispatch();
@@ -22,8 +24,8 @@ const ModalTest = ({ ...props }) => {
   const [noteInput, setNoteInput] = useState({
     title: "",
     body: "",
-    dateNote: "",
-    timeNote: "",
+    time: "",
+    date: "",
     pinned: false,
     color: "",
   });
@@ -40,9 +42,10 @@ const ModalTest = ({ ...props }) => {
           },
         }
       );
+      dispatch(changeStep(""));
       dispatch(changeStep("SaveNotes"));
 
-      console.log(res);
+      // console.log(res);
     } catch (error) {
       if (error.response.status === 404) {
         alert("Empty, try create some note");
@@ -146,7 +149,12 @@ const ModalTest = ({ ...props }) => {
       {modalStep === "SaveChanges" && (
         <SaveChanges changeStep={(item) => setStep(item)} />
       )}
-      {modalStep === "DeleteSuccess" && <ModalDelete />}
+      {modalStep === "DeleteSuccess" && (
+        <ModalDelete changeStep={(item) => setStep(item)} />
+      )}
+      {modalStep === "SaveUpdateNote" && (
+        <SaveChangesDetail changeStep={(item) => setStep(item)} />
+      )}
     </>
   );
 };

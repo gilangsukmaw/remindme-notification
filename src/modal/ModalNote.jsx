@@ -20,7 +20,7 @@ export default function NoteModal({
   changeDataPinned,
   onSave,
 }) {
-  // console.log(noteData);
+  const [color, setColor] = useState();
   const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">
@@ -65,12 +65,12 @@ export default function NoteModal({
             <h5>Choose your card</h5>
             <button
               value={noteData.color}
-              onChange={() => changeDataColor("#FFBCC2")}
+              onClick={() => changeDataColor("#FFBCC2")}
               className="color1"
             ></button>
             <button
               value={noteData.color}
-              onChange={() => changeDataColor("#FCF3A1")}
+              onClick={() => changeDataColor("#FCF3A1")}
               className="color2"
             ></button>
             <button
@@ -101,7 +101,7 @@ export default function NoteModal({
             <button
               className="SaveButton"
               onClick={() => {
-                dispatch(changeStep("SaveNotes"));
+                // dispatch(changeStep("SaveNotes"));
                 onSave();
               }}
             >
