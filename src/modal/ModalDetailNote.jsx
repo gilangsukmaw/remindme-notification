@@ -19,13 +19,13 @@ export default function DetailNote({ ...props }) {
     pinned: false,
     color: "",
   });
-  const { changeDataPinned, noteData, stateId } = props;
-  useEffect(() => {
-    dispatch(getNote());
-  }, []);
+  const { changeDataPinned, noteData, onSave } = props;
 
   // const { allData } = useSelector((state) => state.allNote.noteData);
   // const { detail } = useSelector((state) => state.allNote.noteDataDetail);
+  // useEffect(() => {
+  //   dispatch(getNoteDetail());
+  // }, []);
   const noteDetail = useSelector(
     (state) => state.allNote.noteDataDetail.detail
   );
@@ -33,17 +33,20 @@ export default function DetailNote({ ...props }) {
   useEffect(() => {
     setUpdateNote({
       ...updateNote,
-      title: noteDetail?.data?.title,
-      body: noteDetail?.data?.body,
-      dateNote: noteDetail?.data?.dateNote,
+      title: noteDetail?.title,
+      body: noteDetail?.detail?.body,
+      dateNote: noteDetail?.detail?.dateNote,
       pinned: true,
-      color: noteDetail?.data?.color,
+      color: noteDetail?.detail?.color,
     });
-  }, [noteDetail?.data]);
+  }, []);
   console.log("prop noteDetail", props);
   console.log(dispatch);
   console.log("allData");
   console.log("tesnoteDetail", noteDetail);
+  useEffect(() => {
+    dispatch(getNote());
+  }, []);
 
   return (
     <div className="detailNote__outside modal-backdrop">
@@ -67,11 +70,6 @@ export default function DetailNote({ ...props }) {
             </button>
             <button
               onClick={async () => {
-                // noteDelete();
-                // console.log("ini id", detail.data.id);
-                // getNoteDetail(id);
-                // console.log("id", id);
-                // await dispatch(changeStep(""));
                 await dispatch(deleteNote(noteDetail?.id));
                 console.log("bunga", noteDetail);
                 await dispatch(getNote());
@@ -83,23 +81,23 @@ export default function DetailNote({ ...props }) {
           </div>
         </div>
         <div className="detailNote__title">
-          <h2>{noteDetail?.data?.title}</h2>
+          <h2>{noteDetail?.title}</h2>
         </div>
         <div className="detailNote__reminder">
           <div className="detailNote__date">
             <h3>Date</h3>
-            <h6>{noteDetail?.data?.id}</h6>
+            <h6>{noteDetail?.date}</h6>
           </div>
           <div className="detailNote__time">
             <div className="detailNote__clock">
               <h3>Time</h3>
-              <h6>{noteDetail?.data?.id}</h6>
+              <h6>{noteDetail?.time}</h6>
             </div>
             <img src={notifLogo} alt="" />
           </div>
         </div>
         <div className="detailNote__content">
-          <p>{noteDetail?.data?.id}</p>
+          <p>{noteDetail?.body}</p>
         </div>
         <div className="detailNote__color">
           <button className="color0"></button>
@@ -117,14 +115,14 @@ export default function DetailNote({ ...props }) {
           >
             Edit
           </button>
-          {/* <button
+          <button
             onClick={() => {
               dispatch(changeStep("SaveChanges"));
               onSave();
             }}
           >
             Mark as done
-          </button> */}
+          </button>
         </div>
       </div>
     </div>

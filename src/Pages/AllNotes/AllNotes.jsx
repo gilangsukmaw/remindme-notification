@@ -6,11 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNote } from "../../redux/action/note";
 import Line from "../../assets/images/GoalDetailLine.png";
 import AllNoteUnpinned from "../AllNotesUnpinned/AllNoteUnpinned";
-import ModalDetailNote from "../../modal/ModalDetailNote";
 import ModalTest from "../../modal/modalTest";
 import { changeStep } from "../../redux/action/global";
 import { getNoteDetail } from "../../redux/action/note";
-import DetailNote from "../../modal/ModalDetailNote";
 
 const AllNotesCreate = ({ ...props }) => {
   const {
@@ -24,7 +22,6 @@ const AllNotesCreate = ({ ...props }) => {
     changeDataTime,
   } = props;
 
-  // console.log(props);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNote());
@@ -88,7 +85,7 @@ const AllNotesCreate = ({ ...props }) => {
       <div className="allNote__unpinned">
         <AllNoteUnpinned />
       </div>
-      {!hideDetail ? null : <DetailNote id={stateId} />}
+
       <ModalTest
         onSave={onSave}
         noteData={noteData}
