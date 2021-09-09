@@ -16,7 +16,6 @@ $font-family: "Poppins", sans-serif;
 
 // * {
 //     color: $color-text;
-// }git
 // }
 //mixin
 @mixin note__color {
@@ -116,7 +115,7 @@ $font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  width: 50%;
+  width: 70%;
   margin: 1rem 0;
   h3 {
     font-size: 20px;
@@ -126,6 +125,7 @@ $font-family: "Poppins", sans-serif;
 .detailNote__time {
   display: flex;
   flex-direction: row;
+  margin-left: 1rem;
   img {
     width: 27px;
     height: 27px;

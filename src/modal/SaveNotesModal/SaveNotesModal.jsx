@@ -3,21 +3,34 @@ import { Modal, Button } from "react-bootstrap";
 import "./SaveNotesModal.scss";
 import Ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeStep } from "../../redux/action/global";
 
-function SaveNotes({ changeStep }) {
-  const [modalShow] = React.useState(true);
+function SaveNotes() {
+  const [modalShow, setModalShow] = React.useState(true);
+  const dispatch = useDispatch();
 
   function SaveNotesModal(props) {
     return (
       <>
-        <Modal className="SaveNotes shadow" sytle={{ maxWidth: "1rem" }} {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal
+          className="SaveNotes shadow"
+          sytle={{ maxWidth: "1rem" }}
+          {...props}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
           <Modal.Header>
             <Modal.Title id="contained-modal-title-vcenter">
               <img style={{ width: "57px" }} src={Ceklis} alt="" />
             </Modal.Title>
           </Modal.Header>
           <Modal.Body style={{}}>
-            <p className="text-dark " style={{ fontWeight: "580", fontSize: "1.5rem" }}>
+            <p
+              className="text-dark "
+              style={{ fontWeight: "580", fontSize: "1.5rem" }}
+            >
               Congratulations!<br></br>
               You successfully saved <br></br>
               your Note
@@ -35,7 +48,7 @@ function SaveNotes({ changeStep }) {
                   fontWeight: "700",
                   fontSize: "1.5rem",
                 }}
-                onClick={() => props.onHide("")}
+                onClick={() => dispatch(changeStep(""))}
               >
                 Ok
               </Button>

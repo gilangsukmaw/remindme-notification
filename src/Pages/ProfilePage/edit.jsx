@@ -4,8 +4,20 @@ import { putUser, getUser } from "../../redux/action/user";
 import { useDispatch, useSelector } from "react-redux";
 import ModalEditSuccess from "../../modal/ModalEditSuccess";
 import EditPhotoProfile from "../../modal/EditPhoto/EditPhoto";
+import ModalTest from "../../modal/modalTest";
 
-export default function Edit(step, changeStep) {
+
+export default function Edit({ ...props}) {
+   const {
+    onSave,
+    noteData,
+    changeDataTitle,
+    changeDataBody,
+    changeDataColor,
+    changeDataPinned,
+    changeDataDate,
+    changeDataTime,
+  } = props;
   const { user } = useSelector((state) => state.userData.userInfo);
   const showModal = useSelector((state) => state.userData.showModal);
   const dispatch = useDispatch();
@@ -105,6 +117,16 @@ export default function Edit(step, changeStep) {
           </div>
         </div>
       </div>
+      <ModalTest
+        onSave={onSave}
+        noteData={noteData}
+        changeDataTitle={changeDataTitle}
+        changeDataBody={changeDataBody}
+        changeDataColor={changeDataColor}
+        changeDataPinned={changeDataPinned}
+        changeDataDate={changeDataDate}
+        changeDataTime={changeDataTime}
+      />
     </div>
   );
 }

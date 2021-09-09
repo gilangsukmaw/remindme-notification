@@ -8,6 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 // import { useDispatch } from "react-redux";
 // import { setNote } from "../redux/action/note";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { changeStep } from "../redux/action/global";
 
 export default function NoteModal({
   onClose,
@@ -17,9 +19,9 @@ export default function NoteModal({
   changeDataColor,
   changeDataPinned,
   onSave,
-  changeStep,
 }) {
-  // console.log(noteData);
+  const [color, setColor] = useState();
+  const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">
       <div
@@ -29,7 +31,7 @@ export default function NoteModal({
         <div className="note__close position-absolute top-0 start-100 translate-middle">
           <button
             onClick={() => {
-              onClose("");
+              dispatch(changeStep(""));
             }}
           >
             <img src={vectorClose} alt="" />
@@ -63,23 +65,26 @@ export default function NoteModal({
             <h5>Choose your card</h5>
             <button
               value={noteData.color}
-              onChange={() => changeDataColor("#FFBCC2")}
+              onClick={() => changeDataColor("#FFBCC2")}
               className="color1"
             ></button>
             <button
               value={noteData.color}
-              onChange={() => changeDataColor("#FCF3A1")}
+              onClick={() => changeDataColor("#FCF3A1")}
               className="color2"
             ></button>
             <button
+              value={noteData.color}
               onClick={() => changeDataColor("#D1CDFA")}
               className="color3"
             ></button>
             <button
+              value={noteData.color}
               onClick={() => changeDataColor("#FF8888")}
               className="color4"
             ></button>
             <button
+              value={noteData.color}
               onClick={() => changeDataColor("#CCF0D7")}
               className="color5"
             ></button>
@@ -87,7 +92,7 @@ export default function NoteModal({
           <div className="note__footer">
             <button
               onClick={() => {
-                changeStep("AddTime");
+                dispatch(changeStep("AddTime"));
                 // submitNote();
               }}
             >
@@ -96,6 +101,7 @@ export default function NoteModal({
             <button
               className="SaveButton"
               onClick={() => {
+                // dispatch(changeStep("SaveNotes"));
                 onSave();
               }}
             >

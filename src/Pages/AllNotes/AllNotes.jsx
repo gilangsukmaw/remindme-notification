@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import pinAllNote from "../../assets/images/pinAllNote.png";
 import PinCard from "../../assets/images/PinCard.png";
 import "../AllNotes/AllNotes.scss";
@@ -6,16 +6,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNote } from "../../redux/action/note";
 import Line from "../../assets/images/GoalDetailLine.png";
 import AllNoteUnpinned from "../AllNotesUnpinned/AllNoteUnpinned";
+import ModalTest from "../../modal/modalTest";
+import { changeStep } from "../../redux/action/global";
+import { getNoteDetail } from "../../redux/action/note";
 
 const AllNotesCreate = ({ ...props }) => {
-  const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
-  const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.allNote.noteData);
+  const { onSave, noteData, changeDataTitle, changeDataBody, changeDataColor, changeDataPinned, changeDataDate, changeDataTime } = props;
 
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNote());
   }, []);
+  const data = useSelector((state) => state.allNote.noteData);
   console.log("note", data);
+  // const a = useSelector((state) => state.allNote.noteData);
+  // console.log("==>", a);
+  // const modalStep = useSelector((state) => state.global.modalStep);
+  const [stateId, setStateId] = useState();
+  const [hideDetail, setHideDetail] = useState(false);
+  console.log("noteid", stateId);
+
   return (
     <div>
       <div className="allNote__container">
@@ -25,24 +35,40 @@ const AllNotesCreate = ({ ...props }) => {
           <p>Pinned Notes</p>
         </div>
         <div className="allNote__wrapper">
-          {data?.data
-            ?.filter((data) => data.pinned === true)
-            .map((item, index) => (
-              <button onClick={() => (props.setStep = "EditNote")}>
-                <div key={index} className="allNote__card">
+          {typeof data == "undefined" ? (
+            <div>
+              <h1>Loading...</h1>
+            </div>
+          ) : (
+            data?.data
+              ?.filter((data) => data?.pinned === true)
+              .map((item, index) => (
+                // <button >
+                <div
+                  style={{ backgroundColor: `${item?.color}` }}
+                  key={index}
+                  className="allNote__card"
+                  onClick={async () => {
+                    console.log("itemid", item?.id);
+                    await setStateId(item?.id);
+                    await dispatch(getNoteDetail(item?.id));
+                    await dispatch(changeStep("EditNote", stateId));
+                  }}
+                >
                   <div className="allNote__title">
                     <h5>{item?.title}</h5>
                     <img src={PinCard} alt="" />
                   </div>
                   <div className="allNote__time">
-                    <p>{item?.dateNote}</p>
+                    <p>{item?.date}</p>
                   </div>
                   <div className="allNote__content">
                     <p>{item?.body}</p>
                   </div>
                 </div>
-              </button>
-            ))}
+                // </button>
+              ))
+          )}
         </div>
       </div>
       <div className="allNote__borderLine">
@@ -51,6 +77,16 @@ const AllNotesCreate = ({ ...props }) => {
       <div className="allNote__unpinned">
         <AllNoteUnpinned />
       </div>
+      <ModalTest
+        onSave={onSave}
+        noteData={noteData}
+        changeDataTitle={changeDataTitle}
+        changeDataBody={changeDataBody}
+        changeDataColor={changeDataColor}
+        changeDataPinned={changeDataPinned}
+        changeDataDate={changeDataDate}
+        changeDataTime={changeDataTime}
+      />
     </div>
   );
 };

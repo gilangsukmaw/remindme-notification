@@ -3,10 +3,14 @@ import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import CobaCalendar from "../../src/Calendar";
+import { useDispatch } from "react-redux";
+import { changeStep } from "../redux/action/global";
+import * as dayjs from "dayjs";
+import DatePicker from "react-datepicker";
 
 export default function TimeModal({
   // onClose,
-  changeStep,
+
   changeColor,
   changeDataDate,
   changeDataTime,
@@ -14,21 +18,24 @@ export default function TimeModal({
   onSave,
   props,
 }) {
-  const [newEvent, setNewEvent] = useState({ start: "", end: "" });
+  var utc = require("dayjs/plugin/utc");
+  dayjs.extend(utc);
+  const [startDate, setStartDate] = useState(new Date());
   const [noteInput, setNoteInput] = useState({
     title: "",
     body: "",
-    dateNote: "",
+    time: "",
+    date: dayjs(),
     timeNote: "",
     pinned: false,
     color: "",
   });
-
+  const dispatch = useDispatch();
   return (
     <div className="time__outside modal-backdrop">
       <div
         className="time__container"
-        style={{ backgroundColor: `${changeColor}` }}
+        style={{ backgroundColor: `${noteData.color}` }}
         value={noteData.color}
       >
         <div className="time__wrapper">
@@ -40,8 +47,11 @@ export default function TimeModal({
               <h3>Date</h3>
               <input
                 onChange={(e) => changeDataDate(e.target.value)}
-                value={noteData.dateNote}
+                // value={noteData.date}
+                value={noteInput.date}
                 type="text"
+                disabled
+                placeholder={dayjs(`${noteInput.date}`).format("DD/MM/YYYY")}
                 className="input-time"
                 id="time"
               />
@@ -50,15 +60,24 @@ export default function TimeModal({
               <h3>Time</h3>
               <input
                 onChange={(e) => changeDataTime(e.target.value)}
-                value={noteData.timeNote}
-                type="time"
+                value={noteInput.time}
+                type="text"
                 className="input-time"
                 id="time"
               />
             </div>
           </div>
           <div className="time__calendar">
-            <CobaCalendar />
+            <DatePicker
+              selected={startDate}
+              onChange={(date) =>
+                setNoteInput({
+                  ...noteInput,
+                  date: dayjs(date).format("YYYY-MM-DDTHH:mm:ss.000[Z]"),
+                })
+              }
+              inline
+            />
           </div>
         </div>
         <div className="time__button">
@@ -70,7 +89,7 @@ export default function TimeModal({
             <button
               className="time__save"
               onClick={() => {
-                changeStep("InputNote");
+                dispatch(changeStep("InputNote"));
                 // onSave();
                 // handleAddEvent();
               }}
@@ -79,7 +98,7 @@ export default function TimeModal({
             </button>
             <button
               className="time__cancel"
-              onClick={() => changeStep("InputNote")}
+              onClick={() => dispatch(changeStep("InputNote"))}
             >
               Cancel
             </button>

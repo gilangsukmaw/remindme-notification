@@ -6,6 +6,7 @@ import logout from "../../assets/images/logout.png";
 import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { changeStep } from "../../redux/action/global";
 function Navbar({ ...props }) {
   const { setStep } = props;
   const dispatch = useDispatch();
@@ -24,11 +25,21 @@ function Navbar({ ...props }) {
         <div className="sidebar__top">
           <div className="sidebarItems headers">
             <Link to="/newUser">
-              <img src={user?.data?.image} alt="" style={{ width: "100px", height: "100px", borderRadius: "100%", boxShadow: "0px 0px 20px 3px #625BAD", marginBottom: "2rem" }} />
+              <img
+                src={user?.data?.image}
+                alt=""
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  borderRadius: "100%",
+                  boxShadow: "0px 0px 10px 10px #625BAD",
+                  marginBottom: "2rem",
+                }}
+              />
               <p>{user ? user.data && user.data.username : null}</p>
             </Link>
           </div>
-          <div className=" Task" onClick={() => setStep("CreateNote")}>
+          <div className=" Task" onClick={() => dispatch(changeStep("CreateNote"))}>
             <FiIcons.FiPlusCircle />
             <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create a Task</h5>
           </div>
