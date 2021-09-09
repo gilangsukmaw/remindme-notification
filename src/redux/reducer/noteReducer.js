@@ -78,7 +78,7 @@ const allNote = (state = initialState, action) => {
       return {
         ...state,
         noteDataDetail: {
-          data: payload,
+          detail: payload,
           loading: false,
           error: null,
         },
@@ -87,7 +87,7 @@ const allNote = (state = initialState, action) => {
       return {
         ...state,
         noteDataDetail: {
-          data: [],
+          detail: [],
           loading: false,
           error: error,
         },

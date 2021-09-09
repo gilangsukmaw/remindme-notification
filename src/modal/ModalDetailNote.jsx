@@ -24,47 +24,26 @@ export default function DetailNote({ ...props }) {
     dispatch(getNote());
   }, []);
 
-  // useEffect(() => {
-  //   setUpdateNote({
-  //     ...updateNote,
-  //     title: tes?.data?.title,
-  //     body: tes?.data?.body,
-  //     dateNote: tes?.data?.dateNote,
-  //     pinned: true,
-  //     color: tes?.data?.color,
-  //   });
-  // }, []);
   // const { allData } = useSelector((state) => state.allNote.noteData);
   // const { detail } = useSelector((state) => state.allNote.noteDataDetail);
-  const detail = useSelector((state) => state.allNote.noteDataDetail.data);
+  const noteDetail = useSelector(
+    (state) => state.allNote.noteDataDetail.detail
+  );
   const dispatch = useDispatch();
-  console.log("prop detail", props);
+  useEffect(() => {
+    setUpdateNote({
+      ...updateNote,
+      title: noteDetail?.data?.title,
+      body: noteDetail?.data?.body,
+      dateNote: noteDetail?.data?.dateNote,
+      pinned: true,
+      color: noteDetail?.data?.color,
+    });
+  }, [noteDetail?.data]);
+  console.log("prop noteDetail", props);
   console.log(dispatch);
   console.log("allData");
-  console.log("tesdetail", detail);
-  // console.log("datadetail", detail?.data?.id);
-  // const state = {
-  //   noteDataDelete: {
-  //     delete: [],
-  //   },
-  // };
-
-  // const noteDelete = async (e) => {
-  //   const Token = localStorage.getItem("Token");
-  //   const { id } = id;
-  //   try {
-  //     const res = await axios.delete(
-  //       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
-  //       state,
-  //       { headers: { Authorization: `Bearer ${Token}` } }
-  //     );
-  //     dispatch(getNote());
-  //     console.log(res);
-  //   } catch (error) {
-  //     if (error.response.status === 404) {
-  //       alert(`error`);
-  //     }
-  //   }
+  console.log("tesnoteDetail", noteDetail);
 
   return (
     <div className="detailNote__outside modal-backdrop">
@@ -93,8 +72,8 @@ export default function DetailNote({ ...props }) {
                 // getNoteDetail(id);
                 // console.log("id", id);
                 // await dispatch(changeStep(""));
-                await dispatch(deleteNote(detail?.id));
-                console.log("bunga", detail)
+                await dispatch(deleteNote(noteDetail?.id));
+                console.log("bunga", noteDetail);
                 await dispatch(getNote());
                 await dispatch(changeStep("DeleteSuccess"));
               }}
@@ -104,23 +83,23 @@ export default function DetailNote({ ...props }) {
           </div>
         </div>
         <div className="detailNote__title">
-          <h2>{stateId}</h2>
+          <h2>{noteDetail?.data?.title}</h2>
         </div>
         <div className="detailNote__reminder">
           <div className="detailNote__date">
             <h3>Date</h3>
-            <h6>{detail?.data?.id}</h6>
+            <h6>{noteDetail?.data?.id}</h6>
           </div>
           <div className="detailNote__time">
             <div className="detailNote__clock">
               <h3>Time</h3>
-              <h6>{detail?.data?.id}</h6>
+              <h6>{noteDetail?.data?.id}</h6>
             </div>
             <img src={notifLogo} alt="" />
           </div>
         </div>
         <div className="detailNote__content">
-          <p>{detail?.data?.id}</p>
+          <p>{noteDetail?.data?.id}</p>
         </div>
         <div className="detailNote__color">
           <button className="color0"></button>
