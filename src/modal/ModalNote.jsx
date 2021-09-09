@@ -20,7 +20,6 @@ export default function NoteModal({
   changeDataPinned,
   onSave,
 }) {
-  const [color, setColor] = useState();
   const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">
