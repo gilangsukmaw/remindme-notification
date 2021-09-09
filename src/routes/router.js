@@ -30,29 +30,11 @@ function Router() {
     <>
       {isLogin && window.location.pathname !== "/" && validPage ? <Navbar setStep={setStep} /> : null}
       <Switch>
-        <Route exact path="/newUser">
-          <NewUser
-            setStep={setStep}
-            step={step}
-            noteData={noteData}
-            setNoteData={setNoteData}
-            onSaveNote={onSaveNote}
-            noteColor={noteColor}
-            setNoteColor={setNoteColor}
-            onSaveColor={onSaveColor}
-          />
+        <Route exact path="/home">
+          <NewUser setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
         </Route>
         <Route exact path="/profile">
-          <ProfilePage
-            setStep={setStep}
-            step={step}
-            noteData={noteData}
-            setNoteData={setNoteData}
-            onSaveNote={onSaveNote}
-            noteColor={noteColor}
-            setNoteColor={setNoteColor}
-            onSaveColor={onSaveColor}
-          />
+          <ProfilePage setStep={setStep} step={step} noteData={noteData} setNoteData={setNoteData} onSaveNote={onSaveNote} noteColor={noteColor} setNoteColor={setNoteColor} onSaveColor={onSaveColor} />
         </Route>
         <Route exact path="/">
           <LandingPage />
