@@ -1,13 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import {
-  Modal,
-  Col,
-  Form,
-  Button,
-  Tooltip,
-  OverlayTrigger,
-} from "react-bootstrap";
+import { Modal, Col, Form, Button, Tooltip, OverlayTrigger } from "react-bootstrap";
 // import CobaCalendar from "../../Calendar";
 import "./SettingGoals.scss";
 import * as dayjs from "dayjs";
@@ -47,11 +40,7 @@ function SettingGoalsCard({ show, onClose, props }) {
 
   const submitGoals = async (e) => {
     try {
-      const res = await axios.post(
-        `https://remindme.gabatch13.my.id/api/v1/goals`,
-        state,
-        { headers: { Authorization: `Bearer ${Token}` } }
-      );
+      const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/goals`, state, { headers: { Authorization: `Bearer ${Token}` } });
       dispatch(changeStep(""));
       dispatch(changeStep("SaveGoals"));
 
@@ -63,7 +52,7 @@ function SettingGoalsCard({ show, onClose, props }) {
           width: 450,
           confirmButtonText: "Ok",
           confirmButtonColor: "#625BAD",
-          title: "There is still missing inputs",
+          title: error.response.data.errors[0],
           text: "Please Check Again",
         });
       }
@@ -75,19 +64,10 @@ function SettingGoalsCard({ show, onClose, props }) {
 
   return (
     <>
-      <Modal
-        show
-        className="GoalSetting shadow"
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
+      <Modal show className="GoalSetting shadow" size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <div className="SetGoalsContainer shadow text-dark">
           <Modal.Header style={{ alignItems: "flex-start" }}>
-            <h1
-              style={{ fontSize: "1.8rem", fontWeight: "600", padding: "0" }}
-              className="mb-4"
-            >
+            <h1 style={{ fontSize: "1.8rem", fontWeight: "600", padding: "0" }} className="mb-4">
               My Goal
             </h1>
             <Button
@@ -122,20 +102,12 @@ function SettingGoalsCard({ show, onClose, props }) {
               {/* <p>{`${state.name}`}</p> */}
             </Form.Group>
             <div>
-              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
-                Built or Quit This Goal?
-              </p>
+              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>Built or Quit This Goal?</p>
             </div>
 
             <div className="BuiltorQuitButton mt-4 mb-4">
               <Col className="d-flex flex-row justify-content-between">
-                <OverlayTrigger
-                  className="InformationPopUp"
-                  placement="bottom"
-                  overlay={
-                    <Tooltip id={`SetYourGoals`}>Build Amazing Goals</Tooltip>
-                  }
-                >
+                <OverlayTrigger className="InformationPopUp" placement="bottom" overlay={<Tooltip id={`SetYourGoals`}>Build Amazing Goals</Tooltip>}>
                   <Button
                     className="BuildButton"
                     variant="secondary"
@@ -150,13 +122,7 @@ function SettingGoalsCard({ show, onClose, props }) {
                     Build
                   </Button>
                 </OverlayTrigger>
-                <OverlayTrigger
-                  className="InformationPopUp"
-                  placement="bottom"
-                  overlay={
-                    <Tooltip id={`SetYourGoals`}>Quit Something</Tooltip>
-                  }
-                >
+                <OverlayTrigger className="InformationPopUp" placement="bottom" overlay={<Tooltip id={`SetYourGoals`}>Quit Something</Tooltip>}>
                   <Button
                     className="BuildButton"
                     variant="secondary"
@@ -174,38 +140,24 @@ function SettingGoalsCard({ show, onClose, props }) {
               </Col>
             </div>
             <div className="d-flex flex-row justify-content-between">
-              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
-                Choose Time
-              </p>
-              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
-                Set Target
-              </p>
+              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>Choose Time</p>
+              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>Set Target</p>
             </div>
             <div className="d-flex flex-row justify-content-between">
               <Col className="kolomCalendar" style={{ maxWidth: "45%" }}>
                 <Form.Control
-                  style={{
-                    background: "none",
-                    width: "9rem",
-                    textAlign: "left",
-                    borderRadius: "10px",
-                    height: "2.5rem",
-                    border: "1px solid #B6C6E5",
-                  }}
+                  style={{ background: "none", width: "9rem", textAlign: "left", borderRadius: "10px", height: "2.5rem", border: "1px solid #B6C6E5" }}
                   className="Goals__Target"
                   disabled
                   placeholder={dayjs(`${state.date}`).format("DD/MM/YYYY")}
                 />
-
-                <div
-                  className="MonthYear mb-1 mt-4"
-                  style={{ fontWeight: "600" }}
-                >
+                <div className="MonthYear mb-1 mt-4" style={{ fontWeight: "600" }}>
+                  <div>{dayjs(`${state.date}`).format("MMM,")}</div>
+                </div>
+                <div className="MonthYear mb-1 mt-4" style={{ fontWeight: "600" }}>
                   <div>{dayjs(`${state.date}`).format("MMM,")}</div>
 
-                  <div style={{ paddingLeft: "0.25rem" }}>
-                    {dayjs(`${state.date}`).format("YYYY")}
-                  </div>
+                  <div style={{ paddingLeft: "0.25rem" }}>{dayjs(`${state.date}`).format("YYYY")}</div>
                 </div>
                 <div className="Goals__calendar " style={{ float: "left" }}>
                   <DatePicker
@@ -236,9 +188,7 @@ function SettingGoalsCard({ show, onClose, props }) {
                     type="number"
                     placeholder="Target"
                     value={state.target}
-                    onChange={(e) =>
-                      setState({ ...state, target: e.target.value })
-                    }
+                    onChange={(e) => setState({ ...state, target: e.target.value })}
                   />
                   {/* <p>{`${state.target}`}</p> */}
                 </Form.Group>
@@ -251,15 +201,7 @@ function SettingGoalsCard({ show, onClose, props }) {
                 >
                   Set Value
                 </p>
-                <Form.Select
-                  value={state.target_type}
-                  onChange={(e) =>
-                    setState({ ...state, target_type: e.target.value })
-                  }
-                  className="PilihSatuan me-sm-2"
-                  id="PilihSatuan"
-                  style={{ borderRadius: "10px" }}
-                >
+                <Form.Select value={state.target_type} onChange={(e) => setState({ ...state, target_type: e.target.value })} className="PilihSatuan me-sm-2" id="PilihSatuan" style={{ borderRadius: "10px" }}>
                   <option id="PilihItem" value="0">
                     Select
                   </option>
@@ -301,9 +243,7 @@ function SettingGoalsCard({ show, onClose, props }) {
               </Col>
             </div>
             <div className="mt-1">
-              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
-                Choose Progress bar Color
-              </p>
+              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>Choose Progress bar Color</p>
             </div>
             <div className="ColorPicker mb-2">
               <Button
@@ -312,26 +252,10 @@ function SettingGoalsCard({ show, onClose, props }) {
                 value={state.color}
                 onClick={(e) => setState({ ...state, color: "#FFBCC2" })}
               ></Button>
-              <Button
-                style={{ backgroundColor: "#FCF3A1" }}
-                value={state.color}
-                onClick={(e) => setState({ ...state, color: "#FCF3A1" })}
-              ></Button>
-              <Button
-                style={{ backgroundColor: "#CCF0D7" }}
-                value={state.color}
-                onClick={(e) => setState({ ...state, color: "#CCF0D7" })}
-              ></Button>
-              <Button
-                style={{ backgroundColor: "#FF8888" }}
-                value={state.color}
-                onClick={(e) => setState({ ...state, color: "#FF8888" })}
-              ></Button>
-              <Button
-                style={{ backgroundColor: "#D1CDFA" }}
-                value={state.color}
-                onClick={(e) => setState({ ...state, color: "#D1CDFA" })}
-              ></Button>
+              <Button style={{ backgroundColor: "#FCF3A1" }} value={state.color} onClick={(e) => setState({ ...state, color: "#FCF3A1" })}></Button>
+              <Button style={{ backgroundColor: "#CCF0D7" }} value={state.color} onClick={(e) => setState({ ...state, color: "#CCF0D7" })}></Button>
+              <Button style={{ backgroundColor: "#FF8888" }} value={state.color} onClick={(e) => setState({ ...state, color: "#FF8888" })}></Button>
+              <Button style={{ backgroundColor: "#D1CDFA" }} value={state.color} onClick={(e) => setState({ ...state, color: "#D1CDFA" })}></Button>
             </div>
             {/* <p>{`${state.color}`}</p> */}
 

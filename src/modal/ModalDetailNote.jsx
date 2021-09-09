@@ -27,9 +27,7 @@ export default function DetailNote({ ...props }) {
   // useEffect(() => {
   //   dispatch(getNoteDetail());
   // }, []);
-  const noteDetail = useSelector(
-    (state) => state.allNote.noteDataDetail.detail
-  );
+  const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
   const dispatch = useDispatch();
   useEffect(() => {
     setUpdateNote({

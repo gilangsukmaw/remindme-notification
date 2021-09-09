@@ -11,22 +11,13 @@ import { changeStep } from "../../redux/action/global";
 import { getNoteDetail } from "../../redux/action/note";
 
 const AllNotesCreate = ({ ...props }) => {
-  const {
-    onSave,
-    noteData,
-    changeDataTitle,
-    changeDataBody,
-    changeDataColor,
-    changeDataPinned,
-    changeDataDate,
-    changeDataTime,
-  } = props;
+  const { onSave, noteData, changeDataTitle, changeDataBody, changeDataColor, changeDataPinned, changeDataDate, changeDataTime } = props;
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNote());
   }, []);
-  const data = useSelector((state) => state.allNote.noteData.data);
+  const data = useSelector((state) => state.allNote.noteData);
   console.log("note", data);
   // const a = useSelector((state) => state.allNote.noteData);
   // console.log("==>", a);
@@ -86,7 +77,6 @@ const AllNotesCreate = ({ ...props }) => {
       <div className="allNote__unpinned">
         <AllNoteUnpinned />
       </div>
-
       <ModalTest
         onSave={onSave}
         noteData={noteData}

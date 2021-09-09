@@ -26,7 +26,7 @@ export default function AllNoteUnpinned({ ...props }) {
   useEffect(() => {
     dispatch(getNote());
   }, []);
-  const data = useSelector((state) => state.allNote.noteData.data);
+  const data = useSelector((state) => state.allNote.noteData);
   console.log("note unpinned", data);
   const b = useSelector((state) => state.allNote.noteData);
   console.log("==>", b);

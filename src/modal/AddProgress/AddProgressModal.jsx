@@ -2,6 +2,9 @@ import React from 'react'
 import { Modal, Col, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
 import './AddProgressModal.scss'
 import Logo from '../../assets/images/AddProgressLogo.png'
+import Confetti from '../../assets/images/confetti-ball.svg'
+import Cross from '../../assets/images/OopsCross.svg'
+
 import {Link} from 'react-router-dom';
 import axios from "axios";
 import { useState } from "react";
@@ -71,20 +74,41 @@ function AddProgressModal(props) {
             setProgressShow(false);
             dispatch(getAllGoals());
             dispatch(getDetailGoals(id));
-            congrats();
-            
-            if (details?.current_percent === 100) {
-                alert('helloworld');
-            }
-           
+            const a = (res.data.data[res.data.data.length - 1]);
+            if (a.current_progress === 100) {
+                Swal.fire({
+                    imageUrl: (`${Confetti}`),
+                    imageWidth: 100,
+                    imageHeight: 100,
+                    imageAlt: 'Custom image',
+                    width: 450,
+                    confirmButtonText: "Ok",
+                    confirmButtonColor: "#625BAD",
+                    title: 'Congratulations!',
+                    text: 'You have complete your goal',
+      
+                  })
+            } ;
         } catch (error) {
-          if (error.response.status === 400) {
-            console.log(error);
-            alert(`total current is more than target`)};
+            if (error.response.status === 400) {
+                // console.log("ini error" ,error.response.data.errors[0]);
+                Swal.fire({
+                  imageUrl: (`${Cross}`),
+                  imageWidth: 100,
+                  imageHeight: 100,
+                  imageAlt: 'Custom image',
+                  width: 450,
+                  confirmButtonText: "Ok",
+                  confirmButtonColor: "#625BAD",
+                  title: (error.response.data.errors[0]),
+                  text: 'Please Check Again',
+                  
+                })};
+          
             if (error.response.status === 403) {
             alert(`Sesi anda habis, mohon login kembali`);
         }}};
-      console.log ('cek4',details);
+    //   console.log ('cek4',details);
 
 
 return (
@@ -94,7 +118,6 @@ return (
     <Modal className='AddProgressModal shadow' {...props} size="lg" aria-labelledby="contained-modal-title-vcenter"
         centered>
         <Modal.Header closeButton >
-{/* <p>{`${id}`}</p> */}
         </Modal.Header>
         <Modal.Title className='AddProgressTitle ' id="contained-modal-title-vcenter">
             <img className='MainTitle' style={{width:'34px', height:'34px', marginRight:'1rem'}} src={Logo}></img>
@@ -109,12 +132,7 @@ return (
                     <Form.Control style={{float:'right', marginRight:'0.5rem', borderRadius:'10px', border:'2px solid #B6C6E5'}} type="number"
                         placeholder="Enter Value" 
                         value={state.progress} onChange={(e) => setState({ ...state,progress: parseInt(e.target.value) })} />
-                        {/* <p>{`${state?.progress}`}</p>
-                        <p>{`${state?.color}`}</p>
-                        <p>{`${id}`}</p> */}
-
-
-                </Form.Group>
+                    </Form.Group>
                 <Form.Group className="ValuePlaceholderRight PlaceHolder" controlId="enter value">
                     <Form.Control disabled style={{marginLeft:'0.5rem', borderRadius:'10px', border:'2px solid #B6C6E5'}} type="text"
                         placeholder={`${type}`} />

@@ -65,19 +65,11 @@ function* putUser(actions) {
 }
 
 function* putModal(actions) {
-  console.log("put modal", actions);
   yield put({
     type: PUT_ALERT_SUCCESS,
     payload: actions.showModal,
   });
 }
-// function* putModalPhoto(actions) {
-//   console.log("put modal", actions);
-//   yield put({
-//     type: PUT_ALERT_PHOTO_SUCCESS,
-//     payload: actions.showModal,
-//   });
-// }
 
 export function* watchGetUser() {
   yield takeEvery(GET_USER_BEGIN, getUser);

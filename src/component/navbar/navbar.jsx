@@ -7,7 +7,6 @@ import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { changeStep } from "../../redux/action/global";
-
 function Navbar({ ...props }) {
   const { setStep } = props;
   const dispatch = useDispatch();
@@ -40,14 +39,9 @@ function Navbar({ ...props }) {
               <p>{user ? user.data && user.data.username : null}</p>
             </Link>
           </div>
-          <div
-            className=" Task"
-            onClick={() => dispatch(changeStep("CreateNote"))}
-          >
+          <div className=" Task" onClick={() => dispatch(changeStep("CreateNote"))}>
             <FiIcons.FiPlusCircle />
-            <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>
-              Create a Task
-            </h5>
+            <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create a Task</h5>
           </div>
           <div className="sidebarItems content">
             <Link to="/allNote">

@@ -1,9 +1,4 @@
-import {
-  GET_NOTE_BEGIN,
-  UPDATE_NOTE_BEGIN,
-  DELETE_NOTE_BEGIN,
-  GET_NOTEDETAIL_BEGIN,
-} from "../const/type";
+import { GET_NOTE_BEGIN, UPDATE_NOTE_BEGIN, DELETE_NOTE_BEGIN, GET_NOTEDETAIL_BEGIN } from "../const/type";
 
 export const getNote = (body) => {
   return {
