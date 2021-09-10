@@ -46,7 +46,7 @@ function SignIn() {
         localStorage.setItem("USERID", res.data.data.id);
         localStorage.setItem("USEREMAIL", res.data.data.email);
         localStorage.setItem("USERNAME", res.data.data.username);
-        window.location.replace("/newUser");
+        window.location.replace("/home");
       });
     } catch (error) {
       if (error.response.status === 400) {
