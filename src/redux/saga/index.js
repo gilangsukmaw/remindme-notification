@@ -7,5 +7,15 @@ import { watchDeleteNote } from "./deleteNoteSaga";
 
 export default function* rootSaga() {
   // function generator
-  yield all([watchGetUser(), watchPutUser(), watchPutModal(), watchallGoals(), watchDetailGoals(), watchDeleteNote(), watchUpdateNote(), watchGetNote(), watchGetNoteDetail()]);
+  yield all([
+    watchGetUser(),
+    watchPutUser(),
+    watchPutModal(),
+    watchallGoals(),
+    watchDetailGoals(),
+    watchDeleteNote(),
+    watchUpdateNote(),
+    watchGetNote(),
+    watchGetNoteDetail(),
+  ]);
 }

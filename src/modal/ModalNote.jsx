@@ -99,9 +99,9 @@ export default function NoteModal({
             </button>
             <button
               className="SaveButton"
-              onClick={() => {
-                // dispatch(changeStep("SaveNotes"));
-                onSave();
+              onClick={async () => {
+                await onSave();
+                await dispatch(changeStep("SaveNotes"));
               }}
             >
               Save

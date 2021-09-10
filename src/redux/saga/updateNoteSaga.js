@@ -6,7 +6,7 @@ import {
 } from "../const/type";
 import { put, takeEvery } from "redux-saga/effects";
 
-function* updateNote(id, body) {
+function* putUpdateNote(id, body) {
   const Token = localStorage.getItem("Token");
   // yield console.log(Token);
   try {
@@ -28,5 +28,5 @@ function* updateNote(id, body) {
 }
 
 export function* watchUpdateNote() {
-  yield takeEvery(UPDATE_NOTE_BEGIN, updateNote);
+  yield takeEvery(UPDATE_NOTE_BEGIN, putUpdateNote);
 }

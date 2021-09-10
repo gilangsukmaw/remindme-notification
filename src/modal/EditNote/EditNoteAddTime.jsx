@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
-import "../assets/styles/ModalAddTime.scss";
+import React, { useState, useEffect } from "react";
+import buttonNotifLogo from "../../assets/images/buttonNotifLogo.png";
+import "./EditNoteAddTime.scss";
 import "bootstrap/dist/css/bootstrap.css";
-import CobaCalendar from "../../src/Calendar";
-import { useDispatch } from "react-redux";
-import { changeStep } from "../redux/action/global";
+import { useDispatch, useSelector } from "react-redux";
+import { changeStep } from "../../redux/action/global";
 import * as dayjs from "dayjs";
 import DatePicker from "react-datepicker";
+import { getNoteDetail } from "../../redux/action/note";
 
-export default function TimeModal({
+export default function EditNoteAddTime({
   // onClose,
 
   changeColor,
@@ -21,15 +21,34 @@ export default function TimeModal({
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
   const [startDate, setStartDate] = useState(new Date());
-
+  const [updateNote, setUpdateNote] = useState({
+    title: "",
+    body: "",
+    dateNote: "",
+    pinned: false,
+    color: "",
+  });
+  const noteDetail = useSelector(
+    (state) => state.allNote.noteDataDetail.detail
+  );
+  useEffect(() => {
+    setUpdateNote({
+      ...updateNote,
+      title: noteDetail?.title,
+      body: noteDetail?.body,
+      dateNote: noteDetail?.dateNote,
+      pinned: true,
+      color: noteDetail?.color,
+    });
+  }, []);
   const dispatch = useDispatch();
-  console.log("datenote", noteData.dateNote);
+
   return (
     <div className="time__outside modal-backdrop">
       <div
         className="time__container"
-        style={{ backgroundColor: `${noteData.color}` }}
-        value={noteData.color}
+        style={{ backgroundColor: `${updateNote.color}` }}
+        value={updateNote.color}
       >
         <div className="time__wrapper">
           <div className="time__title">
@@ -39,12 +58,17 @@ export default function TimeModal({
             <div className="time__date">
               <h3>Date</h3>
               <input
-                // onChange={(e) => changeDataDate(e.target.value)}
+                onChange={(e) => {
+                  setUpdateNote({ ...updateNote, dateNote: e.target.value });
+                  changeDataDate(e.target.value);
+                }}
                 // value={noteData.date}
-                value={noteData.dateNote}
+                value={updateNote.dateNote}
                 type="text"
                 disabled
-                placeholder={dayjs(`${noteData.dateNote}`).format("DD/MM/YYYY")}
+                placeholder={dayjs(`${updateNote?.dateNote}`).format(
+                  "DD/MM/YYYY"
+                )}
                 className="input-time"
                 id="time"
               />
@@ -79,9 +103,10 @@ export default function TimeModal({
           <div className="time__button2">
             <button
               className="time__save"
-              onClick={() => {
-                dispatch(changeStep("InputNote"));
-                // onSave()
+              onClick={async () => {
+                await dispatch(getNoteDetail(noteDetail?.id));
+                await dispatch(changeStep("EditNoteInput"));
+                // onSave();
                 // handleAddEvent();
               }}
             >
@@ -89,7 +114,7 @@ export default function TimeModal({
             </button>
             <button
               className="time__cancel"
-              onClick={() => dispatch(changeStep("InputNote"))}
+              onClick={() => dispatch(changeStep("EditNoteInput"))}
             >
               Cancel
             </button>
