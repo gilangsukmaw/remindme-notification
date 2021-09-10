@@ -458,6 +458,9 @@
 }
 
   @media (max-width: 768px) {
+    .NotesContainer{
+        margin-left: -1.5rem;
+    }
     .HomeContainer{
         flex-direction: column;
     }
