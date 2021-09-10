@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Modal, Col, Form, Button, Tooltip, OverlayTrigger } from "react-bootstrap";
-// import CobaCalendar from "../../Calendar";
 import "./SettingGoals.scss";
 import * as dayjs from "dayjs";
 import SaveLogo from "../../assets/images/saveLogo.svg";
@@ -186,8 +185,6 @@ function SettingGoalsCard({ show, onClose, props }) {
                     }
                     inline
                   />
-                  {/* <CobaCalendar value={state.date} onClick={(e) => setState({ ...state,date: e.target.value  })} /> */}
-                  {/* <p>{`${state.date}`}</p> */}
                 </div>
               </Col>
               <Col className="kolomValue  " style={{ maxWidth: "30%" }}>
@@ -257,7 +254,7 @@ function SettingGoalsCard({ show, onClose, props }) {
               </Col>
             </div>
             <div className="mt-1">
-              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>Choose Progress bar Color</p>
+              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>Choose Progress Bar Color</p>
             </div>
             <div className="ColorPicker mb-2">
               <Button

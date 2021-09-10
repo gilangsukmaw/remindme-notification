@@ -39,6 +39,12 @@ function Router() {
         <Route exact path="/">
           <LandingPage />
         </Route>
+        {/* <Route exact path="/verification/:token">
+          <Verification />
+        </Route> */}
+        {/* <Route exact path="/verification">
+          <ForgotPassword />
+        </Route> */}
         <Route exact path="/auth/:type">
           <SignInUpPage />
         </Route>

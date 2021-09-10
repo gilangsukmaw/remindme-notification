@@ -57,11 +57,11 @@ function* noteByDate(actions) {
   const { error, date } = actions;
   try {
     const Token = localStorage.getItem("Token");
-    const res = yield axios.get(`https://remindme.gabatch13.my.id/api/v1/goals/${date}`, { headers: { Authorization: `Bearer ${Token}` } });
+    const res = yield axios.get(`https://remindme.gabatch13.my.id/api/v1/notes/date/${date}`, { headers: { Authorization: `Bearer ${Token}` } });
     // console.log('datares' ,res)
     yield put({
       type: GET_NOTEBYDATE_SUCCESS,
-      payload: res.data.data,
+      payload: res.data,
     });
   } catch (err) {
     yield put({
