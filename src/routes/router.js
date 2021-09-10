@@ -24,7 +24,7 @@ function Router() {
   console.log("window location", window.location.pathname);
 
   const validPage =
-    window.location.pathname === "/newUser" || window.location.pathname === "/profile" || window.location.pathname === "/allNote" || window.location.pathname === "/allGoals" || window.location.pathname === "/editProfile" ? true : false;
+    window.location.pathname === "/home" || window.location.pathname === "/profile" || window.location.pathname === "/allNote" || window.location.pathname === "/allGoals" || window.location.pathname === "/editProfile" ? true : false;
 
   return (
     <>
