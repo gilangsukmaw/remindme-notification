@@ -22,11 +22,17 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-y: auto;
+    width: 100%;
 
   button {
     border-style: none;
     background: none;
   }
+}
+
+.allNote__wrap {
+  width: 100%;
+    display: -webkit-box;
 }
 
 .allNote__card {

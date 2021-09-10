@@ -1,18 +1,21 @@
 .HomeContainer {
+    margin-left: 0;
+    padding: 0;
     display: flex;
+    margin-right: 2rem;
 }
 
 // =====Notes================
 .NotesCol {
     align-items: center;
-    justify-content:space-around;
+    justify-content:flex-start;
     margin-bottom: 2rem;
 
 }
 
 .NotesContainer {
-    max-width: 28rem;
-    max-height: 52rem;
+    max-width: 30rem;
+    max-height: 48rem;
     background-color: #F1F4FA;
     border-radius: 25px;
     padding: 1.8rem 1.5rem 1.8rem 1.5rem;
@@ -45,14 +48,16 @@
 }
 
 // =====Calendar================
-
+.CalendarColumn{
+    margin-right: 2rem;
+}
 .CalendarContainer {
     width: 32rem;
-    max-height: 55rem;
+    height: 48rem;
     background-color: #F1F4FA;
     border-radius: 25px;
     padding: 1.8rem 1.5rem 1.8rem 1.5rem;
-    margin-left: 2rem;
+    margin:0 2rem 0 -2rem;
 
     .CalendarBox {
         .calendar__container {
@@ -76,7 +81,7 @@
 
 // =====punya home notes================
 .NotesCard {
-    width: 25rem;
+    width: 23rem;
     height: auto;
     border-radius: 20px;
     padding-top: 1rem;
@@ -142,3 +147,41 @@
           }
     }
 }
+
+@media (width: 1024px) {
+    .HomeContainer{
+        // flex-direction: column;
+        margin-left: 15rem;
+    }
+    .CalendarContainer{
+        width: 20rem;
+        margin:0;
+    }
+    .NotesContainer{
+        width: 20rem;
+        .NotesCard{
+            width: 15rem;
+            overflow-wrap: break-word;
+        }
+    }
+    .RemiderCard{
+        overflow-wrap: break-word;
+
+        width: 13rem;
+        margin-right: 2rem;
+
+    }
+    .CalendarBox {
+        .calendar__container {
+            .calendar {
+                margin: auto;
+                width: 250px;
+            }
+        }
+    }
+  }
+  @media (max-width: 768px) {
+    .HomeContainer{
+        flex-direction: column;
+    }
+  }

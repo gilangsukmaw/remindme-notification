@@ -11,7 +11,16 @@ import { changeStep } from "../../redux/action/global";
 import { getNoteDetail } from "../../redux/action/note";
 
 const AllNotesCreate = ({ ...props }) => {
-  const { onSave, noteData, changeDataTitle, changeDataBody, changeDataColor, changeDataPinned, changeDataDate, changeDataTime } = props;
+  const {
+    onSave,
+    noteData,
+    changeDataTitle,
+    changeDataBody,
+    changeDataColor,
+    changeDataPinned,
+    changeDataDate,
+    changeDataTime,
+  } = props;
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -35,40 +44,43 @@ const AllNotesCreate = ({ ...props }) => {
           <p>Pinned Notes</p>
         </div>
         <div className="allNote__wrapper">
-          {typeof data == "undefined" ? (
-            <div>
-              <h1>Loading...</h1>
-            </div>
-          ) : (
-            data?.data
-              ?.filter((data) => data?.pinned === true)
-              .map((item, index) => (
-                // <button >
-                <div
-                  style={{ backgroundColor: `${item?.color}` }}
-                  key={index}
-                  className="allNote__card"
-                  onClick={async () => {
-                    console.log("itemid", item?.id);
-                    await setStateId(item?.id);
-                    await dispatch(getNoteDetail(item?.id));
-                    await dispatch(changeStep("EditNote", stateId));
-                  }}
-                >
-                  <div className="allNote__title">
-                    <h5>{item?.title}</h5>
-                    <img src={PinCard} alt="" />
+          <div className="allNote__wrap">
+            {typeof data == "undefined" ? (
+              <div>
+                <h1>Loading...</h1>
+              </div>
+            ) : (
+              data?.data
+                ?.filter((data) => data?.pinned === true)
+                .map((item, index) => (
+                  // <button >
+                  <div
+                    style={{ backgroundColor: `${item?.color}` }}
+                    key={index}
+                    className="allNote__card"
+                    onClick={async () => {
+                      console.log("itemid", item?.id);
+                      await setStateId(item?.id);
+                      await dispatch(getNoteDetail(item?.id));
+                      await dispatch(changeStep("EditNote", stateId));
+                    }}
+                  >
+                    {console.log("item add time", item)}
+                    <div className="allNote__title">
+                      <h5>{item?.title}</h5>
+                      <img src={PinCard} alt="" />
+                    </div>
+                    <div className="allNote__time">
+                      <p>{item?.date}</p>
+                    </div>
+                    <div className="allNote__content">
+                      <p>{item?.body}</p>
+                    </div>
                   </div>
-                  <div className="allNote__time">
-                    <p>{item?.date}</p>
-                  </div>
-                  <div className="allNote__content">
-                    <p>{item?.body}</p>
-                  </div>
-                </div>
-                // </button>
-              ))
-          )}
+                  // </button>
+                ))
+            )}
+          </div>
         </div>
       </div>
       <div className="allNote__borderLine">

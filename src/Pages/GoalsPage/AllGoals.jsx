@@ -354,7 +354,7 @@ return (
     {/* ==================mapping All Goals=================== */}
 
     <div className="PageTitle">
-      <p style={{ fontSize: "34px", fontWeight: "600",  }}>My All Goals</p>
+      <p style={{ margin: "0 2rem 0 2rem",fontSize: "34px", fontWeight: "600",  }}>My All Goals</p>
     </div>
     <div style={{margin: "0 2rem 0 2rem",}} className="GoalsContainer d-flex overflow-auto ">
       {goals?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
@@ -396,7 +396,6 @@ return (
           type={details?.target_type} id={details?.id} />)}
       </div>
       </Col>
-
       {/* ==================mapping history goals========================= */}
       <Col lg={6} md={6} className='ProgressList'>
       <div className='ProgressListText'>

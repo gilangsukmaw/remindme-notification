@@ -7,7 +7,7 @@ import ReminderCard from "./ReminderCard";
 import Garis from "../../assets/images/GoalDetailLine.png";
 import CobaCalendar from "../../Calendar";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllGoals, getDetailGoals } from "../../redux/action/goals";
+import { getAllGoals, getDetailGoals, getNoteByDate } from "../../redux/action/goals";
 import { getNote } from "../../redux/action/note";
 import CircularGoals from "../../component/CircularGoals/CircularGoals";
 
@@ -18,6 +18,7 @@ function HomeExisting() {
   const dispatch = useDispatch();
   const { goals } = useSelector((state) => state.allGoals.goalsData);
   const { data } = useSelector((state) => state.allNote.noteData);
+  const { noteDate } = useSelector((state) => state.noteByDate.ByDate);
 
   useEffect(() => {
     dispatch(getAllGoals());
@@ -25,20 +26,20 @@ function HomeExisting() {
   }, [dispatch]);
   console.log('Existing goal', goals);
   console.log('Existing notes', data);
+  console.log('notebydate', data);
 
 
   return (
     <>
-      <Container className="HomeContainer " style={{ maxWidth: "1360px" }}>
-        <Col className="NotesCol d-flex" style={{ width: "50%" }}>
+      <Container className="HomeContainer " style={{ maxWidth: "1400px" }}>
+        <Col md={12} className="NotesCol d-flex" style={{ width: "50%" }}>
           <div className="NotesContainer d-flex flex-column shadow">
             <div className="TitleContainer">
               <p>Pinned Notes</p>
             </div>
             <div className="PinnedNotesContainer overflow-auto">
               
-            {data?.data
-            ?.filter((data) => data.pinned === true)
+            {data?.filter((data) => data?.pinned === true)
             .map((item, index) => (
               <div key={index}>
               <HomeNotes title={item?.title} time={item?.time} date={item?.date} body={item?.body} color={item?.color} />
@@ -79,7 +80,7 @@ function HomeExisting() {
             </div>
           </div>
         </Col>
-        <Col style={{ width: "50%" }}>
+        <Col md={12} className='CalendarColumn' style={{ width: "50%" }}>
           <div className="CalendarContainer shadow">
             <div className="CalendarBox">
               <CobaCalendar />
@@ -105,7 +106,7 @@ function HomeExisting() {
             <div className="ReminderContainer ">
               <p className="ReminderTitle">Note</p>
               {/* nanti di ganti mapping tanggal */}
-              <div className="TodayDates">13 June 2021 </div>
+              <div className="TodayDates">10 September 2021 </div>
               <div className="CardMappingBox overflow-auto">
                 <ReminderCard />
               </div>

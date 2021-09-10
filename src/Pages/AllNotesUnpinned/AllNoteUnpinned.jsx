@@ -34,7 +34,7 @@ export default function AllNoteUnpinned({ ...props }) {
   const [date, setDate] = useState();
 
   const d = new Date();
-  const day = dayjs(d);
+  const day = dayjs(d).format("DD/MM/YYYY");
 
   return (
     <div>
@@ -68,7 +68,7 @@ export default function AllNoteUnpinned({ ...props }) {
                     <img src={unpinnedLogo} alt="" />
                   </div>
                   <div className="unpinned__time">
-                    <p>{item?.dateNote}</p>
+                    <p>{item?.date}</p>
                   </div>
                   <div className="unpinned__content">
                     <p>{item?.body}</p>

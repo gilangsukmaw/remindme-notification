@@ -16,8 +16,11 @@ import { changeStep } from "../redux/action/global";
 import ModalDelete from "../modal/ModalDelete";
 import SaveChangesDetail from "./ModalSaveChanges";
 import { useEffect } from "react";
+import * as dayjs from "dayjs";
 
 const ModalTest = ({ ...props }) => {
+  var utc = require("dayjs/plugin/utc");
+  dayjs.extend(utc);
   const dispatch = useDispatch();
   const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } = props;
   const data = useSelector((state) => state.global.data);
@@ -27,6 +30,7 @@ const ModalTest = ({ ...props }) => {
     body: "",
     time: "",
     date: "",
+    dateNote: dayjs(),
     pinned: false,
     color: "",
   });

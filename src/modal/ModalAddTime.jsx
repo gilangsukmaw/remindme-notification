@@ -33,6 +33,7 @@ export default function TimeModal({
 
   console.log("noteInput", noteInput);
   const dispatch = useDispatch();
+
   return (
     <div className="time__outside modal-backdrop">
       <div className="time__container" style={{ backgroundColor: `${noteData.color}` }} value={noteData.color}>
@@ -44,12 +45,12 @@ export default function TimeModal({
             <div className="time__date">
               <h3>Date</h3>
               <input
-                onChange={(e) => changeDataDate(e.target.value)}
+                // onChange={(e) => changeDataDate(e.target.value)}
                 // value={noteData.date}
-                value={noteInput.date}
+                value={noteData.dateNote}
                 type="text"
                 disabled
-                placeholder={dayjs(`${noteInput.date}`).format("DD/MM/YYYY")}
+                placeholder={dayjs(`${noteData.dateNote}`).format("DD/MM/YYYY")}
                 className="input-time"
                 id="time"
               />
