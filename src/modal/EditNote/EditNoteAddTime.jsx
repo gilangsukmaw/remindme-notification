@@ -11,27 +11,28 @@ import { putUpdateNote } from "../../redux/action/note";
 export default function EditNoteAddTime({ updateNote }) {
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
+
+  const data = useSelector((state) => state.global.data);
   const [startDate, setStartDate] = useState(new Date());
   const [noteInput, setNoteInput] = useState({
     id: "",
     title: "",
     body: "",
+    color: "",
     dateNote: "",
     pinned: false,
-    color: "",
   });
   useEffect(() => {
     setNoteInput({
       ...noteInput,
-      id: updateNote?.id,
-      title: updateNote?.title,
-      body: updateNote?.body,
-      dateNote: updateNote?.dateNote,
-      pinned: updateNote?.pinned,
-      color: updateNote?.color,
+      id: data?.id,
+      title: data?.title,
+      body: data?.body,
+      dateNote: data?.dateNote,
+      pinned: data?.pinned,
+      color: data?.color,
     });
-  }, [updateNote]);
-  console.log("update ==>>>>", updateNote.id);
+  }, [data]);
   const dispatch = useDispatch();
   console.log("input date==>", noteInput);
   return (
@@ -72,9 +73,7 @@ export default function EditNoteAddTime({ updateNote }) {
             <button
               className="time__save"
               onClick={async () => {
-                await dispatch(putUpdateNote(updateNote?.id, noteInput));
-                console.log("updatenote id", updateNote.id);
-                await dispatch(changeStep("EditNoteInput"));
+                await dispatch(changeStep("EditNoteInput", noteInput));
                 // onSave();
                 // handleAddEvent();
               }}

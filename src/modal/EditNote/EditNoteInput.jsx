@@ -12,13 +12,24 @@ import { getNoteDetail } from "../../redux/action/note";
 import { deleteNote } from "../../redux/action/note";
 import { putUpdateNote } from "../../redux/action/note";
 
-export default function EditNoteInput({ onClose, changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, onSave }) {
+export default function EditNoteInput({ changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, onSave }) {
   const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
   console.log("note ==>", noteDetail);
   // useEffect(() => {
   //   dispatch(getNoteDetail());
   // }, []);
+  const dataUpdate = useSelector((state) => state.global.data);
 
+  const [updateNote, setUpdateNote] = useState({
+    id: "",
+    title: "",
+    body: "",
+    dateNote: "",
+    date: "",
+    time: "",
+    pinned: false,
+    color: "",
+  });
   useEffect(() => {
     setUpdateNote({
       ...updateNote,
@@ -30,16 +41,17 @@ export default function EditNoteInput({ onClose, changeDataBody, changeDataTitle
       color: noteDetail?.color,
     });
   }, [noteDetail]);
-  const [updateNote, setUpdateNote] = useState({
-    id: "",
-    title: "",
-    body: "",
-    dateNote: "",
-    date: "",
-    time: "",
-    pinned: false,
-    color: "",
-  });
+  useEffect(() => {
+    setUpdateNote({
+      ...updateNote,
+      id: dataUpdate?.id,
+      title: dataUpdate?.title,
+      body: dataUpdate?.body,
+      dateNote: dataUpdate?.dateNote,
+      pinned: dataUpdate?.pinned,
+      color: dataUpdate?.color,
+    });
+  }, [dataUpdate]);
   console.log("update==>", updateNote);
   const dispatch = useDispatch();
   return (
@@ -135,7 +147,7 @@ export default function EditNoteInput({ onClose, changeDataBody, changeDataTitle
           <div className="note__footer">
             <button
               onClick={() => {
-                dispatch(changeStep("EditNoteAddTime"));
+                dispatch(changeStep("EditNoteAddTime", updateNote));
                 // submitNote();
                 // onSave();
               }}
