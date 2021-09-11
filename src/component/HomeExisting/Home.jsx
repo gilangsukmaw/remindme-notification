@@ -7,7 +7,11 @@ import ReminderCard from "./ReminderCard";
 import Garis from "../../assets/images/GoalDetailLine.png";
 import CobaCalendar from "../../Calendar";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllGoals, getDetailGoals, getNoteByDate } from "../../redux/action/goals";
+import {
+  getAllGoals,
+  getDetailGoals,
+  getNoteByDate,
+} from "../../redux/action/goals";
 import { getNote } from "../../redux/action/note";
 import CircularGoals from "../../component/CircularGoals/CircularGoals";
 import DatePicker from "react-datepicker";
@@ -21,7 +25,7 @@ function HomeExisting() {
   const dispatch = useDispatch();
   const { goals } = useSelector((state) => state.allGoals.goalsData);
   const { data } = useSelector((state) => state.allNote.noteData);
-  const  {noteDate}  = useSelector((state) => state.noteByDate.noteByDate);
+  const { noteDate } = useSelector((state) => state.noteByDate.noteByDate);
   const [startDate, setStartDate] = useState(new Date());
   const [PilihHari, setPilihHari] = useState(dayjs());
 
@@ -36,11 +40,11 @@ console.log(GabungDate.tanggal, GabungDate.time )
   useEffect(() => {
     dispatch(getAllGoals());
     dispatch(getNote());
-    dispatch(getNoteByDate(dayjs().format("YYYY-MM-DD")))
+    dispatch(getNoteByDate(dayjs().format("YYYY-MM-DD")));
   }, [dispatch]);
   // console.log('Existing goal', goals);
   // console.log('Existing notes', data);
-  console.log('notebydate', noteDate);
+  console.log("notebydate", noteDate);
   // console.log('klik tanggal', PilihHari);
 
 
@@ -78,12 +82,12 @@ console.log(GabungDate.tanggal, GabungDate.time )
                     </Link>
                   </div>
                   ))}
-               {/* <CircularNotes style={{ height: "20rem", background: "black" }} /> */}
+                {/* <CircularNotes style={{ height: "20rem", background: "black" }} /> */}
               </Container>
             </div>
           </div>
         </Col>
-        <Col md={12} className='CalendarColumn' style={{ width: "50%" }}>
+        <Col md={12} className="CalendarColumn" style={{ width: "50%" }}>
           <div className="CalendarContainer shadow">
             <div className="CalendarBox">
               <div className="Home__calendar d-flex flex-column " style={{ float: "left" }}>
@@ -111,7 +115,7 @@ console.log(GabungDate.tanggal, GabungDate.time )
               </div>
               {/* <CobaCalendar /> */}
             </div>
-            
+
             <div>
               <img
                 style={{
@@ -126,17 +130,19 @@ console.log(GabungDate.tanggal, GabungDate.time )
 
             <div className="ReminderContainer ">
               <p className="ReminderTitle">Notes</p>
-              <div className="TodayDates">{dayjs(`${PilihHari}`).format("DD MMMM YYYY")} </div>
+              <div className="TodayDates">
+                {dayjs(`${PilihHari}`).format("DD MMMM YYYY")}{" "}
+              </div>
               <div className="CardMappingBox overflow-auto">
               
-              {noteDate?.length === 0 ? <div className='d-flex justify-content-center mt-5' style={{}}><h3>nothing for today</h3></div> : (noteDate?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
+              {noteDate?.length === 0 ? <div className='d-flex justify-content-center mt-5' style={{}}><h3>nothing for today</h3></div> 
+              : (noteDate?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
                   <div className='mappingGoals' key={index} >
                     <button style={{background:'none', border:'none'}} onClick={()=> {dispatch(getDetailGoals(item?.id))}}>
                       < ReminderCard  time={item?.dateNote} color={item?.color} id={item?.id} title={item?.title} content={item?.body} />
                     </button>
                   </div>
-                  )))}
-               
+                )))}
               </div>
             </div>
           </div>

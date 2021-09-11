@@ -156,6 +156,14 @@ $font-family: "Poppins", sans-serif;
     height: 40px;
     border: none;
     margin-right: 0.8rem;
+    &:active,
+    &:after,
+    &:focus {
+      border: 1px solid #625bad;
+      background-image: url("../../assets/images/Vector\ 25.png");
+      background-position: 7px 10px;
+      background-repeat: no-repeat;
+    }
     &.color0 {
       background-color: #ffffff;
     }
