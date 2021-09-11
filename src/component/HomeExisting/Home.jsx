@@ -16,6 +16,11 @@ import { getNote } from "../../redux/action/note";
 import CircularGoals from "../../component/CircularGoals/CircularGoals";
 import DatePicker from "react-datepicker";
 import * as dayjs from "dayjs";
+<<<<<<< HEAD
+=======
+import { Link, useParams } from "react-router-dom";
+
+>>>>>>> dc5ecb81278d5706a91f487a4281ab0caee306b7
 
 function HomeExisting() {
   var utc = require("dayjs/plugin/utc");
@@ -27,7 +32,18 @@ function HomeExisting() {
   const [startDate, setStartDate] = useState(new Date());
   const [PilihHari, setPilihHari] = useState(dayjs());
 
+<<<<<<< HEAD
   const a = new Date();
+=======
+  const [GabungDate, setGabungDate] = useState({
+    tanggal: dayjs(),
+    time:dayjs().format("h:mm A") ,
+
+  });
+console.log(GabungDate.tanggal, GabungDate.time )
+
+  const a = new Date()
+>>>>>>> dc5ecb81278d5706a91f487a4281ab0caee306b7
   useEffect(() => {
     dispatch(getAllGoals());
     dispatch(getNote());
@@ -38,6 +54,7 @@ function HomeExisting() {
   console.log("notebydate", noteDate);
   // console.log('klik tanggal', PilihHari);
 
+<<<<<<< HEAD
   // const getnoteDate = async (e) => {
   //   try {
   //     const res = await axios.get(`https://remindme.gabatch13.my.id/api/v1/goals`,  { headers: { Authorization: `Bearer ${Token}` } });
@@ -72,6 +89,8 @@ function HomeExisting() {
   //     }
   //   }
   // };
+=======
+>>>>>>> dc5ecb81278d5706a91f487a4281ab0caee306b7
 
   return (
     <>
@@ -83,6 +102,7 @@ function HomeExisting() {
               <p>Pinned Notes</p>
             </div>
             <div className="PinnedNotesContainer overflow-auto">
+<<<<<<< HEAD
               {data
                 ?.filter((data) => data?.pinned === true)
                 .map((item, index) => (
@@ -107,6 +127,15 @@ function HomeExisting() {
 // pinned: false
 // time: "00:00"
 // title: "tes tes notes" */}
+=======
+              
+            {data?.filter((data) => data?.pinned === true)
+            .map((item, index) => (
+              <div key={index}>
+              <HomeNotes title={item?.title} time={item?.time} date={item?.date} body={item?.body} color={item?.color} />
+              </div>
+              ))}
+>>>>>>> dc5ecb81278d5706a91f487a4281ab0caee306b7
             </div>
             <div className="DailyStreakContainer">
               <div className="TitleContainer">
@@ -116,6 +145,7 @@ function HomeExisting() {
                 <p>Your progress are growing up!</p>
               </div>
               <Container className="CircularGoals">
+<<<<<<< HEAD
                 {goals?.data
                   ?.sort((a, b) =>
                     a.current_percent > b.current_percent ? 1 : -1
@@ -137,6 +167,15 @@ function HomeExisting() {
                         />
                       </button>
                     </div>
+=======
+                  {goals?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
+                  <div className='mappingGoals' key={index} >
+                    <Link id='toAllGoals' to='/allGoals' style={{textDecoration:'none', color:'black' ,background:'none', border:'none'}} onClick={()=> {dispatch(getDetailGoals(item?.id))}}>
+                      {/* <CircularGoals color={item?.color} current_percent={item?.current_percent} id={item?.id} name={item?.name} /> */}
+                      <CircularNotes color={item?.color} current_percent={item?.current_percent} id={item?.id} name={item?.name} />
+                    </Link>
+                  </div>
+>>>>>>> dc5ecb81278d5706a91f487a4281ab0caee306b7
                   ))}
                 {/* <CircularNotes style={{ height: "20rem", background: "black" }} /> */}
               </Container>
@@ -146,6 +185,7 @@ function HomeExisting() {
         <Col md={12} className="CalendarColumn" style={{ width: "50%" }}>
           <div className="CalendarContainer shadow">
             <div className="CalendarBox">
+<<<<<<< HEAD
               <div
                 className="Home__calendar d-flex flex-column "
                 style={{ float: "left" }}
@@ -175,6 +215,30 @@ function HomeExisting() {
                   <button className="exp__chosen"></button>
                   <p>Today</p>
                 </div>
+=======
+              <div className="Home__calendar d-flex flex-column " style={{ float: "left" }}>
+                    <DatePicker
+                      selected={a}
+                      // value={state.date}
+                      // onChange={(date) => setState((date)}
+                      // onClick={(e) => dispatch(getNoteByDate(dayjs(e).format("YYYY-MM-DD")))}
+                      // onChange={(e) =>
+                      //   setPilihHari(dayjs(e))
+                        onChange={(e) =>{{dispatch(getNoteByDate(dayjs(e).format("YYYY-MM-DD")))}{setPilihHari(dayjs(e))}}}
+                      inline
+                    />
+                    {/* <div>{dayjs(`${PilihHari}`).format("DD/MM/YYYY")}</div> */}
+                    {/* <p>{dayjs(`${PilihHari}`)}</p> */}
+                    <div className="ext__calendar">
+                    <button className="exp__today"></button>
+                      <p>Chosen Date</p>
+                      <button className="exp__chosen"></button>
+                      <p>Today</p>
+
+
+                  </div>
+                 
+>>>>>>> dc5ecb81278d5706a91f487a4281ab0caee306b7
               </div>
               {/* <CobaCalendar /> */}
             </div>
@@ -197,11 +261,18 @@ function HomeExisting() {
                 {dayjs(`${PilihHari}`).format("DD MMMM YYYY")}{" "}
               </div>
               <div className="CardMappingBox overflow-auto">
+<<<<<<< HEAD
                 {/* {noteDate?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
+=======
+              
+              {noteDate?.length === 0 ? <div className='d-flex justify-content-center mt-5' style={{}}><h3>nothing for today</h3></div> 
+              : (noteDate?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
+>>>>>>> dc5ecb81278d5706a91f487a4281ab0caee306b7
                   <div className='mappingGoals' key={index} >
                     <button style={{background:'none', border:'none'}} onClick={()=> {dispatch(getDetailGoals(item?.id))}}>
                       < ReminderCard  time={item?.dateNote} color={item?.color} id={item?.id} title={item?.title} content={item?.body} />
                     </button>
+<<<<<<< HEAD
                   </div>
                   ))} */}
                 {noteDate?.length === 0 ? (
@@ -235,6 +306,10 @@ function HomeExisting() {
                       </div>
                     ))
                 )}
+=======
+                  </div>
+                )))}
+>>>>>>> dc5ecb81278d5706a91f487a4281ab0caee306b7
               </div>
             </div>
           </div>
