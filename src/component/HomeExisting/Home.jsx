@@ -12,7 +12,7 @@ import { getNote } from "../../redux/action/note";
 import CircularGoals from "../../component/CircularGoals/CircularGoals";
 import DatePicker from "react-datepicker";
 import * as dayjs from "dayjs";
-
+import { Link, useParams } from "react-router-dom";
 
 
 function HomeExisting() {
@@ -25,6 +25,13 @@ function HomeExisting() {
   const [startDate, setStartDate] = useState(new Date());
   const [PilihHari, setPilihHari] = useState(dayjs());
 
+  const [GabungDate, setGabungDate] = useState({
+    tanggal: dayjs(),
+    time:dayjs().format("h:mm A") ,
+
+  });
+console.log(GabungDate.tanggal, GabungDate.time )
+
   const a = new Date()
   useEffect(() => {
     dispatch(getAllGoals());
@@ -35,45 +42,6 @@ function HomeExisting() {
   // console.log('Existing notes', data);
   console.log('notebydate', noteDate);
   // console.log('klik tanggal', PilihHari);
-
-
-  // const getnoteDate = async (e) => {
-  //   try {
-  //     const res = await axios.get(`https://remindme.gabatch13.my.id/api/v1/goals`,  { headers: { Authorization: `Bearer ${Token}` } });
-  //     setdatenote(res.data);
-  //           Swal.fire({
-  //             imageUrl: (`${SaveLogo}`),
-  //             imageWidth: 100,
-  //             imageHeight: 100,
-  //             imageAlt: 'Custom image',
-  //             width: 450,
-  //             confirmButtonText: "Ok",
-  //             confirmButtonColor: "#625BAD",
-  //             title: 'Congratulations!',
-  //             text: 'You successfully saved your goal',
-
-  //           })
-
-  //     console.log(res);
-  //   } catch (error) {
-  //     if (error.response.status === 400) {
-  //       Swal.fire({
-  //         icon: "warning",
-  //         width: 450,
-  //         confirmButtonText: "Ok",
-  //         confirmButtonColor: "#625BAD",
-  //         title: error.response.data.errors[0],
-  //         text: "Please Check Again",
-  //       });
-  //     }
-  //     if (error.response.status === 403) {
-  //       alert(`Sesi anda habis, mohon login kembali`);
-  //     }
-  //   }
-  // };
-
-
-
 
 
   return (
@@ -93,19 +61,6 @@ function HomeExisting() {
               <HomeNotes title={item?.title} time={item?.time} date={item?.date} body={item?.body} color={item?.color} />
               </div>
               ))}
-
-{/* //               body: "lalalalalal"
-// color: "#FF8888"
-// date: "2021-05-05"
-// dateNote: "2021-05-05T00:00:00.000Z"
-// id: 174
-// id_user: "ebaa25cc-e7f9-4658-8893-34183d06e817"
-// image: null
-// pinned: false
-// time: "00:00"
-// title: "tes tes notes" */}
-
-
             </div>
             <div className="DailyStreakContainer">
               <div className="TitleContainer">
@@ -117,10 +72,10 @@ function HomeExisting() {
               <Container className="CircularGoals">
                   {goals?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
                   <div className='mappingGoals' key={index} >
-                    <button style={{background:'none', border:'none'}} onClick={()=> {dispatch(getDetailGoals(item?.id))}}>
+                    <Link id='toAllGoals' to='/allGoals' style={{textDecoration:'none', color:'black' ,background:'none', border:'none'}} onClick={()=> {dispatch(getDetailGoals(item?.id))}}>
                       {/* <CircularGoals color={item?.color} current_percent={item?.current_percent} id={item?.id} name={item?.name} /> */}
                       <CircularNotes color={item?.color} current_percent={item?.current_percent} id={item?.id} name={item?.name} />
-                    </button>
+                    </Link>
                   </div>
                   ))}
                {/* <CircularNotes style={{ height: "20rem", background: "black" }} /> */}
@@ -149,7 +104,10 @@ function HomeExisting() {
                       <p>Chosen Date</p>
                       <button className="exp__chosen"></button>
                       <p>Today</p>
+
+
                   </div>
+                 
               </div>
               {/* <CobaCalendar /> */}
             </div>
@@ -171,13 +129,6 @@ function HomeExisting() {
               <div className="TodayDates">{dayjs(`${PilihHari}`).format("DD MMMM YYYY")} </div>
               <div className="CardMappingBox overflow-auto">
               
-              {/* {noteDate?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
-                  <div className='mappingGoals' key={index} >
-                    <button style={{background:'none', border:'none'}} onClick={()=> {dispatch(getDetailGoals(item?.id))}}>
-                      < ReminderCard  time={item?.dateNote} color={item?.color} id={item?.id} title={item?.title} content={item?.body} />
-                    </button>
-                  </div>
-                  ))} */}
               {noteDate?.length === 0 ? <div className='d-flex justify-content-center mt-5' style={{}}><h3>nothing for today</h3></div> : (noteDate?.data?.sort((a, b) => a.current_percent > b.current_percent ? 1 : -1).map((item, index) => (
                   <div className='mappingGoals' key={index} >
                     <button style={{background:'none', border:'none'}} onClick={()=> {dispatch(getDetailGoals(item?.id))}}>
