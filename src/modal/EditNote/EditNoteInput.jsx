@@ -8,16 +8,12 @@ import "react-datepicker/dist/react-datepicker.css";
 // import { setNote } from "../redux/action/note";
 import { useDispatch, useSelector } from "react-redux";
 import { changeStep } from "../../redux/action/global";
-import { getNoteDetail } from "../../redux/action/note";
-import { deleteNote } from "../../redux/action/note";
 import { putUpdateNote } from "../../redux/action/note";
 
 export default function EditNoteInput({ changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, onSave }) {
   const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
   console.log("note ==>", noteDetail);
-  // useEffect(() => {
-  //   dispatch(getNoteDetail());
-  // }, []);
+
   const dataUpdate = useSelector((state) => state.global.data);
 
   const [updateNote, setUpdateNote] = useState({
