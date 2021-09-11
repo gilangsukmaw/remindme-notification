@@ -43,6 +43,7 @@ const ModalTest = ({ ...props }) => {
   const submitNote = async (e) => {
     if (noteInput.title === "" || noteInput.body === "" || noteInput.color === "" || noteInput.dateNote === "" || noteInput.pinned === "") {
       alert("isi dulu la lek  notesnya");
+      window.location.reload();
     }
     try {
       const res = await axios.post("https://remindme.gabatch13.my.id/api/v1/notes", noteInput, {
