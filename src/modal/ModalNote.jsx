@@ -52,12 +52,14 @@ export default function NoteModal({
               placeholder="Title"
               value={noteData.title}
               onChange={(e) => changeDataTitle(e.target.value)}
+              required
             />
             <textarea
               className="note__textarea"
               placeholder="Note"
               value={noteData.body}
               onChange={(e) => changeDataBody(e.target.value)}
+              required
             ></textarea>
           </div>
           <div className="note__color">
@@ -99,9 +101,9 @@ export default function NoteModal({
             </button>
             <button
               className="SaveButton"
-              onClick={() => {
-                // dispatch(changeStep("SaveNotes"));
-                onSave();
+              onClick={async () => {
+                await onSave();
+                await dispatch(changeStep("SaveNotes"));
               }}
             >
               Save

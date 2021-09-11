@@ -11,15 +11,16 @@ import { getNote, getNoteDetail } from "../redux/action/note";
 import { changeStep } from "../redux/action/global";
 import { deleteNote } from "../redux/action/note";
 import * as dayjs from "dayjs";
+import { putUpdateNote } from "../redux/action/note";
 
 export default function DetailNote({ ...props }) {
-  const [updateNote, setUpdateNote] = useState({
-    title: "",
-    body: "",
-    dateNote: "",
-    pinned: false,
-    color: "",
-  });
+  // const [updateNote, setUpdateNote] = useState({
+  //   title: "",
+  //   body: "",
+  //   dateNote: "",
+  //   pinned: false,
+  //   color: "",
+  // });
   const { changeDataPinned, noteData, onSave, changeDataColor } = props;
 
   // const { allData } = useSelector((state) => state.allNote.noteData);
@@ -31,16 +32,6 @@ export default function DetailNote({ ...props }) {
     (state) => state.allNote.noteDataDetail.detail
   );
   const dispatch = useDispatch();
-  useEffect(() => {
-    setUpdateNote({
-      ...updateNote,
-      title: noteDetail?.title,
-      body: noteDetail?.detail?.body,
-      dateNote: noteDetail?.detail?.dateNote,
-      pinned: true,
-      color: noteDetail?.detail?.color,
-    });
-  }, []);
   console.log("prop noteDetail", props);
   console.log(dispatch);
   console.log("allData");
@@ -48,12 +39,37 @@ export default function DetailNote({ ...props }) {
   useEffect(() => {
     dispatch(getNote());
   }, []);
+  // useEffect(() => {
+  //   dispatch(getNoteDetail());
+  // }, []);
+  const [updateNote, setUpdateNote] = useState({
+    title: "",
+    body: "",
+    dateNote: "",
+    date: "",
+    item: "",
+    pinned: false,
+    color: "",
+  });
+  useEffect(() => {
+    setUpdateNote({
+      ...updateNote,
+      title: noteDetail?.title,
+      body: noteDetail?.body,
+      dateNote: noteDetail?.dateNote,
+      pinned: noteDetail?.pinned,
+      color: noteDetail?.color,
+    });
+  }, []);
+  console.log("bunga", noteDetail);
   // console.log("noteinput", noteInput.date);
   return (
     <div className="detailNote__outside modal-backdrop">
       <div
         className="detailNote__container position-relative"
-        style={{ backgroundColor: `${noteDetail?.color}` }}
+        style={{
+          backgroundColor: `${updateNote.color}` && `${noteDetail?.color}`,
+        }}
       >
         <div className="detailNote__close position-absolute top-0 start-100 translate-middle">
           <button
@@ -69,13 +85,17 @@ export default function DetailNote({ ...props }) {
             <h1>Note Details</h1>
           </div>
           <div className="detailNote__icon">
-            <button onClick={() => changeDataPinned(!noteData.pinned)}>
+            <button
+              onClick={() => {
+                setUpdateNote({ ...updateNote, pinned: !updateNote.pinned });
+                changeDataPinned(!updateNote.pinned);
+              }}
+            >
               <img src={PinEdit} alt="" />
             </button>
             <button
               onClick={async () => {
                 await dispatch(deleteNote(noteDetail?.id));
-                console.log("bunga", noteDetail);
                 await dispatch(getNote());
                 await dispatch(changeStep("DeleteSuccess"));
               }}
@@ -105,25 +125,61 @@ export default function DetailNote({ ...props }) {
         </div>
         <div className="detailNote__color">
           <button className="color0"></button>
-          <button className="color1"></button>
-          <button className="color2"></button>
-          <button className="color3"></button>
-          <button className="color4"></button>
-          <button className="color5"></button>
+          <button
+            value={updateNote.color}
+            onClick={() => {
+              setUpdateNote({ ...updateNote, color: "#FFBCC2" });
+              changeDataColor("#FFBCC2");
+            }}
+            className="color1"
+          ></button>
+          <button
+            value={updateNote.color}
+            onClick={() => {
+              setUpdateNote({ ...updateNote, color: "#FCF3A1" });
+              changeDataColor("#FCF3A1");
+            }}
+            className="color2"
+          ></button>
+          <button
+            value={updateNote.color}
+            onClick={() => {
+              setUpdateNote({ ...updateNote, color: "#D1CDFA" });
+              changeDataColor("#D1CDFA");
+            }}
+            className="color3"
+          ></button>
+          <button
+            value={updateNote.color}
+            onClick={() => {
+              setUpdateNote({ ...updateNote, color: "#FF8888" });
+              changeDataColor("#FF8888");
+            }}
+            className="color4"
+          ></button>
+          <button
+            value={updateNote.color}
+            onClick={() => {
+              setUpdateNote({ ...updateNote, color: "#CCF0D7" });
+              changeDataColor("#CCF0D7");
+            }}
+            className="color5"
+          ></button>
         </div>
         <div className="detailNote__button">
           <button
-            onClick={() => {
-              dispatch(changeStep("InputNote"));
+            onClick={async () => {
+              await dispatch(getNoteDetail(noteDetail?.id));
+              await dispatch(changeStep("EditNoteInput"));
             }}
           >
             Edit
           </button>
           <button
-            onClick={() => {
+            onClick={async () => {
               // dispatch(changeStep("SaveUpdateNote"));
-              dispatch(changeStep("SaveNotes"));
-              onSave();
+              await onSave();
+              await dispatch(changeStep("SaveUpdateNote"));
             }}
           >
             Mark as done

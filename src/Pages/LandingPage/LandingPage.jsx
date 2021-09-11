@@ -27,15 +27,26 @@ function LandingPage(...props) {
               <button>Login</button>
             </Link>
             <Link to="/auth/register">
-              <button style={{ padding: "0 2rem 0 2rem" }}>Register</button>
+              <button
+                style={{
+                  padding: "0 2rem 0 2rem",
+                  backgroundColor: "#625bad",
+                  color: "white",
+                }}
+              >
+                Register
+              </button>
             </Link>
           </div>
         </div>
         <div className="landing__intro">
           <div className="intro__left">
-            <h1>Find Balance in Your Life</h1>
+            <h1>
+              Find Balance in<br></br>Your Life
+            </h1>
             <p>
-              Why do we use it? It is a long established fact that a reader will be<br></br>distracted by the readable content of a page when
+              Why do we use it? It is a long established fact that a reader will
+              be<br></br>distracted by the readable content of a page when
               <br></br>looking at its layout.
             </p>
             <Link to="/auth/register">
