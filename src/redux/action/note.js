@@ -12,11 +12,11 @@ export const getNote = (body) => {
   };
 };
 
-export const putUpdateNote = (id, newUpdate) => {
+export const putUpdateNote = (id, body) => {
   return {
     type: UPDATE_NOTE_BEGIN,
     id,
-    newUpdate,
+    body,
   };
 };
 

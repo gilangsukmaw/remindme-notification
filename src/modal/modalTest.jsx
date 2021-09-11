@@ -42,6 +42,9 @@ const ModalTest = ({ ...props }) => {
   }, [data]);
   const Token = localStorage.getItem("Token");
   const submitNote = async (e) => {
+    // e.preventDefault()
+    // if (noteInput.title === "" ) {
+    alert("isi dulu bang notesnya");
     try {
       const res = await axios.post(
         "https://remindme.gabatch13.my.id/api/v1/notes",
@@ -52,7 +55,7 @@ const ModalTest = ({ ...props }) => {
           },
         }
       );
-      dispatch(changeStep(""));
+      await dispatch(changeStep(""));
 
       // console.log(res);
     } catch (error) {
@@ -61,6 +64,7 @@ const ModalTest = ({ ...props }) => {
       }
     }
   };
+
   const modalStep = useSelector((state) => state.global.modalStep);
   console.log("step", modalStep);
   return (
@@ -169,7 +173,7 @@ const ModalTest = ({ ...props }) => {
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
           onSave={submitNote}
-          noteData={noteInput}
+          updateNote={noteInput}
           changeDataTitle={(item) =>
             setNoteInput({ ...noteInput, title: item })
           }
@@ -187,7 +191,7 @@ const ModalTest = ({ ...props }) => {
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
           onSave={(onSaveNote, onSaveColor)}
-          noteData={noteInput}
+          updateNote={noteInput}
           changeDataDate={(item) =>
             setNoteInput({ ...noteInput, dateNote: item })
           }

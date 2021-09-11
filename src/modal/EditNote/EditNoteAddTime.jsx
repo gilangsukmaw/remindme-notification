@@ -8,32 +8,33 @@ import * as dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import { getNoteDetail } from "../../redux/action/note";
 
-export default function EditNoteAddTime({
-  // onClose,
-
-  changeColor,
-  changeDataDate,
-  changeDataTime,
-  noteData,
-  onSave,
-  props,
-}) {
+export default function EditNoteAddTime({ updateNote }) {
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
   const [startDate, setStartDate] = useState(new Date());
-  const [updateNote, setUpdateNote] = useState({
+  const [noteInput, setNoteInput] = useState({
     title: "",
     body: "",
     dateNote: "",
     pinned: false,
     color: "",
   });
+  // const [noteInput, setNoteInput] = useState({
+  //   title: "",
+  //   body: "",
+  //   time: "",
+  //   date: "",
+  //   timeNote: "",
+  //   pinned: false,
+  //   color: "",
+  //   dateNote: "",
+  // });
   const noteDetail = useSelector(
     (state) => state.allNote.noteDataDetail.detail
   );
   useEffect(() => {
-    setUpdateNote({
-      ...updateNote,
+    setNoteInput({
+      ...noteInput,
       title: noteDetail?.title,
       body: noteDetail?.body,
       dateNote: noteDetail?.dateNote,
@@ -42,13 +43,13 @@ export default function EditNoteAddTime({
     });
   }, []);
   const dispatch = useDispatch();
-
+  console.log("input date==>", noteInput);
   return (
     <div className="time__outside modal-backdrop">
       <div
         className="time__container"
-        style={{ backgroundColor: `${updateNote.color}` }}
-        value={updateNote.color}
+        style={{ backgroundColor: `${updateNote?.color}` }}
+        value={noteInput.color}
       >
         <div className="time__wrapper">
           <div className="time__title">
@@ -58,15 +59,14 @@ export default function EditNoteAddTime({
             <div className="time__date">
               <h3>Date</h3>
               <input
-                onChange={(e) => {
-                  setUpdateNote({ ...updateNote, dateNote: e.target.value });
-                  changeDataDate(e.target.value);
-                }}
+                onChange={(e) =>
+                  setNoteInput({ ...noteInput, dateNote: e.target.value })
+                }
                 // value={noteData.date}
-                value={updateNote.dateNote}
+                value={noteInput.dateNote}
                 type="text"
                 disabled
-                placeholder={dayjs(`${updateNote?.dateNote}`).format(
+                placeholder={dayjs(`${noteInput.dateNote}`).format(
                   "DD/MM/YYYY"
                 )}
                 className="input-time"
@@ -76,8 +76,11 @@ export default function EditNoteAddTime({
             <div className="time__time">
               <h3>Time</h3>
               <input
-                onChange={(e) => changeDataTime(e.target.value)}
-                value={noteData.time}
+                onChange={(e) =>
+                  setNoteInput({ ...noteInput, dateNote: e.target.value })
+                }
+                value={noteInput.dateNote}
+                placeholder={dayjs(`${noteInput.dateNote}`).format("hh:mm")}
                 type="text"
                 className="input-time"
                 id="time"
@@ -87,9 +90,10 @@ export default function EditNoteAddTime({
           <div className="time__calendar">
             <DatePicker
               selected={startDate}
-              onChange={(date) => {
-                console.log("date", dayjs(date).format("YYYY-MM-DD"));
-                changeDataDate(dayjs(date).format("YYYY-MM-DDTHH:mm:ss"));
+              onChange={(dateNote) => {
+                // console.log("date", dayjs(date).format("YYYY-MM-DD"));
+                setNoteInput(dayjs(dateNote).format("YYYY-MM-DDTHH:mm:ss"));
+                // setStartDate(dayjs(dateNote).format("YYYY-MM-DDTHH:mm:ss"));
               }}
               inline
             />
@@ -104,8 +108,8 @@ export default function EditNoteAddTime({
             <button
               className="time__save"
               onClick={async () => {
-                await dispatch(getNoteDetail(noteDetail?.id));
-                await dispatch(changeStep("EditNoteInput"));
+                await dispatch(changeStep("EditNoteInput", noteInput));
+                // await dispatch(putUpdateNote(noteDetail?.id, noteInput));
                 // onSave();
                 // handleAddEvent();
               }}

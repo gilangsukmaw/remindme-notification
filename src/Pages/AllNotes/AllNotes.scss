@@ -76,7 +76,7 @@
   img {
     margin-top: 2rem;
     margin-left: 400px;
-    width: 60%;
+    width: 65%;
   }
 }
 .allNote__content {
@@ -106,5 +106,11 @@
       margin-left: 400px;
       width: 78%;
     }
+  }
+}
+
+@media (max-width: 1440px) {
+  .allNote__container {
+    padding-top: 2rem;
   }
 }

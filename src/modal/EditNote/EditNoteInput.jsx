@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeStep } from "../../redux/action/global";
 import { getNoteDetail } from "../../redux/action/note";
 import { deleteNote } from "../../redux/action/note";
+import { putUpdateNote } from "../../redux/action/note";
 
 export default function EditNoteInput({
   onClose,
@@ -23,9 +24,10 @@ export default function EditNoteInput({
   const noteDetail = useSelector(
     (state) => state.allNote.noteDataDetail.detail
   );
-  useEffect(() => {
-    dispatch(getNoteDetail());
-  }, []);
+  console.log("note ==>", noteDetail);
+  // useEffect(() => {
+  //   dispatch(getNoteDetail());
+  // }, []);
 
   useEffect(() => {
     setUpdateNote({
@@ -36,16 +38,17 @@ export default function EditNoteInput({
       pinned: noteDetail?.pinned,
       color: noteDetail?.color,
     });
-  }, []);
+  }, [noteDetail]);
   const [updateNote, setUpdateNote] = useState({
     title: "",
     body: "",
     dateNote: "",
     date: "",
-    item: "",
+    time: "",
     pinned: false,
     color: "",
   });
+  console.log("update==>", updateNote);
   const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">
@@ -80,8 +83,8 @@ export default function EditNoteInput({
           <div className="note__content">
             <input
               className="note__input"
-              placeholder={updateNote.title}
-              value={updateNote.title}
+              placeholder={updateNote?.title}
+              value={updateNote?.title}
               onChange={(e) => {
                 setUpdateNote({ ...updateNote, title: e.target.value });
                 changeDataTitle(e.target.value);
@@ -155,6 +158,7 @@ export default function EditNoteInput({
               onClick={async () => {
                 await onSave();
                 await dispatch(changeStep("SaveNotes"));
+                await dispatch(putUpdateNote(noteDetail?.id, updateNote));
                 // await dispatch(deleteNote(noteDetail?.id));
               }}
             >

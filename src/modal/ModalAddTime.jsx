@@ -29,8 +29,9 @@ export default function TimeModal({
     timeNote: "",
     pinned: false,
     color: "",
+    dateNote: "",
   });
-
+  console.log("timee", noteInput.time);
   console.log("noteInput", noteInput);
   const dispatch = useDispatch();
   console.log("datenote", noteData.dateNote);
@@ -51,7 +52,7 @@ export default function TimeModal({
               <input
                 // onChange={(e) => changeDataDate(e.target.value)}
                 // value={noteData.date}
-                value={noteData.dateNote}
+                value={noteInput.dateNote}
                 type="text"
                 disabled
                 placeholder={dayjs(`${noteData.dateNote}`).format("DD/MM/YYYY")}
@@ -63,10 +64,11 @@ export default function TimeModal({
               <h3>Time</h3>
               <input
                 onChange={(e) =>
-                  setNoteInput({ ...noteInput, time: e.target.value })
+                  setNoteInput({ ...noteInput, dateNote: e.target.value })
                 }
-                value={noteInput.time}
-                type="text"
+                value={noteInput.dateNote}
+                placeholder={dayjs(`${noteData.dateNote}`).format("hh:mm")}
+                type="time"
                 className="input-time"
                 id="time"
               />

@@ -44,6 +44,11 @@ const AllNotesCreate = ({ ...props }) => {
           <p>Pinned Notes</p>
         </div>
         <div className="allNote__wrapper">
+          {/* {data?.length === 0 ? (
+            <div className="empty__note">
+              <h3>Let's create some notes!</h3>
+            </div>
+          ) : ( */}
           <div className="allNote__wrap">
             {typeof data == "undefined" ? (
               <div>
@@ -81,6 +86,7 @@ const AllNotesCreate = ({ ...props }) => {
                 ))
             )}
           </div>
+          {/* )} */}
         </div>
       </div>
       <div className="allNote__borderLine">

@@ -96,7 +96,6 @@ export default function DetailNote({ ...props }) {
             <button
               onClick={async () => {
                 await dispatch(deleteNote(noteDetail?.id));
-
                 await dispatch(getNote());
                 await dispatch(changeStep("DeleteSuccess"));
               }}
@@ -170,8 +169,8 @@ export default function DetailNote({ ...props }) {
         <div className="detailNote__button">
           <button
             onClick={async () => {
-              await dispatch(changeStep("EditNoteInput"));
               await dispatch(getNoteDetail(noteDetail?.id));
+              await dispatch(changeStep("EditNoteInput"));
             }}
           >
             Edit
