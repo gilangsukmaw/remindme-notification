@@ -420,19 +420,51 @@
     //   height: 250px;
     // }
   }
+
   .HomeContainer {
-    // flex-direction: column;
-    margin-left: 15rem;
+    margin-left: 0;
+    padding: 0;
+    display: flex;
+    margin-right: 2rem;
   }
-  .CalendarContainer {
-    width: 20rem;
-    margin: 0;
+
+  // =====Notes================
+  .NotesCol {
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
   }
+
   .NotesContainer {
-    width: 20rem;
-    .NotesCard {
-      width: 15rem;
-      overflow-wrap: break-word;
+    max-width: 30rem;
+    max-height: 48rem;
+    background-color: #f1f4fa;
+    border-radius: 25px;
+    padding: 1.8rem 1.5rem 1.8rem 1.5rem;
+    float: right;
+
+    .TitleContainer {
+      font-weight: 600;
+      font-size: 30px;
+    }
+
+    .PinnedNotesContainer {
+      display: block;
+      margin-bottom: 1rem;
+      max-height: 30rem;
+    }
+
+    .SubTitleText {
+      margin-top: -1rem;
+      font-weight: 300;
+      font-size: 20px;
+    }
+
+    .CircularGoals {
+      display: flex;
+      overflow: auto;
+      height: 11.2rem;
+      max-width: 24rem;
     }
   }
   .RemiderCard {

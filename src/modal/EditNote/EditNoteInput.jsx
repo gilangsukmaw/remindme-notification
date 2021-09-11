@@ -13,7 +13,6 @@ import { putUpdateNote } from "../../redux/action/note";
 export default function EditNoteInput({ changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, onSave }) {
   const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
   console.log("note ==>", noteDetail);
-
   const dataUpdate = useSelector((state) => state.global.data);
 
   const [updateNote, setUpdateNote] = useState({
