@@ -1,7 +1,7 @@
 import { GET_NOTEBYDATE_FAIL, GET_NOTEBYDATE_SUCCESS, GET_NOTEBYDATE_BEGIN } from "../const/type";
 
 const initialState = {
-  ByDate: {
+  noteByDate: {
     noteDate: [],
     loading: false, 
     error: null,
