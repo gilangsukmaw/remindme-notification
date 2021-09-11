@@ -34,7 +34,7 @@ export default function AllNoteUnpinned({ ...props }) {
   const [date, setDate] = useState();
 
   const d = new Date();
-  const day = dayjs(d);
+  const day = dayjs(d).format("DD/MM/YYYY");
 
   return (
     <div>

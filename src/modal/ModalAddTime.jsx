@@ -21,7 +21,17 @@ export default function TimeModal({
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
   const [startDate, setStartDate] = useState(new Date());
+  const [noteInput, setNoteInput] = useState({
+    title: "",
+    body: "",
+    time: "",
+    date: "",
+    timeNote: "",
+    pinned: false,
+    color: "",
+  });
 
+  console.log("noteInput", noteInput);
   const dispatch = useDispatch();
   console.log("datenote", noteData.dateNote);
   return (
@@ -52,8 +62,10 @@ export default function TimeModal({
             <div className="time__time">
               <h3>Time</h3>
               <input
-                onChange={(e) => changeDataTime(e.target.value)}
-                value={noteData.time}
+                onChange={(e) =>
+                  setNoteInput({ ...noteInput, time: e.target.value })
+                }
+                value={noteInput.time}
                 type="text"
                 className="input-time"
                 id="time"
@@ -80,8 +92,8 @@ export default function TimeModal({
             <button
               className="time__save"
               onClick={() => {
-                dispatch(changeStep("InputNote"));
-                // onSave()
+                dispatch(changeStep("InputNote", noteInput));
+                // onSave();
                 // handleAddEvent();
               }}
             >

@@ -43,7 +43,7 @@ const NewUser = ({ ...props }) => {
             </h3>
           </div>
         </div>
-        {goals?.length === 0 | data?.length === 0 ?
+        {goals?.length === 0 && data?.length === 0 ?
         <div className="newUser__card">
         <div className="newUser__card__logo">
           <img src={welcomeLogo} alt="" />

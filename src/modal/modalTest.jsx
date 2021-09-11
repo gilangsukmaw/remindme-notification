@@ -16,6 +16,7 @@ import { changeStep } from "../redux/action/global";
 import ModalDelete from "../modal/ModalDelete";
 import SaveChangesDetail from "./ModalSaveChanges";
 import EditNoteInput from "../modal/EditNote/EditNoteInput";
+import { useEffect } from "react";
 import * as dayjs from "dayjs";
 import EditNoteAddTime from "./EditNote/EditNoteAddTime";
 
@@ -25,6 +26,8 @@ const ModalTest = ({ ...props }) => {
   const dispatch = useDispatch();
   const { step, setStep, onSaveNote, noteColor, setNoteColor, onSaveColor } =
     props;
+  const data = useSelector((state) => state.global.data);
+  console.log("dataDate", data);
   const [noteInput, setNoteInput] = useState({
     title: "",
     body: "",
@@ -34,7 +37,9 @@ const ModalTest = ({ ...props }) => {
     pinned: false,
     color: "",
   });
-
+  useEffect(() => {
+    setNoteInput({ ...noteInput, date: data?.date, time: data?.time });
+  }, [data]);
   const Token = localStorage.getItem("Token");
   const submitNote = async (e) => {
     try {
@@ -94,7 +99,9 @@ const ModalTest = ({ ...props }) => {
           changeDataDate={(item) =>
             setNoteInput({ ...noteInput, dateNote: item })
           }
-          changeDataTime={(item) => setNoteInput({ ...noteInput, time: item })}
+          changeDataTime={(item) =>
+            setNoteInput({ ...noteInput, timeNote: item })
+          }
           changeColor={(item) => setNoteInput({ ...noteInput, color: item })}
         />
       )}
@@ -187,6 +194,15 @@ const ModalTest = ({ ...props }) => {
           changeDataTime={(item) => setNoteInput({ ...noteInput, time: item })}
           changeColor={(item) => setNoteInput({ ...noteInput, color: item })}
         />
+      )}
+      {modalStep === "SaveChanges" && (
+        <SaveChanges changeStep={(item) => setStep(item)} />
+      )}
+      {modalStep === "DeleteSuccess" && (
+        <ModalDelete changeStep={(item) => setStep(item)} />
+      )}
+      {modalStep === "SaveUpdateNote" && (
+        <SaveChangesDetail changeStep={(item) => setStep(item)} />
       )}
     </>
   );

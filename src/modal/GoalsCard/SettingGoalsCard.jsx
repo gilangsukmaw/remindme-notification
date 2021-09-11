@@ -1,17 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import { Modal, Col, Form, Button, Tooltip, OverlayTrigger } from "react-bootstrap";
-// import CobaCalendar from "../../Calendar";
 import "./SettingGoals.scss";
 import * as dayjs from "dayjs";
+import SaveLogo from "../../assets/images/saveLogo.svg";
 import vectorClose from "../../assets/images/vectorClose.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import SaveGoalModal from "../SaveGoalsModal/SaveGoalsModal";
 import Swal from "sweetalert2/dist/sweetalert2.js";
-import { useDispatch } from "react-redux";
 import { changeStep } from "../../redux/action/global";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllGoals, getDetailGoals } from "../../redux/action/goals";
 // import 'sweetalert2/src/sweetalert2.scss'
 
 function SettingGoalsCard({ show, onClose, props }) {
@@ -21,12 +22,12 @@ function SettingGoalsCard({ show, onClose, props }) {
   const [modalShow, setModalShow] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    submitGoals();
-    console.log("hei");
-    dispatch(changeStep("SaveGoals"));
-  };
+  // const handleSubmit = (e) => {
+  //   // e.preventDefault();
+  //   submitGoals();
+  //   console.log("hei");
+  //   dispatch(changeStep("SaveGoals"));
+  // };
   const Token = localStorage.getItem("Token");
 
   const [state, setState] = useState({
@@ -41,8 +42,20 @@ function SettingGoalsCard({ show, onClose, props }) {
   const submitGoals = async (e) => {
     try {
       const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/goals`, state, { headers: { Authorization: `Bearer ${Token}` } });
-      dispatch(changeStep(""));
-      dispatch(changeStep("SaveGoals"));
+      changeStep("");
+      dispatch(getAllGoals());
+            Swal.fire({
+              imageUrl: (`${SaveLogo}`),
+              imageWidth: 100,
+              imageHeight: 100,
+              imageAlt: 'Custom image',
+              width: 450,
+              confirmButtonText: "Ok",
+              confirmButtonColor: "#625BAD",
+              title: 'Congratulations!',
+              text: 'You successfully saved your goal',
+
+            })
 
       console.log(res);
     } catch (error) {
@@ -172,8 +185,6 @@ function SettingGoalsCard({ show, onClose, props }) {
                     }
                     inline
                   />
-                  {/* <CobaCalendar value={state.date} onClick={(e) => setState({ ...state,date: e.target.value  })} /> */}
-                  {/* <p>{`${state.date}`}</p> */}
                 </div>
               </Col>
               <Col className="kolomValue  " style={{ maxWidth: "30%" }}>
@@ -243,7 +254,7 @@ function SettingGoalsCard({ show, onClose, props }) {
               </Col>
             </div>
             <div className="mt-1">
-              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>Choose Progress bar Color</p>
+              <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>Choose Progress Bar Color</p>
             </div>
             <div className="ColorPicker mb-2">
               <Button
