@@ -12,18 +12,8 @@ import { getNoteDetail } from "../../redux/action/note";
 import { deleteNote } from "../../redux/action/note";
 import { putUpdateNote } from "../../redux/action/note";
 
-export default function EditNoteInput({
-  onClose,
-  changeDataBody,
-  changeDataTitle,
-  noteData,
-  changeDataColor,
-  changeDataPinned,
-  onSave,
-}) {
-  const noteDetail = useSelector(
-    (state) => state.allNote.noteDataDetail.detail
-  );
+export default function EditNoteInput({ onClose, changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, onSave }) {
+  const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
   console.log("note ==>", noteDetail);
   // useEffect(() => {
   //   dispatch(getNoteDetail());
@@ -32,6 +22,7 @@ export default function EditNoteInput({
   useEffect(() => {
     setUpdateNote({
       ...updateNote,
+      id: noteDetail?.id,
       title: noteDetail?.title,
       body: noteDetail?.body,
       dateNote: noteDetail?.dateNote,
@@ -40,6 +31,7 @@ export default function EditNoteInput({
     });
   }, [noteDetail]);
   const [updateNote, setUpdateNote] = useState({
+    id: "",
     title: "",
     body: "",
     dateNote: "",
@@ -52,10 +44,7 @@ export default function EditNoteInput({
   const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">
-      <div
-        className="note__container position-relative"
-        style={{ backgroundColor: `${updateNote.color}` }}
-      >
+      <div className="note__container position-relative" style={{ backgroundColor: `${updateNote.color}` }}>
         <div className="note__close position-absolute top-0 start-100 translate-middle">
           <button
             onClick={() => {
