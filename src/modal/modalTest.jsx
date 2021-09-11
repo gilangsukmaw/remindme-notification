@@ -15,8 +15,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeStep } from "../redux/action/global";
 import ModalDelete from "../modal/ModalDelete";
 import SaveChangesDetail from "./ModalSaveChanges";
+import EditNoteInput from "../modal/EditNote/EditNoteInput";
 import { useEffect } from "react";
 import * as dayjs from "dayjs";
+import EditNoteAddTime from "./EditNote/EditNoteAddTime";
 
 const ModalTest = ({ ...props }) => {
   var utc = require("dayjs/plugin/utc");
@@ -39,14 +41,16 @@ const ModalTest = ({ ...props }) => {
   }, [data]);
   const Token = localStorage.getItem("Token");
   const submitNote = async (e) => {
+    // e.preventDefault()
+    // if (noteInput.title === "" ) {
+    alert("isi dulu bang notesnya");
     try {
       const res = await axios.post("https://remindme.gabatch13.my.id/api/v1/notes", noteInput, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },
       });
-      dispatch(changeStep(""));
-      dispatch(changeStep("SaveNotes"));
+      await dispatch(changeStep(""));
 
       // console.log(res);
     } catch (error) {
@@ -55,6 +59,7 @@ const ModalTest = ({ ...props }) => {
       }
     }
   };
+
   const modalStep = useSelector((state) => state.global.modalStep);
   console.log("step", modalStep);
   return (
@@ -103,13 +108,39 @@ const ModalTest = ({ ...props }) => {
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
           onSave={submitNote}
-          noteData={noteInput}
+          updateNote={noteInput}
           changeDataTitle={(item) => setNoteInput({ ...noteInput, title: item })}
           changeDataBody={(item) => setNoteInput({ ...noteInput, body: item })}
           changeDataColor={(item) => setNoteInput({ ...noteInput, color: item })}
           changeDataPinned={(item) => setNoteInput({ ...noteInput, pinned: item })}
           changeDataDate={(item) => setNoteInput({ ...noteInput, dateNote: item })}
           changeDataTime={(item) => setNoteInput({ ...noteInput, timeNote: item })}
+        />
+      )}
+      {modalStep === "SaveChanges" && <SaveChanges changeStep={(item) => setStep(item)} />}
+      {modalStep === "DeleteSuccess" && <ModalDelete changeStep={(item) => setStep(item)} />}
+      {modalStep === "SaveUpdateNote" && <SaveChangesDetail changeStep={(item) => setStep(item)} />}
+      {modalStep === "EditNoteInput" && (
+        <EditNoteInput
+          changeStep={(item) => setStep(item)}
+          onClose={(item) => setStep(item)}
+          onSave={submitNote}
+          updateNote={noteInput}
+          changeDataTitle={(item) => setNoteInput({ ...noteInput, title: item })}
+          changeDataBody={(item) => setNoteInput({ ...noteInput, body: item })}
+          changeDataColor={(item) => setNoteInput({ ...noteInput, color: item })}
+          changeDataPinned={(item) => setNoteInput({ ...noteInput, pinned: item })}
+        />
+      )}
+      {modalStep === "EditNoteAddTime" && (
+        <EditNoteAddTime
+          changeStep={(item) => setStep(item)}
+          onClose={(item) => setStep(item)}
+          onSave={(onSaveNote, onSaveColor)}
+          updateNote={noteInput}
+          changeDataDate={(item) => setNoteInput({ ...noteInput, dateNote: item })}
+          changeDataTime={(item) => setNoteInput({ ...noteInput, time: item })}
+          changeColor={(item) => setNoteInput({ ...noteInput, color: item })}
         />
       )}
       {modalStep === "SaveChanges" && <SaveChanges changeStep={(item) => setStep(item)} />}

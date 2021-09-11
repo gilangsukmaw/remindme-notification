@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
 import "bootstrap/dist/css/bootstrap.css";
-import CobaCalendar from "../../src/Calendar";
 import { useDispatch } from "react-redux";
 import { changeStep } from "../redux/action/global";
 import * as dayjs from "dayjs";
@@ -29,11 +28,12 @@ export default function TimeModal({
     timeNote: "",
     pinned: false,
     color: "",
+    dateNote: "",
   });
-
+  console.log("timee", noteInput.time);
   console.log("noteInput", noteInput);
   const dispatch = useDispatch();
-
+  console.log("datenote", noteData.dateNote);
   return (
     <div className="time__outside modal-backdrop">
       <div className="time__container" style={{ backgroundColor: `${noteData.color}` }} value={noteData.color}>
@@ -47,7 +47,7 @@ export default function TimeModal({
               <input
                 // onChange={(e) => changeDataDate(e.target.value)}
                 // value={noteData.date}
-                value={noteData.dateNote}
+                value={noteInput.dateNote}
                 type="text"
                 disabled
                 placeholder={dayjs(`${noteData.dateNote}`).format("DD/MM/YYYY")}
@@ -57,18 +57,16 @@ export default function TimeModal({
             </div>
             <div className="time__time">
               <h3>Time</h3>
-              <input onChange={(e) => setNoteInput({ ...noteInput, time: e.target.value })} value={noteInput.time} type="text" className="input-time" id="time" />
+              <input onChange={(e) => setNoteInput({ ...noteInput, dateNote: e.target.value })} value={noteInput.dateNote} placeholder={dayjs(`${noteData.dateNote}`).format("hh:mm")} type="time" className="input-time" id="time" />
             </div>
           </div>
           <div className="time__calendar">
             <DatePicker
               selected={startDate}
-              onChange={(date) =>
-                setNoteInput({
-                  ...noteInput,
-                  date: dayjs(date).format("YYYY-MM-DD"),
-                })
-              }
+              onChange={(date) => {
+                console.log("date", dayjs(date).format("YYYY-MM-DD"));
+                changeDataDate(dayjs(date).format("YYYY-MM-DDTHH:mm:ss"));
+              }}
               inline
             />
           </div>

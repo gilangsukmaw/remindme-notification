@@ -48,7 +48,10 @@ function SaveNotes() {
                   fontWeight: "700",
                   fontSize: "1.5rem",
                 }}
-                onClick={() => dispatch(changeStep(""))}
+                onClick={async () => {
+                  await dispatch(changeStep(""));
+                  await window.location.reload();
+                }}
               >
                 Ok
               </Button>
