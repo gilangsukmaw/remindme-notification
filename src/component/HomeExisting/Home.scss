@@ -1,23 +1,320 @@
-
 .Home__calendar {
+  .react-datepicker {
+    background: none;
+    border: none;
+  }
+  .react-datepicker__day-name,
+  .react-datepicker__day,
+  .react-datepicker__time-name {
+    width: 3rem;
+    line-height: 2.5rem;
+  }
+  .react-datepicker__current-month,
+  .react-datepicker-time__header,
+  .react-datepicker-year-header {
+    margin-top: -1rem;
+    font-size: 1.5rem;
+  }
+
+  // .react-datepicker__navigation {
+  //   display: none;
+  // }
+
+  // .react-datepicker__navigation .react-datepicker__navigation--next{
+  //   display: none;
+  // }
+  .react-datepicker__month-container {
+    background: none;
+    border: none;
+  }
+
+  .react-datepicker__header {
+    background: none;
+    border: none;
+  }
+
+  // .react-datepicker__current-month {
+  //   display: none;
+  // }
+
+  .react-datepicker__month {
+    background: none;
+    border: none;
+  }
+
+  .react-datepicker__day--keyboard-selected,
+  .react-datepicker__month-text--keyboard-selected,
+  .react-datepicker__quarter-text--keyboard-selected,
+  .react-datepicker__year-text--keyboard-selected {
+    background-color: #625bad;
+    color: #ffffff;
+    border-radius: 10px;
+    width: 1.75rem;
+    margin-right: 0.8rem;
+    margin-left: 0.8rem;
+  }
+
+  .react-datepicker__day--selected:hover,
+  .react-datepicker__day--in-selecting-range:hover,
+  .react-datepicker__day--in-range:hover,
+  .react-datepicker__month-text--selected:hover,
+  .react-datepicker__month-text--in-selecting-range:hover,
+  .react-datepicker__month-text--in-range:hover,
+  .react-datepicker__quarter-text--selected:hover,
+  .react-datepicker__quarter-text--in-selecting-range:hover,
+  .react-datepicker__quarter-text--in-range:hover,
+  .react-datepicker__year-text--selected:hover,
+  .react-datepicker__year-text--in-selecting-range:hover,
+  .react-datepicker__year-text--in-range:hover {
+    background-color: #625bad;
+    color: #ffffff;
+    border-radius: 10px;
+    width: 1.75rem;
+    margin-right: 0.8rem;
+    margin-left: 0.8rem;
+    // width: 30px;
+    // height: 20px;
+  }
+
+  .react-datepicker__day--selected,
+  .react-datepicker__day--in-selecting-range,
+  .react-datepicker__day--in-range,
+  .react-datepicker__month-text--selected,
+  .react-datepicker__month-text--in-selecting-range,
+  .react-datepicker__month-text--in-range,
+  .react-datepicker__quarter-text--selected,
+  .react-datepicker__quarter-text--in-selecting-range,
+  .react-datepicker__quarter-text--in-range,
+  .react-datepicker__year-text--selected,
+  .react-datepicker__year-text--in-selecting-range,
+  .react-datepicker__year-text--in-range {
+    background-color: #b6c6e5;
+    color: #ffffff;
+    border-radius: 10px;
+    width: 1.75rem;
+    margin-right: 0.8rem;
+    margin-left: 0.8rem;
+
+    // width: 30px;
+    // height: 20px;
+  }
+
+  .react-datepicker__day--keyboard-selected:hover,
+  .react-datepicker__month-text--keyboard-selected:hover,
+  .react-datepicker__quarter-text--keyboard-selected:hover,
+  .react-datepicker__year-text--keyboard-selected:hover {
+    background-color: #625bad;
+    color: #ffffff;
+    border-radius: 10px;
+    width: 1.75rem;
+    margin-right: 0.8rem;
+    margin-left: 0.8rem;
+
+    // width: 30px;
+    //     height: 20px;
+  }
+
+  // .calendar {
+  //   .header {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     margin: 0;
+  //     display: none;
+  //   }
+  //   width: 250px;
+  //   height: 250px;
+  // }
+}
+
+.HomeContainer {
+  margin-left: 0;
+  padding: 0;
+  display: flex;
+  margin-right: 2rem;
+}
+
+// =====Notes================
+.NotesCol {
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.NotesContainer {
+  max-width: 30rem;
+  max-height: 48rem;
+  background-color: #f1f4fa;
+  border-radius: 25px;
+  padding: 1.8rem 1.5rem 1.8rem 1.5rem;
+  float: right;
+
+  .TitleContainer {
+    font-weight: 600;
+    font-size: 30px;
+  }
+
+  .PinnedNotesContainer {
+    display: block;
+    margin-bottom: 1rem;
+    max-height: 30rem;
+  }
+  //suuup
+  .SubTitleText {
+    margin-top: -1rem;
+    font-weight: 300;
+    font-size: 20px;
+  }
+
+  .CircularGoals {
+    display: flex;
+    overflow: auto;
+    height: 11.2rem;
+    max-width: 24rem;
+  }
+}
+
+// =====Calendar================
+.CalendarColumn {
+  margin-right: 2rem;
+}
+.CalendarContainer {
+  width: 28rem;
+  height: 48rem;
+  background-color: #f1f4fa;
+  border-radius: 25px;
+  padding: 1.8rem 1.5rem 1.8rem 1.5rem;
+  margin: 0 2rem 0 -2rem;
+
+  .CalendarBox {
+    .calendar__container {
+      .calendar {
+        margin: auto;
+      }
+    }
+  }
+
+  .ReminderTitle {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .TodayDates {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+// =====punya home notes================
+.NotesCard {
+  width: 23rem;
+  height: auto;
+  border-radius: 20px;
+  padding-top: 1rem;
+  padding-left: 1.75rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .CardTittle {
+    font-weight: 600;
+  }
+}
+
+.NotesTime {
+  display: flex;
+
+  p {
+    margin: 0 2rem 1rem 0;
+    font-size: 0.8rem;
+  }
+}
+
+// reminderContainer===============
+.ReminderContainer {
+  padding: 0 0 0 -1rem;
+  .CardMappingBox {
+    max-height: 15rem;
+  }
+  .ReminderTimes {
+    display: flex;
+    font-weight: 600;
+  }
+  .RemiderCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 19rem;
+    height: 6.25rem;
+    border-radius: 10px;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    .CardTitle {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}
+
+.ext__calendar {
+  display: flex;
+  justify-content: flex-end;
+  button {
+    border: none;
+    &.exp__today {
+      background: #625bad;
+      border-radius: 10px;
+      height: 1.5rem;
+    }
+    &.exp__chosen {
+      background: #b6c6e5;
+      border-radius: 10px;
+      margin-left: 2rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+@media (width: 1024px) {
+  .ReminderContainer {
+    .ReminderTimes p {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .RemiderCard {
+      width: 11.5rem;
+      margin-left: 0.5rem;
+      height: 6.25rem;
+    }
+  }
+
+  .Home__calendar {
     .react-datepicker {
       background: none;
       border: none;
     }
-  .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name{
-      width: 3rem;
+    .react-datepicker__day-name,
+    .react-datepicker__day,
+    .react-datepicker__time-name {
+      width: 2rem;
       line-height: 2.5rem;
-
-  }
-    .react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header{
-        margin-top: -1rem;
-        font-size: 1.5rem;
+    }
+    .react-datepicker__current-month,
+    .react-datepicker-time__header,
+    .react-datepicker-year-header {
+      margin-top: -0.5rem;
+      font-size: 1rem;
     }
 
     // .react-datepicker__navigation {
     //   display: none;
     // }
-  
+
     // .react-datepicker__navigation .react-datepicker__navigation--next{
     //   display: none;
     // }
@@ -25,21 +322,21 @@
       background: none;
       border: none;
     }
-  
+
     .react-datepicker__header {
       background: none;
       border: none;
     }
-  
+
     // .react-datepicker__current-month {
     //   display: none;
     // }
-  
+
     .react-datepicker__month {
       background: none;
       border: none;
     }
-  
+
     .react-datepicker__day--keyboard-selected,
     .react-datepicker__month-text--keyboard-selected,
     .react-datepicker__quarter-text--keyboard-selected,
@@ -47,11 +344,11 @@
       background-color: #625bad;
       color: #ffffff;
       border-radius: 10px;
-      width: 1.75rem;
-      margin-right: 0.8rem;
-      margin-left: 0.8rem;
+      width: 1.25rem;
+      margin-right: 0.55rem;
+      margin-left: 0.55rem;
     }
-  
+
     .react-datepicker__day--selected:hover,
     .react-datepicker__day--in-selecting-range:hover,
     .react-datepicker__day--in-range:hover,
@@ -64,17 +361,16 @@
     .react-datepicker__year-text--selected:hover,
     .react-datepicker__year-text--in-selecting-range:hover,
     .react-datepicker__year-text--in-range:hover {
-  
       background-color: #625bad;
       color: #ffffff;
       border-radius: 10px;
-      width: 1.75rem;
-      margin-right: 0.8rem;
-      margin-left: 0.8rem;
+      width: 1.25rem;
+      margin-right: 0.55rem;
+      margin-left: 0.55rem;
       // width: 30px;
       // height: 20px;
     }
-  
+
     .react-datepicker__day--selected,
     .react-datepicker__day--in-selecting-range,
     .react-datepicker__day--in-range,
@@ -87,17 +383,17 @@
     .react-datepicker__year-text--selected,
     .react-datepicker__year-text--in-selecting-range,
     .react-datepicker__year-text--in-range {
-      background-color: #B6C6E5;
+      background-color: #b6c6e5;
       color: #ffffff;
       border-radius: 10px;
-      width: 1.75rem;
-      margin-right: 0.8rem;
-      margin-left: 0.8rem;
-  
+      width: 1.25rem;
+      margin-right: 0.55rem;
+      margin-left: 0.55rem;
+
       // width: 30px;
       // height: 20px;
     }
-  
+
     .react-datepicker__day--keyboard-selected:hover,
     .react-datepicker__month-text--keyboard-selected:hover,
     .react-datepicker__quarter-text--keyboard-selected:hover,
@@ -105,14 +401,14 @@
       background-color: #625bad;
       color: #ffffff;
       border-radius: 10px;
-      width: 1.75rem;
-      margin-right: 0.8rem;
-      margin-left: 0.8rem;
-  
+      width: 1.25rem;
+      margin-right: 0.55rem;
+      margin-left: 0.55rem;
+
       // width: 30px;
       //     height: 20px;
     }
-  
+
     // .calendar {
     //   .header {
     //     display: flex;
@@ -124,344 +420,42 @@
     //   height: 250px;
     // }
   }
-  
-.HomeContainer {
-    margin-left: 0;
-    padding: 0;
-    display: flex;
-    margin-right: 2rem;
-}
-
-// =====Notes================
-.NotesCol {
-    align-items: center;
-    justify-content:flex-start;
-    margin-bottom: 2rem;
-
-}
-
-.NotesContainer {
-    max-width: 30rem;
-    max-height: 48rem;
-    background-color: #F1F4FA;
-    border-radius: 25px;
-    padding: 1.8rem 1.5rem 1.8rem 1.5rem;
-    float: right;
-
-    .TitleContainer {
-        font-weight: 600;
-        font-size: 30px;
-
-    }
-
-    .PinnedNotesContainer {
-        display: block;
-        margin-bottom: 1rem;
-        max-height: 30rem;
-    }
-
-    .SubTitleText {
-        margin-top: -1rem;
-        font-weight: 300;
-        font-size: 20px;
-    }
-
-    .CircularGoals {
-        display: flex;
-        overflow: auto;
-        height: 11.2rem;
-        max-width: 24rem;
-    }
-}
-
-// =====Calendar================
-.CalendarColumn{
-    margin-right: 2rem;
-}
-.CalendarContainer {
-    width: 28rem;
-    height: 48rem;
-    background-color: #F1F4FA;
-    border-radius: 25px;
-    padding: 1.8rem 1.5rem 1.8rem 1.5rem;
-    margin:0 2rem 0 -2rem;
-
-    .CalendarBox {
-        .calendar__container {
-            .calendar {
-                margin: auto;
-            }
-        }
-    }
-
-    .ReminderTitle {
-        font-size: 24px;
-        font-weight: 600;
-    }
-
-    .TodayDates {
-        font-size: 18px;
-        font-weight: 600;
-    }
-
-}
-
-// =====punya home notes================
-.NotesCard {
-    width: 23rem;
-    height: auto;
-    border-radius: 20px;
-    padding-top: 1rem;
-    padding-left: 1.75rem;
-    padding-right: 2rem;
-    padding-bottom: 0.5rem;
-
-
-    img {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
-    .CardTittle {
-        font-weight: 600;
-    }
-}
-
-.NotesTime {
-    display: flex;
-
-    p {
-        margin: 0 2rem 1rem 0;
-        font-size: 0.8rem;
-    }
-}
-
-// reminderContainer===============
-.ReminderContainer {
-    padding: 0 0 0 -1rem;
-.CardMappingBox{
-    max-height: 15rem;
-}
-.ReminderTimes{
-    display: flex;
-    font-weight: 600;
-
-}
-    .RemiderCard {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 19rem;
-        height: 6.25rem;
-        border-radius: 10px;
-        padding-top: 0.5rem;
-        padding-left: 1.0rem;
-        padding-right: 1rem;
-
-        .CardTitle {
-            font-size: 18px;
-            font-weight: 600;
-        }
-    }
-}
-
-.ext__calendar {
-    display: flex;
-    justify-content: flex-end;
-    button {
-        border: none;
-        &.exp__today {
-            background: #625bad;
-            border-radius: 10px;
-            height: 1.5rem;
-          }
-        &.exp__chosen {
-            background: #b6c6e5;
-            border-radius: 10px;
-            margin-left: 2rem;
-            height: 1.5rem;
-
-          }
-    }
-}
-
-@media (width: 1024px) {
-    .ReminderContainer {
-        .ReminderTimes p{
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .RemiderCard {
-        
-        width: 11.5rem;
-        margin-left: 0.5rem;
-        height: 6.25rem;
-        
-    }  }
-    
-    .Home__calendar {
-        .react-datepicker {
-          background: none;
-          border: none;
-        }
-      .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name{
-          width: 2rem;
-          line-height: 2.5rem;
-    
-      }
-        .react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header{
-            margin-top: -0.5rem;
-            font-size: 1rem;
-        }
-    
-        // .react-datepicker__navigation {
-        //   display: none;
-        // }
-      
-        // .react-datepicker__navigation .react-datepicker__navigation--next{
-        //   display: none;
-        // }
-        .react-datepicker__month-container {
-          background: none;
-          border: none;
-        }
-      
-        .react-datepicker__header {
-          background: none;
-          border: none;
-        }
-      
-        // .react-datepicker__current-month {
-        //   display: none;
-        // }
-      
-        .react-datepicker__month {
-          background: none;
-          border: none;
-        }
-      
-        .react-datepicker__day--keyboard-selected,
-        .react-datepicker__month-text--keyboard-selected,
-        .react-datepicker__quarter-text--keyboard-selected,
-        .react-datepicker__year-text--keyboard-selected {
-          background-color: #625bad;
-          color: #ffffff;
-          border-radius: 10px;
-          width: 1.25rem;
-      margin-right: 0.55rem;
-          margin-left: 0.55rem;
-        }
-      
-        .react-datepicker__day--selected:hover,
-        .react-datepicker__day--in-selecting-range:hover,
-        .react-datepicker__day--in-range:hover,
-        .react-datepicker__month-text--selected:hover,
-        .react-datepicker__month-text--in-selecting-range:hover,
-        .react-datepicker__month-text--in-range:hover,
-        .react-datepicker__quarter-text--selected:hover,
-        .react-datepicker__quarter-text--in-selecting-range:hover,
-        .react-datepicker__quarter-text--in-range:hover,
-        .react-datepicker__year-text--selected:hover,
-        .react-datepicker__year-text--in-selecting-range:hover,
-        .react-datepicker__year-text--in-range:hover {
-      
-          background-color: #625bad;
-          color: #ffffff;
-          border-radius: 10px;
-          width: 1.25rem;
-          margin-right: 0.55rem;
-          margin-left: 0.55rem;
-          // width: 30px;
-          // height: 20px;
-        }
-      
-        .react-datepicker__day--selected,
-        .react-datepicker__day--in-selecting-range,
-        .react-datepicker__day--in-range,
-        .react-datepicker__month-text--selected,
-        .react-datepicker__month-text--in-selecting-range,
-        .react-datepicker__month-text--in-range,
-        .react-datepicker__quarter-text--selected,
-        .react-datepicker__quarter-text--in-selecting-range,
-        .react-datepicker__quarter-text--in-range,
-        .react-datepicker__year-text--selected,
-        .react-datepicker__year-text--in-selecting-range,
-        .react-datepicker__year-text--in-range {
-          background-color: #B6C6E5;
-          color: #ffffff;
-          border-radius: 10px;
-          width: 1.25rem;
-          margin-right: 0.55rem;
-          margin-left: 0.55rem;
-      
-          // width: 30px;
-          // height: 20px;
-        }
-      
-        .react-datepicker__day--keyboard-selected:hover,
-        .react-datepicker__month-text--keyboard-selected:hover,
-        .react-datepicker__quarter-text--keyboard-selected:hover,
-        .react-datepicker__year-text--keyboard-selected:hover {
-          background-color: #625bad;
-          color: #ffffff;
-          border-radius: 10px;
-          width: 1.25rem;
-          margin-right: 0.55rem;
-          margin-left: 0.55rem;
-      
-          // width: 30px;
-          //     height: 20px;
-        }
-      
-        // .calendar {
-        //   .header {
-        //     display: flex;
-        //     justify-content: space-between;
-        //     margin: 0;
-        //     display: none;
-        //   }
-        //   width: 250px;
-        //   height: 250px;
-        // }
-      }
-    .HomeContainer{
-        // flex-direction: column;
-        margin-left: 15rem;
-    }
-    .CalendarContainer{
-        width: 20rem;
-        margin:0;
-    }
-    .NotesContainer{
-        width: 20rem;
-        .NotesCard{
-            width: 15rem;
-            overflow-wrap: break-word;
-        }
-    }
-    .RemiderCard{
-        overflow-wrap: break-word;
-
-        width: 13rem;
-        margin-right: 2rem;
-
-    }
-    .CalendarBox {
-        .calendar__container {
-            .calendar {
-                margin: auto;
-                width: 250px;
-            }
-        }
-    }
-    
-}
-
-  @media (max-width: 768px) {
-    .NotesContainer{
-        margin-left: -1.5rem;
-    }
-    .HomeContainer{
-        flex-direction: column;
+  .HomeContainer {
+    // flex-direction: column;
+    margin-left: 15rem;
+  }
+  .CalendarContainer {
+    width: 20rem;
+    margin: 0;
+  }
+  .NotesContainer {
+    width: 20rem;
+    .NotesCard {
+      width: 15rem;
+      overflow-wrap: break-word;
     }
   }
+  .RemiderCard {
+    overflow-wrap: break-word;
+
+    width: 13rem;
+    margin-right: 2rem;
+  }
+  .CalendarBox {
+    .calendar__container {
+      .calendar {
+        margin: auto;
+        width: 250px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .NotesContainer {
+    margin-left: -1.5rem;
+  }
+  .HomeContainer {
+    flex-direction: column;
+  }
+}
