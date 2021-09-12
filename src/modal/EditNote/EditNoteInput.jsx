@@ -156,7 +156,7 @@ export default function EditNoteInput({
             <button
               className="SaveButton"
               onClick={async () => {
-                await onSave();
+                // await onSave();
                 await dispatch(changeStep("SaveNotes"));
                 await dispatch(putUpdateNote(noteDetail?.id, updateNote));
                 // await dispatch(deleteNote(noteDetail?.id));
