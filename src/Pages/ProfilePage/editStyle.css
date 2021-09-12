@@ -42,7 +42,9 @@
   font-weight: bolder;
   color: #342d50;
 }
-
+#password{
+  width: 17.5rem;
+}
 .label {
   margin-bottom: 1rem;
 }
@@ -104,6 +106,9 @@ input:focus {
 }
 
 @media (max-width: 768px) {
+  #password{
+    width: 13rem;
+  }
   .content-edit form input {
     width: 250px;
   }

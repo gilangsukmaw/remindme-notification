@@ -22,7 +22,7 @@ function SignInUpPage(...props) {
             maxWidth: "1440px",
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: "1rem",
+            marginTop: "8rem",
           }}
         >
           <Col

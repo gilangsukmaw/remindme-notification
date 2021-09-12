@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import "./modal.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,12 +8,16 @@ import "./Sign.css";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import Cross from "../../assets/images/OopsCross.svg";
 import SaveLogo from "../../assets/images/saveLogo.svg";
+import ceklis from "../../assets/images/signupChecklist.png";
+
 
 // username: auliaFE,
 // email: auliaFE@gmail.com,
 // password: Hehehe123$,
 
 function SignIn() {
+  const [modalShow, setModalShow] = React.useState(false);
+
   const [values, setValues] = React.useState({
     password: "",
     showPassword: false,
@@ -23,6 +27,47 @@ function SignIn() {
     emailorusername: "",
     password: "",
   });
+  function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal className="ModalSignUp shadow" sytle={{ maxWidth: "1rem" }} {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            <img src={SaveLogo}></img>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{}}>
+          <p>
+            We send verification<br/>
+            to your email
+          <br/>
+          <br/>
+            Chop chop<br/>
+            Check your email!!
+
+
+            {/* Congratulations!<br></br>
+            we successfully verified your account */}
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Link to="/auth/login">
+            <button
+              className="ButtonUngu"
+              style={{
+                height: "2rem",
+                padding: "0.5rem 2rem 2rem 2rem",
+                borderRadius: "35px",
+                fontWeight: "700",
+              }}
+              onClick={props.onHide}
+            >
+              Let’s Get It
+            </button>
+          </Link>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
   // const submitSignIn = async (e) => {
   //   e.preventDefault();
   //   if ((state.emailorusername === "") | (state.password === "")) {
@@ -150,9 +195,10 @@ function SignIn() {
                   </svg>
                 )}{" "}
               </Button>
+              <div style={{float: "right", background: "none",border: "none", marginTop:'1rem'}}>Forgot Password?</div>
             </Form.Group>
           </div>
-
+                  
           <Button
             className="ButtonUngu"
             data-testid="ButtonSignIn"
@@ -164,14 +210,17 @@ function SignIn() {
             Sign In
           </Button>
         </Form>
-        <p className="SignUpQuestion text-center mt-2">
+        <p className="SignUpQuestion text-center mt-2" id='SignUpQuestion'>
           Don't have an account yet?{" "}
           <Link to="/auth/register" style={{ cursor: "pointer", textDecoration: "none", fontWeight: "700" }} className="text-dark">
             Sign Up
           </Link>
         </p>
       </div>
+      <MyVerticallyCenteredModal show={modalShow} onClick={() => setModalShow(false)} onHide={() => setModalShow(false)} />
+
     </div>
+    
   );
 }
 

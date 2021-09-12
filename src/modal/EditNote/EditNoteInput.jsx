@@ -8,38 +8,15 @@ import "react-datepicker/dist/react-datepicker.css";
 // import { setNote } from "../redux/action/note";
 import { useDispatch, useSelector } from "react-redux";
 import { changeStep } from "../../redux/action/global";
-import { getNoteDetail } from "../../redux/action/note";
-import { deleteNote } from "../../redux/action/note";
 import { putUpdateNote } from "../../redux/action/note";
 
-export default function EditNoteInput({
-  onClose,
-  changeDataBody,
-  changeDataTitle,
-  noteData,
-  changeDataColor,
-  changeDataPinned,
-  onSave,
-}) {
-  const noteDetail = useSelector(
-    (state) => state.allNote.noteDataDetail.detail
-  );
+export default function EditNoteInput({ changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, onSave }) {
+  const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
   console.log("note ==>", noteDetail);
-  // useEffect(() => {
-  //   dispatch(getNoteDetail());
-  // }, []);
+  const dataUpdate = useSelector((state) => state.global.data);
 
-  useEffect(() => {
-    setUpdateNote({
-      ...updateNote,
-      title: noteDetail?.title,
-      body: noteDetail?.body,
-      dateNote: noteDetail?.dateNote,
-      pinned: noteDetail?.pinned,
-      color: noteDetail?.color,
-    });
-  }, [noteDetail]);
   const [updateNote, setUpdateNote] = useState({
+    id: "",
     title: "",
     body: "",
     dateNote: "",
@@ -48,14 +25,33 @@ export default function EditNoteInput({
     pinned: false,
     color: "",
   });
+  useEffect(() => {
+    setUpdateNote({
+      ...updateNote,
+      id: noteDetail?.id,
+      title: noteDetail?.title,
+      body: noteDetail?.body,
+      dateNote: noteDetail?.dateNote,
+      pinned: noteDetail?.pinned,
+      color: noteDetail?.color,
+    });
+  }, [noteDetail]);
+  useEffect(() => {
+    setUpdateNote({
+      ...updateNote,
+      id: dataUpdate?.id,
+      title: dataUpdate?.title,
+      body: dataUpdate?.body,
+      dateNote: dataUpdate?.dateNote,
+      pinned: dataUpdate?.pinned,
+      color: dataUpdate?.color,
+    });
+  }, [dataUpdate]);
   console.log("update==>", updateNote);
   const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">
-      <div
-        className="note__container position-relative"
-        style={{ backgroundColor: `${updateNote.color}` }}
-      >
+      <div className="note__container position-relative" style={{ backgroundColor: `${updateNote.color}` }}>
         <div className="note__close position-absolute top-0 start-100 translate-middle">
           <button
             onClick={() => {
@@ -146,7 +142,7 @@ export default function EditNoteInput({
           <div className="note__footer">
             <button
               onClick={() => {
-                dispatch(changeStep("EditNoteAddTime"));
+                dispatch(changeStep("EditNoteAddTime", updateNote));
                 // submitNote();
                 // onSave();
               }}

@@ -11,7 +11,7 @@ function HomeNotes({ ...props }) {
       {/* Background color nanti diganti dengan yg dari mapping */}
       <Container
         className="NotesCard text-dark"
-        style={{ backgroundColor: `${color}`, marginBottom: "1rem" }}
+        style={{ backgroundColor: `${color}`, marginBottom: "1rem", overflowWrap:'break-word' }}
       >
         <div className="CardTittle d-flex flex-row justify-content-between">
           {/* Title diganti dari maping */}
