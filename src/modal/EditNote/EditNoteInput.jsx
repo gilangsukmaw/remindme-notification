@@ -8,10 +8,19 @@ import "react-datepicker/dist/react-datepicker.css";
 // import { setNote } from "../redux/action/note";
 import { useDispatch, useSelector } from "react-redux";
 import { changeStep } from "../../redux/action/global";
-import { putUpdateNote } from "../../redux/action/note";
+import { putUpdateNote, getNote } from "../../redux/action/note";
 
-export default function EditNoteInput({ changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, onSave }) {
-  const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
+export default function EditNoteInput({
+  changeDataBody,
+  changeDataTitle,
+  noteData,
+  changeDataColor,
+  changeDataPinned,
+  onSave,
+}) {
+  const noteDetail = useSelector(
+    (state) => state.allNote.noteDataDetail.detail
+  );
   console.log("note ==>", noteDetail);
   const dataUpdate = useSelector((state) => state.global.data);
 
@@ -51,7 +60,10 @@ export default function EditNoteInput({ changeDataBody, changeDataTitle, noteDat
   const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">
-      <div className="note__container position-relative" style={{ backgroundColor: `${updateNote.color}` }}>
+      <div
+        className="note__container position-relative"
+        style={{ backgroundColor: `${updateNote.color}` }}
+      >
         <div className="note__close position-absolute top-0 start-100 translate-middle">
           <button
             onClick={() => {
@@ -153,10 +165,17 @@ export default function EditNoteInput({ changeDataBody, changeDataTitle, noteDat
               className="SaveButton"
               onClick={async () => {
                 // await onSave();
-                await dispatch(changeStep("SaveNotes"));
                 await dispatch(putUpdateNote(noteDetail?.id, updateNote));
+                await dispatch(changeStep("SaveNotes"));
+                await dispatch(getNote());
                 // await dispatch(deleteNote(noteDetail?.id));
               }}
+              disabled={
+                !updateNote.title ||
+                !updateNote.body ||
+                !updateNote.color ||
+                !updateNote.dateNote
+              }
             >
               Save
             </button>

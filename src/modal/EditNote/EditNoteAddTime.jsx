@@ -8,7 +8,7 @@ import * as dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import { putUpdateNote } from "../../redux/action/note";
 
-export default function EditNoteAddTime({ updateNote }) {
+export default function EditNoteAddTime({ updateNote, noteData }) {
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
 
@@ -35,9 +35,15 @@ export default function EditNoteAddTime({ updateNote }) {
   }, [data]);
   const dispatch = useDispatch();
   console.log("input date==>", noteInput);
+  console.log("tanggal edit", noteInput.dateNote);
+  console.log("tanggal update", updateNote.dateNote);
   return (
     <div className="time__outside modal-backdrop">
-      <div className="time__container" style={{ backgroundColor: `${updateNote?.color}` }} value={noteInput.color}>
+      <div
+        className="time__container"
+        style={{ backgroundColor: `${updateNote?.color}` }}
+        value={noteInput.color}
+      >
         <div className="time__wrapper">
           <div className="time__title">
             <h1>Pick Date</h1>
@@ -45,11 +51,29 @@ export default function EditNoteAddTime({ updateNote }) {
           <div className="time__input">
             <div className="time__date">
               <h3>Date</h3>
-              <input value={noteInput.dateNote} type="text" disabled placeholder={dayjs(`${noteInput.dateNote}`).format("DD/MM/YYYY")} className="input-time" id="time" />
+              <input
+                value={noteInput.dateNote}
+                type="text"
+                disabled
+                placeholder={dayjs(`${updateNote.dateNote}`).format(
+                  "DD/MM/YYYY"
+                )}
+                className="input-time"
+                id="date"
+              />
             </div>
             <div className="time__time">
               <h3>Time</h3>
-              <input value={noteInput.dateNote} placeholder={dayjs(`${noteInput.dateNote}`).format("hh:mm")} type="text" className="input-time" id="time" />
+              <input
+                onChange={(e) =>
+                  setNoteInput({ ...noteInput, dateNote: e.target.value })
+                }
+                value={noteInput.dateNote}
+                placeholder={dayjs(`${updateNote.dateNote}`).format("hh:mm")}
+                type="time"
+                className="input-time"
+                id="time"
+              />
             </div>
           </div>
           <div className="time__calendar">
@@ -57,7 +81,10 @@ export default function EditNoteAddTime({ updateNote }) {
               selected={startDate}
               onChange={(e) => {
                 // console.log("date", dayjs(date).format("YYYY-MM-DD"));
-                setNoteInput({ ...noteInput, dateNote: dayjs(e).format("YYYY-MM-DDTHH:mm:ss") });
+                setNoteInput({
+                  ...noteInput,
+                  dateNote: dayjs(e).format("YYYY-MM-DD"),
+                });
                 // setStartDate(dayjs(dateNote).format("YYYY-MM-DDTHH:mm:ss"));
               }}
               inline
@@ -80,7 +107,10 @@ export default function EditNoteAddTime({ updateNote }) {
             >
               Save
             </button>
-            <button className="time__cancel" onClick={() => dispatch(changeStep("EditNoteInput"))}>
+            <button
+              className="time__cancel"
+              onClick={() => dispatch(changeStep("EditNoteInput"))}
+            >
               Cancel
             </button>
           </div>
