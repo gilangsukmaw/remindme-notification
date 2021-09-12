@@ -36,7 +36,11 @@ export default function TimeModal({
   console.log("datenote", noteData.dateNote);
   return (
     <div className="time__outside modal-backdrop">
-      <div className="time__container" style={{ backgroundColor: `${noteData.color}` }} value={noteData.color}>
+      <div
+        className="time__container"
+        style={{ backgroundColor: `${noteData.color}` }}
+        value={noteData.color}
+      >
         <div className="time__wrapper">
           <div className="time__title">
             <h1>Pick Date</h1>
@@ -52,12 +56,21 @@ export default function TimeModal({
                 disabled
                 placeholder={dayjs(`${noteData.dateNote}`).format("DD/MM/YYYY")}
                 className="input-time"
-                id="time"
+                id="date"
               />
             </div>
             <div className="time__time">
               <h3>Time</h3>
-              <input onChange={(e) => setNoteInput({ ...noteInput, dateNote: e.target.value })} value={noteInput.dateNote} placeholder={dayjs(`${noteData.dateNote}`).format("hh:mm")} type="time" className="input-time" id="time" />
+              <input
+                onChange={(e) =>
+                  setNoteInput({ ...noteInput, dateNote: e.target.value })
+                }
+                value={noteInput.dateNote}
+                placeholder={dayjs(`${noteData.dateNote}`).format("hh:mm")}
+                type="time"
+                className="input-time"
+                id="time"
+              />
             </div>
           </div>
           <div className="time__calendar">
@@ -87,7 +100,10 @@ export default function TimeModal({
             >
               Save
             </button>
-            <button className="time__cancel" onClick={() => dispatch(changeStep("InputNote"))}>
+            <button
+              className="time__cancel"
+              onClick={() => dispatch(changeStep("InputNote"))}
+            >
               Cancel
             </button>
           </div>
