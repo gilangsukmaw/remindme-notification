@@ -41,9 +41,16 @@ const ModalTest = ({ ...props }) => {
   }, [data]);
   const Token = localStorage.getItem("Token");
   const submitNote = async (e) => {
+<<<<<<< HEAD
     // // e.preventDefault()
     // if (noteInput.title === "" || noteInput.body === "" || noteInput.time === "" dan seterusnya bla bla bla ) {
     // alert("isi dulu bang notesnya");}
+=======
+    if (noteInput.title === "" || noteInput.body === "" || noteInput.color === "" || noteInput.dateNote === "" || noteInput.pinned === "") {
+      alert("isi dulu la lek  notesnya");
+      window.location.reload();
+    }
+>>>>>>> 218e7a379fa273b412ba761361d1b414e83b5430
     try {
       const res = await axios.post("https://remindme.gabatch13.my.id/api/v1/notes", noteInput, {
         headers: {
