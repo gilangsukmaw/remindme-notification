@@ -77,7 +77,7 @@ export default function TimeModal({
             <DatePicker
               selected={startDate}
               onChange={(date) => {
-                console.log("date", dayjs(date).format("YYYY-MM-DD"));
+                // console.log("date", dayjs(date).format("YYYY-MM-DD"));
                 changeDataDate(dayjs(date).format("YYYY-MM-DDTHH:mm:ss"));
               }}
               inline
