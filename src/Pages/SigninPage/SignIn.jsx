@@ -9,7 +9,7 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 import Cross from "../../assets/images/OopsCross.svg";
 import SaveLogo from "../../assets/images/saveLogo.svg";
 import ceklis from "../../assets/images/signupChecklist.png";
-
+import ForgotPassword from "../Enhancement/forgotPassword";
 
 // username: auliaFE,
 // email: auliaFE@gmail.com,
@@ -43,8 +43,6 @@ function SignIn() {
           <br/>
             Chop chop<br/>
             Check your email!!
-
-
             {/* Congratulations!<br></br>
             we successfully verified your account */}
           </p>
@@ -195,7 +193,7 @@ function SignIn() {
                   </svg>
                 )}{" "}
               </Button>
-              <div style={{float: "right", background: "none",border: "none", marginTop:'1rem'}}>Forgot Password?</div>
+              <div style={{float: "right", background: "none",border: "none",}}> <ForgotPassword/></div>
             </Form.Group>
           </div>
                   
@@ -217,6 +215,7 @@ function SignIn() {
           </Link>
         </p>
       </div>
+     
       <MyVerticallyCenteredModal show={modalShow} onClick={() => setModalShow(false)} onHide={() => setModalShow(false)} />
 
     </div>
