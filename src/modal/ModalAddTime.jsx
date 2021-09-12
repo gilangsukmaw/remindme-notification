@@ -15,6 +15,7 @@ export default function TimeModal({
   changeDataTime,
   noteData,
   onSave,
+  dateHandle,
   props,
 }) {
   var utc = require("dayjs/plugin/utc");
@@ -30,10 +31,16 @@ export default function TimeModal({
     color: "",
     dateNote: "",
   });
-  console.log("timee", noteInput.time);
-  console.log("noteInput", noteInput);
+  console.log("dayjs time", noteData.time);
   const dispatch = useDispatch();
-  console.log("datenote", noteData.dateNote);
+  // console.log("timee", noteInput.time);
+  // console.log("noteInput", noteInput);
+  // console.log("datenote", noteData.dateNote);
+  // const [time, setTime] = useState();
+  // const [date, setDate] = useState();
+  // console.log("time", time);
+  // console.log("date", date);
+  // console.log("noteinput", noteInput);
   return (
     <div className="time__outside modal-backdrop">
       <div
@@ -49,12 +56,16 @@ export default function TimeModal({
             <div className="time__date">
               <h3>Date</h3>
               <input
-                // onChange={(e) => changeDataDate(e.target.value)}
+                // onChange={(e) => {
+                //   console.log("ini dalam e", e);
+                //   setDate(e);
+                // }}
+                onChange={(e) => changeDataDate(e.target.value)}
                 // value={noteData.date}
                 value={noteInput.dateNote}
                 type="text"
                 disabled
-                placeholder={dayjs(`${noteData.dateNote}`).format("DD/MM/YYYY")}
+                placeholder={dayjs(`${noteData.date}`).format("DD/MM/YYYY")}
                 className="input-time"
                 id="date"
               />
@@ -62,14 +73,13 @@ export default function TimeModal({
             <div className="time__time">
               <h3>Time</h3>
               <input
-                onChange={(e) =>
-                  setNoteInput({ ...noteInput, dateNote: e.target.value })
-                }
-                value={noteInput.dateNote}
-                placeholder={dayjs(`${noteData.dateNote}`).format("hh:mm")}
+                onChange={(e) => changeDataTime(e.target.value)}
+                value={noteData.time}
+                placeholder={dayjs(`${noteData.time}`).format("HH:mm A")}
                 type="time"
                 className="input-time"
                 id="time"
+                style={{ width: "120px" }}
               />
             </div>
           </div>
@@ -78,7 +88,7 @@ export default function TimeModal({
               selected={startDate}
               onChange={(date) => {
                 console.log("date", dayjs(date).format("YYYY-MM-DD"));
-                changeDataDate(dayjs(date).format("YYYY-MM-DDTHH:mm:ss"));
+                changeDataDate(dayjs(date).format("YYYY-MM-DD"));
               }}
               inline
             />
@@ -93,8 +103,8 @@ export default function TimeModal({
             <button
               className="time__save"
               onClick={() => {
+                onSave();
                 dispatch(changeStep("InputNote", noteInput));
-                // onSave();
                 // handleAddEvent();
               }}
             >
