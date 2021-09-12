@@ -11,7 +11,7 @@ import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 import LandingPage from "../Pages/LandingPage/LandingPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Verification from "../Pages/Enhancement/Verification";
-import ForgotPassword from "../Pages/Enhancement/forgotPassword";
+import ResetPage from "../Pages/Enhancement/ResetPage";
 
 function Router() {
   const isLogin = localStorage.getItem("Token");
@@ -49,7 +49,7 @@ function Router() {
           <Verification />
         </Route>
         <Route exact path="/reset/:token">
-          <ForgotPassword />
+          <ResetPage />
         </Route>
         <Route exact path="/auth/:type">
           <SignInUpPage />

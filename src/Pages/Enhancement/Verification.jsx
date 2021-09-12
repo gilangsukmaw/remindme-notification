@@ -27,14 +27,21 @@ const { token } = useParams();
         imageHeight: 100,
         imageAlt: 'Custom image',
         width: 450,
-        confirmButtonText: "Ok",
+        confirmButtonText: "Sign In",
         confirmButtonColor: "#625BAD",
         title: 'Congratulations!',
         text: 'we successfully verified your account',
-        })
-        } ; 
-        window.location.replace("/auth/login");
+        allowOutsideClick: false,
+        allowEscapeKey:false,
+        allowEnterKey: false,
 
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.replace("/auth/login");
+          } 
+        })
+      };
+        
         } catch (error) {
         console.log(error.response);
         if (error.response.status === 404) {
@@ -48,7 +55,7 @@ const { token } = useParams();
         confirmButtonText: "Ok",
         confirmButtonColor: "#625BAD",
         title: error.response.data.errors,
-        text: "Please Send Email Again",
+        text: "Please Send Email For Verification Again",
         });
         setSendEmail(true);
         }
@@ -68,10 +75,10 @@ const debounce = (func, timeout = 30000) => {
       }, timeout);
     };
   };
-
   const debounceVerification = debounce(() => VerificationEmail());
 
   const [sendEmail, setSendEmail] = useState (false)
+  
   function SendEmailModal(props) {
 
     const SendEmail = async () => {
@@ -94,9 +101,7 @@ const debounce = (func, timeout = 30000) => {
       title: res.data.message,
       // text: 'we successfully verified your account',
       });
-       
       // window.location.replace("/auth/login");
-
       } catch (error) {
       console.log(error.response);
       if (error.response.status === 404) {
@@ -110,7 +115,7 @@ const debounce = (func, timeout = 30000) => {
       confirmButtonText: "Ok",
       confirmButtonColor: "#625BAD",
       title: error.response.data.errors,
-      text: "Please Click Send Email Again",
+      text: "Please Input Registered Email",
       });
       }
       if (error.response.status === 400) {
@@ -147,7 +152,7 @@ const debounce = (func, timeout = 30000) => {
                         onChange={(e) => setState({ ...state, email: e.target.value })}
                         style={{
                           height: "2.5rem",
-                          width: "80%",
+                          width: "70%",
                           borderRadius: "10px",
                           border: "2px solid #B6C6E5",
                         }}
@@ -187,56 +192,6 @@ const debounce = (func, timeout = 30000) => {
 
 return (
 <>
-    {/* <div>hahahahahh kita coba verification</div> */}
-    {/* <Container
-          className="signin__container d-flex flex-row align-items-start justify-content-center"
-          style={{
-            maxWidth: "1440px",
-            marginLeft: "auto",
-            marginRight: "auto",
-            marginTop: "8rem",
-          }}
-        >
-          <Col
-            className="LeftBox d-flex flex-column "
-            style={{
-              maxWidth: "20rem",
-              borderRight: "1px solid #B6C6E5",
-              // paddingRight: "3rem",
-            }}
-          >
-            <div className="LogoFull">
-            </div>
-           
-               
-                <img
-                  // className="d-block w-100"
-                  style={{ width: "20rem", maxHeight: "auto" }}
-                  src={Logo}
-                  alt="First slide"
-                /> 
-                <img
-                // className="d-block w-100"
-                style={{ width: "10rem", maxHeight: "auto" }}
-                src={TextLogo}
-                alt="First slide"
-              />
-              
-          </Col>
-
-
-          <Col
-            className="RightBox align-content-start flex-wrap d-flex justify-content-start align-self-start align-items-center flex-column"
-            style={{ maxWidth: "20rem" }}
-          >
-            <div style={{ margin:" 4rem auto auto 2rem",  }} className='align-content-start flex-wrap d-flex justify-content-start align-self-start align-items-center flex-column'>
-              <h3 style={{  fontWeight:'600' }} >Please Wait</h3>
-              <p> While we verified your email </p>
-            </div>
-       
-          </Col>
-        </Container> */}
-
         <Container
           className="signin__container d-flex flex-row align-items-start justify-content-center"
           style={{
@@ -247,45 +202,29 @@ return (
           }}
         >
           <Col
-            className="LeftBox d-flex flex-column align-items-center
-
-            "
+            className="LeftBox d-flex flex-column align-items-center"
             style={{
               maxWidth: "20rem",
               // paddingRight: "3rem",
             }}
           >
             <div className="LogoFull">
-              {/* <img src={logofull} style={{ float: "left" }}></img> */}
             </div>
-           
-               
                 <img
                   // className="d-block w-100"
                   style={{ width: "20rem", maxHeight: "auto" }}
                   src={Logo}
                   alt="First slide"
                 /> 
-              
-              
               <h3 style={{  fontWeight:'600' }} >Check Email !</h3>
               <p> We sent verification link there </p>
-
-
             {/* <div style={{ margin:" 4rem auto auto 2rem",  }} >
-              
             </div> */}
-       
             </Col>
         </Container>
-
-
-
     {/* <Link to='/auth/login'><Button>tombol ke login</Button></Link> */}
-    {/* <Button style={{marginLeft:'10rem'}} onClick={()=> {VerificationEmail()}}>tombol resend</Button> */}
     {/* onClick={() => setSendEmail(false)} onHide={() => setSendEmail(false)}  */}
     <SendEmailModal show={sendEmail}  />
-
 </>
 )
 }

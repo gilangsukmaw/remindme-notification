@@ -252,7 +252,7 @@ function SignUp(props) {
                       type={values.showPassword ? "text" : "password"}
                       placeholder="Password"
                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-title='Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:'
+                      title='Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character'
                       required
                     />
                     <Button
@@ -376,16 +376,3 @@ title='Minimum eight characters, at least one uppercase letter, one lowercase le
 
 export default SignUp;
 
-// username: auliaFE,
-// email: auliaFE@gmail.com,
-// password: Hehehe123$,
-// firstname: aulia,
-// lastname: feglints,
-
-// response : 201 sukses
-// {username: "auliaFE", email: "auliaFE@gmail.com", password: "Hehehe123$", firstname: "aulia",…}
-// email: "auliaFE@gmail.com"
-// firstname: "aulia"
-// lastname: "feglints"
-// password: "Hehehe123$"
-// username: "auliaFE"
