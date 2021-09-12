@@ -41,9 +41,9 @@ const ModalTest = ({ ...props }) => {
   }, [data]);
   const Token = localStorage.getItem("Token");
   const submitNote = async (e) => {
-    // e.preventDefault()
-    // if (noteInput.title === "" ) {
-    // alert("isi dulu bang notesnya");
+    // // e.preventDefault()
+    // if (noteInput.title === "" || noteInput.body === "" || noteInput.time === "" dan seterusnya bla bla bla ) {
+    // alert("isi dulu bang notesnya");}
     try {
       const res = await axios.post("https://remindme.gabatch13.my.id/api/v1/notes", noteInput, {
         headers: {

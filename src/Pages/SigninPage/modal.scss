@@ -15,22 +15,19 @@
 // }
 
 .ModalSignUp {
-
+h4{
+    font-weight: 600;
+}
     .modal-dialog {
         justify-content: center;
         max-width: 25rem;
-
-
     }
-
     .modal-body {
         text-align: center;
-
     }
-
     .modal-header {
         padding-top: 3.5rem;
-        min-height: 10rem;
+        min-height: 5rem;
         border-bottom: none;
     }
 
@@ -48,13 +45,12 @@
 
     .ModalSignUp p {
         max-width: 20rem;
-
         font-size: 1.5rem;
         text-align: center;
     }
 
     .modal-footer {
-        padding-bottom: 4rem;
+        padding-bottom: 2.5rem;
         border: none;
     }
 }
@@ -199,8 +195,8 @@
     justify-content: center;
 }
 
-.SignUpQuestion {
-    font-size: 1.25rem;
+#SignUpQuestion {
+    font-size: 1rem;
 
 
 }
@@ -254,11 +250,9 @@
         width: 20rem;
     }
 
-
-
-    .SignUpQuestion {
-        // margin-left: 5rem;
-        font-size: 1rem;
+    #SignUpQuestion {
+        font-size: 0.8rem;
+        
     }
 
     .ContainerSignIn {
@@ -271,7 +265,7 @@
 
     .SignIn-Container {
         width: 20rem;
-        margin-top: 4rem;
+        margin-top: 2rem;
         margin-left: 1.5rem;
     }
 
@@ -315,6 +309,12 @@
 }
 
 @media screen and (max-width: 768px) {
+
+    #SignUpQuestion {
+        font-size: 0.7rem;
+    
+    
+    }
     .SignUpBigBox {
         margin-left: 1rem;
     }
@@ -347,7 +347,7 @@
 
     .SignIn-Container {
         width: 18rem;
-        margin-top: 4rem;
+        margin-top: 1rem;
         margin-left: 1.5rem !important;
     }
 

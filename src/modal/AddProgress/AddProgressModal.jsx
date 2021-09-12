@@ -1,11 +1,10 @@
 import React from 'react'
-import { Modal, Col, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
+import { Modal, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
 import './AddProgressModal.scss'
 import Logo from '../../assets/images/AddProgressLogo.png'
 import Confetti from '../../assets/images/confetti-ball.svg'
 import Cross from '../../assets/images/OopsCross.svg'
-
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -58,15 +57,15 @@ function AddProgressModal(props) {
     
      });
 
-     function congrats() {
-        if (details?.current_percent === 100) {
-            Swal.fire(
-                'There is still missing parts',
-                'Please Check Again',
-                'warning',
-              );
-        }
-        } ;
+    //  function congrats() {
+    //     if (details?.current_percent === 100) {
+    //         Swal.fire(
+    //             'There is still missing parts',
+    //             'Please Check Again',
+    //             'warning',
+    //           );
+    //     }
+    //     } ;
 
      const submitAddProgress = async (e) => {
         try {
