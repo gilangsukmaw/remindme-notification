@@ -158,6 +158,9 @@ export default function EditNoteInput({
                 // submitNote();
                 // onSave();
               }}
+              disabled={
+                !updateNote.title || !updateNote.body || !updateNote.color
+              }
             >
               Add time
             </button>

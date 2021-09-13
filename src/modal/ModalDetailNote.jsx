@@ -63,7 +63,7 @@ export default function DetailNote({ ...props }) {
       color: noteDetail?.color,
     });
   }, []);
-  console.log("bunga", noteDetail);
+  console.log("detail note===>", noteDetail);
   // console.log("noteinput", noteInput.date);
   return (
     <div className="detailNote__outside modal-backdrop">

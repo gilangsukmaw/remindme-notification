@@ -20,20 +20,13 @@ import { useEffect } from "react";
 import * as dayjs from "dayjs";
 import EditNoteAddTime from "./EditNote/EditNoteAddTime";
 import Swal from "sweetalert2";
+import { putUpdateNote } from "../redux/action/note";
 
 const ModalTest = ({ ...props }) => {
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
   const dispatch = useDispatch();
-  const {
-    step,
-    setStep,
-    onSaveNote,
-    noteData,
-    noteColor,
-    setNoteColor,
-    onSaveColor,
-  } = props;
+  const { step, setStep, onSaveNote, noteData } = props;
   const data = useSelector((state) => state.global.data);
   // console.log("dataDate", data);
   const [noteInput, setNoteInput] = useState({
@@ -56,8 +49,8 @@ const ModalTest = ({ ...props }) => {
         .format(),
     });
   };
-  console.log("datehandle", dateHandle);
-  console.log("post", noteInput);
+  // console.log("datehandle", dateHandle);
+  console.log("test", Test);
   useEffect(() => {
     setNoteInput({ ...noteInput, date: data?.date, time: data?.time });
   }, [data]);
@@ -222,13 +215,14 @@ const ModalTest = ({ ...props }) => {
         <EditNoteAddTime
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
-          onSave={(onSaveNote, onSaveColor)}
-          updateNote={noteInput}
+          onSave={() => Test()}
+          updateNote={{ ...noteInput, ...dateHandle }}
           changeDataDate={(item) =>
-            setNoteInput({ ...noteInput, dateNote: item })
+            setDateHandle({ ...dateHandle, date: item })
           }
-          changeDataTime={(item) => setNoteInput({ ...noteInput, time: item })}
-          changeColor={(item) => setNoteInput({ ...noteInput, color: item })}
+          changeDataTime={(item) =>
+            setDateHandle({ ...dateHandle, time: item })
+          }
         />
       )}
       {modalStep === "SaveChanges" && (
