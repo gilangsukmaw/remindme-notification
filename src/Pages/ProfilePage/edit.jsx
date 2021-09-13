@@ -48,7 +48,7 @@ export default function Edit({ ...props }) {
   });
   useEffect(() => {
     dispatch(getUser());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setUpdate({
@@ -58,9 +58,10 @@ export default function Edit({ ...props }) {
       lastname: user?.data?.lastname,
       username: user?.data?.username,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.data]);
 
-  console.log("user edit", update);
+  // console.log("user edit", update);
   return (
     <div>
       <div className="profile">
@@ -95,32 +96,32 @@ export default function Edit({ ...props }) {
               <div className="bungkusSemua">
                 <div className="bungkusFirstname">
                   <div className="label">
-                    <h4 htmlfor="" className="">
+                    <h4 className="">
                       First Name
                     </h4>
                     <input className="input-Edit" value={update?.firstname} onChange={(e) => setUpdate({ ...update, firstname: e.target.value })} />
                   </div>
                   <div className="label">
-                    <h4 htmlfor="" className="">
+                    <h4 className="">
                       Last Name
                     </h4>
                     <input className="input-Edit" value={update?.lastname} onChange={(e) => setUpdate({ ...update, lastname: e.target.value })} />
                   </div>
                   <div className="label">
-                    <h4 htmlfor="" className="">
+                    <h4 className="">
                       Username
                     </h4>
                     <input className="input-Edit" value={update?.username} onChange={(e) => setUpdate({ ...update, username: e.target.value })} />
                   </div>
                   <div className="label email">
-                    <h4 htmlfor="" className="">
+                    <h4 className="">
                       Email
                     </h4>
                     <input className="input-Edit" disabled style={{ fontWeight: "Bold" }} value={user?.data?.email} onLoad={(e) => setUpdate({ ...update, email: e.target.value })} />
                   </div>
 
                   <div className="label">
-                    <h4 htmlfor="" className="">
+                    <h4 className="">
                       Old Password
                     </h4>
                     <input id="password" style={{ background: "none" }} type={values.showPassword ? "text" : "password"} className="input-Edit" onChange={(e) => setUpdate({ ...update, password: e.target.value })} />
@@ -149,7 +150,7 @@ export default function Edit({ ...props }) {
                     </Button>
                   </div>
                   <div className="label">
-                    <h4 htmlfor="" className="">
+                    <h4 className="">
                       New Password
                     </h4>
                     <input id="password" style={{ background: "none" }} type={newPassword1.showPassword ? "text" : "password"} className="input-Edit" onChange={(e) => setUpdate({ ...update, new_password: e.target.value })} />
@@ -179,7 +180,7 @@ export default function Edit({ ...props }) {
                   </div>
 
                   <div className="label password-confirm">
-                    <h4 htmlfor="" className="">
+                    <h4 className="">
                       Confirm Password
                     </h4>
                     <input id="password" style={{ background: "none" }} type={newPassword2.showPassword ? "text" : "password"} className="input-Edit" onChange={(e) => setUpdate({ ...update, confirm_password: e.target.value })} />

@@ -8,7 +8,7 @@ import "./Sign.css";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import Cross from "../../assets/images/OopsCross.svg";
 import SaveLogo from "../../assets/images/saveLogo.svg";
-import ceklis from "../../assets/images/signupChecklist.png";
+// import ceklis from "../../assets/images/signupChecklist.png";
 import ForgotPassword from "../Enhancement/forgotPassword";
 
 // username: auliaFE,
@@ -32,7 +32,7 @@ function SignIn() {
       <Modal className="ModalSignUp shadow" sytle={{ maxWidth: "1rem" }} {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-            <img src={SaveLogo}></img>
+            <img src={SaveLogo} alt='remindme'></img>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body style={{}}>
@@ -66,23 +66,19 @@ function SignIn() {
       </Modal>
     );
   }
-  const GoogleSignIn = async (e) => {
-    try {
-      const res = await axios.get(`https://remindme.gabatch13.my.id/api/v1/auth/google/`).then((res) => {
-      console.log(res)  ;
-      // localStorage.setItem("Token", res.data.token);
-      //   localStorage.setItem("USERID", res.data.data.id);
-      //   localStorage.setItem("USEREMAIL", res.data.data.email);
-      //   localStorage.setItem("USERNAME", res.data.data.username);
-        // window.location.replace("/home");
-      });
-    } catch (error) {
-      console.log(error)
-    }
-  };
+  // const GoogleSignIn = async (e) => {
+  //   try {
+  //     const res = await axios.get(`https://remindme.gabatch13.my.id/api/v1/auth/google/`).then((res) => {
+      
+  //     });
+  //   } catch (error) {
+  //     // console.log(error)
+  //   }
+  // };
 
   const submitSignIn = async (e) => {
     try {
+      // eslint-disable-next-line no-unused-vars
       const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signin`, state).then((res) => {
         localStorage.setItem("Token", res.data.token);
         localStorage.setItem("USERID", res.data.data.id);
@@ -92,7 +88,7 @@ function SignIn() {
       });
     } catch (error) {
       if (error.response.status === 400) {
-        console.log("ini error", error.response.data.errors[0]);
+        // console.log("ini error", error.response.data.errors[0]);
         Swal.fire({
           imageUrl: `${Cross}`,
           imageWidth: 100,
@@ -106,7 +102,7 @@ function SignIn() {
         });
       }
       if (error.response.status === 401) {
-        console.log("ini error", error.response.data.errors[0]);
+        // console.log("ini error", error.response.data.errors[0]);
         Swal.fire({
           imageUrl: `${Cross}`,
           imageWidth: 100,
@@ -128,6 +124,7 @@ function SignIn() {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const [value, setValue] = React.useState({
     password: "",
     showPassword: false,

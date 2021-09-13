@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Col, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
+import { Modal,   Button,  } from 'react-bootstrap';
 import './OopsModal.scss'
 import Cross from '../../assets/images/OopsCross.png'
 import {Link} from 'react-router-dom';
@@ -19,7 +19,7 @@ function OopsModal() {
             aria-labelledby="contained-modal-title-vcenter" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <img style={{width:'57px'}} src={Cross}></img>
+                    <img style={{width:'57px'}} alt='remindme' src={Cross}></img>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body  style={{}}>

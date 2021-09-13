@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../calendar/CobaCalendar.scss";
 import buildCalendar from "./build";
+// eslint-disable-next-line no-unused-vars
 import dayStyles, { beforeToday } from "./styles";
 import Header from "./Header";
 

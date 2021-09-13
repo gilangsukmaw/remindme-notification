@@ -8,6 +8,7 @@ import { changeStep } from "../../redux/action/global";
 import { getNote } from "../../redux/action/note";
 
 function SaveNotes() {
+  // eslint-disable-next-line no-unused-vars
   const [modalShow, setModalShow] = React.useState(true);
   const dispatch = useDispatch();
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import "./LandingPage.scss";
 import LogoLandingHeader from "../../assets/images/LogoLandingHeader.png";
@@ -10,6 +11,8 @@ import instagram from "../../assets/images/instagram.png";
 import { Link, useParams } from "react-router-dom";
 
 function LandingPage(...props) {
+  const Token = localStorage.getItem("Token");
+
   const { register } = props;
   return (
     <div className="landing">
@@ -49,9 +52,9 @@ function LandingPage(...props) {
               be<br></br>distracted by the readable content of a page when
               <br></br>looking at its layout.
             </p>
-            <Link to="/auth/register">
-              <button>Get Started</button>
-            </Link>
+            <Link to="/auth/register"><button>Get Started</button> </Link>
+              {/* {Token ? <Link to="/home"> <button>Home</button> </Link> : <Link to="/auth/register"><button>Get Started</button> </Link>} */}
+            
           </div>
           <div className="intro__right">
             <img src={LandingLogo} alt="" />

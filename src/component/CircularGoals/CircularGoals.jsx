@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Col, Carousel, Form, Button, FormControl, InputGroup } from "react-bootstrap";
-import { useState } from "react";
+import { Container,} from "react-bootstrap";
+// import { useState } from "react";
 // import { CircularProgressbar } from "react-circular-progressbar";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -8,8 +8,8 @@ import "react-circular-progressbar/dist/styles.css";
 // const data = []
 
 function CircularGoals(props) {
+  // eslint-disable-next-line no-unused-vars
   const { color, current_percent, id, name } = props;
-  const [colorCard, setcolorCard] = useState();
 
   // const color = `${colorCard}`;
   function strokeColor() {

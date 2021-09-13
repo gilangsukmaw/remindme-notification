@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import RemindmeLogo from "../../assets/images/RemindmeLogo.png";
 import welcomeLogo from "../../assets/images/welcomeLogo.png";
@@ -7,7 +7,7 @@ import CobaCalendar from "../../Calendar";
 import ModalTest from "../../modal/modalTest";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/action/user";
-import { getAllGoals, getDetailGoals } from "../../redux/action/goals";
+import { getAllGoals } from "../../redux/action/goals";
 import { getNote } from "../../redux/action/note";
 
 import HomeExisting from "../../component/HomeExisting/Home"
@@ -25,7 +25,7 @@ const NewUser = ({ ...props }) => {
     dispatch(getAllGoals());
     dispatch(getNote());
   }, [dispatch]);
-  console.log('inigoal', goals?.data);
+  // console.log('inigoal', goals?.data);
 // console.log (goals?.current_percent)
   return (
     <>

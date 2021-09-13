@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/action/user";
 // import pp from "../../assets/images/Ellipse 34.png";
@@ -7,27 +7,48 @@ import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { changeStep } from "../../redux/action/global";
-import { getTheToken, getMessage  } from "./firebase";
+// import { getTheToken, getMessage  } from "./firebase";
+import axios from "axios";
 
 
 function Navbar({ ...props }) {
+  // eslint-disable-next-line no-unused-vars
   const { setStep } = props;
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userData.userInfo);
 
-  getTheToken()
-  getMessage()
+  // getTheToken()
+  // getMessage()
+  
   
   function LogOut() {
     localStorage.clear();
     window.location.replace("/");
   }
+  // const regToken = localStorage.getItem("Registration Token");
+  // const Token = localStorage.getItem("Token");
+ 
+//   const sendRegToken = async (e) => {
+//     try {
+//         await axios.post(`https://remindme.gabatch13.my.id/api/v1/notify/subscribe`, {token : regToken}, { headers: { Authorization: `Bearer ${Token}` } }); 
+//     } catch (error) {
+//         console.log({ error })
+//     }
+// }
+// const [page, setPage] = useState (false)
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   sendRegToken();
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
   return (
     <>
       <nav className="sidebar">
+        {/* <button onClick={() => getMessage()}>tes</button> */}
         <div className="sidebar__top">
           <div className="sidebarItems headers">
             <Link to="/home">
@@ -50,8 +71,8 @@ function Navbar({ ...props }) {
             <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create Note/Goals</h5>
           </div>
           <div className="sidebarItems content">
-            <Link to="/allNote">
-              <p>All Notes</p>
+            <Link to="/allNote" >
+            <p>All Notes</p> {window.location === '/allNote' ?  <h1>panah</h1> : null }
             </Link>
           </div>
           <div className="sidebarItems content">

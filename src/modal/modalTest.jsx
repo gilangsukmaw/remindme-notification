@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import EditPhoto from "./ModalEditPhoto";
 import SettingGoalsCard from "./GoalsCard/SettingGoalsCard";
@@ -51,6 +52,7 @@ const ModalTest = ({ ...props }) => {
   console.log("datehandle timeee", dateHandle.time);
   useEffect(() => {
     setNoteInput({ ...noteInput, date: data?.date, time: data?.time });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   console.log("noteInput >>>>>>>", noteInput);
   const Token = localStorage.getItem("Token");
@@ -79,7 +81,7 @@ const ModalTest = ({ ...props }) => {
   };
 
   const modalStep = useSelector((state) => state.global.modalStep);
-  console.log("step", modalStep);
+  // console.log("step", modalStep);
   return (
     <>
       {/* step to note */}
@@ -106,6 +108,7 @@ const ModalTest = ({ ...props }) => {
           changeDataDate={(item) => setDateHandle({ ...dateHandle, date: item })}
           changeDataTime={(item) => setDateHandle({ ...dateHandle, time: item })}
           changeColor={(item) => setNoteInput({ ...noteInput, color: item })}
+          changeDataReminder={(item) => setNoteInput({ ...noteInput, reminder: item })}
         />
       )}
       {modalStep === "SaveNotes" && <SaveNotes changeStep={(item) => setStep(item)} onClose={(item) => setStep(item)} />}

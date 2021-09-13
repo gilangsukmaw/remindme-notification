@@ -9,17 +9,18 @@ import Lego from "../../assets/images/Photo.png";
 import closeX from "../../assets/images/closeX.png";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "./editPhoto.scss";
-import { Modal, Button, Tooltip, OverlayTrigger } from "react-bootstrap";
+import { Modal, Tooltip, OverlayTrigger } from "react-bootstrap";
 import edit from "../../assets/images/Ellipse 107.png";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getUser } from "../../redux/action/user";
-import Cross from '../../assets/images/OopsCross.svg'
+// import Cross from '../../assets/images/OopsCross.svg'
 
 
 function EditPhotoProfile(props) {
   const USEREMAIL = localStorage.getItem("USEREMAIL");
   const [EditPhotoShow, setEditPhotoShow] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const { firstname, lastname, username, onHide } = props;
   // console.log (firstname, lastname , username, USEREMAIL)
   // console.log (color)
@@ -67,7 +68,9 @@ function EditPhotoProfile(props) {
                 dispatch(getUser());
                 setPhotoGalleryShow(false);
               })
-            }catch(err) { console.log(err)};};
+            }catch(err) { 
+              // console.log(err)
+            };};
         } 
       });
 
@@ -75,7 +78,8 @@ function EditPhotoProfile(props) {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      if (state.image === null) {Swal.fire({
+      if (state.image === null) {
+        Swal.fire({
         imageUrl: (`${Lego}`),
         imageWidth: 150,
         imageHeight: 150,
@@ -103,7 +107,11 @@ function EditPhotoProfile(props) {
             dispatch(getUser());
             setPhotoGalleryShow(false);
           })
-        }catch(err) { console.log(err)};}
+        }catch(err) 
+        { 
+          // console.log(err)
+        }
+        ;}
       
     };
 

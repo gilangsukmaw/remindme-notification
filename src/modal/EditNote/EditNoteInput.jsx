@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import vectorPinLogo from "../../assets/images/vectorPinLogo.png";
 import "./EditNoteInput.scss";
@@ -21,7 +22,7 @@ export default function EditNoteInput({
   const noteDetail = useSelector(
     (state) => state.allNote.noteDataDetail.detail
   );
-  console.log("note ==>", noteDetail);
+  // console.log("note ==>", noteDetail);
   const dataUpdate = useSelector((state) => state.global.data);
 
   const [updateNote, setUpdateNote] = useState({
@@ -58,7 +59,7 @@ export default function EditNoteInput({
       color: dataUpdate?.color,
     });
   }, [dataUpdate]);
-  console.log("update==>", updateNote);
+  // console.log("update==>", updateNote);
   const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">

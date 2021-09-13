@@ -14,7 +14,7 @@ class Photo extends Component {
     super(props);
     const { firstname } = this.props;
     const { lastname } = this.props;
-    console.log(firstname, lastname);
+    // console.log(firstname,lastname)
   }
 
   state = {
@@ -33,7 +33,7 @@ class Photo extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     let form_data = new FormData();
     form_data.append("firstname", this.state.firstname);
     form_data.append("lastname", this.state.lastname);
@@ -46,12 +46,10 @@ class Photo extends Component {
       .put(url, form_data, {
         headers: { Authorization: `Bearer ${Token}` },
       })
-      .then(refreshPage())
       .then((res) => {
-        console.log(res.data);
-        alert(`Photo Updated`);
-      })
-      .catch((err) => console.log(err));
+        // console.log(res.data);(alert(`Photo Updated`));
+      });
+    // .catch(err => console.log(err))
   };
   // , 'Content-Type' : 'multiform/formdata'
   render() {

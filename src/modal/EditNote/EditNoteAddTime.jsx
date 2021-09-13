@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeStep } from "../../redux/action/global";
 import * as dayjs from "dayjs";
 import DatePicker from "react-datepicker";
-import { putUpdateNote } from "../../redux/action/note";
+// import { putUpdateNote } from "../../redux/action/note";
 
 export default function EditNoteAddTime({ updateNote, changeDataDate, changeDataTime, onSave }) {
   var utc = require("dayjs/plugin/utc");
@@ -32,6 +32,7 @@ export default function EditNoteAddTime({ updateNote, changeDataDate, changeData
       pinned: data?.pinned,
       color: data?.color,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const dispatch = useDispatch();
@@ -46,11 +47,10 @@ export default function EditNoteAddTime({ updateNote, changeDataDate, changeData
       dateNote: dayjs(`${dateHandle.date} ${dateHandle.time}`).utc(true).format(),
     });
   };
-
   // console.log("ini time", updateNote.time);
   // console.log("ini date", updateNote.date);
-  console.log("ini update==>", updateNote);
-  console.log("datenote===>", noteInput);
+  // console.log("ini update==>", updateNote);
+  // console.log("datenote===>", updateNote.dateNote);
   // console.log("noteinput==", noteInput);
   return (
     <div className="time__outside modal-backdrop">

@@ -14,6 +14,7 @@
 //   appId: '1:1097064622761:web:4e1338d982e3605dac97b8',
 // };
 
+// // eslint-disable-next-line no-unused-vars
 // const app = initializeApp(firebaseConfig);
 
 // // Retrieve firebase messaging
@@ -31,5 +32,6 @@
 //     icon: payload.notification.image,
 //   };
 
+//   // eslint-disable-next-line no-restricted-globals
 //   self.registration.showNotification(notificationTitle, notificationOptions);
 // });

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "../assets/styles/ModalDetailNote.scss";
 import PinEdit from "../assets/images/PinEdit.png";
@@ -10,9 +12,9 @@ import { useDispatch } from "react-redux";
 import { getNote, getNoteDetail } from "../redux/action/note";
 import { changeStep } from "../redux/action/global";
 import { deleteNote } from "../redux/action/note";
-import * as dayjs from "dayjs";
-import { putUpdateNote } from "../redux/action/note";
-import Swal from "sweetalert2";
+// import * as dayjs from "dayjs";
+// import { putUpdateNote } from "../redux/action/note";
+// import Swal from "sweetalert2";
 
 export default function DetailNote({ ...props }) {
   // const [updateNote, setUpdateNote] = useState({
@@ -22,7 +24,13 @@ export default function DetailNote({ ...props }) {
   //   pinned: false,
   //   color: "",
   // });
-  const { changeDataPinned, noteData, onSave, changeDataColor } = props;
+  const {
+    changeDataPinned,
+    noteData,
+    onSave,
+    changeDataColor,
+    changeDataReminder,
+  } = props;
 
   // const { allData } = useSelector((state) => state.allNote.noteData);
   // const { detail } = useSelector((state) => state.allNote.noteDataDetail);
@@ -34,13 +42,13 @@ export default function DetailNote({ ...props }) {
   );
 
   const dispatch = useDispatch();
-  console.log("prop noteDetail", props);
-  console.log(dispatch);
-  console.log("allData");
-  console.log("tesnoteDetail", noteDetail);
+  // console.log("prop noteDetail", props);
+  // console.log(dispatch);
+  // console.log("allData");
+  // console.log("tesnoteDetail", noteDetail);
   useEffect(() => {
     dispatch(getNote());
-  }, []);
+  }, [dispatch]);
   // useEffect(() => {
   //   dispatch(getNoteDetail());
   // }, []);
@@ -51,6 +59,7 @@ export default function DetailNote({ ...props }) {
     date: "",
     item: "",
     pinned: false,
+    reminder: false,
     color: "",
   });
   useEffect(() => {
@@ -61,11 +70,12 @@ export default function DetailNote({ ...props }) {
       dateNote: noteDetail?.dateNote,
       date: noteDetail?.date,
       time: noteDetail?.time,
+      reminder: noteDetail?.reminder,
       pinned: noteDetail?.pinned,
       color: noteDetail?.color,
     });
   }, []);
-  console.log("detail note===>", noteDetail);
+  // console.log("detail note===>", noteDetail);
   // console.log("noteinput", noteInput.date);
   return (
     <div className="detailNote__outside modal-backdrop">
@@ -121,7 +131,18 @@ export default function DetailNote({ ...props }) {
               <h3>Time</h3>
               <h6>{noteDetail?.time}</h6>
             </div>
-            <img src={notifLogo} alt="" />
+            <div
+              onClick={() => {
+                setUpdateNote({
+                  ...updateNote,
+                  reminder: !updateNote.reminder,
+                });
+                changeDataReminder(!updateNote.reminder);
+                console.log("detail reminder", updateNote.reminder);
+              }}
+            >
+              <img src={notifLogo} alt="" />
+            </div>
           </div>
         </div>
         <div className="detailNote__content">
@@ -179,7 +200,7 @@ export default function DetailNote({ ...props }) {
           >
             Edit
           </button>
-          <button
+          {/* <button
             onClick={async () => {
               // dispatch(changeStep("SaveUpdateNote"));
               // await onSave();
@@ -187,7 +208,7 @@ export default function DetailNote({ ...props }) {
             }}
           >
             Mark as done
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

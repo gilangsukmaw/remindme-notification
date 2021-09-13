@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
@@ -9,8 +10,7 @@ import DatePicker from "react-datepicker";
 
 export default function TimeModal({
   // onClose,
-
-  changeColor,
+  changeDataReminder,
   changeDataDate,
   changeDataTime,
   noteData,
@@ -84,7 +84,13 @@ export default function TimeModal({
           </div>
         </div>
         <div className="time__button">
-          <button className="notification">
+          <button
+            onClick={() => {
+              changeDataReminder(!noteData.reminder);
+              console.log("reminder", noteData.reminder);
+            }}
+            className="notification"
+          >
             <img src={buttonNotifLogo} alt="" />
             <p>Notification</p>
           </button>

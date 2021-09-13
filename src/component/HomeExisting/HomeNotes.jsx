@@ -1,11 +1,13 @@
 import React from "react";
 import Pin from "../../assets/images/Pin.png";
 import "./Home.scss";
-import { Container, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import * as dayjs from "dayjs";
 
 function HomeNotes({ ...props }) {
   const { title, time, date, body, color } = props;
-
+  var utc = require("dayjs/plugin/utc");
+  dayjs.extend(utc);
   return (
     <>
       {/* Background color nanti diganti dengan yg dari mapping */}
