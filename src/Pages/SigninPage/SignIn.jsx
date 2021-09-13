@@ -66,21 +66,20 @@ function SignIn() {
       </Modal>
     );
   }
-  // const submitSignIn = async (e) => {
-  //   e.preventDefault();
-  //   if ((state.emailorusername === "") | (state.password === "")) {
-  //     alert("fill the form first");
-  //     return;
-  //   } else {
-  //     await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signin`, state).then((res) => {
-  //       localStorage.setItem("Token", res.data.token);
-  //       localStorage.setItem("USERID", res.data.data.id);
-  //       localStorage.setItem("USEREMAIL", res.data.data.email);
-  //       localStorage.setItem("USERNAME", res.data.data.username);
-  //       window.location.replace("/newUser");
-  //     });
-  //   }
-  // };
+  const GoogleSignIn = async (e) => {
+    try {
+      const res = await axios.get(`https://remindme.gabatch13.my.id/api/v1/auth/google/`).then((res) => {
+      console.log(res)  ;
+      // localStorage.setItem("Token", res.data.token);
+      //   localStorage.setItem("USERID", res.data.data.id);
+      //   localStorage.setItem("USEREMAIL", res.data.data.email);
+      //   localStorage.setItem("USERNAME", res.data.data.username);
+        // window.location.replace("/home");
+      });
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   const submitSignIn = async (e) => {
     try {
@@ -217,7 +216,8 @@ function SignIn() {
       </div>
      
       <MyVerticallyCenteredModal show={modalShow} onClick={() => setModalShow(false)} onHide={() => setModalShow(false)} />
-
+{/* <Button onClick={() => GoogleSignIn()} > Google</Button> */}
+{/* <a href=' https://remindme.gabatch13.my.id/api/v1/auth/google/'><Button>Google</Button></a> */}
     </div>
     
   );

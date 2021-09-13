@@ -69,50 +69,45 @@ console.log (res);
           } 
         }
         )
-    }
-} catch (error) {
-if (error.response.status === 400) {
-// console.log("ini error" ,error.response.data.errors[0]);
-Swal.fire({
-imageUrl: (`${Cross}`),
-imageWidth: 100,
-imageHeight: 100,
-imageAlt: 'Custom image',
-width: 450,
-confirmButtonText: "Ok",
-confirmButtonColor: "#625BAD",
-title: (error.response.data.errors),
-text: 'Please Check Again',
-
-})};
-
-if (error.response.status === 404) {
-    // console.log("ini error" ,error.response.data.errors[0]);
-    Swal.fire({
-    imageUrl: (`${Cross}`),
-    imageWidth: 100,
-    imageHeight: 100,
-    imageAlt: 'Custom image',
-    width: 450,
-    confirmButtonText: "Let's Go",
-    confirmButtonColor: "#625BAD",
-    allowOutsideClick: false,
-    allowEscapeKey:false,
-    allowEnterKey: false,
-    title: 'Your Session is Expired',
-    text: 'Please Send Forgot Password Request Again',
-    
-    }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.replace("/auth/login");
-        } 
-      })
-    };
-
+        }
+        } catch (error) {
+        if (error.response.status === 400) {
+        // console.log("ini error" ,error.response.data.errors[0]);
+        Swal.fire({
+        imageUrl: (`${Cross}`),
+        imageWidth: 100,
+        imageHeight: 100,
+        imageAlt: 'Custom image',
+        width: 450,
+        confirmButtonText: "Ok",
+        confirmButtonColor: "#625BAD",
+        title: (error.response.data.errors),
+        text: 'Please Check Again',
+        })};
+        if (error.response.status === 404) {
+            // console.log("ini error" ,error.response.data.errors[0]);
+            Swal.fire({
+            imageUrl: (`${Cross}`),
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+            width: 450,
+            confirmButtonText: "Let's Go",
+            confirmButtonColor: "#625BAD",
+            allowOutsideClick: false,
+            allowEscapeKey:false,
+            allowEnterKey: false,
+            title: 'Your Session is Expired',
+            text: 'Please Send Forgot Password Request Again',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                window.location.replace("/auth/login");
+                } 
+            })
+            };
 }};
 return (
 <>
-
     <Container className='ResetContainer'>
         <Col className='boxReset' style={{}}>
         <div>
@@ -208,15 +203,10 @@ return (
                     )}{" "}
                 </Button>
             </div>
-
             {update.confirm_password.length > 0 && update.new_password.length > 0 ? <button className='ButtonUngu'
                 onClick={SendResetPassword}>Reset Password</button> : null }
-
         </Col>
-       
-
     </Container>
-
 </>
 )
 }

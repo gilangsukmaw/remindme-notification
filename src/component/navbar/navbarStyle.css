@@ -96,15 +96,3 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-
-    width: 280px;
-   
-  }
-  .Task {
-    align-items: center;
-    width: 180px;
-    
-  }
-}
