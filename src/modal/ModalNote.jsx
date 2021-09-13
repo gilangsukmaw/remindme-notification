@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import vectorPinLogo from "../assets/images/vectorPinLogo.png";
 import "../assets/styles/ModalNote.scss";
 import vectorClose from "../assets/images/vectorClose.png";
 import "bootstrap/dist/css/bootstrap.css";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // import { useDispatch } from "react-redux";
 // import { setNote } from "../redux/action/note";
-import axios from "axios";
+// import axios from "axios";
 import { useDispatch } from "react-redux";
 import { changeStep } from "../redux/action/global";
 

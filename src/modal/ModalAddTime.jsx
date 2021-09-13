@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";

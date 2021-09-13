@@ -11,12 +11,13 @@ function* putUpdateNote(actions) {
   const Token = localStorage.getItem("Token");
   // yield console.log(Token);
   try {
+    // eslint-disable-next-line no-unused-vars
     const res = yield axios.put(
       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
       body,
       { headers: { Authorization: `Bearer ${Token}` } }
     );
-    yield console.log(res.data.data);
+    // yield console.log(res.data.data);
     yield put({
       type: UPDATE_NOTE_SUCCESS,
       payload: { id, body },

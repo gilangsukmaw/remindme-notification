@@ -1,14 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import Swal from 'sweetalert2'
-import { Form, OverlayTrigger, Tooltip, Modal, Container, Col, Button,Spinner, Placeholder } from "react-bootstrap";
+import { Form,  Modal, Container, Col, } from "react-bootstrap";
 import ceklis from '../../assets/images/saveLogo.svg'
 import Cross from '../../assets/images/OopsCross.svg'
 import Email from '../../assets/images/email.png'
 import Logo from '../../assets/images/Rectangle70.svg'
-import TextLogo from '../../assets/images/RemindMe.svg'
+// import TextLogo from '../../assets/images/RemindMe.svg'
 
 
 function Verification() {
@@ -19,7 +20,7 @@ const { token } = useParams();
         try {
         const res = await axios.get(`https://remindme.gabatch13.my.id/api/v1/auth/verification/${token}`);
         // const data = await res.data;
-        console.log (res);
+        // console.log (res);
         if (res.data.data.verified === true) {
         Swal.fire({
         imageUrl: (`${ceklis}`),
@@ -74,6 +75,7 @@ const debounce = (func, timeout = 30000) => {
       }, timeout);
     };
   };
+  // eslint-disable-next-line no-unused-vars
   const debounceVerification = debounce(() => VerificationEmail());
 
   const [sendEmail, setSendEmail] = useState (false)
@@ -85,7 +87,7 @@ const debounce = (func, timeout = 30000) => {
       try {
       const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/send-verification`,state);
       setSendEmail(false);
-      console.log (res.data.message);
+      // console.log (res.data.message);
       // const data = await res.data;
       // console.log (res);
       // if (res.data.data.verified === true) {
@@ -102,7 +104,7 @@ const debounce = (func, timeout = 30000) => {
       });
       // window.location.replace("/auth/login");
       } catch (error) {
-      console.log(error.response);
+      // console.log(error.response);
       if (error.response.status === 404) {
       // console.log("ini error", error.response.data);
       Swal.fire({
@@ -137,11 +139,11 @@ const debounce = (func, timeout = 30000) => {
     const [state, setState] = useState({
       email :''
     })
-    console.log(state.email)
+    // console.log(state.email)
     return (
       <Modal className="ModalSignUp shadow" sytle={{ maxWidth: "1rem" }} {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header className="d-flex flex-column ">
-           <img style={{ width:'20rem', marginTop:'-3rem'}} src={Email}></img>
+           <img style={{ width:'20rem', marginTop:'-3rem'}} alt='remindme' src={Email}></img>
         </Modal.Header>
         <Modal.Body style={{marginTop:'-2rem'}}>
           <Form onSubmit={SendEmail} className="InformationBox">

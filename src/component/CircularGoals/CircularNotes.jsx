@@ -1,6 +1,6 @@
 import React from 'react'
-import { Container, Col, Carousel, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
-import { useState } from "react"
+import { Container, } from 'react-bootstrap';
+// import { useState } from "react"
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -8,9 +8,9 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 function CircularNotes({...props}) {
+  // eslint-disable-next-line no-unused-vars
   const {color, current_percent, name, body, } = props;
 
-const [colorCard, setcolorCard] = useState()
 
 
 function strokeColor() {

@@ -1,11 +1,9 @@
 import React from "react";
 import {
   Modal,
-  Col,
-  Form,
+ 
   Button,
-  FormControl,
-  InputGroup,
+ 
 } from "react-bootstrap";
 import "./AskModal.scss";
 import TandaTanya from "../../assets/images/emojione-monotone_question-mark.png";

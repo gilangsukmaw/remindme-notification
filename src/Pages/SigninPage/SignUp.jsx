@@ -1,15 +1,15 @@
 import React from "react";
-import { Modal, Col, Form, Button, FormControl, InputGroup } from "react-bootstrap";
+import { Modal, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import "./Sign.css";
 import "./modal.scss";
 import ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
-import SignInUpPage from "./SignInBase";
+// import SignInUpPage from "./SignInBase";
 import axios from "axios";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import Cross from '../../assets/images/OopsCross.svg'
-import SaveLogo from '../../assets/images/saveLogo.svg'
+// import SaveLogo from '../../assets/images/saveLogo.svg'
 
 function SignUp(props) {
   const { ganti } = props;
@@ -56,12 +56,13 @@ function SignUp(props) {
 
   const submitSignUp = async (e) => {
     try {
+        // eslint-disable-next-line no-unused-vars
         const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/signup`, state).then((res) => {
           setModalShow(true);
         });
     } catch (error) {
       if (error.response.status === 400) {
-        console.log("ini error" ,error.response.data.errors[0]);
+        // console.log("ini error" ,error.response.data.errors[0]);
         Swal.fire({
           imageUrl: (`${Cross}`),
           imageWidth: 100,
@@ -75,7 +76,7 @@ function SignUp(props) {
           
         })};
         if (error.response.status === 401) {
-          console.log("ini error" ,error.response.data.errors[0]);
+          // console.log("ini error" ,error.response.data.errors[0]);
           Swal.fire({
             imageUrl: (`${Cross}`),
             imageWidth: 100,
@@ -106,7 +107,7 @@ function SignUp(props) {
             <h4>Please check your email</h4>
             
           </Modal.Title>
-          <img style={{marginTop:'2rem'}} src={ceklis}></img>
+          <img style={{marginTop:'2rem'}} alt='remindMe' src={ceklis}></img>
         </Modal.Header>
         <Modal.Body style={{}}>
           <p>
@@ -294,7 +295,6 @@ function SignUp(props) {
                         fontWeight: "600",
                         background: "transparent",
                         border: "1px solid #625BAD",
-                        fontWeight: "600",
                         color: "#625BAD",
                       }}
                     >

@@ -7,6 +7,7 @@ import {
   GET_NOTEDETAIL_SUCCESS,
   GET_NOTEDETAIL_FAIL,
 } from "../const/type";
+// eslint-disable-next-line no-unused-vars
 import { put, takeEvery, takeLatest } from "redux-saga/effects";
 const Token = localStorage.getItem("Token");
 
@@ -16,7 +17,7 @@ function* getNote() {
       `https://remindme.gabatch13.my.id/api/v1/notes/`,
       { headers: { Authorization: `Bearer ${Token}` } }
     );
-    yield console.log(res.data.data);
+    // yield console.log(res.data.data);
     yield put({
       type: GET_NOTE_SUCCESS,
       payload: res.data.data,
@@ -32,12 +33,12 @@ function* getNote() {
 function* getNoteDetail(actions) {
   const { id } = actions;
   try {
-    console.log("id detail", id);
+    // console.log("id detail", id);
     const res = yield axios.get(
       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
       { headers: { Authorization: `Bearer ${Token}` } }
     );
-    yield console.log("res", res.data.data);
+    // yield console.log("res", res.data.data);
     yield put({
       type: GET_NOTEDETAIL_SUCCESS,
       payload: res.data.data,

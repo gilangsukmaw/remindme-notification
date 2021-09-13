@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeStep } from "../../redux/action/global";
 import * as dayjs from "dayjs";
 import DatePicker from "react-datepicker";
-import { putUpdateNote } from "../../redux/action/note";
+// import { putUpdateNote } from "../../redux/action/note";
 
 export default function EditNoteAddTime({
   updateNote,
@@ -46,6 +46,7 @@ export default function EditNoteAddTime({
       reminder: data?.reminder,
       color: data?.color,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const dispatch = useDispatch();
@@ -65,11 +66,11 @@ export default function EditNoteAddTime({
     //     .format(),
     // });
   };
-  console.log("ini time", dateHandle.time);
-  console.log("ini date", dateHandle.date);
-  console.log("ini update==>", updateNote);
-  console.log("datenote===>", updateNote.dateNote);
-  console.log("noteinput==", noteInput);
+  // console.log("ini time", dateHandle.time);
+  // console.log("ini date", dateHandle.date);
+  // console.log("ini update==>", updateNote);
+  // console.log("datenote===>", updateNote.dateNote);
+  // console.log("noteinput==", noteInput);
   return (
     <div className="time__outside modal-backdrop">
       <div
@@ -117,7 +118,7 @@ export default function EditNoteAddTime({
             <DatePicker
               selected={startDate}
               onChange={(e) => {
-                console.log("datepicker ==>", updateNote);
+                // console.log("datepicker ==>", updateNote);
                 changeDataDate(dayjs(e).format("YYYY/MM/DD"));
                 setDateHandle({
                   ...dateHandle,

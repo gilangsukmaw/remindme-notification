@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import pinAllNote from "../../assets/images/pinAllNote.png";
 import PinCard from "../../assets/images/PinCard.png";
@@ -25,20 +26,20 @@ const AllNotesCreate = ({ ...props }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNote());
-  }, []);
+  }, [dispatch]);
   const data = useSelector((state) => state.allNote.noteData);
-  console.log("note", data);
+  // console.log("note", data);
   // const a = useSelector((state) => state.allNote.noteData);
   // console.log("==>", a);
   // const modalStep = useSelector((state) => state.global.modalStep);
   const [stateId, setStateId] = useState();
   const [hideDetail, setHideDetail] = useState(false);
-  console.log("noteid", stateId);
+  // console.log("noteid", stateId);
 
   return (
     <div>
       <div className="allNote__container">
-        <h1>My All Notes</h1>
+        <h1 style={{fontWeight:'600'}}>My All Notes</h1>
         <div className="allNote__top">
           <img src={pinAllNote} alt="" />
           <p>Pinned Notes</p>
@@ -64,13 +65,13 @@ const AllNotesCreate = ({ ...props }) => {
                     key={index}
                     className="allNote__card"
                     onClick={async () => {
-                      console.log("itemid", item?.id);
+                      // console.log("itemid", item?.id);
                       await setStateId(item?.id);
                       await dispatch(getNoteDetail(item?.id));
                       await dispatch(changeStep("EditNote", stateId));
                     }}
                   >
-                    {console.log("item add time", item)}
+                    {/* {console.log("item add time", item)} */}
                     <div className="allNote__title">
                       <h5>{item?.title}</h5>
                       <img src={PinCard} alt="" />
