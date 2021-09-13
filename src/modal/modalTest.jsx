@@ -21,6 +21,7 @@ import * as dayjs from "dayjs";
 import EditNoteAddTime from "./EditNote/EditNoteAddTime";
 import Swal from "sweetalert2";
 import { putUpdateNote } from "../redux/action/note";
+import { getNote } from "../redux/action/note";
 
 const ModalTest = ({ ...props }) => {
   var utc = require("dayjs/plugin/utc");
@@ -28,6 +29,9 @@ const ModalTest = ({ ...props }) => {
   const dispatch = useDispatch();
   const { step, setStep, onSaveNote, noteData } = props;
   const data = useSelector((state) => state.global.data);
+  const noteDetail = useSelector(
+    (state) => state.allNote.noteDataDetail.detail
+  );
   // console.log("dataDate", data);
   const [noteInput, setNoteInput] = useState({
     title: "",
@@ -39,7 +43,7 @@ const ModalTest = ({ ...props }) => {
   });
   const [dateHandle, setDateHandle] = useState({
     time: dayjs().format("HH:mm A"),
-    date: dayjs(),
+    date: dayjs().format("YYYY/MM/DD"),
   });
   const Test = () => {
     console.log("clicked update");
@@ -204,8 +208,8 @@ const ModalTest = ({ ...props }) => {
         <EditNoteInput
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
-          onSave={submitNote}
-          updateNote={noteInput}
+          // onSave={}
+          updateNotes={noteInput}
           changeDataTitle={(item) =>
             setNoteInput({ ...noteInput, title: item })
           }
@@ -222,7 +226,12 @@ const ModalTest = ({ ...props }) => {
         <EditNoteAddTime
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
-          onSave={() => Test()}
+          onSave={() =>
+            dispatch({
+              type: "SAVE_EDIT_TIME",
+              dateData: dayjs(`${dateHandle.date} ${dateHandle.time}`),
+            })
+          }
           updateNote={{ ...noteInput, ...dateHandle }}
           changeDataDate={(item) =>
             setDateHandle({ ...dateHandle, date: item })

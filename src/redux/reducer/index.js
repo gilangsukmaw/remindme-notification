@@ -4,7 +4,8 @@ import allGoals from "./goals.Reducer";
 import detailGoals from "./detailgoalsReducers";
 import allNote from "./noteReducer";
 import global from "./global";
-import noteByDate from './noteByDate'
+import noteByDate from "./noteByDate";
+import editTime from "./editTimeReducer";
 
 export default combineReducers({
   userData,
@@ -13,4 +14,5 @@ export default combineReducers({
   allNote,
   global,
   noteByDate,
+  editTime,
 });

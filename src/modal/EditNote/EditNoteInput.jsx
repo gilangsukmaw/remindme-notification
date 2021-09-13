@@ -9,6 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
 import { changeStep } from "../../redux/action/global";
 import { putUpdateNote, getNote } from "../../redux/action/note";
+import dayjs from "dayjs";
 
 export default function EditNoteInput({
   changeDataBody,
@@ -16,14 +17,16 @@ export default function EditNoteInput({
   noteData,
   changeDataColor,
   changeDataPinned,
+  updateNotes,
   onSave,
 }) {
+  // dipindahin juga ke modalTest
   const noteDetail = useSelector(
     (state) => state.allNote.noteDataDetail.detail
   );
-  console.log("note ==>", noteDetail);
+  // console.log("updateNote ==>", updateNotes);
   const dataUpdate = useSelector((state) => state.global.data);
-
+  console.log("dataupdate===", dataUpdate);
   const [updateNote, setUpdateNote] = useState({
     id: "",
     title: "",
@@ -58,7 +61,7 @@ export default function EditNoteInput({
       color: dataUpdate?.color,
     });
   }, [dataUpdate]);
-  console.log("update==>", updateNote);
+  console.log("update=====>", updateNote);
   const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">
