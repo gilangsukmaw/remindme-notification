@@ -8,7 +8,14 @@ import * as dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import { putUpdateNote } from "../../redux/action/note";
 
-export default function EditNoteAddTime({ updateNote, noteData }) {
+export default function EditNoteAddTime({
+  updateNote,
+  changeDataDate,
+  changeDataTime,
+  noteData,
+  onUpdate,
+  onSave,
+}) {
   var utc = require("dayjs/plugin/utc");
   dayjs.extend(utc);
 
@@ -33,10 +40,26 @@ export default function EditNoteAddTime({ updateNote, noteData }) {
       color: data?.color,
     });
   }, [data]);
+
   const dispatch = useDispatch();
-  console.log("input date==>", noteInput);
-  console.log("tanggal edit", noteInput.dateNote);
-  console.log("tanggal update", updateNote.dateNote);
+  const [dateHandle, setDateHandle] = useState({
+    time: dayjs().format("HH:mm A"),
+    date: dayjs(),
+  });
+  const Test = () => {
+    console.log("clicked update");
+    setNoteInput({
+      ...noteInput,
+      dateNote: dayjs(`${dateHandle.date} ${dateHandle.time}`)
+        .utc(true)
+        .format(),
+    });
+  };
+  console.log("ini time", updateNote.time);
+  console.log("ini date", updateNote.date);
+  console.log("ini update==>", updateNote);
+  console.log("datenote===>", updateNote.dateNote);
+  console.log("noteinput==", noteInput);
   return (
     <div className="time__outside modal-backdrop">
       <div
@@ -52,27 +75,28 @@ export default function EditNoteAddTime({ updateNote, noteData }) {
             <div className="time__date">
               <h3>Date</h3>
               <input
-                value={noteInput.dateNote}
+                onChange={(e) => {
+                  changeDataDate(e.target.value);
+                  console.log("ini date==", updateNote);
+                }}
+                value={updateNote.date}
                 type="text"
                 disabled
-                placeholder={dayjs(`${updateNote.dateNote}`).format(
-                  "DD/MM/YYYY"
-                )}
-                className="input-time"
+                placeholder={dayjs(`${updateNote.date}`).format("DD/MM/YYYY")}
+                className="input-date"
                 id="date"
               />
             </div>
             <div className="time__time">
               <h3>Time</h3>
               <input
-                onChange={(e) =>
-                  setNoteInput({ ...noteInput, dateNote: e.target.value })
-                }
-                value={noteInput.dateNote}
-                placeholder={dayjs(`${updateNote.dateNote}`).format("hh:mm")}
+                onChange={(e) => changeDataTime(e.target.value)}
+                value={updateNote.time}
+                placeholder={dayjs(`${updateNote.time}`).format("HH:mm A")}
                 type="time"
                 className="input-time"
                 id="time"
+                style={{ width: "120px" }}
               />
             </div>
           </div>
@@ -80,10 +104,11 @@ export default function EditNoteAddTime({ updateNote, noteData }) {
             <DatePicker
               selected={startDate}
               onChange={(e) => {
-                // console.log("date", dayjs(date).format("YYYY-MM-DD"));
+                console.log("datepicker ==>", updateNote);
+                // changeDataDate(dayjs(date).format("YYYY-MM-DD"));
                 setNoteInput({
                   ...noteInput,
-                  dateNote: dayjs(e).format("YYYY-MM-DD"),
+                  dateNote: dayjs(e).format("YYYY/MM/DD:HH:mm A"),
                 });
                 // setStartDate(dayjs(dateNote).format("YYYY-MM-DDTHH:mm:ss"));
               }}
@@ -100,16 +125,16 @@ export default function EditNoteAddTime({ updateNote, noteData }) {
             <button
               className="time__save"
               onClick={async () => {
+                await Test();
                 await dispatch(changeStep("EditNoteInput", noteInput));
-                // onSave();
-                // handleAddEvent();
+                console.log("tombol save", onSave());
               }}
             >
               Save
             </button>
             <button
               className="time__cancel"
-              onClick={() => dispatch(changeStep("EditNoteInput"))}
+              onClick={() => dispatch(changeStep("EditNoteInput", updateNote))}
             >
               Cancel
             </button>
