@@ -5,6 +5,7 @@ import Ceklis from "../../assets/images/signupChecklist.png";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changeStep } from "../../redux/action/global";
+import { getNote } from "../../redux/action/note";
 
 function SaveNotes() {
   const [modalShow, setModalShow] = React.useState(true);
@@ -50,7 +51,8 @@ function SaveNotes() {
                 }}
                 onClick={async () => {
                   await dispatch(changeStep(""));
-                  await window.location.reload();
+                  await dispatch(getNote());
+                  // await window.location.reload();
                 }}
               >
                 Ok
