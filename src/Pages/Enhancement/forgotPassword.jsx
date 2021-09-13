@@ -1,14 +1,13 @@
 import React from 'react'
-import { Modal, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
+import { Modal, Form, Button, } from 'react-bootstrap';
 import './enhancement.scss'
-import Logo from '../../assets/images/AddProgressLogo.png'
-import Confetti from '../../assets/images/confetti-ball.svg'
+// import Logo from '../../assets/images/AddProgressLogo.png'
+// import Confetti from '../../assets/images/confetti-ball.svg'
 import Cross from '../../assets/images/OopsCross.svg'
 // import {Link} from 'react-router-dom';
 import axios from "axios";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllGoals, getDetailGoals } from "../../redux/action/goals";
+
 import Swal from 'sweetalert2'
 import Email from '../../assets/images/email.png'
 
@@ -16,44 +15,15 @@ import Email from '../../assets/images/email.png'
 
 function ForgotPassword(props) {
 const [ForgotShow, setForgotShow] = useState(false);
-const {color, type, id} = props;
-// console.log (type)
-// console.log (color)
-// console.log (id)
+
 
 function ForgotPassword(props) {
-    const dispatch = useDispatch();
 
-    const {color, type, id} = props;
-    // console.log (type)
-    // console.log (color)
-    // console.log (id)
+    
 
         const Token = localStorage.getItem("Token");
 
-        const number = Math.floor(Math.random() * 5)
-
-        function cardColor() {
-            if (number === 0) {
-              return "#FFBCC2";
-            }
-            if (number === 1) {
-              return "#CCF0D7";
-            }
-            if (number === 2) {
-              return "#FCF3A1";
-            }
-            if (number === 3) {
-              return "#D1CDFA";
-            }
-            if (number === 4) {
-              return "#FF8888";
-            }
-          }
- 
-          const {details} = useSelector((state) => state.detailGoals.detailData);
-
-          const [state, setState] = useState({
+                  const [state, setState] = useState({
           email: '' ,
     
      });
@@ -161,7 +131,7 @@ return (
     <button   id='ButtonPassword' style={{outline:'none' ,outlineColor:'none', outlineBorder:'none', background:'none', border:'none', padding:'none'}} onClick={()=> setForgotShow(true)}> 
             <div style={{color:'Black'}} className='AddProgressText'>Forgot Password?</div>
     </button>
-    <ForgotPassword id={id} color={color} type={type}  show={ForgotShow} onHide={()=> setForgotShow(false)} />
+    <ForgotPassword  show={ForgotShow} onHide={()=> setForgotShow(false)} />
 </div>
 )
 }

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { Button, Container, Col } from "react-bootstrap";
 import './enhancement.scss'
 import Swal from 'sweetalert2'
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import axios from "axios";
 import Cross from '../../assets/images/OopsCross.svg'
 import Logo from '../../assets/images/Rectangle70.svg'

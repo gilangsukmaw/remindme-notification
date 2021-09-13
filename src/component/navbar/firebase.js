@@ -44,10 +44,13 @@ export const getTheToken = (setTokenFound, setWebPush) => {
 
 export const getMessage = (setMessage) => {
   onMessage(messaging, (payload) => {
-    console.log(payload);
+    console.log('notif',payload);
+    console.log('notif2',messaging);
+
     return setMessage({
       title: payload.data.title,
       body: payload.data.body,
+      suto: console.log(payload.data.body)
     });
     // ...
   });

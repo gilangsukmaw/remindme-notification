@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeStep } from "../../redux/action/global";
 import * as dayjs from "dayjs";
 import DatePicker from "react-datepicker";
-import { putUpdateNote } from "../../redux/action/note";
+// import { putUpdateNote } from "../../redux/action/note";
 
 export default function EditNoteAddTime({
   updateNote,
@@ -21,6 +21,7 @@ export default function EditNoteAddTime({
   dayjs.extend(utc);
 
   const data = useSelector((state) => state.global.data);
+  // eslint-disable-next-line no-unused-vars
   const [startDate, setStartDate] = useState(new Date());
   const [noteInput, setNoteInput] = useState({
     id: "",
@@ -40,14 +41,11 @@ export default function EditNoteAddTime({
       pinned: data?.pinned,
       color: data?.color,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const dispatch = useDispatch();
-<<<<<<< HEAD
-  // console.log("input date==>", noteInput);
-  // console.log("tanggal edit", noteInput.dateNote);
-  // console.log("tanggal update", updateNote.dateNote);
-=======
+  // eslint-disable-next-line no-unused-vars
   const [dateHandle, setDateHandle] = useState({
     time: dayjs().format("HH:mm A"),
     date: dayjs(),
@@ -61,12 +59,11 @@ export default function EditNoteAddTime({
         .format(),
     });
   };
-  console.log("ini time", updateNote.time);
-  console.log("ini date", updateNote.date);
-  console.log("ini update==>", updateNote);
-  console.log("datenote===>", updateNote.dateNote);
-  console.log("noteinput==", noteInput);
->>>>>>> 1dec18457297f35902643adf1bbe13909bb19fb8
+  // console.log("ini time", updateNote.time);
+  // console.log("ini date", updateNote.date);
+  // console.log("ini update==>", updateNote);
+  // console.log("datenote===>", updateNote.dateNote);
+  // console.log("noteinput==", noteInput);
   return (
     <div className="time__outside modal-backdrop">
       <div

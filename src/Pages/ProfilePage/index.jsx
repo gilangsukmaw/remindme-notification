@@ -1,4 +1,4 @@
-import pp from "../../assets/images/Ellipse 34.png";
+// import pp from "../../assets/images/Ellipse 34.png";
 import "./profileStyle.css";
 import pencil from "../../assets/images/Vector (2).png";
 import { getUser } from "../../redux/action/user";
@@ -19,7 +19,7 @@ const ProfilePage = ({ ...props }) => {
     <div>
       <div className="profile">
         <div className="text-black">
-          <h1>My Profile</h1>
+          <h1 style={{fontWeight:'600'}}>My Profile</h1>
         </div>
         <div className="wrapper">
           <div className="head">

@@ -11,6 +11,7 @@ function* deleteNote(actions) {
   const { id } = actions;
   const Token = localStorage.getItem("Token");
   try {
+    // eslint-disable-next-line no-unused-vars
     const res = yield axios.delete(
       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
       { headers: { Authorization: `Bearer ${Token}` } }

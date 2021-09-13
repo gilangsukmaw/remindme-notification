@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  } from "react";
 import saveLogo from "../assets/images/saveLogo.png";
 import "../assets/styles/ModalDelete.scss";
 import "bootstrap/dist/css/bootstrap.min.css";

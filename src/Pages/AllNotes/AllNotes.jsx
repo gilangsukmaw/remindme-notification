@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import pinAllNote from "../../assets/images/pinAllNote.png";
 import PinCard from "../../assets/images/PinCard.png";
@@ -25,7 +26,7 @@ const AllNotesCreate = ({ ...props }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNote());
-  }, []);
+  }, [dispatch]);
   const data = useSelector((state) => state.allNote.noteData);
   // console.log("note", data);
   // const a = useSelector((state) => state.allNote.noteData);

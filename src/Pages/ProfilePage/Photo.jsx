@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router';
+// import { useParams } from 'react-router';
 
 
 // const {firstname, lastname, username, email} = props;

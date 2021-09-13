@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import './AllGoals.scss';
 import CircularGoals from "../../component/CircularGoals/CircularGoals";
-import { Form, OverlayTrigger, Tooltip, Modal, Container, Col, Button,Spinner, Placeholder } from "react-bootstrap";
+import { Form, OverlayTrigger, Tooltip, Modal, Container, Col, Button,Spinner,  } from "react-bootstrap";
 import Garis from "../../assets/images/GoalDetailLine.png";
 import DetailCircular from "../../component/CircularGoals/DetailCircular";
 import "./goalsStyle.css";
@@ -381,7 +382,7 @@ return (
         {details?.length === 0 ? null : (details?.current_percent === undefined ?
         <div className='SkeletonLoading'>
           <Button disabled
-            style={{margin:'7rem 0 0 12rem',alignItem:'center',alignContent:'center',backgroundColor:'#F1F4FA',border:'none',borderRadius:'100%',height:'300px', width:'300px'}}>
+            style={{margin:'4rem 0 0 7rem',alignItem:'center',alignContent:'center',backgroundColor:'#F1F4FA',border:'none',borderRadius:'100%',height:'300px', width:'300px'}}>
             <Spinner style={{height:'280px', width:'280px'}} as="span" animation="grow" size="lg" role="status"
               aria-hidden="true" />
             <span className="visually-hidden">Loading...</span>

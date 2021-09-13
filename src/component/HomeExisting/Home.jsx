@@ -89,7 +89,9 @@ function HomeExisting() {
                 ?.filter((data) => data?.pinned === true)
                 .map((item, index) => (
                   <div key={index}>
-                    <HomeNotes title={item?.title} time={item?.time} date={item?.date} body={item?.body} color={item?.color} />
+                    <Link style={{ textDecoration: "none", color: "black", background: "none", border: "none" }}
+                    to="/allNote"><HomeNotes title={item?.title} time={item?.time} date={item?.date} body={item?.body} color={item?.color} />                      </Link>
+
                   </div>
                 ))}
             </div>

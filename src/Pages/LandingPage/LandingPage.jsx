@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import "./LandingPage.scss";
 import LogoLandingHeader from "../../assets/images/LogoLandingHeader.png";

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import buttonNotifLogo from "../assets/images/buttonNotifLogo.png";
 import "../assets/styles/ModalAddTime.scss";
@@ -30,12 +31,6 @@ export default function TimeModal({
     color: "",
     dateNote: "",
   });
-<<<<<<< HEAD
-  // console.log("timee", noteInput.time);
-  // console.log("noteInput", noteInput);
-  const dispatch = useDispatch();
-  // console.log("datenote", noteData.dateNote);
-=======
   console.log("dayjs time", noteData.time);
   const dispatch = useDispatch();
   // console.log("timee", noteInput.time);
@@ -46,7 +41,6 @@ export default function TimeModal({
   // console.log("time", time);
   // console.log("date", date);
   // console.log("noteinput", noteInput);
->>>>>>> 1dec18457297f35902643adf1bbe13909bb19fb8
   return (
     <div className="time__outside modal-backdrop">
       <div

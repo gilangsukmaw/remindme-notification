@@ -7,6 +7,7 @@ import {
   GET_NOTEDETAIL_SUCCESS,
   GET_NOTEDETAIL_FAIL,
 } from "../const/type";
+// eslint-disable-next-line no-unused-vars
 import { put, takeEvery, takeLatest } from "redux-saga/effects";
 const Token = localStorage.getItem("Token");
 

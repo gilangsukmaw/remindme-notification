@@ -12,12 +12,14 @@ import axios from "axios";
 
 
 function Navbar({ ...props }) {
+  // eslint-disable-next-line no-unused-vars
   const { setStep } = props;
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userData.userInfo);
 
   getTheToken()
   getMessage()
+  
   
   function LogOut() {
     localStorage.clear();
@@ -40,12 +42,14 @@ function Navbar({ ...props }) {
 
   useEffect(() => {
     sendRegToken();
-  }, [regToken, sendRegToken]);
+    getMessage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
       <nav className="sidebar">
-        {/* <button onClick={() => sendRegToken()}>tes</button> */}
+        {/* <button onClick={() => getMessage()}>tes</button> */}
         <div className="sidebar__top">
           <div className="sidebarItems headers">
             <Link to="/home">

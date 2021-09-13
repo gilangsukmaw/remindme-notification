@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "../assets/styles/ModalDetailNote.scss";
 import PinEdit from "../assets/images/PinEdit.png";
@@ -10,9 +12,9 @@ import { useDispatch } from "react-redux";
 import { getNote, getNoteDetail } from "../redux/action/note";
 import { changeStep } from "../redux/action/global";
 import { deleteNote } from "../redux/action/note";
-import * as dayjs from "dayjs";
-import { putUpdateNote } from "../redux/action/note";
-import Swal from "sweetalert2";
+// import * as dayjs from "dayjs";
+// import { putUpdateNote } from "../redux/action/note";
+// import Swal from "sweetalert2";
 
 export default function DetailNote({ ...props }) {
   // const [updateNote, setUpdateNote] = useState({
@@ -46,7 +48,7 @@ export default function DetailNote({ ...props }) {
   // console.log("tesnoteDetail", noteDetail);
   useEffect(() => {
     dispatch(getNote());
-  }, []);
+  }, [dispatch]);
   // useEffect(() => {
   //   dispatch(getNoteDetail());
   // }, []);
@@ -73,11 +75,7 @@ export default function DetailNote({ ...props }) {
       color: noteDetail?.color,
     });
   }, []);
-<<<<<<< HEAD
-  // console.log("bunga", noteDetail);
-=======
-  console.log("detail note===>", noteDetail);
->>>>>>> 1dec18457297f35902643adf1bbe13909bb19fb8
+  // console.log("detail note===>", noteDetail);
   // console.log("noteinput", noteInput.date);
   return (
     <div className="detailNote__outside modal-backdrop">

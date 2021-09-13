@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import vectorPinLogo from "../../assets/images/vectorPinLogo.png";
 import "./EditNoteInput.scss";

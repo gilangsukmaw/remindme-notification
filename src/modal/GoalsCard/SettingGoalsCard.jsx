@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useState } from "react";
 import { Modal, Col, Form, Button, Tooltip, OverlayTrigger } from "react-bootstrap";
@@ -8,11 +9,11 @@ import vectorClose from "../../assets/images/vectorClose.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
-import SaveGoalModal from "../SaveGoalsModal/SaveGoalsModal";
+// import SaveGoalModal from "../SaveGoalsModal/SaveGoalsModal";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import { changeStep } from "../../redux/action/global";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllGoals, getDetailGoals } from "../../redux/action/goals";
+import { useDispatch, } from "react-redux";
+import { getAllGoals,  } from "../../redux/action/goals";
 // import 'sweetalert2/src/sweetalert2.scss'
 
 function SettingGoalsCard({ show, onClose, props }) {

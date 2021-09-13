@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import EditPhoto from "./ModalEditPhoto";
 import SettingGoalsCard from "./GoalsCard/SettingGoalsCard";
@@ -51,9 +52,10 @@ const ModalTest = ({ ...props }) => {
     });
   };
   // console.log("datehandle", dateHandle);
-  console.log("test", Test);
+  // console.log("test", Test);
   useEffect(() => {
     setNoteInput({ ...noteInput, date: data?.date, time: data?.time });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   // console.log("modal", noteInput);
   const Token = localStorage.getItem("Token");

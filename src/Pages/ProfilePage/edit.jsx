@@ -48,7 +48,7 @@ export default function Edit({ ...props }) {
   });
   useEffect(() => {
     dispatch(getUser());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setUpdate({
@@ -58,6 +58,7 @@ export default function Edit({ ...props }) {
       lastname: user?.data?.lastname,
       username: user?.data?.username,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.data]);
 
   // console.log("user edit", update);

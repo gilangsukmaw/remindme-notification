@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PinCard from "../../assets/images/PinCard.png";
-import unpinned from "../../assets/images/UnPinned.png";
+// import PinCard from "../../assets/images/PinCard.png";
+// import unpinned from "../../assets/images/UnPinned.png";
 import { getNote, getNoteDetail } from "../../redux/action/note";
 import leftArrow from "../../assets/images/leftArrow.png";
 import rightArrow from "../../assets/images/rightArrow.png";
@@ -25,7 +26,7 @@ export default function AllNoteUnpinned({ ...props }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNote());
-  }, []);
+  }, [dispatch]);
   const data = useSelector((state) => state.allNote.noteData);
   // console.log("note unpinned", data);
   const b = useSelector((state) => state.allNote.noteData);

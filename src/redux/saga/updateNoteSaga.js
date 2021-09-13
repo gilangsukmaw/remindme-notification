@@ -11,6 +11,7 @@ function* putUpdateNote(actions) {
   const Token = localStorage.getItem("Token");
   // yield console.log(Token);
   try {
+    // eslint-disable-next-line no-unused-vars
     const res = yield axios.put(
       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
       body,

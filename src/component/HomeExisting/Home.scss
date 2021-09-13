@@ -260,6 +260,12 @@
     padding-top: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    
+      // overflow-wrap: break-word;
+      overflow: auto;
+    .CardContent{
+text-align: start;
+    }
 
     .CardTitle {
       font-size: 18px;

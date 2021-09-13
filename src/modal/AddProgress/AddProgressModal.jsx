@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Form, Button, FormControl, InputGroup} from 'react-bootstrap';
+import { Modal, Form, Button, } from 'react-bootstrap';
 import './AddProgressModal.scss'
 import Logo from '../../assets/images/AddProgressLogo.png'
 import Confetti from '../../assets/images/confetti-ball.svg'
@@ -22,6 +22,7 @@ const {color, type, id} = props;
 function AddProgressModal(props) {
     const dispatch = useDispatch();
 
+    // eslint-disable-next-line no-unused-vars
     const {color, type, id} = props;
     // console.log (type)
     // console.log (color)
@@ -49,6 +50,7 @@ function AddProgressModal(props) {
             }
           }
  
+          // eslint-disable-next-line no-unused-vars
           const {details} = useSelector((state) => state.detailGoals.detailData);
 
           const [state, setState] = useState({
@@ -119,7 +121,7 @@ return (
         <Modal.Header closeButton >
         </Modal.Header>
         <Modal.Title className='AddProgressTitle ' id="contained-modal-title-vcenter">
-            <img className='MainTitle' style={{width:'34px', height:'34px', marginRight:'1rem'}} src={Logo}></img>
+            <img className='MainTitle' alt='remindme' style={{width:'34px', height:'34px', marginRight:'1rem'}} src={Logo}></img>
             <div className='MainTitle'>Add Progress</div>
         </Modal.Title>
         <div className='SetProgress' style={{marginBottom:'-6rem', fontSize:'22px',fontWeight:'700',marginTop:'2rem', }}>
@@ -158,7 +160,7 @@ return (
 <div className='AddProgressButton' style={{marginBottom:'3.5rem'}}>
 {/* Background Color akan diganti sesuai warna background Detail Progress */}
     <Button style={{backgroundColor:`${color}`}} onClick={()=> setProgressShow(true)}> 
-    <img className='AddProgressImg'
+    <img className='AddProgressImg' alt='remindme'
             style={{width:'34px', height:'34px', marginRight:'1rem'}} src={Logo}></img>
         <div style={{color:'Black'}} className='AddProgressText'>Add Progress </div>
     </Button>
