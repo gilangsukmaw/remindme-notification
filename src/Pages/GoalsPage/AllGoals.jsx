@@ -25,10 +25,6 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import ModalTest from "../../modal/modalTest";
 
 
-
-
-
-
 function AllGoals({...props}) {
    const {
     onSave,
@@ -179,14 +175,14 @@ function MyVerticallyCenteredModal(props) {
              
               <div className="BuiltorQuitButton mt-4 mb-4">
                 <Col className="d-flex flex-row justify-content-between">
-                <OverlayTrigger placement='bottom' overlay={<Tooltip id="tooltip-disabled">You already Choose "{details?.goal_type}"</Tooltip>}>
+                <OverlayTrigger placement='bottom' overlay={<Tooltip id="tooltip-disabled">You already choose "{details?.goal_type}"</Tooltip>}>
                 <span style={{width: "45%", }}>
                   <Button disabled style={{ pointerEvents: 'none', width:'100%', borderRadius: "40px", fontWeight: "700", }}>
                     Build
                   </Button>
                 </span>
               </OverlayTrigger>
-              <OverlayTrigger placement='bottom' overlay={<Tooltip id="tooltip-disabled">You already Choose "{details?.goal_type}"</Tooltip>}>
+              <OverlayTrigger placement='bottom' overlay={<Tooltip id="tooltip-disabled">You already choose "{details?.goal_type}"</Tooltip>}>
                 <span style={{width: "45%", }}>
                   <Button disabled style={{ pointerEvents: 'none', width:'100%', borderRadius: "40px", fontWeight: "700", }}>
                     Quit

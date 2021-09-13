@@ -34,7 +34,6 @@ const { token } = useParams();
         allowOutsideClick: false,
         allowEscapeKey:false,
         allowEnterKey: false,
-
         }).then((result) => {
           if (result.isConfirmed) {
             window.location.replace("/auth/login");

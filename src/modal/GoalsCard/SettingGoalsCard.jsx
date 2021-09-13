@@ -164,9 +164,7 @@ function SettingGoalsCard({ show, onClose, props }) {
                   disabled
                   placeholder={dayjs(`${state.date}`).format("DD/MM/YYYY")}
                 />
-                <div className="MonthYear mb-1 mt-4" style={{ fontWeight: "600" }}>
-                  <div>{dayjs(`${state.date}`).format("MMM,")}</div>
-                </div>
+                
                 <div className="MonthYear mb-1 mt-4" style={{ fontWeight: "600" }}>
                   <div>{dayjs(`${state.date}`).format("MMM,")}</div>
 

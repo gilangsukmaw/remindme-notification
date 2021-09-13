@@ -59,6 +59,7 @@ function ForgotPassword(props) {
      });
 
      const SendForgotPassword = async (e) => {
+      e.preventDefault()
         try {
             const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/forgot`, state, { headers: { Authorization: `Bearer ${Token}` } });
             setForgotShow(false);
@@ -73,8 +74,6 @@ function ForgotPassword(props) {
                 title: 'Email Sent!',
                 text: res.data.message,
                 });
-           
-            
         } catch (error) {
             if (error.response.status === 400) {
                 // console.log("ini error" ,error.response.data.errors[0]);
@@ -88,13 +87,32 @@ function ForgotPassword(props) {
                   confirmButtonColor: "#625BAD",
                   title: (error.response.data.errors),
                   text: 'Please Check Again',
-                  
                 })};
-          
+                if (error.response.status === 404) {
+                  // console.log("ini error" ,error.response.data.errors[0]);
+                  Swal.fire({
+                    imageUrl: (`${Cross}`),
+                    imageWidth: 100,
+                    imageHeight: 100,
+                    imageAlt: 'Custom image',
+                    width: 450,
+                    confirmButtonText: "Ok",
+                    confirmButtonColor: "#625BAD",
+                    title: (error.response.data.errors),
+                    text: 'Please Check Again',
+                  })};
             if (error.response.status === 403) {
             alert(`Sesi anda habis, mohon login kembali`);
         }}};
 
+        
+          const EnterKey = (event) => {
+            if (event.key === 'Enter') {
+              SendForgotPassword()
+            }
+          }
+        
+        
 
 return (
 <>
@@ -126,6 +144,7 @@ return (
                type="submit"
                value="Submit"
                onClick={SendForgotPassword}
+               onKeyDown={EnterKey}
             //    onClick={props.onHide}
                >
                    Send</Button>
@@ -139,7 +158,7 @@ return (
 
 return (
 <div className='EditPhotoButton' style={{outline:'none' ,outlineColor:'none', outlineBorder:'none'}}>
-    <button id='ButtonPassword' style={{outline:'none' ,outlineColor:'none', outlineBorder:'none', background:'none', border:'none', padding:'none'}} onClick={()=> setForgotShow(true)}> 
+    <button   id='ButtonPassword' style={{outline:'none' ,outlineColor:'none', outlineBorder:'none', background:'none', border:'none', padding:'none'}} onClick={()=> setForgotShow(true)}> 
             <div style={{color:'Black'}} className='AddProgressText'>Forgot Password?</div>
     </button>
     <ForgotPassword id={id} color={color} type={type}  show={ForgotShow} onHide={()=> setForgotShow(false)} />
