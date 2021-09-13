@@ -32,6 +32,7 @@ export default function TimeModal({
     dateNote: "",
   });
   console.log("dayjs time", noteData.time);
+  console.log("dayjs date", noteData.date);
   const dispatch = useDispatch();
   // console.log("timee", noteInput.time);
   // console.log("noteInput", noteInput);
@@ -43,11 +44,7 @@ export default function TimeModal({
   // console.log("noteinput", noteInput);
   return (
     <div className="time__outside modal-backdrop">
-      <div
-        className="time__container"
-        style={{ backgroundColor: `${noteData.color}` }}
-        value={noteData.color}
-      >
+      <div className="time__container" style={{ backgroundColor: `${noteData.color}` }} value={noteData.color}>
         <div className="time__wrapper">
           <div className="time__title">
             <h1>Pick Date</h1>
@@ -61,8 +58,8 @@ export default function TimeModal({
                 //   setDate(e);
                 // }}
                 onChange={(e) => changeDataDate(e.target.value)}
-                // value={noteData.date}
-                value={noteInput.dateNote}
+                value={noteData.date}
+                // value={noteInput.dateNote}
                 type="text"
                 disabled
                 placeholder={dayjs(`${noteData.date}`).format("DD/MM/YYYY")}
@@ -72,15 +69,7 @@ export default function TimeModal({
             </div>
             <div className="time__time">
               <h3>Time</h3>
-              <input
-                onChange={(e) => changeDataTime(e.target.value)}
-                value={noteData.time}
-                placeholder={dayjs(`${noteData.time}`).format("HH:mm A")}
-                type="time"
-                className="input-time"
-                id="time"
-                style={{ width: "120px" }}
-              />
+              <input onChange={(e) => changeDataTime(e.target.value)} value={noteData.time} placeholder={dayjs(`${noteData.time}`).format("HH:mm A")} type="time" className="input-time" id="time" style={{ width: "120px" }} />
             </div>
           </div>
           <div className="time__calendar">
@@ -110,10 +99,7 @@ export default function TimeModal({
             >
               Save
             </button>
-            <button
-              className="time__cancel"
-              onClick={() => dispatch(changeStep("InputNote"))}
-            >
+            <button className="time__cancel" onClick={() => dispatch(changeStep("InputNote"))}>
               Cancel
             </button>
           </div>
