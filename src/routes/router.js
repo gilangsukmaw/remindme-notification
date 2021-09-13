@@ -10,6 +10,8 @@ import NewUser from "../Pages/CreateTask/NewUser";
 import AllNotesCreate from "../Pages/AllNotes/AllNotes";
 import LandingPage from "../Pages/LandingPage/LandingPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Verification from "../Pages/Enhancement/Verification";
+import ResetPage from "../Pages/Enhancement/ResetPage";
 
 function Router() {
   const isLogin = localStorage.getItem("Token");
@@ -39,12 +41,16 @@ function Router() {
         <Route exact path="/">
           <LandingPage />
         </Route>
-        {/* <Route exact path="/verification/:token">
+        {/* <Route exact path="/verification">
           <Verification />
         </Route> */}
-        {/* <Route exact path="/verification">
-          <ForgotPassword />
-        </Route> */}
+
+        <Route exact path="/verification/:token">
+          <Verification />
+        </Route>
+        <Route exact path="/reset/:token">
+          <ResetPage />
+        </Route>
         <Route exact path="/auth/:type">
           <SignInUpPage />
         </Route>

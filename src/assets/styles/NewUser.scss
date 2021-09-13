@@ -143,7 +143,8 @@ $font-family: "Poppins", sans-serif;
   }
   .newUser__card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    // tes direction row
     align-items: center;
     margin-left: 3rem;
   }
@@ -168,7 +169,8 @@ $font-family: "Poppins", sans-serif;
   .newUser__card__logo {
     height: auto;
     img {
-      width: 350px;
+      width: 300px;
+      margin-right: 1rem;
       margin-bottom: 2rem;
     }
   }
@@ -187,7 +189,28 @@ $font-family: "Poppins", sans-serif;
     margin-bottom: 3rem;
   }
 }
-@media (min-width: 769px) {
+@media (max-width: 769px) {
+  .newUser__card__logo {
+    height: auto;
+    img {
+      width: 350px;
+      margin-right: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+  .newUser__card {
+    display: flex;
+    flex-direction: column;
+    // tes direction row
+    align-items: center;
+    margin-left: 3rem;
+  }
+  .newUser__intro{
+    margin-left: -10rem;
+  }
+  .newUser__card{
+    margin: 10rem 5rem 0 0;
+  }
   .newUser__card > .newUser_card_logo > img {
     width: 10px;
   }

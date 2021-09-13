@@ -103,7 +103,6 @@ export default function NoteModal({
               className="SaveButton"
               onClick={async () => {
                 await onSave();
-                await dispatch(changeStep("SaveNotes"));
               }}
             >
               Save

@@ -97,22 +97,20 @@ function SignUp(props) {
         
     }}};
 
-  // const handlePasswordChange = (prop) => (event) => {
-  // setValues({ ...values, [prop]: event.target.value });
-  // };
 
   function MyVerticallyCenteredModal(props) {
     return (
       <Modal className="ModalSignUp shadow" sytle={{ maxWidth: "1rem" }} {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-        <Modal.Header>
+        <Modal.Header className="d-flex flex-column mb-3">
           <Modal.Title id="contained-modal-title-vcenter">
-            <img src={ceklis}></img>
+            <h4>Please check your email</h4>
+            
           </Modal.Title>
+          <img style={{marginTop:'2rem'}} src={ceklis}></img>
         </Modal.Header>
         <Modal.Body style={{}}>
           <p>
-            Congratulations!<br></br>
-            we successfully verified your account
+          We have sent a verification <br/>link to your registered email
           </p>
         </Modal.Body>
         <Modal.Footer>
@@ -120,6 +118,7 @@ function SignUp(props) {
             <button
               className="ButtonUngu"
               style={{
+                width:'18rem',
                 height: "2rem",
                 padding: "0.5rem 2rem 2rem 2rem",
                 borderRadius: "35px",
@@ -127,7 +126,7 @@ function SignUp(props) {
               }}
               onClick={props.onHide}
             >
-              Let’s Get It
+              Ok
             </button>
           </Link>
         </Modal.Footer>
@@ -253,7 +252,7 @@ function SignUp(props) {
                       type={values.showPassword ? "text" : "password"}
                       placeholder="Password"
                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-title='Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:'
+                      title='Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character'
                       required
                     />
                     <Button
@@ -377,16 +376,3 @@ title='Minimum eight characters, at least one uppercase letter, one lowercase le
 
 export default SignUp;
 
-// username: auliaFE,
-// email: auliaFE@gmail.com,
-// password: Hehehe123$,
-// firstname: aulia,
-// lastname: feglints,
-
-// response : 201 sukses
-// {username: "auliaFE", email: "auliaFE@gmail.com", password: "Hehehe123$", firstname: "aulia",…}
-// email: "auliaFE@gmail.com"
-// firstname: "aulia"
-// lastname: "feglints"
-// password: "Hehehe123$"
-// username: "auliaFE"

@@ -1,0 +1,108 @@
+.EditPassword {
+    #ButtonPassword {
+        background: transparent;
+        border: transparent !important;
+        border-color: transparent;
+
+        // width: 0px;
+        // height: 1px;
+        &:visited,
+        &:after,
+        &:focus,
+        &:active,
+        &:focus-visible {
+            border: transparent !important;
+            border-color: none;
+            outline-color: none;
+            outline: none;
+        }
+    }
+}
+
+// ===========Forgot Password==========
+.ForgotPasword {
+    // sytle={{maxWidth:'689px', maxHeight:'463px'}} 
+    background-color: rgba(241, 244, 250, 0.7);
+    backdrop-filter: blur(3px);
+
+    .ForgotTitle {
+        align-items: center;
+        text-align: center;
+    }
+
+    .modal-content {
+        background: #F1F4FA;
+        border-radius: 20px;
+        height: 22rem;
+        width: 35rem;
+        margin-left: 7rem;
+    }
+
+    .modal-header {
+        padding: 1rem;
+        border: 0;
+    }
+
+    .InputBox{
+        display: flex;
+        justify-content: center;
+        // margin-bottom: -2rem;
+        //         margin-bottom: -2rem;
+
+#inputEmail{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
+}
+    .EmailInput {
+        width: 20rem;
+    }
+}
+
+    .ForgotButton {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        border: none;
+
+        button {
+            width: 300px;
+            display: flex;
+            font-size: 23px;
+            font-weight: 500;
+            border-radius: 20px;
+            justify-content: center;
+            border: 0;
+            height: 50px;
+            align-items: center;
+            background-color: #625BAD;
+            font-weight: 600;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+  
+    .ForgotPasword {
+
+    .modal-content {
+   margin: -1rem;
+        
+    }
+}
+}
+
+
+// =========Reset Password=====
+.ResetContainer{
+    display: flex;
+    flex-direction: row;
+}
+.boxReset{
+    display: flex;
+    flex-direction: column;
+    max-width:20rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+}

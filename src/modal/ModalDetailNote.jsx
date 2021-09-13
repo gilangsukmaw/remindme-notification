@@ -12,6 +12,7 @@ import { changeStep } from "../redux/action/global";
 import { deleteNote } from "../redux/action/note";
 import * as dayjs from "dayjs";
 import { putUpdateNote } from "../redux/action/note";
+import Swal from "sweetalert2";
 
 export default function DetailNote({ ...props }) {
   // const [updateNote, setUpdateNote] = useState({
@@ -28,7 +29,9 @@ export default function DetailNote({ ...props }) {
   // useEffect(() => {
   //   dispatch(getNoteDetail());
   // }, []);
-  const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
+  const noteDetail = useSelector(
+    (state) => state.allNote.noteDataDetail.detail
+  );
 
   const dispatch = useDispatch();
   console.log("prop noteDetail", props);

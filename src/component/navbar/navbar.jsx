@@ -7,11 +7,17 @@ import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { changeStep } from "../../redux/action/global";
+import { getTheToken, getMessage  } from "./firebase";
+
+
 function Navbar({ ...props }) {
   const { setStep } = props;
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userData.userInfo);
 
+  getTheToken()
+  getMessage()
+  
   function LogOut() {
     localStorage.clear();
     window.location.replace("/");
