@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/action/user";
@@ -8,7 +9,7 @@ import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { changeStep } from "../../redux/action/global";
 // import { getTheToken, getMessage  } from "./firebase";
-import axios from "axios";
+// import axios from "axios";
 
 
 function Navbar({ ...props }) {
