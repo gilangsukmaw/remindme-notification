@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "14.x"
+    "node": "v16.9.1"
   },
   "dependencies": {
     "@alphasquad/horizontal-scroll-view": "^0.0.15",
