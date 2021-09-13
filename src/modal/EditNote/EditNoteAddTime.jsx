@@ -41,6 +41,19 @@ export default function EditNoteAddTime({
     });
   }, [data]);
   const dispatch = useDispatch();
+  const [dateHandle, setDateHandle] = useState({
+    time: dayjs().format("HH:mm A"),
+    date: dayjs(),
+  });
+  const Test = () => {
+    console.log("clicked update");
+    setNoteInput({
+      ...noteInput,
+      dateNote: dayjs(`${dateHandle.date} ${dateHandle.time}`)
+        .utc(true)
+        .format(),
+    });
+  };
   console.log("ini time", updateNote.time);
   console.log("ini date", updateNote.date);
   return (
@@ -101,7 +114,7 @@ export default function EditNoteAddTime({
             <button
               className="time__save"
               onClick={async () => {
-                // await onSave();
+                await Test();
                 await dispatch(changeStep("EditNoteInput", noteInput));
                 console.log("tombol save=", noteInput);
               }}

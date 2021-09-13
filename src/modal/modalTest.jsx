@@ -41,7 +41,7 @@ const ModalTest = ({ ...props }) => {
     date: dayjs(),
   });
   const Test = () => {
-    console.log("clicked");
+    console.log("clicked update");
     setNoteInput({
       ...noteInput,
       dateNote: dayjs(`${dateHandle.date} ${dateHandle.time}`)
