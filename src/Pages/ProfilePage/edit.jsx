@@ -42,9 +42,9 @@ export default function Edit({ ...props }) {
     lastname: "",
     username: "",
     email: "",
-    pasword: "",
+    password: "",
     new_password: "",
-    confirm_pasword: "",
+    confirm_password: "",
   });
   useEffect(() => {
     dispatch(getUser());
