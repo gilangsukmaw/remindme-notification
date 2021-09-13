@@ -59,11 +59,13 @@ export default function DetailNote({ ...props }) {
       title: noteDetail?.title,
       body: noteDetail?.body,
       dateNote: noteDetail?.dateNote,
+      date: noteDetail?.date,
+      time: noteDetail?.time,
       pinned: noteDetail?.pinned,
       color: noteDetail?.color,
     });
   }, []);
-  console.log("bunga", noteDetail);
+  console.log("detail note===>", noteDetail);
   // console.log("noteinput", noteInput.date);
   return (
     <div className="detailNote__outside modal-backdrop">
@@ -180,8 +182,8 @@ export default function DetailNote({ ...props }) {
           <button
             onClick={async () => {
               // dispatch(changeStep("SaveUpdateNote"));
-              await onSave();
-              await dispatch(changeStep("SaveUpdateNote"));
+              // await onSave();
+              await dispatch(changeStep(""));
             }}
           >
             Mark as done
