@@ -21,15 +21,19 @@ export default function EditNoteAddTime({
   dayjs.extend(utc);
 
   const data = useSelector((state) => state.global.data);
-  // eslint-disable-next-line no-unused-vars
+  const [dateHandle, setDateHandle] = useState({
+    time: dayjs().format("HH:mm A"),
+    date: dayjs().format("YYYY/MM/DD"),
+  });
   const [startDate, setStartDate] = useState(new Date());
   const [noteInput, setNoteInput] = useState({
     id: "",
     title: "",
     body: "",
     color: "",
-    dateNote: "",
+    dateNote: dayjs(`${dateHandle.date} ${dateHandle.time}`),
     pinned: false,
+    reminder: "",
   });
   useEffect(() => {
     setNoteInput({
@@ -39,28 +43,31 @@ export default function EditNoteAddTime({
       body: data?.body,
       dateNote: data?.dateNote,
       pinned: data?.pinned,
+      reminder: data?.reminder,
       color: data?.color,
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const dispatch = useDispatch();
-  // eslint-disable-next-line no-unused-vars
-  const [dateHandle, setDateHandle] = useState({
-    time: dayjs().format("HH:mm A"),
-    date: dayjs(),
-  });
   const Test = () => {
-    console.log("clicked update");
-    setNoteInput({
+    const newObject = {
       ...noteInput,
       dateNote: dayjs(`${dateHandle.date} ${dateHandle.time}`)
         .utc(true)
         .format(),
-    });
+    };
+    dispatch(changeStep("EditNoteInput", newObject));
+    // console.log("clicked update");
+    // setNoteInput({
+    //   ...noteInput,
+    //   dateNote: dayjs(`${dateHandle.date} ${dateHandle.time}`)
+    //     .utc(true)
+    //     .format(),
+    // });
   };
-  // console.log("ini time", updateNote.time);
-  // console.log("ini date", updateNote.date);
+  // console.log("ini time", dateHandle.time);
+  // console.log("ini date", dateHandle.date);
   // console.log("ini update==>", updateNote);
   // console.log("datenote===>", updateNote.dateNote);
   // console.log("noteinput==", noteInput);
@@ -80,13 +87,14 @@ export default function EditNoteAddTime({
               <h3>Date</h3>
               <input
                 onChange={(e) => {
-                  changeDataDate(e.target.value);
+                  setDateHandle({ ...dateHandle, date: e.target.value });
+                  // changeDataDate(e.target.value);
                   console.log("ini date==", updateNote);
                 }}
                 value={updateNote.date}
                 type="text"
                 disabled
-                placeholder={dayjs(`${updateNote.date}`).format("DD/MM/YYYY")}
+                placeholder={dayjs(`${updateNote.date}`).format("YYYY/MM/DD")}
                 className="input-date"
                 id="date"
               />
@@ -94,9 +102,11 @@ export default function EditNoteAddTime({
             <div className="time__time">
               <h3>Time</h3>
               <input
-                onChange={(e) => changeDataTime(e.target.value)}
-                value={updateNote.time}
-                placeholder={dayjs(`${updateNote.time}`).format("HH:mm A")}
+                onChange={(e) =>
+                  setDateHandle({ ...dateHandle, time: e.target.value })
+                }
+                value={dateHandle.time}
+                placeholder={dayjs(`${dateHandle.time}`).format("HH:mm A")}
                 type="time"
                 className="input-time"
                 id="time"
@@ -108,11 +118,11 @@ export default function EditNoteAddTime({
             <DatePicker
               selected={startDate}
               onChange={(e) => {
-                console.log("datepicker ==>", updateNote);
-                // changeDataDate(dayjs(date).format("YYYY-MM-DD"));
-                setNoteInput({
-                  ...noteInput,
-                  dateNote: dayjs(e).format("YYYY/MM/DD:HH:mm A"),
+                // console.log("datepicker ==>", updateNote);
+                changeDataDate(dayjs(e).format("YYYY/MM/DD"));
+                setDateHandle({
+                  ...dateHandle,
+                  date: dayjs(e).format("YYYY/MM/DD"),
                 });
                 // setStartDate(dayjs(dateNote).format("YYYY-MM-DDTHH:mm:ss"));
               }}
@@ -129,9 +139,10 @@ export default function EditNoteAddTime({
             <button
               className="time__save"
               onClick={async () => {
+                // await onSave();
                 await Test();
-                await dispatch(changeStep("EditNoteInput", noteInput));
-                console.log("tombol save", onSave());
+                // await dispatch(changeStep("EditNoteInput", noteInput));
+                // console.log("tombol notein", onSave());
               }}
             >
               Save
