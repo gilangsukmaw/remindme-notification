@@ -39,7 +39,7 @@ const AllNotesCreate = ({ ...props }) => {
   return (
     <div>
       <div className="allNote__container">
-        <h1>My All Notes</h1>
+        <h1 style={{fontWeight:'600'}}>My All Notes</h1>
         <div className="allNote__top">
           <img src={pinAllNote} alt="" />
           <p>Pinned Notes</p>

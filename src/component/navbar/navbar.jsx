@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/action/user";
 // import pp from "../../assets/images/Ellipse 34.png";
@@ -35,7 +35,7 @@ function Navbar({ ...props }) {
         console.log({ error })
     }
 }
-
+// const [page, setPage] = useState (false)
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
@@ -73,7 +73,7 @@ function Navbar({ ...props }) {
           </div>
           <div className="sidebarItems content">
             <Link to="/allNote" >
-              <p>All Notes</p>
+            <p>All Notes</p> {window.location === '/allNote' ?  <h1>panah</h1> : null }
             </Link>
           </div>
           <div className="sidebarItems content">
