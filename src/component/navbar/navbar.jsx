@@ -7,7 +7,7 @@ import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { changeStep } from "../../redux/action/global";
-import { getTheToken, getMessage  } from "./firebase";
+// import { getTheToken, getMessage  } from "./firebase";
 import axios from "axios";
 
 
@@ -17,34 +17,33 @@ function Navbar({ ...props }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userData.userInfo);
 
-  getTheToken()
-  getMessage()
+  // getTheToken()
+  // getMessage()
   
   
   function LogOut() {
     localStorage.clear();
     window.location.replace("/");
   }
-  const regToken = localStorage.getItem("Registration Token");
-  const Token = localStorage.getItem("Token");
+  // const regToken = localStorage.getItem("Registration Token");
+  // const Token = localStorage.getItem("Token");
  
-  const sendRegToken = async (e) => {
-    try {
-        await axios.post(`https://remindme.gabatch13.my.id/api/v1/notify/subscribe`, {token : regToken}, { headers: { Authorization: `Bearer ${Token}` } }); 
-    } catch (error) {
-        console.log({ error })
-    }
-}
+//   const sendRegToken = async (e) => {
+//     try {
+//         await axios.post(`https://remindme.gabatch13.my.id/api/v1/notify/subscribe`, {token : regToken}, { headers: { Authorization: `Bearer ${Token}` } }); 
+//     } catch (error) {
+//         console.log({ error })
+//     }
+// }
 // const [page, setPage] = useState (false)
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
 
-  useEffect(() => {
-    sendRegToken();
-    getMessage();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   sendRegToken();
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <>
