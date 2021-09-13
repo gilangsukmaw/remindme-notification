@@ -12,19 +12,9 @@ import { changeStep } from "../../redux/action/global";
 import { putUpdateNote, getNote } from "../../redux/action/note";
 import dayjs from "dayjs";
 
-export default function EditNoteInput({
-  changeDataBody,
-  changeDataTitle,
-  noteData,
-  changeDataColor,
-  changeDataPinned,
-  updateNotes,
-  onSave,
-}) {
+export default function EditNoteInput({ changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, updateNotes, onSave }) {
   // dipindahin juga ke modalTest
-  const noteDetail = useSelector(
-    (state) => state.allNote.noteDataDetail.detail
-  );
+  const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
   // console.log("updateNote ==>", updateNotes);
   const dataUpdate = useSelector((state) => state.global.data);
   // console.log("dataupdate===", dataUpdate);
@@ -66,10 +56,7 @@ export default function EditNoteInput({
   const dispatch = useDispatch();
   return (
     <div className="note__outside modal-backdrop">
-      <div
-        className="note__container position-relative"
-        style={{ backgroundColor: `${updateNote.color}` }}
-      >
+      <div className="note__container position-relative" style={{ backgroundColor: `${updateNote.color}` }}>
         <div className="note__close position-absolute top-0 start-100 translate-middle">
           <button
             onClick={() => {
@@ -164,9 +151,7 @@ export default function EditNoteInput({
                 // submitNote();
                 // onSave();
               }}
-              disabled={
-                !updateNote.title || !updateNote.body || !updateNote.color
-              }
+              disabled={!updateNote.title || !updateNote.body || !updateNote.color}
             >
               Add time
             </button>
@@ -179,12 +164,7 @@ export default function EditNoteInput({
                 await dispatch(getNote());
                 // await dispatch(deleteNote(noteDetail?.id));
               }}
-              disabled={
-                !updateNote.title ||
-                !updateNote.body ||
-                !updateNote.color ||
-                !updateNote.dateNote
-              }
+              disabled={!updateNote.title || !updateNote.body || !updateNote.color}
             >
               Save
             </button>
