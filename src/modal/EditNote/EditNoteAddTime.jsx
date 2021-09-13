@@ -12,6 +12,7 @@ export default function EditNoteAddTime({
   updateNote,
   changeDataDate,
   changeDataTime,
+  changeDataReminder,
   noteData,
   onUpdate,
   onSave,

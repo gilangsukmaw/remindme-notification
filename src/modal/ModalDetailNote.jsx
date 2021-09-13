@@ -22,7 +22,13 @@ export default function DetailNote({ ...props }) {
   //   pinned: false,
   //   color: "",
   // });
-  const { changeDataPinned, noteData, onSave, changeDataColor } = props;
+  const {
+    changeDataPinned,
+    noteData,
+    onSave,
+    changeDataColor,
+    changeDataReminder,
+  } = props;
 
   // const { allData } = useSelector((state) => state.allNote.noteData);
   // const { detail } = useSelector((state) => state.allNote.noteDataDetail);
@@ -51,6 +57,7 @@ export default function DetailNote({ ...props }) {
     date: "",
     item: "",
     pinned: false,
+    reminder: false,
     color: "",
   });
   useEffect(() => {
@@ -61,6 +68,7 @@ export default function DetailNote({ ...props }) {
       dateNote: noteDetail?.dateNote,
       date: noteDetail?.date,
       time: noteDetail?.time,
+      reminder: noteDetail?.reminder,
       pinned: noteDetail?.pinned,
       color: noteDetail?.color,
     });
@@ -121,7 +129,18 @@ export default function DetailNote({ ...props }) {
               <h3>Time</h3>
               <h6>{noteDetail?.time}</h6>
             </div>
-            <img src={notifLogo} alt="" />
+            <div
+              onClick={() => {
+                setUpdateNote({
+                  ...updateNote,
+                  reminder: !updateNote.reminder,
+                });
+                changeDataReminder(!updateNote.reminder);
+                console.log("detail reminder", updateNote.reminder);
+              }}
+            >
+              <img src={notifLogo} alt="" />
+            </div>
           </div>
         </div>
         <div className="detailNote__content">
@@ -179,7 +198,7 @@ export default function DetailNote({ ...props }) {
           >
             Edit
           </button>
-          <button
+          {/* <button
             onClick={async () => {
               // dispatch(changeStep("SaveUpdateNote"));
               // await onSave();
@@ -187,7 +206,7 @@ export default function DetailNote({ ...props }) {
             }}
           >
             Mark as done
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

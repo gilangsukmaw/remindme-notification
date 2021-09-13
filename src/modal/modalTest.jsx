@@ -33,6 +33,7 @@ const ModalTest = ({ ...props }) => {
     title: "",
     body: "",
     dateNote: dayjs(),
+    reminder: false,
     pinned: false,
     color: "",
   });
@@ -132,6 +133,9 @@ const ModalTest = ({ ...props }) => {
             setDateHandle({ ...dateHandle, time: item })
           }
           changeColor={(item) => setNoteInput({ ...noteInput, color: item })}
+          changeDataReminder={(item) =>
+            setNoteInput({ ...noteInput, reminder: item })
+          }
         />
       )}
       {modalStep === "SaveNotes" && (
@@ -175,6 +179,9 @@ const ModalTest = ({ ...props }) => {
           }
           changeDataPinned={(item) =>
             setNoteInput({ ...noteInput, pinned: item })
+          }
+          changeDataReminder={(item) =>
+            setNoteInput({ ...noteInput, reminder: item })
           }
           changeDataDate={(item) =>
             setNoteInput({ ...noteInput, dateNote: item })
@@ -222,6 +229,9 @@ const ModalTest = ({ ...props }) => {
           }
           changeDataTime={(item) =>
             setDateHandle({ ...dateHandle, time: item })
+          }
+          changeDataReminder={(item) =>
+            setNoteInput({ ...noteInput, reminder: item })
           }
         />
       )}
