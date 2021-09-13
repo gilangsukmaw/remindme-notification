@@ -52,6 +52,8 @@ export default function EditNoteInput({
       title: dataUpdate?.title,
       body: dataUpdate?.body,
       dateNote: dataUpdate?.dateNote,
+      time: dataUpdate?.time,
+      date: dataUpdate?.date,
       pinned: dataUpdate?.pinned,
       color: dataUpdate?.color,
     });
@@ -158,6 +160,9 @@ export default function EditNoteInput({
                 // submitNote();
                 // onSave();
               }}
+              disabled={
+                !updateNote.title || !updateNote.body || !updateNote.color
+              }
             >
               Add time
             </button>
