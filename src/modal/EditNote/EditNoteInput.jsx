@@ -52,6 +52,8 @@ export default function EditNoteInput({
       title: dataUpdate?.title,
       body: dataUpdate?.body,
       dateNote: dataUpdate?.dateNote,
+      time: dataUpdate?.time,
+      date: dataUpdate?.date,
       pinned: dataUpdate?.pinned,
       color: dataUpdate?.color,
     });

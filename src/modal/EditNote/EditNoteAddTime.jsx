@@ -57,6 +57,9 @@ export default function EditNoteAddTime({
   };
   console.log("ini time", updateNote.time);
   console.log("ini date", updateNote.date);
+  console.log("ini update==>", updateNote);
+  console.log("datenote===>", updateNote.dateNote);
+  console.log("noteinput==", noteInput);
   return (
     <div className="time__outside modal-backdrop">
       <div
@@ -72,8 +75,11 @@ export default function EditNoteAddTime({
             <div className="time__date">
               <h3>Date</h3>
               <input
-                onChange={(e) => changeDataDate(e.target.value)}
-                value={noteInput.date}
+                onChange={(e) => {
+                  changeDataDate(e.target.value);
+                  console.log("ini date==", updateNote);
+                }}
+                value={updateNote.date}
                 type="text"
                 disabled
                 placeholder={dayjs(`${updateNote.date}`).format("DD/MM/YYYY")}
@@ -85,7 +91,7 @@ export default function EditNoteAddTime({
               <h3>Time</h3>
               <input
                 onChange={(e) => changeDataTime(e.target.value)}
-                value={noteInput.time}
+                value={updateNote.time}
                 placeholder={dayjs(`${updateNote.time}`).format("HH:mm A")}
                 type="time"
                 className="input-time"
@@ -97,9 +103,13 @@ export default function EditNoteAddTime({
           <div className="time__calendar">
             <DatePicker
               selected={startDate}
-              onChange={(date) => {
-                // console.log("date", dayjs(date).format("YYYY-MM-DD"));
-                changeDataDate(dayjs(date).format("YYYY-MM-DD"));
+              onChange={(e) => {
+                console.log("datepicker ==>", updateNote);
+                // changeDataDate(dayjs(date).format("YYYY-MM-DD"));
+                setNoteInput({
+                  ...noteInput,
+                  dateNote: dayjs(e).format("YYYY/MM/DD:HH:mm A"),
+                });
                 // setStartDate(dayjs(dateNote).format("YYYY-MM-DDTHH:mm:ss"));
               }}
               inline
@@ -115,8 +125,8 @@ export default function EditNoteAddTime({
             <button
               className="time__save"
               onClick={async () => {
-                await onSave();
-                await dispatch(changeStep("EditNoteInput", updateNote));
+                await Test();
+                await dispatch(changeStep("EditNoteInput", noteInput));
                 console.log("tombol save", onSave());
               }}
             >

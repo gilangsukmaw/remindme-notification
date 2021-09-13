@@ -59,6 +59,8 @@ export default function DetailNote({ ...props }) {
       title: noteDetail?.title,
       body: noteDetail?.body,
       dateNote: noteDetail?.dateNote,
+      date: noteDetail?.date,
+      time: noteDetail?.time,
       pinned: noteDetail?.pinned,
       color: noteDetail?.color,
     });
