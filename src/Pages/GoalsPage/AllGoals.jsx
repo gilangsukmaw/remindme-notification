@@ -112,14 +112,14 @@ function MyVerticallyCenteredModal(props) {
               width: 450,
               confirmButtonText: "Ok",
               confirmButtonColor: "#625BAD",
-              // title: 'Congratulations! You successfully saved your goal',
-              text: 'Congratulations! You successfully saved your goal',
+              title: 'Congratulations! ',
+              text: 'You successfully edit your goal',
 
             })
             
         } catch (error) {
           if (error.response.status === 400) {
-            console.log("ini error" ,error.response.data.errors[0]);
+            // console.log("ini error" ,error.response.data.errors[0]);
             Swal.fire({
               imageUrl: (`${Cross}`),
               imageWidth: 100,
@@ -169,7 +169,7 @@ function MyVerticallyCenteredModal(props) {
               </Form.Group>
               <div>
                 <p style={{ fontSize: "1.3rem", fontWeight: "600" }}>
-                  Built or Quit This Goal?
+                  Build or Quit This Goal?
                 </p>
               </div>
              

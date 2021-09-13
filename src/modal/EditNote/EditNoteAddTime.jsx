@@ -34,9 +34,9 @@ export default function EditNoteAddTime({ updateNote, noteData }) {
     });
   }, [data]);
   const dispatch = useDispatch();
-  console.log("input date==>", noteInput);
-  console.log("tanggal edit", noteInput.dateNote);
-  console.log("tanggal update", updateNote.dateNote);
+  // console.log("input date==>", noteInput);
+  // console.log("tanggal edit", noteInput.dateNote);
+  // console.log("tanggal update", updateNote.dateNote);
   return (
     <div className="time__outside modal-backdrop">
       <div

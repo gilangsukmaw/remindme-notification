@@ -8,6 +8,7 @@ import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { changeStep } from "../../redux/action/global";
 import { getTheToken, getMessage  } from "./firebase";
+import axios from "axios";
 
 
 function Navbar({ ...props }) {
@@ -22,12 +23,29 @@ function Navbar({ ...props }) {
     localStorage.clear();
     window.location.replace("/");
   }
+  const regToken = localStorage.getItem("Registration Token");
+  const Token = localStorage.getItem("Token");
+ 
+  const sendRegToken = async (e) => {
+    try {
+        await axios.post(`https://remindme.gabatch13.my.id/api/v1/notify/subscribe`, {token : regToken}, { headers: { Authorization: `Bearer ${Token}` } }); 
+    } catch (error) {
+        console.log({ error })
+    }
+}
+
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
+
+  useEffect(() => {
+    sendRegToken();
+  }, [regToken, sendRegToken]);
+
   return (
     <>
       <nav className="sidebar">
+        {/* <button onClick={() => sendRegToken()}>tes</button> */}
         <div className="sidebar__top">
           <div className="sidebarItems headers">
             <Link to="/home">
@@ -50,7 +68,7 @@ function Navbar({ ...props }) {
             <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create Note/Goals</h5>
           </div>
           <div className="sidebarItems content">
-            <Link to="/allNote">
+            <Link to="/allNote" >
               <p>All Notes</p>
             </Link>
           </div>

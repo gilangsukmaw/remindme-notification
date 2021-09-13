@@ -11,6 +11,7 @@ const firebaseConfig = {
   appId: '1:1097064622761:web:4e1338d982e3605dac97b8',
 };
 
+// eslint-disable-next-line no-unused-vars
 const app = initializeApp(firebaseConfig);
 
 const messaging = getMessaging();
@@ -19,8 +20,12 @@ export const getTheToken = (setTokenFound, setWebPush) => {
   getToken(messaging, { vapidKey: process.env.REACT_APP_WEB_PUSH_CERTIFICATE })
     .then((currentToken) => {
       if (currentToken) {
-        console.log(currentToken);
-        return setTokenFound(true), setWebPush(currentToken);
+        // console.log(currentToken);
+        localStorage.setItem("Registration Token", currentToken);
+
+        // return setTokenFound(true), 
+        // setWebPush(currentToken);
+
         // Track the token -> client mapping, by sending to backend server
         // show on the UI that permission is secured
       } else {

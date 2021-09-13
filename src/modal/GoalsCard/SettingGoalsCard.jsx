@@ -57,7 +57,7 @@ function SettingGoalsCard({ show, onClose, props }) {
 
             })
 
-      console.log(res);
+      // console.log(res);
     } catch (error) {
       if (error.response.status === 400) {
         Swal.fire({

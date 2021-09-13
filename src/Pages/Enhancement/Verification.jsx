@@ -19,7 +19,7 @@ const { token } = useParams();
         try {
         const res = await axios.get(`https://remindme.gabatch13.my.id/api/v1/auth/verification/${token}`);
         // const data = await res.data;
-        console.log (res);
+        // console.log (res);
         if (res.data.data.verified === true) {
         Swal.fire({
         imageUrl: (`${ceklis}`),
@@ -85,7 +85,7 @@ const debounce = (func, timeout = 30000) => {
       try {
       const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/send-verification`,state);
       setSendEmail(false);
-      console.log (res.data.message);
+      // console.log (res.data.message);
       // const data = await res.data;
       // console.log (res);
       // if (res.data.data.verified === true) {
@@ -102,7 +102,7 @@ const debounce = (func, timeout = 30000) => {
       });
       // window.location.replace("/auth/login");
       } catch (error) {
-      console.log(error.response);
+      // console.log(error.response);
       if (error.response.status === 404) {
       // console.log("ini error", error.response.data);
       Swal.fire({
@@ -137,7 +137,7 @@ const debounce = (func, timeout = 30000) => {
     const [state, setState] = useState({
       email :''
     })
-    console.log(state.email)
+    // console.log(state.email)
     return (
       <Modal className="ModalSignUp shadow" sytle={{ maxWidth: "1rem" }} {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header className="d-flex flex-column ">

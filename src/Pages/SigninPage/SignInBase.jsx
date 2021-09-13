@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom";
 
 function SignInUpPage(...props) {
   const { type } = useParams();
-  console.log("type", type);
+  // console.log("type", type);
   return (
     <>
       <div>

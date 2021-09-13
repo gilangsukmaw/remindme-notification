@@ -3,12 +3,14 @@
     background: none;
     border: none;
   }
+
   .react-datepicker__day-name,
   .react-datepicker__day,
   .react-datepicker__time-name {
     width: 3rem;
     line-height: 2.5rem;
   }
+
   .react-datepicker__current-month,
   .react-datepicker-time__header,
   .react-datepicker-year-header {
@@ -158,6 +160,7 @@
     margin-bottom: 1rem;
     max-height: 30rem;
   }
+
   //suuup
   .SubTitleText {
     margin-top: -1rem;
@@ -177,6 +180,7 @@
 .CalendarColumn {
   margin-right: 2rem;
 }
+
 .CalendarContainer {
   width: 28rem;
   height: 48rem;
@@ -236,19 +240,22 @@
 // reminderContainer===============
 .ReminderContainer {
   padding: 0 0 0 -1rem;
+
   .CardMappingBox {
     max-height: 15rem;
   }
+
   .ReminderTimes {
     display: flex;
     font-weight: 600;
   }
+
   .RemiderCard {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 19rem;
-    height: 6.25rem;
+    height: 8rem;
     border-radius: 10px;
     padding-top: 0.5rem;
     padding-left: 1rem;
@@ -264,13 +271,16 @@
 .ext__calendar {
   display: flex;
   justify-content: flex-end;
+
   button {
     border: none;
+
     &.exp__today {
       background: #625bad;
       border-radius: 10px;
       height: 1.5rem;
     }
+
     &.exp__chosen {
       background: #b6c6e5;
       border-radius: 10px;
@@ -281,15 +291,28 @@
 }
 
 @media (width: 1024px) {
+
+  .CalendarContainer {
+    width: 20rem;
+    margin: 0 -5rem 0 4rem;
+  }
+
   .ReminderContainer {
     .ReminderTimes p {
       font-size: 0.8rem;
       font-weight: 600;
     }
+
     .RemiderCard {
-      width: 11.5rem;
+      width: 12rem;
       margin-left: 0.5rem;
-      height: 6.25rem;
+      height: 6rem;
+      overflow: auto;
+      overflow-wrap: break-word;
+
+      .CardTitle p {
+        font-size: 0.8rem;
+      }
     }
   }
 
@@ -298,12 +321,14 @@
       background: none;
       border: none;
     }
+
     .react-datepicker__day-name,
     .react-datepicker__day,
     .react-datepicker__time-name {
       width: 2rem;
       line-height: 2.5rem;
     }
+
     .react-datepicker__current-month,
     .react-datepicker-time__header,
     .react-datepicker-year-header {
@@ -436,12 +461,15 @@
   }
 
   .NotesContainer {
-    max-width: 30rem;
+    max-width: 18rem;
     max-height: 48rem;
-    background-color: #f1f4fa;
-    border-radius: 25px;
+    margin-left: 8rem;
     padding: 1.8rem 1.5rem 1.8rem 1.5rem;
     float: right;
+
+    .NotesCard {
+      width: 14rem;
+    }
 
     .TitleContainer {
       font-weight: 600;
@@ -467,12 +495,14 @@
       max-width: 24rem;
     }
   }
+
   .RemiderCard {
     overflow-wrap: break-word;
 
     width: 13rem;
     margin-right: 2rem;
   }
+
   .CalendarBox {
     .calendar__container {
       .calendar {
@@ -484,9 +514,16 @@
 }
 
 @media (max-width: 768px) {
+  .CalendarContainer {
+    width: 27rem;}
+  .RemiderCard {
+    overflow-wrap: break-word;
+    overflow: auto;
+  }
   .NotesContainer {
     margin-left: -1.5rem;
   }
+
   .HomeContainer {
     flex-direction: column;
   }

@@ -5,7 +5,7 @@ import HomeNotes from "./HomeNotes";
 import CircularNotes from "../../component/CircularGoals/CircularNotes";
 import ReminderCard from "./ReminderCard";
 import Garis from "../../assets/images/GoalDetailLine.png";
-import CobaCalendar from "../../Calendar";
+// import CobaCalendar from "../../Calendar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllGoals, getDetailGoals, getNoteByDate } from "../../redux/action/goals";
 import { getNote } from "../../redux/action/note";
@@ -20,14 +20,14 @@ function HomeExisting() {
   const { goals } = useSelector((state) => state.allGoals.goalsData);
   const { data } = useSelector((state) => state.allNote.noteData);
   const { noteDate } = useSelector((state) => state.noteByDate.noteByDate);
-  const [startDate, setStartDate] = useState(new Date());
+  // const [startDate, setStartDate] = useState(new Date());
   const [PilihHari, setPilihHari] = useState(dayjs());
 
-  const [GabungDate, setGabungDate] = useState({
-    tanggal: dayjs(),
-    time: dayjs().format("h:mm A"),
-  });
-  console.log(GabungDate.tanggal, GabungDate.time);
+  // const [GabungDate, setGabungDate] = useState({
+  //   tanggal: dayjs(),
+  //   time: dayjs().format("h:mm A"),
+  // });
+  // console.log(GabungDate.tanggal, GabungDate.time);
 
   const a = new Date();
   useEffect(() => {
@@ -37,7 +37,7 @@ function HomeExisting() {
   }, [dispatch]);
   // console.log('Existing goal', goals);
   // console.log('Existing notes', data);
-  console.log("notebydate", noteDate);
+  // console.log("notebydate", noteDate);
   // console.log('klik tanggal', PilihHari);
 
   // const getnoteDate = async (e) => {
@@ -135,9 +135,11 @@ function HomeExisting() {
                   // onChange={(e) =>
                   //   setPilihHari(dayjs(e))
                   onChange={(e) => {
+                    // eslint-disable-next-line no-lone-blocks
                     {
                       dispatch(getNoteByDate(dayjs(e).format("YYYY-MM-DD")));
                     }
+                    // eslint-disable-next-line no-lone-blocks
                     {
                       setPilihHari(dayjs(e));
                     }

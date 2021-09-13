@@ -61,7 +61,7 @@ function SignUp(props) {
         });
     } catch (error) {
       if (error.response.status === 400) {
-        console.log("ini error" ,error.response.data.errors[0]);
+        // console.log("ini error" ,error.response.data.errors[0]);
         Swal.fire({
           imageUrl: (`${Cross}`),
           imageWidth: 100,
@@ -75,7 +75,7 @@ function SignUp(props) {
           
         })};
         if (error.response.status === 401) {
-          console.log("ini error" ,error.response.data.errors[0]);
+          // console.log("ini error" ,error.response.data.errors[0]);
           Swal.fire({
             imageUrl: (`${Cross}`),
             imageWidth: 100,

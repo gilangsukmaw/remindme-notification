@@ -46,8 +46,8 @@ const SendResetPassword = async (e) => {
 try {
 const res = await axios.post(`https://remindme.gabatch13.my.id/api/v1/auth/forgot/${token}`, update );
 // setForgotShow(false);
-console.log(res)
-console.log (res);
+// console.log(res)
+// console.log (res);
         if (res.status === 201) {
         Swal.fire({
         imageUrl: (`${ceklis}`),

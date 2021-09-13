@@ -30,10 +30,10 @@ export default function TimeModal({
     color: "",
     dateNote: "",
   });
-  console.log("timee", noteInput.time);
-  console.log("noteInput", noteInput);
+  // console.log("timee", noteInput.time);
+  // console.log("noteInput", noteInput);
   const dispatch = useDispatch();
-  console.log("datenote", noteData.dateNote);
+  // console.log("datenote", noteData.dateNote);
   return (
     <div className="time__outside modal-backdrop">
       <div

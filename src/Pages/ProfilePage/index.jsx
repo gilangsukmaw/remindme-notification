@@ -14,7 +14,7 @@ const ProfilePage = ({ ...props }) => {
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
-  console.log("user redux", user);
+  // console.log("user redux", user);
   return (
     <div>
       <div className="profile">

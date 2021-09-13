@@ -25,7 +25,7 @@ const NewUser = ({ ...props }) => {
     dispatch(getAllGoals());
     dispatch(getNote());
   }, [dispatch]);
-  console.log('inigoal', goals?.data);
+  // console.log('inigoal', goals?.data);
 // console.log (goals?.current_percent)
   return (
     <>

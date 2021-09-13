@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import background from "../assets/images/background.png";
-import takePicture from "../assets/images/takePicture.png";
-import removePhoto from "../assets/images/removePhoto.png";
-import addGallery from "../assets/images/addGallery.png";
+// import background from "../assets/images/background.png";
+// import takePicture from "../assets/images/takePicture.png";
+// import removePhoto from "../assets/images/removePhoto.png";
+// import addGallery from "../assets/images/addGallery.png";
 import "../assets/styles/ModalEditPhoto.scss";
 
 export default function ModalEditPhoto() {

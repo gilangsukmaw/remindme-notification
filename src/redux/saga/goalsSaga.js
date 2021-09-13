@@ -64,7 +64,7 @@ function* noteByDate(actions) {
       payload: res.data,
     });
   } catch (err) {
-        console.log('dateError' ,err)
+        // console.log('dateError' ,err)
 
     yield put({
       type: GET_NOTEBYDATE_FAIL,

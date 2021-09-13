@@ -35,7 +35,7 @@ const ModalTest = ({ ...props }) => {
     onSaveColor,
   } = props;
   const data = useSelector((state) => state.global.data);
-  console.log("dataDate", data);
+  // console.log("dataDate", data);
   const [noteInput, setNoteInput] = useState({
     title: "",
     body: "",
@@ -83,7 +83,7 @@ const ModalTest = ({ ...props }) => {
   };
 
   const modalStep = useSelector((state) => state.global.modalStep);
-  console.log("step", modalStep);
+  // console.log("step", modalStep);
   return (
     <>
       {/* step to note */}

@@ -67,7 +67,9 @@ function EditPhotoProfile(props) {
                 dispatch(getUser());
                 setPhotoGalleryShow(false);
               })
-            }catch(err) { console.log(err)};};
+            }catch(err) { 
+              // console.log(err)
+            };};
         } 
       });
 
@@ -103,7 +105,11 @@ function EditPhotoProfile(props) {
             dispatch(getUser());
             setPhotoGalleryShow(false);
           })
-        }catch(err) { console.log(err)};}
+        }catch(err) 
+        { 
+          // console.log(err)
+        }
+        ;}
       
     };
 

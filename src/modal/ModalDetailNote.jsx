@@ -34,10 +34,10 @@ export default function DetailNote({ ...props }) {
   );
 
   const dispatch = useDispatch();
-  console.log("prop noteDetail", props);
-  console.log(dispatch);
-  console.log("allData");
-  console.log("tesnoteDetail", noteDetail);
+  // console.log("prop noteDetail", props);
+  // console.log(dispatch);
+  // console.log("allData");
+  // console.log("tesnoteDetail", noteDetail);
   useEffect(() => {
     dispatch(getNote());
   }, []);
@@ -63,7 +63,7 @@ export default function DetailNote({ ...props }) {
       color: noteDetail?.color,
     });
   }, []);
-  console.log("bunga", noteDetail);
+  // console.log("bunga", noteDetail);
   // console.log("noteinput", noteInput.date);
   return (
     <div className="detailNote__outside modal-backdrop">

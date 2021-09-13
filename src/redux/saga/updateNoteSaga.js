@@ -16,7 +16,7 @@ function* putUpdateNote(actions) {
       body,
       { headers: { Authorization: `Bearer ${Token}` } }
     );
-    yield console.log(res.data.data);
+    // yield console.log(res.data.data);
     yield put({
       type: UPDATE_NOTE_SUCCESS,
       payload: { id, body },

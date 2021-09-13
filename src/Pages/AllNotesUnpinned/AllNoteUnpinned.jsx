@@ -27,9 +27,9 @@ export default function AllNoteUnpinned({ ...props }) {
     dispatch(getNote());
   }, []);
   const data = useSelector((state) => state.allNote.noteData);
-  console.log("note unpinned", data);
+  // console.log("note unpinned", data);
   const b = useSelector((state) => state.allNote.noteData);
-  console.log("==>", b);
+  // console.log("==>", b);
 
   const [date, setDate] = useState();
 
@@ -60,7 +60,7 @@ export default function AllNoteUnpinned({ ...props }) {
                   onClick={async () => {
                     await dispatch(changeStep("EditNote"));
                     await dispatch(getNoteDetail(item?.id));
-                    console.log("id", item.id);
+                    // console.log("id", item.id);
                   }}
                 >
                   <div className="unpinned__title">

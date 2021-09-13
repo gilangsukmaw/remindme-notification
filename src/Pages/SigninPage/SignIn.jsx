@@ -69,15 +69,10 @@ function SignIn() {
   const GoogleSignIn = async (e) => {
     try {
       const res = await axios.get(`https://remindme.gabatch13.my.id/api/v1/auth/google/`).then((res) => {
-      console.log(res)  ;
-      // localStorage.setItem("Token", res.data.token);
-      //   localStorage.setItem("USERID", res.data.data.id);
-      //   localStorage.setItem("USEREMAIL", res.data.data.email);
-      //   localStorage.setItem("USERNAME", res.data.data.username);
-        // window.location.replace("/home");
+      
       });
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   };
 
@@ -92,7 +87,7 @@ function SignIn() {
       });
     } catch (error) {
       if (error.response.status === 400) {
-        console.log("ini error", error.response.data.errors[0]);
+        // console.log("ini error", error.response.data.errors[0]);
         Swal.fire({
           imageUrl: `${Cross}`,
           imageWidth: 100,
@@ -106,7 +101,7 @@ function SignIn() {
         });
       }
       if (error.response.status === 401) {
-        console.log("ini error", error.response.data.errors[0]);
+        // console.log("ini error", error.response.data.errors[0]);
         Swal.fire({
           imageUrl: `${Cross}`,
           imageWidth: 100,
