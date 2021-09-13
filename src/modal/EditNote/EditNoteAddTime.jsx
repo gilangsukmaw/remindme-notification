@@ -40,6 +40,7 @@ export default function EditNoteAddTime({
       color: data?.color,
     });
   }, [data]);
+
   const dispatch = useDispatch();
   const [dateHandle, setDateHandle] = useState({
     time: dayjs().format("HH:mm A"),
@@ -72,7 +73,7 @@ export default function EditNoteAddTime({
               <h3>Date</h3>
               <input
                 onChange={(e) => changeDataDate(e.target.value)}
-                value={updateNote.dateNote}
+                value={noteInput.date}
                 type="text"
                 disabled
                 placeholder={dayjs(`${updateNote.date}`).format("DD/MM/YYYY")}
@@ -84,7 +85,7 @@ export default function EditNoteAddTime({
               <h3>Time</h3>
               <input
                 onChange={(e) => changeDataTime(e.target.value)}
-                value={updateNote.dateNote}
+                value={noteInput.time}
                 placeholder={dayjs(`${updateNote.time}`).format("HH:mm A")}
                 type="time"
                 className="input-time"
@@ -114,9 +115,9 @@ export default function EditNoteAddTime({
             <button
               className="time__save"
               onClick={async () => {
-                await Test();
-                await dispatch(changeStep("EditNoteInput", noteInput));
-                console.log("tombol save=", noteInput);
+                await onSave();
+                await dispatch(changeStep("EditNoteInput", updateNote));
+                console.log("tombol save", onSave());
               }}
             >
               Save

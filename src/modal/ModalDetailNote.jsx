@@ -180,8 +180,8 @@ export default function DetailNote({ ...props }) {
           <button
             onClick={async () => {
               // dispatch(changeStep("SaveUpdateNote"));
-              await onSave();
-              await dispatch(changeStep("SaveUpdateNote"));
+              // await onSave();
+              await dispatch(changeStep(""));
             }}
           >
             Mark as done
