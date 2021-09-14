@@ -39,15 +39,16 @@ const ModalTest = ({ ...props }) => {
     pinned: false,
     color: "",
   });
+  //2021-09-08T07:43:51Z
   const [dateHandle, setDateHandle] = useState({
-    time: dayjs().format("HH:mm A"),
-    date: dayjs().format("YYYY/MM/DD"),
+    time: dayjs().format("HH:mm"),
+    date: dayjs().format("YYYY-MM-DD"),
   });
   const Test = () => {
     // console.log("clicked update");
     setNoteInput({
       ...noteInput,
-      dateNote: dayjs(`${dateHandle.date} ${dateHandle.time}`).utc(true).format(),
+      dateNote: `${dateHandle.date}T${dateHandle.time}:00Z`,
     });
   };
   // console.log("datehandle datee", dateHandle.date);
@@ -59,7 +60,12 @@ const ModalTest = ({ ...props }) => {
   // console.log("noteInput >>>>>>>", noteInput);
   const Token = localStorage.getItem("Token");
   const submitNote = async (e) => {
-    if (noteInput.title === "" || noteInput.body === "" || noteInput.color === "" || noteInput.dateNote === "") {
+    if (
+      noteInput.title === "" ||
+      noteInput.body === "" ||
+      noteInput.color === "" ||
+      noteInput.dateNote === ""
+    ) {
       await Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -69,11 +75,15 @@ const ModalTest = ({ ...props }) => {
       return;
     }
     try {
-      const res = await axios.post("https://remindme.gabatch13.my.id/api/v1/notes", noteInput, {
-        headers: {
-          Authorization: `Bearer ${Token}`,
-        },
-      });
+      const res = await axios.post(
+        "https://remindme.gabatch13.my.id/api/v1/notes",
+        noteInput,
+        {
+          headers: {
+            Authorization: `Bearer ${Token}`,
+          },
+        }
+      );
       await dispatch(changeStep("SaveNotes"));
     } catch (error) {
       if (error.response.status === 404) {
@@ -87,17 +97,28 @@ const ModalTest = ({ ...props }) => {
   return (
     <>
       {/* step to note */}
-      {modalStep === "CreateNote" && <ModalCreateTask changeStep={(item) => setStep(item)} onClose={(item) => setStep(item)} />}
+      {modalStep === "CreateNote" && (
+        <ModalCreateTask
+          changeStep={(item) => setStep(item)}
+          onClose={(item) => setStep(item)}
+        />
+      )}
       {modalStep === "InputNote" && (
         <NoteModal
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
           onSave={submitNote}
           noteData={noteInput}
-          changeDataTitle={(item) => setNoteInput({ ...noteInput, title: item })}
+          changeDataTitle={(item) =>
+            setNoteInput({ ...noteInput, title: item })
+          }
           changeDataBody={(item) => setNoteInput({ ...noteInput, body: item })}
-          changeDataColor={(item) => setNoteInput({ ...noteInput, color: item })}
-          changeDataPinned={(item) => setNoteInput({ ...noteInput, pinned: item })}
+          changeDataColor={(item) =>
+            setNoteInput({ ...noteInput, color: item })
+          }
+          changeDataPinned={(item) =>
+            setNoteInput({ ...noteInput, pinned: item })
+          }
         />
       )}
       {modalStep === "AddTime" && (
@@ -107,16 +128,32 @@ const ModalTest = ({ ...props }) => {
           onSave={() => Test()}
           noteData={{ ...noteInput, ...dateHandle }}
           // dateData={dateHandle}
-          changeDataDate={(item) => setDateHandle({ ...dateHandle, date: item })}
-          changeDataTime={(item) => setDateHandle({ ...dateHandle, time: item })}
+          changeDataDate={(item) =>
+            setDateHandle({ ...dateHandle, date: item })
+          }
+          changeDataTime={(item) =>
+            setDateHandle({ ...dateHandle, time: item })
+          }
           changeColor={(item) => setNoteInput({ ...noteInput, color: item })}
-          changeDataReminder={(item) => setNoteInput({ ...noteInput, reminder: item })}
+          changeDataReminder={(item) =>
+            setNoteInput({ ...noteInput, reminder: item })
+          }
         />
       )}
-      {modalStep === "SaveNotes" && <SaveNotes changeStep={(item) => setStep(item)} onClose={(item) => setStep(item)} />}
+      {modalStep === "SaveNotes" && (
+        <SaveNotes
+          changeStep={(item) => setStep(item)}
+          onClose={(item) => setStep(item)}
+        />
+      )}
 
       {/* step to goals */}
-      {modalStep === "CreateGoals" && <SettingGoalsCard changeStep={(item) => setStep(item)} onClose={(item) => setStep(item)} />}
+      {modalStep === "CreateGoals" && (
+        <SettingGoalsCard
+          changeStep={(item) => setStep(item)}
+          onClose={(item) => setStep(item)}
+        />
+      )}
       {modalStep === "SaveGoals" && (
         <SaveGoals
           changeStep={(item) => setStep(item)}
@@ -125,7 +162,9 @@ const ModalTest = ({ ...props }) => {
       )}
 
       {/* step to edit photo */}
-      {modalStep === "EditPhoto" && <EditPhoto changeStep={(item) => setStep(item)} />}
+      {modalStep === "EditPhoto" && (
+        <EditPhoto changeStep={(item) => setStep(item)} />
+      )}
       {/* step to edit note */}
       {modalStep === "EditNote" && (
         <ModalDetailNote
@@ -133,27 +172,49 @@ const ModalTest = ({ ...props }) => {
           onClose={(item) => setStep(item)}
           onSave={submitNote}
           updateNote={noteInput}
-          changeDataTitle={(item) => setNoteInput({ ...noteInput, title: item })}
+          changeDataTitle={(item) =>
+            setNoteInput({ ...noteInput, title: item })
+          }
           changeDataBody={(item) => setNoteInput({ ...noteInput, body: item })}
-          changeDataColor={(item) => setNoteInput({ ...noteInput, color: item })}
-          changeDataPinned={(item) => setNoteInput({ ...noteInput, pinned: item })}
-          changeDataDate={(item) => setNoteInput({ ...noteInput, dateNote: item })}
-          changeDataTime={(item) => setNoteInput({ ...noteInput, timeNote: item })}
+          changeDataColor={(item) =>
+            setNoteInput({ ...noteInput, color: item })
+          }
+          changeDataPinned={(item) =>
+            setNoteInput({ ...noteInput, pinned: item })
+          }
+          changeDataDate={(item) =>
+            setNoteInput({ ...noteInput, dateNote: item })
+          }
+          changeDataTime={(item) =>
+            setNoteInput({ ...noteInput, timeNote: item })
+          }
         />
       )}
-      {modalStep === "SaveChanges" && <SaveChanges changeStep={(item) => setStep(item)} />}
-      {modalStep === "DeleteSuccess" && <ModalDelete changeStep={(item) => setStep(item)} />}
-      {modalStep === "SaveUpdateNote" && <SaveChangesDetail changeStep={(item) => setStep(item)} />}
+      {modalStep === "SaveChanges" && (
+        <SaveChanges changeStep={(item) => setStep(item)} />
+      )}
+      {modalStep === "DeleteSuccess" && (
+        <ModalDelete changeStep={(item) => setStep(item)} />
+      )}
+      {modalStep === "SaveUpdateNote" && (
+        <SaveChangesDetail changeStep={(item) => setStep(item)} />
+      )}
       {modalStep === "EditNoteInput" && (
         <EditNoteInput
           changeStep={(item) => setStep(item)}
           onClose={(item) => setStep(item)}
           // onSave={}
           updateNotes={noteInput}
-          changeDataTitle={(item) => setNoteInput({ ...noteInput, title: item })}
+          changeDataTitle={(item) =>
+            setNoteInput({ ...noteInput, title: item })
+          }
           changeDataBody={(item) => setNoteInput({ ...noteInput, body: item })}
-          changeDataColor={(item) => setNoteInput({ ...noteInput, color: item })}
-          changeDataPinned={(item) => setNoteInput({ ...noteInput, pinned: item })}
+          changeDataColor={(item) =>
+            setNoteInput({ ...noteInput, color: item })
+          }
+          changeDataPinned={(item) =>
+            setNoteInput({ ...noteInput, pinned: item })
+          }
         />
       )}
       {modalStep === "EditNoteAddTime" && (
@@ -167,13 +228,23 @@ const ModalTest = ({ ...props }) => {
             })
           }
           updateNote={{ ...noteInput, ...dateHandle }}
-          changeDataDate={(item) => setDateHandle({ ...dateHandle, date: item })}
-          changeDataTime={(item) => setDateHandle({ ...dateHandle, time: item })}
+          changeDataDate={(item) =>
+            setDateHandle({ ...dateHandle, date: item })
+          }
+          changeDataTime={(item) =>
+            setDateHandle({ ...dateHandle, time: item })
+          }
         />
       )}
-      {modalStep === "SaveChanges" && <SaveChanges changeStep={(item) => setStep(item)} />}
-      {modalStep === "DeleteSuccess" && <ModalDelete changeStep={(item) => setStep(item)} />}
-      {modalStep === "SaveUpdateNote" && <SaveChangesDetail changeStep={(item) => setStep(item)} />}
+      {modalStep === "SaveChanges" && (
+        <SaveChanges changeStep={(item) => setStep(item)} />
+      )}
+      {modalStep === "DeleteSuccess" && (
+        <ModalDelete changeStep={(item) => setStep(item)} />
+      )}
+      {modalStep === "SaveUpdateNote" && (
+        <SaveChangesDetail changeStep={(item) => setStep(item)} />
+      )}
     </>
   );
 };

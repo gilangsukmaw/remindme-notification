@@ -14,7 +14,9 @@ function* deleteNote(actions) {
     // eslint-disable-next-line no-unused-vars
     const res = yield axios.delete(
       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
-      { headers: { Authorization: `Bearer ${Token}` } }
+      {
+        headers: { Authorization: `Bearer ${Token}` },
+      }
     );
     // yield console.log("delete", res);
     yield put({

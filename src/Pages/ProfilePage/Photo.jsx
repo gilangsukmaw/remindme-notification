@@ -10,8 +10,6 @@ const Token = localStorage.getItem("Token");
 // };
 
 class Photo extends Component {
-  
-
   state = {
     firstname: "bikin",
     lastname: "lagi",
@@ -52,7 +50,13 @@ class Photo extends Component {
       <div className="App">
         <form onSubmit={this.handleSubmit}>
           <p>
-            <input type="file" id="photo" accept="image/png, image/jpeg" onChange={this.handleImageChange} required />
+            <input
+              type="file"
+              id="photo"
+              accept="image/png, image/jpeg"
+              onChange={this.handleImageChange}
+              required
+            />
           </p>
           <input type="submit" />
         </form>

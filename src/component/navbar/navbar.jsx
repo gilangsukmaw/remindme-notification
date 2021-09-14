@@ -8,9 +8,8 @@ import "./navbarStyle.css";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { changeStep } from "../../redux/action/global";
-// import { getTheToken, getMessage  } from "./firebase";
-// import axios from "axios";
-
+import { getTheToken, getMessage } from "./firebase";
+import axios from "axios";
 
 function Navbar({ ...props }) {
   // eslint-disable-next-line no-unused-vars
@@ -18,33 +17,36 @@ function Navbar({ ...props }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userData.userInfo);
 
-  // getTheToken()
-  // getMessage()
-  
-  
+  getTheToken();
+  getMessage();
+
   function LogOut() {
     localStorage.clear();
     window.location.replace("/");
   }
-  // const regToken = localStorage.getItem("Registration Token");
-  // const Token = localStorage.getItem("Token");
- 
-//   const sendRegToken = async (e) => {
-//     try {
-//         await axios.post(`https://remindme.gabatch13.my.id/api/v1/notify/subscribe`, {token : regToken}, { headers: { Authorization: `Bearer ${Token}` } }); 
-//     } catch (error) {
-//         console.log({ error })
-//     }
-// }
-// const [page, setPage] = useState (false)
+  const regToken = localStorage.getItem("Registration Token");
+  const Token = localStorage.getItem("Token");
+
+  const sendRegToken = async (e) => {
+    try {
+      await axios.post(
+        `https://remindme.gabatch13.my.id/api/v1/notify/subscribe`,
+        { token: regToken },
+        { headers: { Authorization: `Bearer ${Token}` } }
+      );
+    } catch (error) {
+      console.log({ error });
+    }
+  };
+  const [page, setPage] = useState(false);
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   sendRegToken();
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    sendRegToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -67,13 +69,19 @@ function Navbar({ ...props }) {
               <p>{user ? user.data && user.data.username : null}</p>
             </Link>
           </div>
-          <div className=" Task" onClick={() => dispatch(changeStep("CreateNote"))}>
+          <div
+            className=" Task"
+            onClick={() => dispatch(changeStep("CreateNote"))}
+          >
             <FiIcons.FiPlusCircle />
-            <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>Create Note/Goals</h5>
+            <h5 style={{ marginTop: "5px", marginLeft: "4px" }}>
+              Create Note/Goals
+            </h5>
           </div>
           <div className="sidebarItems content">
-            <Link to="/allNote" >
-            <p>All Notes</p> {window.location === '/allNote' ?  <h1>panah</h1> : null }
+            <Link to="/allNote">
+              <p>All Notes</p>{" "}
+              {window.location === "/allNote" ? <h1>panah</h1> : null}
             </Link>
           </div>
           <div className="sidebarItems content">

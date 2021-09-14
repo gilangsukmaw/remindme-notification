@@ -17,7 +17,9 @@ function* getUser(actions) {
   try {
     const res = yield axios.get(
       `https://remindme.gabatch13.my.id/api/v1/user/getinfo`,
-      { headers: { Authorization: `Bearer ${Token}` } }
+      {
+        headers: { Authorization: `Bearer ${Token}` },
+      }
     );
     yield put({
       type: GET_USER_SUCCESS,
@@ -37,7 +39,9 @@ function* putUser(actions) {
     const res = axios.put(
       `https://remindme.gabatch13.my.id/api/v1/user`,
       update,
-      { headers: { Authorization: `Bearer ${Token}` } }
+      {
+        headers: { Authorization: `Bearer ${Token}` },
+      }
     );
     yield put({
       type: PUT_USER_SUCCESS,
@@ -46,7 +50,9 @@ function* putUser(actions) {
     // yield alert("Profile Updated");
     const get = yield axios.get(
       `https://remindme.gabatch13.my.id/api/v1/user/getinfo`,
-      { headers: { Authorization: `Bearer ${Token}` } }
+      {
+        headers: { Authorization: `Bearer ${Token}` },
+      }
     );
     yield put({
       type: GET_USER_SUCCESS,

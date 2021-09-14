@@ -15,7 +15,9 @@ function* getNote() {
   try {
     const res = yield axios.get(
       `https://remindme.gabatch13.my.id/api/v1/notes/`,
-      { headers: { Authorization: `Bearer ${Token}` } }
+      {
+        headers: { Authorization: `Bearer ${Token}` },
+      }
     );
     // yield console.log(res.data.data);
     yield put({
@@ -36,7 +38,9 @@ function* getNoteDetail(actions) {
     // console.log("id detail", id);
     const res = yield axios.get(
       `https://remindme.gabatch13.my.id/api/v1/notes/${id}`,
-      { headers: { Authorization: `Bearer ${Token}` } }
+      {
+        headers: { Authorization: `Bearer ${Token}` },
+      }
     );
     // yield console.log("res", res.data.data);
     yield put({
