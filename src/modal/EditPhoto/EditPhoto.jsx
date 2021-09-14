@@ -59,6 +59,9 @@ function EditPhotoProfile(props) {
             form_data.append("username", `${username}`);
             form_data.append("email", `${email}`);
             form_data.append("image", `${DefUser}`);
+            form_data.append("password", "");
+            form_data.append("confirm_password", "");
+            form_data.append("new_password", "");
             let url = `https://remindme.gabatch13.my.id/api/v1/user/`;
             try {axios.put(url, form_data, {
                 headers: { Authorization: `Bearer ${Token}` },
@@ -98,6 +101,9 @@ function EditPhotoProfile(props) {
         form_data.append("lastname", `${lastname}`);
         form_data.append("username", `${username}`);
         form_data.append("email", `${email}`);
+        form_data.append("password", "");
+        form_data.append("confirm_password", "");
+        form_data.append("new_password", "");
         form_data.append("image", state.image, state.image.name);
         let url = `https://remindme.gabatch13.my.id/api/v1/user/`;
         try {axios.put(url, form_data, {

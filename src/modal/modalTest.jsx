@@ -30,7 +30,7 @@ const ModalTest = ({ ...props }) => {
   const dispatch = useDispatch();
   const { step, setStep, onSaveNote, noteData } = props;
   const data = useSelector((state) => state.global.data);
-  const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
+  // const noteDetail = useSelector((state) => state.allNote.noteDataDetail.detail);
   // console.log("dataDate", data);
   const [noteInput, setNoteInput] = useState({
     title: "",
