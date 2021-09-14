@@ -44,19 +44,19 @@ const ModalTest = ({ ...props }) => {
     date: dayjs().format("YYYY/MM/DD"),
   });
   const Test = () => {
-    console.log("clicked update");
+    // console.log("clicked update");
     setNoteInput({
       ...noteInput,
       dateNote: dayjs(`${dateHandle.date} ${dateHandle.time}`).utc(true).format(),
     });
   };
-  console.log("datehandle datee", dateHandle.date);
-  console.log("datehandle timeee", dateHandle.time);
+  // console.log("datehandle datee", dateHandle.date);
+  // console.log("datehandle timeee", dateHandle.time);
   useEffect(() => {
     setNoteInput({ ...noteInput, date: data?.date, time: data?.time });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
-  console.log("noteInput >>>>>>>", noteInput);
+  // console.log("noteInput >>>>>>>", noteInput);
   const Token = localStorage.getItem("Token");
   const submitNote = async (e) => {
     if (noteInput.title === "" || noteInput.body === "" || noteInput.color === "" || noteInput.dateNote === "") {

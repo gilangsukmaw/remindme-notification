@@ -199,7 +199,7 @@ function SignIn() {
             onClick={() => {
               submitSignIn();
             }}
-            style={{ width: "100%", borderRadius: "35px", fontWeight: "600", backgroundColor: "#625BAD", border: "1px solid #625BAD" }}
+            style={{color:'white', width: "100%", borderRadius: "35px", fontWeight: "600", backgroundColor: "#625BAD", border: "1px solid #625BAD" }}
           >
             Sign In
           </Button>

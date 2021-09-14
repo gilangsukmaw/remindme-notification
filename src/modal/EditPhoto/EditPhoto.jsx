@@ -70,7 +70,8 @@ function EditPhotoProfile(props) {
               })
             }catch(err) { 
               // console.log(err)
-            };};
+            };
+          };
         } 
       });
 

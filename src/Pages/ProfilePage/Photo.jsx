@@ -5,17 +5,12 @@ import axios from "axios";
 const USEREMAIL = localStorage.getItem("USEREMAIL");
 const USERNAME = localStorage.getItem("USERNAME");
 const Token = localStorage.getItem("Token");
-const refreshPage = () => {
-  window.location.replace("/editProfile");
-};
+// const refreshPage = () => {
+//   window.location.replace("/editProfile");
+// };
 
 class Photo extends Component {
-  constructor(props) {
-    super(props);
-    const { firstname } = this.props;
-    const { lastname } = this.props;
-    // console.log(firstname,lastname)
-  }
+  
 
   state = {
     firstname: "bikin",

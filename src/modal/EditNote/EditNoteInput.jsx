@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
 import { changeStep } from "../../redux/action/global";
 import { putUpdateNote, getNote } from "../../redux/action/note";
+// eslint-disable-next-line no-unused-vars
 import dayjs from "dayjs";
 
 export default function EditNoteInput({ changeDataBody, changeDataTitle, noteData, changeDataColor, changeDataPinned, updateNotes, onSave }) {

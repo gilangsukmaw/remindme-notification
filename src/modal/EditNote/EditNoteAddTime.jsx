@@ -17,6 +17,7 @@ export default function EditNoteAddTime({ updateNote, changeDataDate, changeData
     time: dayjs().format("HH:mm A"),
     date: dayjs().format("YYYY/MM/DD"),
   });
+  // eslint-disable-next-line no-unused-vars
   const [startDate, setStartDate] = useState(new Date());
   const [noteInput, setNoteInput] = useState({
     id: "",

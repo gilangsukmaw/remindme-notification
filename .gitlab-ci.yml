@@ -50,7 +50,7 @@ deploy:
   # untuk menambah url dari heroku dan jenis environment (test/ production)
   # environment:
   #   name: test
-  #   url: https://demovie-gabatch13.herokuapp.com/
+  #   url: https://remindme.herokuapp.com/
   
   # untuk menunjuk spesifikasi branch mana yang akan di deploy di server
   only:

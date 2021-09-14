@@ -76,11 +76,11 @@ function ForgotPassword(props) {
         }}};
 
         
-          const EnterKey = (event) => {
-            if (event.key === 'Enter') {
-              SendForgotPassword()
-            }
-          }
+          // const EnterKey = (event) => {
+          //   if (event.key === 'Enter') {
+          //     SendForgotPassword()
+          //   }
+          // }
         
         
 
@@ -110,11 +110,11 @@ return (
             </Form>
         </Modal.Body>
         <Modal.Footer className="ForgotButton">
-            <Button style={{ borderRadius:'35px', fontWeight:'700', fontSize:'1.5rem'}}
+            <Button style={{color:'white' , borderRadius:'35px', fontWeight:'700', fontSize:'1.5rem'}}
                type="submit"
                value="Submit"
                onClick={SendForgotPassword}
-               onKeyDown={EnterKey}
+              //  onKeyDown={EnterKey}
             //    onClick={props.onHide}
                >
                    Send</Button>
